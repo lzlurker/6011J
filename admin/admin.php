@@ -11,14 +11,14 @@
 	 */
 	require_once("usercheck2.php");
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
  <head>
-  <meta name="Author" content="微普科技http://www.wiipu.com"/>
+  <meta name="Author" content="iEat"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../style.css" type="text/css"/>
   <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
   <script src="../js/tree.js" type="text/javascript"></script>
-  <title> 管理首页 - 微普外卖点餐系统 </title>
+  <title> ManageMainPage - iEat </title>
   <style>
 	#main #introAdd li{
 		width:100%;
@@ -50,7 +50,7 @@
 					?>
 				</div>
 				<div id="shopRight">
-					<h1>管理首页</h1>
+					<h1>ManageMainPage</h1>
 					
 					<div id="introAdd">
 					
@@ -78,59 +78,59 @@
 
 								if ($isShow){
 							?>
-									<h2 class='h2_small warning'>必须做完以下操作网站才能正常使用！</h2>
+									<h2 class='h2_small warning'>Following must be done！</h2>
 							
 							<?php
 								}
 								if (empty($SHOP_NAME) || empty($SHOP_TEL) || empty($SHOP_OPENSTARTTIME) || empty($SHOP_OPENENDTIME) || empty($SHOP_MAINFOOD) || empty($SHOP_ADDRESS)){
-									echo "<p><a href='shopadd.php'>设置餐厅基本信息</a></p>";
+									echo "<p><a href='shopadd.php'>Setup basic info</a></p>";
 								}
 								if (empty($logo)){
-									echo "<p><a href='site.php'>设置网站LOGO</a></p>";
+									echo "<p><a href='site.php'>Set LOGO</a></p>";
 								}
 								$sql1="select * from  qiyu_delivertime";
 								$rs=mysql_query($sql1);
 								$rows=mysql_fetch_assoc($rs);
 								if (!$rows){
-									echo "<p><a href='shopdelivertime.php'>设置送餐时段</a></p>";
+									echo "<p><a href='shopdelivertime.php'>Set deliver time</a></p>";
 								}
 								if ((empty($site_wiiyunsalt) || empty($site_wiiyunaccount) || empty($SHOP_PHONE)) && $site_sms=='1'){
-									echo "<p><a href='site_sms.php'>短信设置</a></p>";
+									echo "<p><a href='site_sms.php'>Set text</a></p>";
 								}
 							?>
 
                             
 
-							<h2 class='h2_small' style='margin:50px auto 20px;'>快速搜索</h2>							  
+							<h2 class='h2_small' style='margin:50px auto 20px;'>fast search</h2>							  
 							  <form  name="listForm" method="get" action="userlist.php"  id="listForm">
-							      <input name="username" class="in1" type="text" style="width:190px; height:16px; color:#DFDFDF;margin-bottom:5px;float:left" value="请输入用户姓名或手机号" onfocus="if(this.value=='请输入用户姓名或手机号'){this.value=''};this.style.color='black';" 
-								  onblur="if(this.value==''||this.value=='请输入用户姓名或手机号'){this.value='请输入用户姓名或手机号';this.style.color='#DFDFDF';}">
+							      <input name="username" class="in1" type="text" style="width:190px; height:16px; color:#DFDFDF;margin-bottom:5px;float:left" value="input userName or phoneNum" onfocus="if(this.value=='input userName or phoneNum'){this.value=''};this.style.color='black';" 
+								  onblur="if(this.value==''||this.value=='input userName or phoneNum'){this.value='input userName or phoneNum';this.style.color='#DFDFDF';}">
 								  <input style="margin-left:10px;float:left;" type="image" src="../images/button/search.gif" />	  
 							  </form><br/><br/>
 
                               <form  name="listForm" method="get" action="userorder.php"  id="listForm">
-							      <input name="order" class="in1" type="text" style="width:190px; height:16px; color:#DFDFDF;float:left;" value="请输入用户订单号" onfocus="if(this.value=='请输入用户订单号'){this.value=''};this.style.color='black';" onblur="if(this.value==''||this.value=='请输入用户订单号'){this.value='请输入用户订单号';this.style.color='#DFDFDF';}">
+							      <input name="order" class="in1" type="text" style="width:190px; height:16px; color:#DFDFDF;float:left;" value="input user orderNum" onfocus="if(this.value=='input user orderNum'){this.value=''};this.style.color='black';" onblur="if(this.value==''||this.value=='input user orderNum'){this.value='input user orderNum';this.style.color='#DFDFDF';}">
 								  <p style="display:none">								   
 								    <select name="key" style="display:none">
-										<option value="all">全部</option>
-										<option value="0">未确认</option>
-										<option value="1">已确认</option>
-										<option value="2">商家取消</option>
-										<option value="3">用户取消</option>
-										<option value="4">已完成</option>
-										<option value="5">已修改</option>
+										<option value="all">all</option>
+										<option value="0">unConfirm</option>
+										<option value="1">Confirm</option>
+										<option value="2">Owner Cancel</option>
+										<option value="3">User Cancel</option>
+										<option value="4">Done</option>
+										<option value="5">Updated</option>
 							        </select>
 									</p>
 								  <input style="margin-left:10px;mrgin-top:-10px;float:left;" type="image" src="../images/button/search.gif" />		  
 							  </form>
 
-							<h2 class='h2_small' style='margin-top:50px;'>统计</h2>
-							<p><a href="userorder.php?key=0">新订单(<?php echo getOrderNewCountByState(0);?>)</a></p>
-							<p><a href="subscribe.php">预约订单(<?php echo getSubscribeCount()?>)</a></p>
-							<h2 class='h2_small' style='margin-top:50px;'>系统信息</h2>
-							<p>版本号：<?php echo $version.'('.$subversion.')'?></p>
-							<p>更新时间：<?php echo $updateTime?></p>
-							<h2 class='h2_small' style='margin-top:50px;'>软件动态</h2>
+							<h2 class='h2_small' style='margin-top:50px;'>Statistics</h2>
+							<p><a href="userorder.php?key=0">New Order(<?php echo getOrderNewCountByState(0);?>)</a></p>
+							<p><a href="subscribe.php">Book Order(<?php echo getSubscribeCount()?>)</a></p>
+							<h2 class='h2_small' style='margin-top:50px;'>System info</h2>
+							<p>version：<?php echo $version.'('.$subversion.')'?></p>
+							<p>updateTime：<?php echo $updateTime?></p>
+							<h2 class='h2_small' style='margin-top:50px;'>software state</h2>
 							<ul>
 								<script language='javascript' src="http://www.wiipu.com/news/diancan.php"></script>
 							</ul>
@@ -143,7 +143,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 	
 	</div>
@@ -158,7 +158,7 @@
 		var f=$('#foodtype').val();
 		if(f=="")
 		{
-			alert('菜单大类不能为空');
+			alert('Menu can not be empty');
 			$('#foodtype').focus();
 			return false;
 		}

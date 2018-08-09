@@ -16,7 +16,7 @@
 	$result=mysql_query($sql);
 	$row=mysql_fetch_assoc($result);
 	if(!$row){
-		alertInfo('非法操作','about_list.php',0);
+		alertInfo('Illegal operation','about_list.php',0);
 	}else{
 		$title = $row['about_title'];
 		$type = $row['about_type'];
@@ -26,7 +26,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>
-<meta name="Author" content="微普科技http://www.wiipu.com"/>
+<meta name="Author" content="iEat"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../style.css" type="text/css"/>
 <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
@@ -46,7 +46,7 @@
 		}
 	}
 </script>
-  <title> 添加底部链接 - 微普外卖点餐系统 </title>
+  <title> link iEat </title>
  </head>
  <body>
  <div id="container">
@@ -63,15 +63,15 @@
 					?>
 				</div>
 				<div id="shopRight">
-					<h1><a href="about.php">底部链接</a> &gt;&gt; 修改底部链接</h1>
+					<h1><a href="about.php">link</a> &gt;&gt; change link</h1>
 					<div id="introAdd">
 						<form method="post" action="about_do.php?act=edit&id=<?php echo $id?>">
-						<p>标题：<input type="text" id="title" name="title" class="input input270" value="<?php echo $title?>" /> *</p>
-						<p>类型：<input type="radio" name="about_type" value="1" <?php if($type=='1'){echo 'checked';}?>  onclick="radioShow();"/> 内容   <input type="radio" name="about_type" value="2" <?php if($type=='2'){echo 'checked';}?> onclick="radioShow();"/> 链接						   
+						<p>title：<input type="text" id="title" name="title" class="input input270" value="<?php echo $title?>" /> *</p>
+						<p>type：<input type="radio" name="about_type" value="1" <?php if($type=='1'){echo 'checked';}?>  onclick="radioShow();"/> contain   <input type="radio" name="about_type" value="2" <?php if($type=='2'){echo 'checked';}?> onclick="radioShow();"/> link						   
 						</p>
 						<div id="about">
 						    <div class="about1" name="about"  style="<?php if($type=='2'){echo 'display:none';}?>">
-								<p>内容：</p>
+								<p>contain：</p>
 								<p style='margin-top:20px;'>								
 									<?php   include("fckeditor/fckeditor.php");
 										$oFCKeditor = new FCKeditor('content') ;
@@ -85,7 +85,7 @@
 						    </div>
 
 							<div class="about2"  name="about" style="<?php if($type=='2'){echo '';}?>" >
-								<p>链接：<input type="text" name="about_href" class="input input270" value="<?php echo $content;?>">(http://开头)</p>
+								<p>link：<input type="text" name="about_href" class="input input270" value="<?php echo $content;?>">(http://start)</p>
 						    </div>
 						</div>
 						
@@ -100,7 +100,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 	
 	</div>
