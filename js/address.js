@@ -7,7 +7,7 @@
 					
 					if( this.value=="" || this.value.length < 11 ||  this.value.length > 11){
 						$("#movediv").remove();
-					    var errorMsg = "请输入正确的手机号.";
+					    var errorMsg = "please enter a valid phone number.";
                         $parent.append("<span class='red onError'>"+errorMsg+"</span>");
 					}else{
 
@@ -22,10 +22,10 @@
 							}, function (data, textStatus){
 									if (data=="Y"){
 										if (!$parent.next().hasClass('movediv')){
-										$('<div class="contact contact_r movediv" id="movediv"><label>您的密码：</label><input type="password" id="password" name="password" class="input" /> <span>请输入密码</span>&nbsp;&nbsp;<span><a href="userpw.php">忘记密码？</a></span></div>').insertAfter($parent);
+										$('<div class="contact contact_r movediv" id="movediv"><label>your password：</label><input type="password" id="password" name="password" class="input" /> <span>Please enter your password</span>&nbsp;&nbsp;<span><a href="userpw.php">forget password？</a></span></div>').insertAfter($parent);
 										}
 										//$parent.append('<div class="contact contact_r" ><label>您的密码：</label><input type="password" id="password" name="password" class="input" /> <span>请输入密码</span></div>');
-										$parent.append("<img src='images/point_l.jpg' class='point' /><span class='bg'>您的手机之前已注册<?php echo $SHOP_NAME?>网，请在下面的密码框里输入密码。</span>");
+										$parent.append("<img src='images/point_l.jpg' class='point' /><span class='bg'>Your phone was previously registered<?php echo $SHOP_NAME?>network，Please enter your password in the password box below.。</span>");
 										
 									}else{
 										$parent.find("img").remove();
@@ -37,7 +37,7 @@
 						 }else{
 							 $("#movediv").remove();
 							  $parent.find("img").remove();
-							  var errorMsg = '格式不正确.';
+							  var errorMsg = 'Incorrect format.';
 								 $parent.append("<span class='red onError'>"+errorMsg+"</span>");
 						}
 						//
@@ -47,7 +47,7 @@
 			 }
 			  if( $(this).is('#name') ){
 					if( this.value==""){
-					    var errorMsg = "<span class='red onError'>姓名不能为空.</span>";
+					    var errorMsg = "<span class='red onError'>Name cannot be empty.</span>";
 						$parent.append(errorMsg);
 					}else{
 					   var name=$("#name").val();
@@ -55,7 +55,7 @@
 						 if(name.match(reg)){
 
 							  if (this.value.length>4){
-								 var errorMsg = "<span class='red onError'>不能超过4个中文.</span>";
+								 var errorMsg = "<span class='red onError'>Can't exceed 4 .</span>";
 									$parent.append(errorMsg);
 									
 							  }else{
@@ -65,14 +65,14 @@
 							}
 						
 						 }else{
-							 var errorMsg = "<span class='red onError'>姓名只能是中文.</span>";
+							 var errorMsg = "<span class='red onError'>Name can only be in English.</span>";
 								$parent.append(errorMsg);
 						 }
 					}
 			 }
 			  if( $(this).is('#address') ){
 					if( this.value==""){
-					    var errorMsg = "<span class='red onError'>地址不能为空.</span>";
+					    var errorMsg = "<span class='red onError'>.</span>";Address cannot be empty
                         $parent.append(errorMsg);
 					}else{
 					   var okMsg = "<span><img src='images/ok.gif' /></span>";
@@ -83,7 +83,7 @@
 			 if( $(this).is('#phone1') ){
 					if( this.value=="" || this.value.length < 11 ||  this.value.length > 11){
 						
-					    var errorMsg = "请输入正确的手机号.";
+					    var errorMsg = "please enter a valid phone number.";
                         $parent.append("<span class='red onError'>"+errorMsg+"</span>");
 					}else{
 						var name=$("#phone1").val();
@@ -92,7 +92,7 @@
 							var okMsg = "<span><img src='images/ok.gif' /></span>";
 							$parent.append(okMsg);
 						 }else{
-							  var errorMsg = '格式不正确.';
+							  var errorMsg = 'Incorrect format.';
 								 $parent.append("<span class='red onError'>"+errorMsg+"</span>");
 						}
 						
@@ -100,7 +100,7 @@
 			 }
 			  if( $(this).is('#name1') ){
 					if( this.value==""){
-					    var errorMsg = "<span class='red onError'>姓名不能为空.</span>";
+					    var errorMsg = "<span class='red onError'>Name cannot be empty.</span>";
 						$parent.append(errorMsg);
 					}else{
 					   var name=$("#name1").val();
@@ -108,7 +108,7 @@
 						 if(name.match(reg)){
 
 							  if (this.value.length>4){
-								 var errorMsg = "<span class='red onError'>不能超过4个中文.</span>";
+								 var errorMsg = "<span class='red onError'>Can't exceed 4 .</span>";
 									$parent.append(errorMsg);
 									
 							  }else{
@@ -118,14 +118,14 @@
 							}
 						
 						 }else{
-							 var errorMsg = "<span class='red onError'>姓名只能是中文.</span>";
+							 var errorMsg = "<span class='red onError'>Name can only be in English.</span>";
 								$parent.append(errorMsg);
 						 }
 					}
 			 }
 			  if( $(this).is('#address1') ){
 					if( this.value==""){
-					    var errorMsg = "<span class='red onError'>地址不能为空.</span>";
+					    var errorMsg = "<span class='red onError'>Address cannot be empty.</span>";
                         $parent.append(errorMsg);
 					}else{
 					   var okMsg = "<span><img src='images/ok.gif' /></span>";
