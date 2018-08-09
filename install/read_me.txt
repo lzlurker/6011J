@@ -1,0 +1,1 @@
+1、include、part、install文件夹要有读写权限

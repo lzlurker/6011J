@@ -1,0 +1,1 @@
+<img src="images/logo2.jpg" width="220" height="30" alt="<?php echo $_['alt_install']?>" />

@@ -1,0 +1,1 @@
+<?php echo $_['text_footer']?>
