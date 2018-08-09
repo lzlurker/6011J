@@ -1,14 +1,5 @@
 <?php
-	/**
-	 * userquickreg_do.php 快速注册操作
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-2
-	 * @update time
-	 * @author        xiaolui
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 	require('include/dbconn.php');
 	$shopID = sqlReplace($_GET['shopID']);
 	$name = sqlReplace($_POST['name']);
@@ -19,12 +10,12 @@
 	$address = sqlReplace($_POST['address']);
 	$sinaUid=empty($_SESSION['sinaUid'])?'':sqlReplace($_SESSION['sinaUid']);
 	$sinaNick=empty($_SESSION['sinaNick'])?'':sqlReplace($_SESSION['sinaNick']);
-	checkData($phone,'手机号',1);
-	checkData($name,'用户姓名',1);
-	checkData($area,'地区',1);
-	checkData($circle,'商圈',1);
-	checkData($spot,'地标',1);
-	checkData($address,'详细地址',1);
+	checkData($phone,'Phone number',1);
+	checkData($name,'User name',1);
+	checkData($area,'Area',1);
+	checkData($circle,'Trade area',1);
+	checkData($spot,'Landmark',1);
+	checkData($address,'Detailed address',1);
 
 
 	$pw1=getRndCode(6);  //随即生成的密码
@@ -38,7 +29,7 @@
 	$rs=mysql_query($sqlStr);
 	$row=mysql_fetch_assoc($rs);
 	if ($row){
-		alertInfo("手机号已注册","userquickreg.php?shopID=".$shopID,0);
+		alertInfo("This phone number is already registered","userquickreg.php?shopID=".$shopID,0);
 	}
 	$sql = "insert into qiyu_user(user_account,user_password,user_logintime,user_loginip,user_logincount,user_phone,user_time,user_name,user_salt,user_status,user_sinauid,user_sinanick) values('".$phone."','".$pw."',now(),'".$ip."','".$logincount."','".$phone."',now(),'".$name."','".$vercode."','0','".$sinaUid."','".$sinaNick."')";
 	if(mysql_query($sql)){
@@ -48,11 +39,11 @@
 		$_SESSION['qiyu_uid']=$id;
 		$_SESSION['user_phone']=$phone;
 		//把密码发给此用户
-		$content="您在<?php echo $SHOP_NAME?>网站的注册密码是".$pw1;
+		$content="Your account on <?php echo $SHOP_NAME?> website is ".$pw1;
 		//sendCode($phone,$content);
 		header("location:userorder.php?shopID=".$shopID);
 		//header("location:uservali3.php?shopID=".$shopID);
 	}else{
-		alertInfo("注册失败","userquickreg.php?shopID=".$shopID,0);
+		alertInfo("Registration failed","userquickreg.php?shopID=".$shopID,0);
 	}
 ?>
