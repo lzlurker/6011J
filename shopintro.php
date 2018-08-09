@@ -1,14 +1,5 @@
 <?php 
-	/**
-	 *  index.php 
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-6
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 	require_once("usercheck.php");
 	$id=sqlReplace(trim($_GET['id']));
 	$sql="select * from qiyu_indexteachfood where teachfood_id=".$id;
@@ -19,7 +10,7 @@
 		$content=$rows['teachfood_content'];
 		$addtime=$rows['teachfood_addtime'];
 	}else{
-		alertInfo('非法操作','index.php',0);
+		alertInfo('Illegal Operation','index.php',0);
 	}
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
