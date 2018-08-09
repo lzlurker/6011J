@@ -6,7 +6,7 @@
 	 * @create time   2012-11-10
 	 * @update time
 	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
+	 * @copyright     Copyright (c) index rights 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
 	 * @informaition
 	 */
 	require_once("usercheck.php");
