@@ -8,7 +8,7 @@
 						defaultSeriesType: 'bar'
 					},
 					title: {
-						text: '用户登录分析'
+						text: 'user analysis'
 					},
 					xAxis: {
 						categories: [<?php
@@ -31,7 +31,7 @@
 					yAxis: {
 						min: 0,
 						title: {
-							text: '客户数',
+							text: 'user amount',
 							align: 'high'
 						}
 					},
@@ -63,7 +63,7 @@
 						enabled: false
 					},
 				        series: [{
-						name: '客户数',
+						name: 'user amount',
 						data: [<?php
 								if($provinces){
 									$i=1;
