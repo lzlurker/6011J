@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  getstatus.php 动态获取订单状态
-	 *
-	 * @version       v0.01
-	 * @create time   2011-9-22
-	 * @update time
-	 * @author        liuxiaohui
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 		header("Content-type: text/html; charset=utf-8");
 		include("include/dbconn.php");
 		//require_once("usercheck.php");
