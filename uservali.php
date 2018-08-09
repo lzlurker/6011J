@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  userreg.php  
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-6
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 	require_once("usercheck.php");
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -23,7 +14,7 @@
 <script src="js/scale.js" type="text/javascript"></script>
 <script src="js/addbg.js" type="text/javascript"></script>
 <script src="js/userreg.js" type="text/javascript"></script>
-<title> 手机验证 - 用户注册 - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
+<title> Phone Number Verification - User Registration - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
 </head>
 <body>
  <div id="container">
@@ -48,9 +39,9 @@
 					<div style="padding-top:30px;">
 						<div class="addList" style="margin-top:0;padding-top:10px;height:40px;
 						line-height:40px;">
-							<label style="margin:-0;"><img src="images/icon2.gif" alt="" /></label> <span class="red" style="font-size:18px;margin-left:10px;">我们已将验证码发送到您的手机上!</span>
+							<label style="margin:-0;"><img src="images/icon2.gif" alt="" /></label> <span class="red" style="font-size:18px;margin-left:10px;">The verification code is sent to your phone!</span>
 						</div>
-						<div class="addList addList_r"><label>&nbsp;</label><input type="text" id="code" class="input" name="code" value="输入验证码" onFocus="this.value='';"/> <span><a href="#" class="gray">还未收到验证码</a></span>
+						<div class="addList addList_r"><label>&nbsp;</label><input type="text" id="code" class="input" name="code" value="输入验证码" onFocus="this.value='';"/> <span><a href="#" class="gray">The code is not recieved yet </a></span>
 						
 						</div>
 						
@@ -58,7 +49,7 @@
 							<label>&nbsp;</label> <input type="image" src="images/button/vali.gif" id="send" class="valiButton"/>
 						</div>
 						<div class="addList">
-							<label>&nbsp;</label> <span style="margin-left:230px;">等不及了，<a href="index.php" class="gray">先去点餐</a></span>
+							<label>&nbsp;</label> <span style="margin-left:230px;">Can't wait，<a href="index.php" class="gray">go to order food now</a></span>
 						</div>
 						<div class="clear"></div>
 					</div><!--tab1-->
@@ -89,9 +80,9 @@
 							'act':'circle'
 					}, function (data, textStatus){
 							if (data==""){
-								$("#circle").html("<option value=''>没有商圈</option>")
+								$("#circle").html("<option value=''>No trading area</option>")
 							}else
-								$("#circle").html("<option value=''>请选择</option>"+data);
+								$("#circle").html("<option value=''>Please choose</option>"+data);
 					});
 	   })
 	})
@@ -104,7 +95,7 @@
 						'act':'spot'
 					}, function (data, textStatus){
 							if (data==""){
-								$("#spot").html("<option value=''>没有地标</option>")
+								$("#spot").html("<option value=''>No landmark</option>")
 							}else
 								$("#spot").html(data);
 						

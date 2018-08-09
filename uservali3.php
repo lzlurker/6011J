@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  userquickreg.php  
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-6
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 	require_once("usercheck.php");
 	$shopID=sqlReplace(trim($_GET['shopID']));
 	$sql="select * from qiyu_shop where shop_id=".$shopID." and shop_status='1'";
@@ -33,7 +24,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="style.css" type="text/css"/>
   <script src="js/jquery-1.3.1.js" type="text/javascript"></script>
-  <title> 验证手机号 - <?php echo $SHOP_NAME?> - <?php echo $powered?></title>
+  <title> Verification by your phone number - <?php echo $SHOP_NAME?> - <?php echo $powered?></title>
  </head>
  <body>
  <script type="text/javascript">
@@ -48,7 +39,7 @@ function sendcode(){
 									{
 										$("#codeTip").css('display','block');
 									}else{
-										 var errorMsg = '手机号不存在';
+										 var errorMsg = 'The phone number does not exist;
 										$parent.find('.red').text(errorMsg);
 										$parent.find('.red').addClass('onError');
 									}
@@ -72,23 +63,23 @@ function sendcode(){
 			<div class="main_top"></div>
 			<div class="main_center">
 				<div id="tab_box_r" class="inforBox">
-				<div class="big_title">验证手机号</div>
+				<div class="big_title">Verify your phone number</div>
 					<div id="loginLeft">
 					<form method="post" action="userpw_do.php?shopID=<?php echo $shopID?>&act=vali">
 						
 					
 						
 						<div class="addList addList_r loginlist" style="margin-top:0;padding-top:10px;">
-							<label>您的手机号：</label><input type="text" name="phone" id="phone" class="input" style="background-color:#e7e7e7;" readonly value="<?php echo $user_phone?>"/> 
+							<label>Your phone number：</label><input type="text" name="phone" id="phone" class="input" style="background-color:#e7e7e7;" readonly value="<?php echo $user_phone?>"/> 
 						</div>
 						<div class="addList loginlist">
 							<label>&nbsp;</label> <span><img src="images/button/sendvali.gif" alt="" onClick="sendcode()"/></span>
 						</div>
 						<div class="addList loginlist" id="codeTip" style="display:none;">
-							<label>&nbsp;</label> <span class="habebg red">验证码已发送，请注意查收！</span>
+							<label>&nbsp;</label> <span class="habebg red">The verification code is sent, please be advised</span>
 						</div>
 						<div class="addList addList_r loginlist" style="margin-top:0;padding-top:10px;">
-							<label>验证码：</label><input type="text" name="code" id="code" class="input" /> 
+							<label>verification code：</label><input type="text" name="code" id="code" class="input" /> 
 						</div>
 						
 					
@@ -98,9 +89,9 @@ function sendcode(){
 						</form>
 					</div><!--leftwan-->
 					<div id="loginRight" class="loginRight_r">
-						<p>已经注册了<?php echo $SHOP_NAME?>账号？ <a href="userlogin.php">立刻登录</a></p>
-						<p style="margin-top:50px;">还没有<?php echo $SHOP_NAME?>账号？ <a href="userreg.php">马上注册一个</a></p>
-						<p style="margin-top:5px;"><span>注册<?php echo $SHOP_NAME?>账号，即可体验快捷点餐<br/>的便利， 享受网站的各项优惠折扣。</span></p>
+						<p>Already have <?php echo $SHOP_NAME?>Account？ <a href="userlogin.php">Sign in</a></p>
+						<p style="margin-top:50px;">Not Have <?php echo $SHOP_NAME?>Account？ <a href="userreg.php">马上注册一个</a></p>
+						<p style="margin-top:5px;"><span>Sign up <?php echo $SHOP_NAME?>Account，and experience<br/>the convnience， enjoy all the discount。</span></p>
 					</div>
 					<div class="clear"></div>
 				</div><!--tab_box_r-->

@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  userreg.php  
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-6
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 	require_once("usercheck.php");
 	$code=sqlReplace($_POST['code']);
 	$sql="select * from qiyu_user where user_phone='".$_SESSION['Phone']."'";
@@ -17,16 +8,16 @@
 	$rows=mysql_fetch_assoc($rs);
 	if ($rows){
 		if ($code!=$rows['user_vcode']){
-			$str="手机验证失败！";
+			$str="Phone Verification Fail！";
 		}else{
 			$sqlStr="update qiyu_user set user_status='1',user_vcode='' where user_phone='".$_SESSION['Phone']."'";
 			if (mysql_query($sqlStr))
-				$str="恭喜您！您的手机18801296063已验证成功。";
+				$str="Congratulations！ Your phone number 13909272060 is successfully verified。";
 			else
-				$str="手机验证失败！";
+				$str="Phone verification fail！";
 		}
 	}else{
-		alertInfo("手机号不存在","userreg.php",0);
+		alertInfo("The number does not exist","userreg.php",0);
 	}
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -40,7 +31,7 @@
   <script src="js/scale.js" type="text/javascript"></script>
   <script src="js/addbg.js" type="text/javascript"></script>
   <script src="js/userreg.js" type="text/javascript"></script>
-  <title> 用户注册 - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
+  <title> User SignUp - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
  </head>
  <body>
  <div id="container">
@@ -68,7 +59,7 @@
 							<label style="margin:-0;"><img src="images/check2.gif" alt="" /></label> <span class="red" style="font-size:18px;margin-left:10px;"><?php echo $str;?></span>
 						</div>
 						<div class="addList" style="margin-top:30px;">
-							<label>&nbsp;</label> <span>系统将在5秒后自动跳转至首页，<a href="index.php" class="red gray">直接跳转首页</a></span>
+							<label>&nbsp;</label> <span>The system will go to main page in 5 seconds，<a href="index.php" class="red gray">Go to main page directly</a></span>
 						</div>
 						<div class="clear"></div>
 					</div><!--tab1-->
@@ -97,9 +88,9 @@
 							'act':'circle'
 					}, function (data, textStatus){
 							if (data==""){
-								$("#circle").html("<option value=''>没有商圈</option>")
+								$("#circle").html("<option value=''>No trading area</option>")
 							}else
-								$("#circle").html("<option value=''>请选择</option>"+data);
+								$("#circle").html("<option value=''>Please choose</option>"+data);
 					});
 	   })
 	})
@@ -112,7 +103,7 @@
 						'act':'spot'
 					}, function (data, textStatus){
 							if (data==""){
-								$("#spot").html("<option value=''>没有地标</option>")
+								$("#spot").html("<option value=''>No landmark</option>")
 							}else
 								$("#spot").html(data);
 						
