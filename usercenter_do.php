@@ -1,14 +1,5 @@
 <?php 
-	/**
-	 *  usercenter_do.php
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-16
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 	require_once("usercheck2.php");
 	$act=sqlReplace(trim($_GET['act']));
 	switch ($act){
@@ -18,7 +9,7 @@
 			$id=sqlReplace(trim($_GET['id']));
 			$sql="delete from qiyu_order where order_id=".$id." and order_user=".$QIYU_ID_USER;
 			mysql_query($sql);
-			alertInfo('删除成功',$url,0);
+			alertInfo('successfully deleted',$url,0);
 		break;
 		case "addaddress":
 		//	$url=$_SESSION['order_url'];
@@ -27,15 +18,15 @@
 			
 			$phone = sqlReplace($_POST['phone']);
 			$address = sqlReplace($_POST['address']);
-			checkData($phone,'手机号',1);
-			checkData($name,'用户姓名',1);
+			checkData($phone,'phone number',1);
+			checkData($name,'username',1);
 			
-			checkData($address,'详细地址',1);
+			checkData($address,'Address',1);
 			$sql="insert into qiyu_useraddr(useraddr_user,useraddr_phone,useraddr_name,useraddr_address,useraddr_type) values (".$QIYU_ID_USER.",'".$phone."','".$name."','".$address."','1')";
 			if(mysql_query($sql))
-				echo '添加成功';
+				echo 'Added successfully';
 			else 
-				echo '添加失败';
+				echo 'failed';
 		break;
 		case "deladdress":
 	
@@ -46,9 +37,9 @@
 			if ($rows){
 				$sqlStr="delete from qiyu_useraddr where useraddr_id=".$id;
 				mysql_query($sqlStr);
-				echo '删除成功';
+				echo 'successfully deleted';
 			}else{
-				echo '删除失败,无此地址';
+				echo 'Delete failed, no such address';
 			}
 		break;
 		case "setaddress":
@@ -61,9 +52,9 @@
 				mysql_query($sqlStr);
 				$sqlStr="update qiyu_useraddr set useraddr_type='0' where useraddr_id=".$id." and useraddr_user=".$QIYU_ID_USER;
 				mysql_query($sqlStr);
-				echo '设置成功';
+				echo 'Set successfully';
 			}else{
-				echo '设置失败,无此地址';
+				echo 'Setup failed, no such address';
 			}
 		break;
 		case "scoreAdd":
@@ -82,10 +73,10 @@
 					
 					Header("Location: userorderscore2.php?id=".$id);
 				}else{
-					alertInfo('意外出错','',1);
+					alertInfo('Unexpected error','',1);
 				}
 			}else{
-				alertInfo('非法','usercenter.php?tab=5',0);
+				alertInfo('illegal','usercenter.php?tab=5',0);
 			}
 		break;
 
@@ -97,9 +88,9 @@
 			if ($rows){
 				$sqlStr="update qiyu_user set user_name='".$user_name."' where user_id=".$QIYU_ID_USER;
 				mysql_query($sqlStr);
-				echo '保存成功';
+				echo 'Saved successfully';
 			}else{
-				echo '保存失败';
+				echo 'Save failed';
 			}
 		break;
 		
