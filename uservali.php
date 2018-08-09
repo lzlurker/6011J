@@ -95,7 +95,7 @@
 						'act':'spot'
 					}, function (data, textStatus){
 							if (data==""){
-								$("#spot").html("<option value=''>No landmark</option>")
+								$("#spot").html("<option value=''>No landmark </option>")
 							}else
 								$("#spot").html(data);
 						

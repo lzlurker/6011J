@@ -106,7 +106,7 @@
 								$("#spot").html("<option value=''>No landmark</option>")
 							}else
 								$("#spot").html(data);
-						
+						 
 					});
 	   })
 	})
