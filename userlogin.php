@@ -1,5 +1,5 @@
 <?php
-	require_once("usercheck.php"); //test by lz 20180809
+	require_once("usercheck.php"); 
 
 	//if( isset($_SESSION['last_key']) ) header("Location: weibolist.php");
 	$p=empty($_GET['p'])?'':sqlReplace(trim($_GET['p'])); //从订单页来的标示
