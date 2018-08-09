@@ -21,7 +21,7 @@
   <script src="../js/tree.js" type="text/javascript"></script>
   <script type="text/javascript" src="js/upload.js"></script>
   <script type="text/javascript" src="js/checkfood.js"></script>
-  <title> 菜单管理 - 微普外卖点餐系统 </title>
+  <title> Menu Management-iEat </title>
  </head>
 
  <body>
@@ -39,7 +39,7 @@
 					?>
 				</div>
 				<div id="shopRight">
-					<h1>菜单管理
+					<h1>Menu Management
 					
 					    <?php 
 						     if($foodtype!=''){
@@ -60,7 +60,7 @@
 					<div id="introAdd">
 						<div class="moneyTable feeTable" style="width:668px;margin-top:-14px;" >
 						<form name="listForm" id="listForm" method="post" action="shop_do.php?act=savefood">
-						<p style="margin-bottom:10px;color:red;">小提示：在排序框中输入数字，点击保存排序按钮，则可给菜单排序，排序数字越小排在前面</p>
+						<p style="margin-bottom:10px;color:red;">Tip: Enter a number in the sort box and click the Save Sort button to sort the menu. </p>
 						<p style="margin-bottom:10px;">
 						   <a href="foodadd.php?foodtype=<?php echo $foodtype;?>"><img src="../images/button/foodadd.jpg"></a>
 						   
@@ -68,13 +68,13 @@
 							<table width="100%">
 					<tr>
 						<td style="width:8%;text-align:left; padding:6px 1%;"><input type="checkbox" value="全选" onClick="selectBox('reverse')"/><lable><span style="padding-left:6%;">全选</span></lable></td>
-						<td class="center">菜的名称</td>
-						<td class="center">菜的单价</td>
-						<td class="center">所属大类</td>
-						<td class="center">菜的说明</td>
-						<td class="center">上下架状态</td>
-						<td class="center">排序</td>
-						<td class="center">操作</td>
+						<td class="center">Name</td>
+						<td class="center">Price</td>
+						<td class="center">Category</td>
+						<td class="center">Description</td>
+						<td class="center">State</td>
+						<td class="center">Sort</td>
+						<td class="center">Operation</td>
 					</tr>
 					<?php
 							$where='';
@@ -82,7 +82,7 @@
 							$pagesize=20;
 							$startRow=0;
 							$sql="select * from ".WIIDBPRE."_food where food_special is NULL and food_shop=".$QIYU_ID_SHOP.$where;
-							$rs = mysql_query($sql) or die ("查询失败，请检查SQL语句。");
+							$rs = mysql_query($sql) or die ("Fail, check SQL。");
 							$rscount=mysql_num_rows($rs);
 							if ($rscount%$pagesize==0)
 								$pagecount=$rscount/$pagesize;
@@ -118,15 +118,15 @@
 						<td class="center"><?php echo $rows['food_price']?></td>
 						<td class="center"><?php echo $rows_type['foodtype_name']?></td>
 						<td class="center"><?php echo $rows['food_intro']?></td>
-						<td class="center"><?php if($rows['food_status']=="0"){echo "上架";}else{echo "下架";}?></td>
+						<td class="center"><?php if($rows['food_status']=="0"){echo "Available";}else{echo "NotAvailable";}?></td>
 						<td class="center"><input type="text" size="4" name="order<?php echo $i?>" value="<?php echo $rows['food_order']?>" /></td>
-						<td class="center" style='padding:5px 0;'> <a href="foodedit.php?id=<?php echo $rows['food_id']?>&page=<?php echo $page?>">修改</a> <a href="javascript:if(confirm('您确定要删除吗？')){location.href='shop_do.php?act=delfood&id=<?php echo $rows['food_id'];?>'}">删除</a></td>
+						<td class="center" style='padding:5px 0;'> <a href="foodedit.php?id=<?php echo $rows['food_id']?>&page=<?php echo $page?>">update</a> <a href="javascript:if(confirm('您确定要删除吗？')){location.href='shop_do.php?act=delfood&id=<?php echo $rows['food_id'];?>'}">delete</a></td>
 					</tr>
 						<?php
 								}
 						?>					
 				</table>		
-				<p style="margin-bottom:10px;"><input type="image" src="../images/button/save.gif"/><input type="image" src="../images/button/delete.gif" name="btnSave" value="删除" style="margin-left:10px;" onclick="if(!confirm('确定要删除？'))return false;"/></p>
+				<p style="margin-bottom:10px;"><input type="image" src="../images/button/save.gif"/><input type="image" src="../images/button/delete.gif" name="btnSave" value="delete" style="margin-left:10px;" onclick="if(!confirm('confirm delete？'))return false;"/></p>
 				<input name="i" type="hidden" value="<?=$i?>">
 						<?php 
 								if ($rscount>=1){
@@ -144,7 +144,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 	
 	</div>
