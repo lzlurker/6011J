@@ -1,23 +1,14 @@
 <?php
-	/**
-	 *  usercentertab5.php 
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-15
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 ?>
 						<!--修改姓名-->
-						<h1 class="order_h1">修改您的姓名</h1>
+						<h1 class="order_h1">Edit your name</h1>
 						
 						<div class="addList newAddList">
-							<label>您的姓名：</label><input type="text" id="user_name" name="user_name" class="input" value="<?php echo $row['user_name'];?>"/> <span class="red errormt2"></span>
+							<label>Your Name：</label><input type="text" id="user_name" name="user_name" class="input" value="<?php echo $row['user_name'];?>"/> <span class="red errormt2"></span>
 						</div>
 						<div class="addList newAddList">
-							<label>&nbsp;</label> <span>此姓名是显示在网站头部的姓名。</span>
+							<label>&nbsp;</label> <span>This name is the name displayed on the head of the website</span>
 						</div>
 						<div class="clear"></div>
 						<div class="addList newAddList" style="height:40px;margin-bottom:30px;">
@@ -26,34 +17,34 @@
 						<div class="clear"></div>
 						
 						<!--新增地址和联系方式-->
-						<h1 class="order_h1">新增地址和联系方式</h1>
+						<h1 class="order_h1">Add address and contact information</h1>
 						
 						<div class="addList newAddList">
-							<label>您的手机号：</label><input type="text" id="phone" name="phone" class="input"/> <span class="red errormt"></span>
+							<label>Your mobile number：</label><input type="text" id="phone" name="phone" class="input"/> <span class="red errormt"></span>
 						</div>
 						<div class="addList newAddList">
-							<label>您的姓名：</label><input type="text" name="name" id="name" class="input"/> <span class="red errormt"></span>
+							<label>Your Name：</label><input type="text" name="name" id="name" class="input"/> <span class="red errormt"></span>
 						</div>
 						
 						<div class="addList newAddList">
-							<label>您的详细地址：</label><input type="text" id="address" name="address" class="input"/> <span class="red errormt"></span>
+							<label>your address in detail：</label><input type="text" id="address" name="address" class="input"/> <span class="red errormt"></span>
 						</div>
 						<div class="addList newAddList">
-							<label>&nbsp;</label> <span>请填写您的准确地址，以便及时收到餐点。 例如：西四北大街888号11层1102室</span>
+							<label>&nbsp;</label> <span>Please fill in your exact address，In order to receive meals in time. 1430 rue city councillor</span>
 						</div>
 						<div class="clear"></div>
 						<div class="addList newAddList" style="height:40px;">
 							<img src="images//button/save.jpg" class="button" style="position:absolute;top:5px;left:260px;" id="addAddress1" onclick="return alertadd('addaddress');" />
 						</div>
 						<div class="clear"></div>
-						<h1 class="order_h1" style="margin-top:20px;">已保存的地址和联系方式</h1>
+						<h1 class="order_h1" style="margin-top:20px;">Saved address and contact information</h1>
 						<div class="table orderTable">
 							<table>
 								<tr>
-									<td width="220" class="metal">送货地址</td>
-									<td width="100" class="metal borderLeft">姓名</td>
-									<td width="100" class="metal borderLeft">联系方式</td>
-									<td width="300" class="metal borderLeft" colspan='2'>操作</td>		
+									<td width="220" class="metal">delivery address</td>
+									<td width="100" class="metal borderLeft">Name</td>
+									<td width="100" class="metal borderLeft">Contact information</td>
+									<td width="300" class="metal borderLeft" colspan='2'>operating</td>		
 								</tr>
 							<?php
 								$sql="select * from qiyu_useraddr where useraddr_user=".$QIYU_ID_USER." order by useraddr_type asc";
@@ -66,7 +57,7 @@
 									<td class="borderBottom borderLeft"><?php echo $rows['useraddr_phone']?></td>
 									<td class="borderBottom borderLeft"><span class="red"><?php if ($rows['useraddr_type']=='0') echo "当前默认地址";?></span></td>
 									<td class="borderBottom borderRight borderLeft red">
-										<a href="javascript:void();" onClick="updateAddress(<?php echo $rows['useraddr_id']?>)">修改</a> | <span onclick="alert1('deladdress','<?php echo $rows['useraddr_id']?>');" style="cursor:pointer;">删除</span> <?php if ($rows['useraddr_type']!='0'){?> | <span onclick="setaddress('setaddress','<?php echo $rows['useraddr_id']?>');" style="cursor:pointer;">设为默认</a><?php }?>
+										<a href="javascript:void();" onClick="updateAddress(<?php echo $rows['useraddr_id']?>)">modify</a> | <span onclick="alert1('deladdress','<?php echo $rows['useraddr_id']?>');" style="cursor:pointer;">delete</span> <?php if ($rows['useraddr_type']!='0'){?> | <span onclick="setaddress('setaddress','<?php echo $rows['useraddr_id']?>');" style="cursor:pointer;">set as Default</a><?php }?>
 									</td>
 									
 								</tr>
@@ -98,9 +89,9 @@ $(function(){
 							'act':'circle'
 					}, function (data, textStatus){
 							if (data==""){
-								$("#circle").html("<option value=''>没有商圈</option>")
+								$("#circle").html("<option value=''>No business district</option>")
 							}else
-								$("#circle").html("<option value=''>请选择</option>"+data);
+								$("#circle").html("<option value=''>please choose</option>"+data);
 					});
 	   })
 	})
@@ -113,7 +104,7 @@ $(function(){
 						'act':'spot'
 					}, function (data, textStatus){
 							if (data==""){
-								$("#spot").html("<option value=''>没有地标</option>")
+								$("#spot").html("<option value=''>No landmarks</option>")
 							}else
 								$("#spot").html(data);
 						
@@ -231,7 +222,7 @@ $(function(){
 	</script>
 	<script type="text/javascript">
 		function alert1(act,useraddrid){//用户地址、删除设置为默认
-			if(confirm('您确定要删除吗？')){
+			if(confirm('Are you sure you want to delete it?')){
 				$.ajax({
 				   type: "GET",
 				   url: "usercenter_do.php?act="+act+"&id="+useraddrid,
