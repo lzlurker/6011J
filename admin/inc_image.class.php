@@ -128,7 +128,7 @@ class ThumbHandler
     {
         if(!file_exists($src_img))
         {
-            die("图片不存在");
+            die("image not exist");
         }
         
         if(!empty($img_type))
@@ -159,7 +159,7 @@ class ThumbHandler
         }
         if(empty($src))
         {
-            die("图片源为空");
+            die("image empty");
         }
         $this->h_src = @ImageCreateFromString($src);
         $this->src_w = $this->getImgWidth($this->h_src);
@@ -231,7 +231,7 @@ class ThumbHandler
     {
         if(!is_numeric($font) && !file_exists($font))
         {
-            die("字体文件不存在");
+            die("font no exist");
         }
         $this->font = $font;
     }
@@ -377,7 +377,7 @@ class ThumbHandler
             $r = (int)$a;
             if($r < 1)
             {
-                die("图片缩放比例不得小于1");
+                die("larger than 1");
             }
             $this->img_scale = $r;
             $this->_setNewImgSize($r);
@@ -389,11 +389,11 @@ class ThumbHandler
             $h = (int)$b;
             if(0 == $w)
             {
-                die("目标宽度不能为0");
+                die("wide can not be 0");
             }
             if(0 == $h)
             {
-                die("目标高度不能为0");
+                die("height can not be 0");
             }
             $this->_setNewImgSize($w, $h);
         }
@@ -433,7 +433,7 @@ class ThumbHandler
  
             if($this->_isFull())
             {
-                die("水印文字过大");
+                die("font too large");
             }
             else
             {

@@ -19,26 +19,26 @@ require_once('inc_image.class.php');
 		{
 
 			case '1':
-				$info = 'E|上传的文件大小超过了系统限制。';
+				$info = 'E|The uploaded file size exceeds the system limit。';
 				break;
 			case '3':
-				$info = 'E|上传文件过程出错。';
+				$info = 'E|Upload error。';
 				break;
 			case '4':
-				$info = 'E|没有选择文件。';
+				$info = 'E|No file chose。';
 				break;
 			case '6':
-				$info = 'E|系统错误：不存在临时文件夹。';
+				$info = 'E|Error, no folder。';
 				break;
 			case '7':
-				$info = 'E|系统错误：写入文件出错。';
+				$info = 'E|Error, W mistake。';
 				break;
 			default:
-				$info = 'E|未知错误';
+				$info = 'E|Unknow Error';
 		}
 	}elseif(empty($_FILES[$fileElementName2]['tmp_name']) || $_FILES[$fileElementName2]['tmp_name'] == 'none'){
 		echo 'hahhhh'.$_FILES[$fileElementName2]['tmp_name'];die;
-		$info = 'E|没有选择文件。';
+		$info = 'E|No file chose。';
 	}else{
 		$f_name2=$_FILES[$fileElementName2]['name'];
 		$f_size2=$_FILES[$fileElementName2]['size'];
@@ -51,10 +51,10 @@ require_once('inc_image.class.php');
 		$f_exts2=$f_extAllowList2;		
 		
 		if ($f_ext2!==$f_exts2){
-			$info = 'E|图片格式不正确，格式必须为png。';	
+			$info = 'E|Must be png。';	
 		}else{
 			if ($f_size2>100*1024){
-				$info = 'E|文件大小不能超过100K。';
+				$info = 'E|No exceed 100K。';
 			}else{
 				$random= rand(100,999); 
 				$f_fullname2= time().$random.".".$f_ext2;
@@ -64,7 +64,7 @@ require_once('inc_image.class.php');
 						
 					$info = "S|".$f_path2;
 				}else{
-					$info = 'E|图片保存的目标文件夹不存在或无写权限。';
+					$info = 'E|target folder not exist or has no W permission。';
 				}
 			}
 		}
