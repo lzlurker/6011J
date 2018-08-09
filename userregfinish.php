@@ -10,7 +10,7 @@
 	if (!empty($p)){
 			Header("Location: userorder.php?shopID=".$shopID."&shopSpot=".$shopSpot."&circleID=".$shopCircle);
 			exit;
-	}else if($cName=='大望路'){
+	}else if($cName=='St Catherine'){
 		$url="spot.php?spotID=".$geturl['spot']."&circleID=".$geturl['circle'];
 	}else if(empty($loginUrl)){
 		$url="index.php";
@@ -33,7 +33,7 @@
 <script src="js/userreg2.js" type="text/javascript"></script>
 <script src="js/TINYBox.js" type="text/javascript" language="javascript"></script>
 <link rel="stylesheet" href="js/TINYBox.css" type="text/css"/>
-<title> 用户注册 - <?php echo $SHOP_NAME?> - <?php echo $powered?></title>
+<title> User registration - <?php echo $SHOP_NAME?> - <?php echo $powered?></title>
  </head>
   <script type="text/javascript">
  <!--
@@ -50,11 +50,11 @@
 			<div class="main_top"></div>
 			<div class="main_center">
 				<div id="orderBox" class="loginBox">
-					<div class="order_title login_title">新人注册</div>
+					<div class="order_title login_title">New user registration</div>
 					<div id="regFinish">
 						<img src="images/ok1.jpg" alt="" class="ok"/>
-						<div id="finish"><span>恭喜您！</span>注册已成功。</div>
-						<p>系统将在 <span>5</span> 秒后自动返回到当前页<a href="<?php echo $url?>">返回</a></p>
+						<div id="finish"><span>Congratulations!</span>Registration succeed</div>
+						<p>The system will returncurrent page in <span>5</span> seconds<a href="<?php echo $url?>">return</a></p>
 					</div>
 
 				</div>
@@ -81,9 +81,9 @@
 						'act'     : 'circle'
 					}, function (data, textStatus){
 							if (data==""){
-								$("#circle").html("<option value=''>没有商圈</option>")
+								$("#circle").html("<option value=''>No trading area</option>")
 							}else
-								$("#circle").html("<option value=''>请选择</option>"+data);
+								$("#circle").html("<option value=''>Please choose</option>"+data);
 					});
 	   })
 	})
@@ -96,7 +96,7 @@
 						'act':'spot'
 					}, function (data, textStatus){
 							if (data==""){
-								$("#spot").html("<option value=''>没有地标</option>")
+								$("#spot").html("<option value=''>No landmark</option>")
 							}else
 								$("#spot").html(data);
 						

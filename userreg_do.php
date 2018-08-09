@@ -3,16 +3,7 @@
 ?>
 <script src="js/jquery-1.3.1.js" type="text/javascript"></script>
 <?php
-	/**
-	 * userreg_do.php 注册操作
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-2
-	 * @update time
-	 * @author        xiaolui
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */ 
+	
 	$phone = sqlReplace($_POST['phone']);
 	$pw = sqlReplace($_POST['pw']);
 	$repw = sqlReplace($_POST['repw']);
@@ -25,11 +16,11 @@
 	$shopCircle=empty($_GET['shopCircle'])?'0':sqlReplace(trim($_GET['shopCircle']));
 	$savesession=$phone.','.$agree;//存session
 	$_SESSION['reginfo1']=$savesession;
-	checkData($phone,'手机号',1);
-	checkData($pw,'密码',1);
-	checkData($repw,'确认密码',1);
+	checkData($phone,'User name',1);
+	checkData($pw,'Password',1);
+	checkData($repw,'Confirm Password',1);
 	if ($pw!=$repw){
-		alertInfo("两次输入的密码不同","userreg.php",0);
+		alertInfo("Password entered two times is not same","userreg.php",0);
 	}
 	/*
 	if ($vCode!=$code){
@@ -37,15 +28,15 @@
 	} */
 
 	if ($vCode!=$_SESSION["imgcode"]){
-		alertInfo("验证码错误","",1);
+		alertInfo("Verification code wrong","",1);
 	}
-	if (empty($agree) && $site_isshowprotocol=='1') alertInfo("请选择同意协议","",1);
+	if (empty($agree) && $site_isshowprotocol=='1') alertInfo("Please accept the agreement","",1);
 	//检查手机的存在
 	$sqlStr="select user_id from qiyu_user where user_phone='".$phone."'";
 	$rs=mysql_query($sqlStr);
 	$row=mysql_fetch_assoc($rs);
 	if ($row){
-		alertInfo("手机号已注册","",1);
+		alertInfo("This phone number is already registered","",1);
 	}
 	$_SESSION['phone']=$phone;
 	$_SESSION['pw']=$pw;

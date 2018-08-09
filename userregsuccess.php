@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  userregsuccess.php
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-6
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 	require_once("usercheck2.php");
 	
 ?>
@@ -23,7 +14,7 @@
 <script src="js/addbg.js" type="text/javascript"></script>
 <script src="js/tab.js" type="text/javascript"></script>
 <script src="js/tab.js" type="text/javascript"></script>
-<title> 用户注册 - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
+<title> User Registration - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
 </head>
 <body>
  <script type="text/javascript">
@@ -40,11 +31,11 @@
 			<div class="main_top"></div>
 			<div class="main_center">
 				<div id="orderBox">
-					<div class="order_title">注册成功</div>
+					<div class="order_title">Registration Succeed</div>
 					<div class="success">
-						<p><img src="images/ok.jpg" width="28" height="25" alt="" /> 您已成功注册。</p>
+						<p><img src="images/ok.jpg" width="28" height="25" alt="" /> You have successfully registered</p>
 						
-						<p><a href="index.php">进入首页</a></p>
+						<p><a href="index.php">Enter main page</a></p>
 					</div>
 				</div>
 				

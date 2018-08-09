@@ -4,17 +4,7 @@ require('include/dbconn.php');
 ?>
 <script src="js/jquery-1.3.1.js" type="text/javascript"></script>
 <?php
-	/**
-	 * userreg_do.php 注册操作
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-2
-	 * @update time
-	 * @author        xiaolui
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */ 
-
+	
 	$name = sqlReplace($_POST['name']);
 	$address = sqlReplace($_POST['address']);
 	$sinaUid=empty($_SESSION['sinaUid'])?'':sqlReplace($_SESSION['sinaUid']);
@@ -28,14 +18,14 @@ require('include/dbconn.php');
 	$pw = $_SESSION['pw'];
 	$savesession=$name.','.$address;//存session
 	$_SESSION['reginfo2']=$savesession;
-	checkData($name,'用户姓名',1);
-	checkData($address,'详细地址',1);
-	checkData($pw,'密码',1);
+	checkData($name,'User name',1);
+	checkData($address,'Address',1);
+	checkData($pw,'Password',1);
 	$ip=$_SERVER['REMOTE_ADDR'];
 	$logincount = 1;
 	$vercode=getRndCode(6);
 	$vercodePhone=getRndCode_r(6);
-	$content="验证码是".$vercodePhone;
+	$content="Verification code is".$vercodePhone;
 	$_SESSION['Phone']=$phone;
 	$pw=md5(md5($pw.$vercode));
 	//检查手机的存在
@@ -43,7 +33,7 @@ require('include/dbconn.php');
 	$rs=mysql_query($sqlStr);
 	$row=mysql_fetch_assoc($rs);
 	if ($row){
-		alertInfo("手机号已注册","",1);
+		alertInfo("This number is already registered","",1);
 	}
 	
 	
@@ -60,6 +50,6 @@ require('include/dbconn.php');
 		$_SESSION['reginfo2']='';
 		Header("Location: userregfinish.php?p=".$p."&shopID=".$shopID."&shopSpot=".$shopSpot."&spotID=".$spot."&circleID=".$circle."&shopCircle=".$shopCircle);
 	}else{
-		alertInfo("注册失败","",1);
+		alertInfo("Registration fail","",1);
 	}
 ?>

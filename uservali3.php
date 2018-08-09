@@ -6,7 +6,7 @@
 	$rs=mysql_query($sql);
 	$rows=mysql_fetch_assoc($rs);
 	if (!$rows){
-		alertInfo("错误","index.php",0);	
+		alertInfo("Wrong","index.php",0);	
 	}
 	if (!empty($QIYU_ID_USER)){
 		$sqlStr="select * from qiyu_user where user_id=".$QIYU_ID_USER;

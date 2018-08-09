@@ -5,7 +5,7 @@
 	$shopSpot=empty($_GET['shopSpot'])?'0':sqlReplace(trim($_GET['shopSpot']));
 	$shopCircle=empty($_GET['shopCircle'])?'0':sqlReplace(trim($_GET['shopCircle']));
 	if(empty($_SESSION['phone'])||empty($_SESSION['pw']))
-		alertInfo("非法操作","index.php",0);
+		alertInfo("Illegal operation","index.php",0);
 	$reginfo=array();
 	$sessreg=empty($_SESSION['reginfo2'])?'':$_SESSION['reginfo2'];
 	if($sessreg){
@@ -33,7 +33,7 @@
 <script src="js/userreg3.js" type="text/javascript"></script>
 <script src="js/TINYBox.js" type="text/javascript" language="javascript"></script>
 <link rel="stylesheet" href="js/TINYBox.css" type="text/css"/>
-<title> 用户注册 - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
+<title> User Registration - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
 </head>
  <body>
  <div id="container">
@@ -45,25 +45,25 @@
 			<div class="main_top"></div>
 			<div class="main_center">
 				<div id="orderBox" class="loginBox">
-					<div class="order_title login_title">新人注册</div>
+					<div class="order_title login_title">new user registration</div>
 					<div id="regPointer"><img src="images/regflow/2.jpg" alt="" /></div>
-					<div class="regH1">填写您的送餐地址:</div>
+					<div class="regH1">Please add your address for delivery:</div>
 					<form method="post" action="userreg_do2.php?p=<?php echo $p?>&shopID=<?php echo $shopID?>&shopSpot=<?php echo $shopSpot?>&shopCircle=<?php echo $shopCircle?>">
 					<div class="regBox">
 						
 						
 						
 						<div class="addList addList_r addList_reg">
-							<label>您的详细地址：</label><input type="text" id="address" name="address" class="input" style="width:232px;" value="<?php if($reginfo[4]) echo $reginfo[4]?>" /> <span class="errormt red">*</span>
+							<label>Your address：</label><input type="text" id="address" name="address" class="input" style="width:232px;" value="<?php if($reginfo[4]) echo $reginfo[4]?>" /> <span class="errormt red">*</span>
 						</div>
 						<div class="addList addList_reg">
-							<label>&nbsp;</label> <span>请填写您的准确地址，以便及时收到餐点。<br/>例如：西四北大街888号11层1103室。</span>
+							<label>&nbsp;</label> <span>Please write your address to recieve your order on time。<br/>E	xample：1430 rue city councillor.</span>
 						</div>
 						<div class="addList addList_r addList_reg" style="margin-top:19px;">
-							<label>怎么称呼您：</label><input type="text" id="name" name="name" style="width:232px;" class="input" value="<?php if($reginfo[0]) echo $reginfo[0]?>" /> <span class="errormt red">*</span>
+							<label>How to address you：</label><input type="text" id="name" name="name" style="width:232px;" class="input" value="<?php if($reginfo[0]) echo $reginfo[0]?>" /> <span class="errormt red">*</span>
 						</div>
 					</div>
-					<div class="center_button"><input type="image" src="images/button/regFinish.jpg" onClick="return checkReg();" alt="提交" id="finishButton"/>
+					<div class="center_button"><input type="image" src="images/button/regFinish.jpg" onClick="return checkReg();" alt="Submit" id="finishButton"/>
 					</div>
 					<div class="botton_bg">
 						<img src="images/b_bg.jpg" width="308" height="88" alt="" class="pic_bg"/>
@@ -93,9 +93,9 @@
 						'act'     : 'circle'
 					}, function (data, textStatus){
 							if (data==""){
-								$("#circle").html("<option value=''>没有商圈</option>")
+								$("#circle").html("<option value=''>No trading area</option>")
 							}else
-								$("#circle").html("<option value=''>请选择</option>"+data);
+								$("#circle").html("<option value=''>Please choose</option>"+data);
 					});
 	   })
 	})
@@ -108,9 +108,9 @@
 						'act':'spot'
 					}, function (data, textStatus){
 							if (data==""){
-								$("#spot").html("<option value=''>没有地标</option>")
+								$("#spot").html("<option value=''>No landmark</option>")
 							}else
-								$("#spot").html("<option value=''>请选择</option>"+data);
+								$("#spot").html("<option value=''>Please choose</option>"+data);
 						
 					});
 	   })
