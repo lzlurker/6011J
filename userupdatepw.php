@@ -1,16 +1,7 @@
 <?php
-	/**
-	 *  userpw.php  
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-6
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+
 	require_once("usercheck2.php");
-	$POSITION_HEADER="修改密码";
+	$POSITION_HEADER="Change password";
 	$key=empty($_GET['key'])?'new':sqlReplace(trim($_GET['key']));
 	$_SESSION['order_url']=getUrl();
 ?>
@@ -23,7 +14,7 @@
 <link rel="shortcut icon" href="<?php echo $imgstr2;?>" type="image/x-icon" />
 <script src="js/jquery-1.3.1.js" type="text/javascript"></script>
 <script src="js/tab.js" type="text/javascript"></script>
-<title> 修改密码 - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
+<title> Change Password - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
 </head>
  <body>
  <div id="container">
@@ -35,7 +26,7 @@
 			<div class="main_top"></div>
 			<div class="main_center">
 				<div id="orderBox" class="loginBox">
-					<div class="order_title login_title">修改密码</div>
+					<div class="order_title login_title">Change Password</div>
 					<form method="post" action="userupdatepw_do.php" id="doForm" name="doForm">
 					
 				
@@ -43,9 +34,9 @@
 						<div class="addList" >
 							
 						</div>
-						<div class="addList addList_r forget"><label>原密码：</label><input type="password" id="pw" class="input" name="pw" /> <span class="errormt"></span></div>
-						<div class="addList addList_r forget"><label>新密码：</label><input type="password" id="newpw" class="input" name="newpw" /> <span class="errormt"></span></div>
-						<div class="addList addList_r forget"><label>确认密码：</label><input type="password" id="repw" class="input" name="repw" /> <span class="errormt"></span></div>
+						<div class="addList addList_r forget"><label>original password：</label><input type="password" id="pw" class="input" name="pw" /> <span class="errormt"></span></div>
+						<div class="addList addList_r forget"><label>new password：</label><input type="password" id="newpw" class="input" name="newpw" /> <span class="errormt"></span></div>
+						<div class="addList addList_r forget"><label>confirm new password：</label><input type="password" id="repw" class="input" name="repw" /> <span class="errormt"></span></div>
 						<div class="addList">
 							<label>&nbsp;</label> <input type="image" src="images/button/submit3.gif" id="send" onClick="return check();"/>
 						</div>
@@ -72,13 +63,13 @@
 						var f=document.getElementById('doForm');
 						if(f.pw.value=="")
 						{
-							alert('密码不能为空');
+							alert('Password cannot be empty');
 							f.pw.focus();
 							return false;
 						}
 						if(f.newpw.value=='')
 						{
-							alert('新密码不能为空');
+							alert('new password cannot be empty');
 							f.newpw.focus();
 							return false;
 						}
@@ -90,7 +81,7 @@
 						}
 						if(f.newpw.value!=f.repw.value)
 						{
-							alert('两次密码不一致');
+							alert('The password input two times are not same');
 							f.repw.focus();
 							return false;
 						}
