@@ -3,10 +3,10 @@
 	 *  首页
 	 *
 	 * @version       v0.01
-	 * @create time   2012-11-10
+	 * @create time   2018-08-10
 	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 1111 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
+	 * @author        
+	 * @copyright     
 	 * @informaition
 	 */
 	require_once("usercheck.php");
@@ -247,13 +247,13 @@
 							</div>
 							<div id="gray_top"></div>
 							<div id="gray_center">
-								<p style='margin-top:0;'><label>餐厅地址：</label><span class='content'><?php echo $shop_address?></span></p>
+								<p style='margin-top:0;'><label>Address:</label><span class='content'><?php echo $shop_address?></span></p>
 								<div class='clear'></div>
-								<p><label>餐厅电话：</label><span class='content'><?php echo $tel?></span></p>
+								<p><label>Phone:</label><span class='content'><?php echo $tel?></span></p>
 								<div class='clear'></div>
-								<p><label>餐厅主营：</label><span class='content'><?php echo $mainfood?></span></p>
+								<p><label>Main business:</label><span class='content'><?php echo $mainfood?></span></p>
 								<div class='clear'></div>
-								<p>送餐时段：
+								<p>Service period:
 								<?php
 									$i=1;
 									$sql="select * from qiyu_delivertime where delivertime_shop=".$shopID;
@@ -267,9 +267,9 @@
 								?>
 								</p>
 								
-									<p>起送费：<?php echo $sendfee;?>元<span style="margin-left:14px;">送餐费：<?php echo $deliverfee?>元</span></p>
+									<p>deliver_MIN:<?php echo $sendfee;?>元<span style="margin-left:14px;">deliver fee:<?php echo $deliverfee?>元</span></p>
 									<?php if(!empty($site_onlinechat)){?>
-									<p>在线客服：									   
+									<p>Online CS:									   
 									    <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=<?php echo $site_onlinechat;?>&amp;site=qq&amp;menu=yes">
 						                    <img src="http://wpa.qq.com/pa?p=2:<?php echo $site_onlinechat;?>:41 &amp;r=0.9061154514854605" alt="点击QQ-联系客服" title="点击QQ-联系客服" border="0">
 									    </a>
@@ -278,7 +278,7 @@
 									<?php
 										 if (!empty($delivertime)){
 									?>
-											<p>承诺送餐时间：<?php echo $delivertime?></p>
+											<p>Promise deliver time:：<?php echo $delivertime?></p>
 									<?php
 										}	
 									?>
@@ -293,10 +293,10 @@
 								if($site_isshowcomment== '1'){
 							?>
 							<div class="like">
-								<span class='count'>餐厅评论</span>
+								<span class='count'>Comments</span>
 							</div>
 							
-							<p class="h1">输入评论<?php if (empty($QIYU_ID_USER)){?><span><a href="userlogin.php">登陆</a></span><?php }?></p>
+							<p class="h1">Input comment<?php if (empty($QIYU_ID_USER)){?><span><a href="userlogin.php">Login</a></span><?php }?></p>
 							<textarea class="commentInput" id="commentInput" style="resize:none;"></textarea>
 							<p class="h1 h1_r"><span><input type="image" src="images/button/submit_b.jpg" onClick="return addComment('<?php echo $QIYU_ID_USER?>','<?php echo $shopID?>')"/></span></p>
 							<div id='comment'>
@@ -305,7 +305,7 @@
 								$pagesize=6;
 								$startRow=0;
 								$sql="select user_name,comment_id,comment_addtime,comment_content,comment_addtime from qiyu_comment inner join qiyu_user on user_id=comment_user and comment_type='1' and comment_shop=".$shopID;
-								$rs=mysql_query($sql) or die ("查询失败，请检查SQL语句。");
+								$rs=mysql_query($sql) or die ("Fail, please check SQL。");
 								$rscount=mysql_num_rows($rs);
 								if ($rscount%$pagesize==0)
 									$pagecount=$rscount/$pagesize;
@@ -342,7 +342,7 @@
 									}
 								?>		
 							<input type="hidden" id="shop_id" value="<?php echo $shopID?>"/>
-							<p class="h1 h1_r c_page">评论数<?php echo $rscount?><?php if ($pagecount>1){?><span style='font-size:12px;'><?php commentPage($page,$pagecount);?></span><?php }?></p>
+							<p class="h1 h1_r c_page">Comments<?php echo $rscount?><?php if ($pagecount>1){?><span style='font-size:12px;'><?php commentPage($page,$pagecount);?></span><?php }?></p>
 							</div>
 							<?php }?>
 						</div>
@@ -399,7 +399,7 @@
 										
 										}else{
 											$j++;
-											if($rows['foodlable_name']=='人气'){
+											if($rows['foodlable_name']=='Popularity'){
 												$lableID=$rows['foodlable_id'];
 												$ftID='';
 											}
