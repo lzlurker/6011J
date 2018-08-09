@@ -47,7 +47,7 @@
 					
 					<div class="regBox">
 						<div class="addList addList_r addList_reg">
-							<label>Your ohone number：</label><input type="text" id="phone" name="phone" class="input" value="<?php if($reginfo1[0]) echo $reginfo1[0]?>" /> <span class="errormt red" id='phoneTip'>*</span>
+							<label>Your phone number：</label><input type="text" id="phone" name="phone" class="input" value="<?php if($reginfo1[0]) echo $reginfo1[0]?>" /> <span class="errormt red" id='phoneTip'>*</span>
 						</div>
 						
 						<div class="addList addList_reg addList_reg">
