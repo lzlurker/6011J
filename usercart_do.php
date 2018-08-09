@@ -1,14 +1,5 @@
 <?php 
-	/**
-	 *  usercart.php  购物车
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-6
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 	require_once("include/dbconn.php");
 	require_once("usercheck.php");
 	$act=sqlReplace(trim($_GET['act']));
@@ -26,7 +17,7 @@
 			$sql1.=" and shop_id=".$shopID." and shop_status='1'";
 			$rs=mysql_query($sql1);
 			$row=mysql_fetch_assoc($rs);
-			if (!$row) alertInfo('现在不能点餐','',1);
+			if (!$row) alertInfo('Cannot order now','',1);
 			addcart($foodID,$shopID);
 			Header("Location: ".$url." ");
 		break;
@@ -34,7 +25,7 @@
 			$id=sqlReplace(trim($_GET['id']));
 			$shopID=sqlReplace(trim($_GET['shopID']));
 			delcart($id,$shopID); //删除购物车
-			alertInfo('删除成功','',1);
+			alertInfo('successfully deleted','',1);
 		break;
 	}
 	
