@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  footer.php  
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-6
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) footer 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 ?>
 	<div id="footer">
 		<div id="footer_main">
@@ -37,19 +28,22 @@
 						}
 						if ($site_isshowadminindex=='1'){
 							$class="class='li'";
-							$manage=" <a href='".$admin_dir."/index.php' class='li no-bg,li' target='_blank'>管理后台</a>";
+							$manage=" <a href='".$admin_dir."/index.php' class='li no-bg,li' target='_blank'>Management background</a>";
 						}else{
 							$class="class='li no-bg'";
 							$manage='';
 						}
-						if ($site_isshowcard=='1') echo "<a href='certificate.php' ".$class.">餐厅证照</a>";
+						if ($site_isshowcard=='1') echo "<a href='certificate.php' ".$class.">Restaurant license</a>";
 						echo $manage;
 					?>
 					
 					
 				
 			</p>
-			<p class='center' style="margin-top:5px;text-align:Center;margin-top:10px;">版权所有 <a href="http://www.wiipu.com" target="_blank" class='center'>北京微普科创科技有限公司</a> Powered By <a href='http://www.diancan365.com' >微普外卖点餐系统</a> <?php echo $version?> </p>
+		 <!-- 	<p class='center' style="margin-top:5px;text-align:Center;margin-top:10px;">all rights reserved
+			 <a href="http://www.wiipu.com" target="_blank" class='center'></a> Powered By <a href='http://www.diancan365.com' >微普外卖点餐系统</a> <?php echo $version?> </p>
+			 
+			 -->
 			<div>
 			
 			
