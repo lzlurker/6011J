@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  userpw3.php  
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-18
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 	require_once("usercheck.php");
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -20,7 +11,7 @@
 <script src="js/jquery-1.3.1.js" type="text/javascript"></script>
 <script src="js/userpw.js" type="text/javascript"></script>
 <script src="js/tab.js" type="text/javascript"></script>
-<title> 找回密码 - <?php echo $SHOP_NAME?> </title>
+<title> Retrieve password - <?php echo $SHOP_NAME?> </title>
 </head>
 <body>
  <div id="container">
@@ -38,23 +29,23 @@
 		<div class="main_content main_content_r">
 			<div class="main_top"></div>
 			<div class="main_center">
-				<div id="pointer">您现在的位置: <a href="index.php">首页</a> &gt;&gt; 找回密码</div>
+				<div id="pointer">Your current location: <a href="index.php">Main page</a> &gt;&gt; Retrieve password</div>
 				<div id="tab_box_r" class="inforBox" >
 				<form method="post" action="userpw2.php">
 					<div style="padding-top:30px;padding-bottom:50px;">
 						<div class="addList" >
-							<div class="tip"><img src="images/icon3.gif" alt="" />为了保护您的账户安全，请先进行手机验证。</div>
+							<div class="tip"><img src="images/icon3.gif" alt="" />In order to protect your account security, please verify your phone first.</div>
 						</div>
-						<div class="addList addList_r forget"><label>手机号：</label><input type="text" id="phone1" class="input" name="phone" /> 
+						<div class="addList addList_r forget"><label>Phone number：</label><input type="text" id="phone1" class="input" name="phone" /> 
 						<span class="errormt"></span> 
 						</div>
 						<div class="addList">
 							<label>&nbsp;</label> <img src="images/button/sendvali.gif" alt="" onClick="sendcode()"/>
 						</div>
 						<div class="addList" id="codeTip" style="display:none;">
-							<label>&nbsp;</label> <span class="habebg red">验证码已发送，请注意查收！</span>
+							<label>&nbsp;</label> <span class="habebg red">The verification code has been sent, please check it!</span>
 						</div>
-						<div class="addList addList_r forget"><label>验证码：</label><input type="text" id="code" class="input" name="code" />
+						<div class="addList addList_r forget"><label>Verification code：</label><input type="text" id="code" class="input" name="code" />
 						
 						</div>
 						<div class="addList">

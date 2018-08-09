@@ -1,28 +1,19 @@
 <?php
-	/**
-	 *  userpw2.php  
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-18
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+
 	require_once("usercheck.php");
 	$phone= sqlReplace($_POST['phone']);
 	
 	
 	if($phone=='')
-		alertInfo("非法操作","",1);
+		alertInfo("Illegal operation","",1);
 	if ($site_sms=='1'){
 		$code= sqlReplace($_POST['code']);
 		$s_code=$_SESSION['sms_code'];
-		if($code=='') alertInfo("非法操作","",1);
+		if($code=='') alertInfo("Illegal operation","",1);
 	
 		if ($s_code!=$code){
 			
-			alertInfo("验证码不匹配","userpw.php",0);
+			alertInfo("Verification code does not match","userpw.php",0);
 		}
 		$_SESSION['sms_code']='';
 		$_SESSION['sms_sendTime']='';
@@ -38,7 +29,7 @@
 <script src="js/jquery-1.3.1.js" type="text/javascript"></script>
 <script src="js/userpw.js" type="text/javascript"></script>
 <script src="js/tab.js" type="text/javascript"></script>
-<title> 找回密码 - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
+<title> Retrieve password - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
 </head>
  <body>
  <div id="container">
@@ -50,21 +41,21 @@
 			<div class="main_top"></div>
 			<div class="main_center">
 				<div id="orderBox" class="loginBox">
-					<div class="order_title login_title">找回密码</div>
+					<div class="order_title login_title">Retrieve password</div>
 					<form method="post" action="userpw_do.php?act=update">
 					
 				
 					<div style="padding-top:30px;padding-bottom:50px;">
 						<div class="addList" >
 							<div class="tip tip_r">
-								<span>设置新的登录密码</span>
-								<p>您申请了修改密码，为保护您的账号安全，请立即修 改为您常用的新的密码。</p>
+								<span>Set a new login password</span>
+								<p>You have applied for a password change. To protect your account, please change it to your new password.</p>
 							</div>
 						</div><input type="hidden" name="phone" value="<?php echo $phone?>"/>
-						<div class="addList addList_r forget"><label>新密码：</label><input type="password" id="pw" class="input" name="pw" /> 
+						<div class="addList addList_r forget"><label>New password：</label><input type="password" id="pw" class="input" name="pw" /> 
 						<span class="errormt"></span> 
 						</div>
-						<div class="addList addList_r forget"><label>再次确认密码：</label><input type="password" id="repw" class="input" name="repw" /> 
+						<div class="addList addList_r forget"><label>Confirm new password：</label><input type="password" id="repw" class="input" name="repw" /> 
 						<span class="errormt"></span> 
 						</div>
 						<div class="addList">
