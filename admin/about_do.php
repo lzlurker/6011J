@@ -25,19 +25,19 @@
 			$content=str_replace("'","&#39;",$content);
 			$content=str_replace("<br />","</p><p>",$content);
 			//检验数据的合法性
-			checkData($title,'标题',1);
+			checkData($title,'Title',1);
 			$sql="select * from qiyu_about where about_title='".$title."'";
 			$rs=mysql_query($sql);
 			$row=mysql_fetch_assoc($rs);
 			if ($row){
-				alertInfo('标题已存在！','',1);
+				alertInfo('Title exist！','',1);
 				exit;
 			}else{
 				$sql_r="insert into qiyu_about(about_title,about_type,about_content) values ('".$title."','".$type."','".$content."')";
 				if(mysql_query($sql_r)){
-					alertInfo('添加成功','about.php',0);
+					alertInfo('Add success','about.php',0);
 				}else{
-					alertInfo('未知错误，添加失败','',1);
+					alertInfo('Error, add failed','',1);
 				}
 			}
 		break;
@@ -48,13 +48,13 @@
 			$result=mysql_query($sql);
 			$row=mysql_fetch_assoc($result);
 			if(!$row)
-				alertInfo('您要删除的数据不存在','',1);
+				alertInfo('data not exist','',1);
 			else{
 				$sql2="delete from qiyu_about where about_id=".$id;
 				if(mysql_query($sql2))
-					alertInfo('删除成功','about.php',0);
+					alertInfo('Delete successful','about.php',0);
 				else
-					alertInfo('删除失败，原因SQL出现异常','',1);
+					alertInfo('Delete fail, SQL error','',1);
 			}
 			break;
 		
@@ -73,7 +73,7 @@
 			$content=str_replace("'","&#39;",$content);
 			$content=str_replace("<br />","</p><p>",$content);
 			//检验数据的合法性
-			checkData($title,'标题',1);
+			checkData($title,'Title',1);
 			$sql="select * from ".WIIDBPRE."_about where about_id=".$id;
 			$result=mysql_query($sql);
 			$row=mysql_fetch_assoc($result);
@@ -83,9 +83,9 @@
 				
 				$sql2="update ".WIIDBPRE."_about set about_title='".$title."',about_type='".$type."',about_content='".$content."' where about_id=".$id;
 				if(mysql_query($sql2))
-					alertInfo('修改成功','about.php',0);
+					alertInfo('Change success','about.php',0);
 				else
-					alertInfo('修改失败，原因SQL出现异常','about.php',0);
+					alertInfo('Change fail, SQL error','about.php',0);
 			}
 			break;
 		case "save":
@@ -98,7 +98,7 @@
 					$sql="update ".WIIDBPRE."_about set about_order=".$order." where about_id=".$id."";
 					mysql_query($sql);
 				}
-				alertInfo('保存成功!',"about.php",0);
+				alertInfo('Saved!',"about.php",0);
 			break;
 	}
 	
