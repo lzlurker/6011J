@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  首页
-	 *
-	 * @version       v0.01
-	 * @create time   2018-08-10
-	 * @update time
-	 * @author        
-	 * @copyright     
-	 * @informaition
-	 */
+	
 	require_once("usercheck.php");
 	$_SESSION['login_url']=getUrl();
 	$_SESSION['qiyu_orderType']='';
@@ -267,7 +258,7 @@
 								?>
 								</p>
 								
-									<p>deliver_MIN:<?php echo $sendfee;?>元<span style="margin-left:14px;">deliver fee:<?php echo $deliverfee?>元</span></p>
+									<p>deliver_MIN: CA$ <?php echo $sendfee;?><span style="margin-left:14px;">deliver fee:CA$ <?php echo $deliverfee?></span></p>
 									<?php if(!empty($site_onlinechat)){?>
 									<p>Online CS:									   
 									    <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=<?php echo $site_onlinechat;?>&amp;site=qq&amp;menu=yes">
