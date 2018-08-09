@@ -50,7 +50,7 @@
 		$away=$rows['shop_istakeaway'];
 		
 	}else{
-		alertInfo('非法操作','index.php',0);
+		alertInfo('Illegal operation','index.php',0);
 	}
 
 		$dFee=getDeliveFee();
@@ -271,7 +271,7 @@
 									<?php if(!empty($site_onlinechat)){?>
 									<p>Online CS:									   
 									    <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=<?php echo $site_onlinechat;?>&amp;site=qq&amp;menu=yes">
-						                    <img src="http://wpa.qq.com/pa?p=2:<?php echo $site_onlinechat;?>:41 &amp;r=0.9061154514854605" alt="点击QQ-联系客服" title="点击QQ-联系客服" border="0">
+						                    <img src="http://wpa.qq.com/pa?p=2:<?php echo $site_onlinechat;?>:41 &amp;r=0.9061154514854605" alt="contact CS" title="contact CS" border="0">
 									    </a>
 										<?php }?>
 									</p>
@@ -371,7 +371,7 @@
 													<div class='reImg'>
 														<img src="<?php echo $row_special['food_pic']?>" width="186" height="125" alt="" />
 													</div>
-													<p><?php echo $row_special['food_name']?> <span>优惠价：<?php echo $row_special['food_price']?></span></p>
+													<p><?php echo $row_special['food_name']?> <span>Discount:<?php echo $row_special['food_price']?></span></p>
 													<p><a href="javascript:void();"  <?php if ($site_iscartfoodtag=='1'){?>onClick="addCart_new(<?php echo $shopID?>,<?php echo $row_special['food_id']?>,<?php echo $spotID?>,<?php echo $circleID?>)"<?php }else{?>onClick="addCart_im_new(<?php echo $shopID?>,<?php echo $row_special['food_id']?>,<?php echo $spotID?>,<?php echo $circleID?>)"<?php }?> hidefocus="true" style="outline:none;"><img src="images/button/cart_new_0.jpg" width="87" height="23" alt="" /></a></p>
 												</div>
 						<?php
