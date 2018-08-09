@@ -1,17 +1,8 @@
 <?php
-	/**
-	 *  usercenter.php  
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-15
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 	require_once("usercheck2.php");
 	$_SESSION['qiyu_orderType']='';
-	$POSITION_HEADER="用户中心";
+	$POSITION_HEADER="User center";
 	$orderid=empty($_GET['orderid'])?'':sqlReplace(trim($_GET['orderid']));//当前的订单id(order_id)
 	$tabShow=empty($_GET['tab'])?'1':sqlReplace(trim($_GET['tab']));
 	$key=empty($_GET['key'])?'all':sqlReplace(trim($_GET['key']));
@@ -32,7 +23,7 @@
 <script src="js/userorder.js" type="text/javascript"></script>
 <script src="js/userreg.js" type="text/javascript"></script>
 <script src="js/chage1.js" type="text/javascript"></script>
-<title> 用户中心 - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
+<title>User Center - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
 <script src="js/TINYBox.js" type="text/javascript" language="javascript"></script>
 <link rel="stylesheet" href="js/TINYBox.css" type="text/css"/>
 </head>
@@ -115,7 +106,7 @@
 	function updateusername(){//修改姓名
 		var user_name=$("#user_name").val();
 		if(user_name==''){
-			$('.errormt2').html('姓名不能为空');
+			$('.errormt2').html('Name cannot be empty');
 			return false;
 		}
 		$.ajax({
