@@ -27,7 +27,7 @@
 					$row=mysql_fetch_assoc($rs);
 					if ($row){
 			?>
-						<?php echo $row['shop_account']?>  <a href="shopupdatepass.php" style='margin-left:10px;'>修改密码</a> <a href="http://www.diancan365.com/bbs/" target="_blank">帮助</a> <a href="shopquit.php" class="no_bg">退出</a> 
+						<?php echo $row['shop_account']?>  <a href="shopupdatepass.php" style='margin-left:10px;'>Change Password</a> <a href="http://iEat" target="_blank">Help</a> <a href="shopquit.php" class="no_bg">Quit</a> 
 			<?php
 						
 					}
@@ -40,7 +40,7 @@
 			</div>
 		
 			<div class="location" style='left:100px;top:30px;'><a href="admin.php" style="color:#fff;"><?php echo $SHOPNAME_DDMIN?></a></div>
-			<p class='shopindex'><a href="../index.php" target='_blank'>餐厅首页</a></p>
+			<p class='shopindex'><a href="../index.php" target='_blank'>Main Page</a></p>
 			
 		</div>
 	</div>
