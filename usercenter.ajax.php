@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  userorder.ajax.php  修改默认地址 修改电话  添加新地址
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-6
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 	require_once("usercheck2.php");
 	$act=sqlReplace(trim($_POST['act']));
 	switch ($act){
@@ -25,11 +16,11 @@
 			}
 			echo "<tr id='update'".$id." class='addtr'><td colspan='5' class='borderBottom borderRight borderLeft' style='padding:10px;'>";
 			echo "<script src='js/userreg.js' type='text/javascript'></script>";
-			echo "<p style='margin-top:10px;'>您的手机号：</label><input type=\"text\" id=\"phone_r\" name=\"phone\" class=\"input\" value='".$phone."'/ onblur='checkphone();' ><span id='spanphone' style='color:red;'></span></p>";
-			echo "<p style='margin-top:10px;'>您的姓名：</label><input type=\"text\" id=\"name_r\" name=\"name\" class=\"input\" value='".$name."' onblur='checkname();' /><span id='spanname' style='color:red;'></span></p>";
+			echo "<p style='margin-top:10px;'>Your mobile number：</label><input type=\"text\" id=\"phone_r\" name=\"phone\" class=\"input\" value='".$phone."'/ onblur='checkphone();' ><span id='spanphone' style='color:red;'></span></p>";
+			echo "<p style='margin-top:10px;'>Your Name：</label><input type=\"text\" id=\"name_r\" name=\"name\" class=\"input\" value='".$name."' onblur='checkname();' /><span id='spanname' style='color:red;'></span></p>";
 			
-			echo "<p style='margin-top:10px;'>您的详细地址：</label><input type=\"text\" id=\"address_r\" name=\"address\" class=\"input\" value='".$address."' onblur='checkaddr();' /><span id='spanaddr' style='color:red;'></span></p>";
-			echo "<p style='margin-top:10px;'><a href=\"javascript:void();\" onClick=\"submitAddress(".$id.")\"><img src=\"images/button/edit.gif\" alt=\"修改\" /></a></p>";
+			echo "<p style='margin-top:10px;'>：</label>your address in detail<input type=\"text\" id=\"address_r\" name=\"address\" class=\"input\" value='".$address."' onblur='checkaddr();' /><span id='spanaddr' style='color:red;'></span></p>";
+			echo "<p style='margin-top:10px;'><a href=\"javascript:void();\" onClick=\"submitAddress(".$id.")\"><img src=\"images/button/edit.gif\" alt=\"modify\" /></a></p>";
 			echo "</td></tr>";
 			
 		break;
