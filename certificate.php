@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  service.php  
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-15
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 	require_once("usercheck.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -21,7 +12,7 @@
 <script src="js/jquery-1.3.1.js" type="text/javascript"></script>
 <script src="js/addbg.js" type="text/javascript"></script>
 <script src="js/tab.js" type="text/javascript"></script>
-<title> <?php echo '餐厅证照';?> - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
+<title> <?php echo 'Restaurant license';?> - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
 </head>
 <body>
  <div id="container">

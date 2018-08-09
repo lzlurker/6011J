@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  service.php  
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-15
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 	require_once("usercheck.php");
 	$id=sqlReplace(trim($_GET['id']));
 	checkData($id,"ID",0);
@@ -16,7 +7,7 @@
 	$result=mysql_query($sql);
 	$row=mysql_fetch_assoc($result);
 	if(!$row){
-		alertInfo('非法操作','index.php',0);
+		alertInfo('illegal operation','index.php',0);
 	}else{
 		$title = $row['about_title'];
 		$type = $row['about_type'];
