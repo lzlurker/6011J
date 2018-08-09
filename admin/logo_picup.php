@@ -19,25 +19,25 @@ require_once('inc_image.class.php');
 		{
 
 			case '1':
-				$info = 'E|上传的文件大小超过了系统限制。';
+				$info = 'E|Over limitation。';
 				break;
 			case '3':
-				$info = 'E|上传文件过程出错。';
+				$info = 'E|Error uploading。';
 				break;
 			case '4':
-				$info = 'E|没有选择文件。';
+				$info = 'E|no file chose。';
 				break;
 			case '6':
-				$info = 'E|系统错误：不存在临时文件夹。';
+				$info = 'E|Error, no folder。';
 				break;
 			case '7':
-				$info = 'E|系统错误：写入文件出错。';
+				$info = 'E|Writing Error。';
 				break;
 			default:
-				$info = 'E|未知错误';
+				$info = 'E|Unknow error';
 		}
 	}elseif(empty($_FILES[$fileElementName]['tmp_name']) || $_FILES[$fileElementName]['tmp_name'] == 'none'){
-		$info = 'E|没有选择文件。';
+		$info = 'E|no chose file。';
 	}else{
 		$f_name=$_FILES[$fileElementName]['name'];
 		$f_size=$_FILES[$fileElementName]['size'];
@@ -56,10 +56,10 @@ require_once('inc_image.class.php');
 		}
 
 		if ($checkExt){
-			$info = 'E|图片格式不正确，格式必须为jpg、png、gif之一。';
+			$info = 'E|Must be jpg、png、gif。';
 		}else{
 			if ($f_size>500*1024){
-				$info = 'E|文件大小不能超过500K。';
+				$info = 'E|No exceed 500K。';
 			}else{
 				$random= rand(100,999); 
 				$f_fullname= time().$random.".".$f_ext;
@@ -69,7 +69,7 @@ require_once('inc_image.class.php');
 						
 					$info = "S|".$f_path;
 				}else{
-					$info = 'E|图片保存的目标文件夹不存在或无写权限。';
+					$info = 'E|No folder。';
 				}
 			}
 		}
