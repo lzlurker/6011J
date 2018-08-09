@@ -24,19 +24,20 @@
 			<div class="main_top"></div>
 			<div class="main_center">
 				<div id="about_title">
-					<span class="yellow"><?php echo '餐厅证照';?>
+					<span class="yellow"><?php echo 'Restaurant license';?>
 				</div>	
 				<div id="service_right">
 					<div id="text">
-						<h1>营业执照:</h1>
+						<h1>Business license
+:</h1>
 						<p style="margin-top:10px;text-align:center;">
 							<?php if (!empty($SHOP_CERTPIC)){?>
 								<img src="userfiles/license/small/<?php echo $SHOP_CERTPIC;?>" width="400" height="300" alt="" />
 							<?php
-							}
+							 }
 							?>
 						</p>
-						<h1>卫生许可证:</h1>
+						<h1>Health permit</h1>
 						<p style="margin-top:10px;text-align:center;">
 							
 							<?php if (!empty($SHOP_LICENSEPIC)){?>
