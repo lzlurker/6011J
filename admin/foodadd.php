@@ -14,7 +14,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>
-  <meta name="Author" content="微普科技http://www.wiipu.com"/>
+  <meta name="Author" content="iEat"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../style.css" type="text/css"/>
   <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
@@ -63,7 +63,7 @@
 	}
   //-->
   </script>
-  <title> 菜单添加 - 菜单管理 - 微普外卖点餐系统 </title>
+  <title> MenuAdd - MenuManagement </title>
  </head>
  <body>
  <div id="container">
@@ -80,20 +80,20 @@
 					?>
 				</div>
 				<div id="shopRight">
-					<h1><a href="food.php">菜单管理</a>&nbsp;&gt;&gt;&nbsp;菜单添加</h1>
+					<h1><a href="food.php">MenuManagement</a>&nbsp;&gt;&gt;&nbsp;MenuAdd</h1>
 					<div id="introAdd">
 						<form method="post" action="shop_do.php?act=addfood" id="addForm" name="addForm">
-						<p><label>菜的名称：</label><input  class="input input_87" type="text" name="name" id="name"/> <span >* </span></p>
-						<p><label>菜的单价：</label><input  class="input input_87" type="text" name="price" id="price" onblur= "if(!/^[0-9\.]+$/.test(this.value))alert('菜的单价必须是数字! ')"/> 元 <span >* </span></p>
+						<p><label>Name：</label><input  class="input input_87" type="text" name="name" id="name"/> <span >* </span></p>
+						<p><label>Price：</label><input  class="input input_87" type="text" name="price" id="price" onblur= "if(!/^[0-9\.]+$/.test(this.value))alert('Price must be number! ')"/> Dollar <span >* </span></p>
 						<p>
-							<label>菜的图片：</label><span id="loading" style="display:none;"><img src="../images/loading.gif" width="16" height="16" alt="loading" /></span><span id="upinfo" style="color:blue;"></span><input id="upfile1" name="upfile1" value="" type="hidden"/><input id="fileToUpload" type="file" name="fileToUpload" style="height:24px;"/> <input type="button" onclick="return ajaxFileUpload();" value="上传"/> 
+							<label>Picture：</label><span id="loading" style="display:none;"><img src="../images/loading.gif" width="16" height="16" alt="loading" /></span><span id="upinfo" style="color:blue;"></span><input id="upfile1" name="upfile1" value="" type="hidden"/><input id="fileToUpload" type="file" name="fileToUpload" style="height:24px;"/> <input type="button" onclick="return ajaxFileUpload();" value="Upload"/> 
 						</p>
-						<p style='margin-left:100px;'>图片尺寸130*130（注意：如果您选择的模板菜单没有图片，就不需要添加图片）</p>
-						<p><label>上架：</label>
-						<input type="radio" name="food_status" value="0" checked="checked" />是
-						<input type="radio" name="food_status" value="1" />否
+						<p style='margin-left:100px;'>size 130*130</p>
+						<p><label>Available：</label>
+						<input type="radio" name="food_status" value="0" checked="checked" />Yes
+						<input type="radio" name="food_status" value="1" />No
 						</p>
-						<p><label>菜的分类：</label>
+						<p><label>Category：</label>
 						<select name="type" id="type">
 						<?php
 						//循环菜的大类	
@@ -118,7 +118,7 @@
 							if ($numr==0) echo " <a href='foodtype.php'>添加分类</a>";
 						?>
 						</p>
-						<p><label>菜的说明：</label>
+						<p><label>Dish info：</label>
 							<textarea id="intro" name="intro" rows="5" cols="30" style="resize:none;"></textarea>
 						</p>
 						
@@ -131,7 +131,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 	
 	</div>
@@ -146,22 +146,22 @@
 	function checkFood(){
 		var name=$("#name").val();
 		if (name==''){
-			alert('菜的名称不能为空');
+			alert('Name can not be empty');
 			$("#name").focus();
 			return false;
 		}else if(name.length>16){
 			
-			alert('菜的名称不能大于16个字符');
+			alert('Name < 16 characters');
 			$("#name").focus();
 			return false;
 		}
 		if ($("#price").val()==''){
-			alert('菜的单价不能为空');
+			alert('Price can not be empty');
 			$("#price").focus();
 			return false;
 		}
 		if ($("#price").val()==0 || $("#price").val()==0.00){
-			if(confirm('菜的单价确定要设置为0吗？')){
+			if(confirm('Are you sure?')){
 				document.addForm.action='shop_do.php?act=addfood';
 				document.addForm.submit();
 			}

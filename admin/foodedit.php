@@ -35,7 +35,7 @@
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>
-  <meta name="Author" content="微普科技http://www.wiipu.com"/>
+  <meta name="Author" content="iEat"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../style.css" type="text/css"/>
   <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
@@ -85,7 +85,7 @@
 	}
   //-->
   </script>
-  <title> 菜单修改 - 菜单管理 - 微普外卖点餐系统 </title>
+  <title> MenuUpdate-MenuManagement </title>
  </head>
  <body>
  <div id="container">
@@ -102,19 +102,19 @@
 					?>
 				</div>
 				<div id="shopRight">
-					<h1><a href="food.php">菜单管理</a> &gt;&gt; 菜单修改</h1>
+					<h1><a href="food.php">MenuManagement</a> &gt;&gt; MenuUpdate</h1>
 					<div id="introAdd">
 						<form method="post" action="shop_do.php?act=editfood&id=<?php echo $id?>&page=<?php echo $page?>" id="addForm" name="addForm">
-						<p><label>菜的名称：</label><input class="input input_87" type="text" name="name" id="name" value="<?php echo $rows['food_name']?>" /></p>
-						<p><label>菜的单价：</label><input class="input input_87" type="text" name="price" id="price" value="<?php echo $rows['food_price']?>" onblur= "if(!/^[0-9\.]+$/.test(this.value))alert('菜的单价必须是数字! ')"/> 元 <span >* </span></p>
-						<p><label>菜的图片：</label><span id="loading" style="display:none;"><img src="../images/loading.gif" width="16" height="16" alt="loading" /></span><span id="upinfo" style="color:blue;"></span><input id="upfile1" name="upfile1" value="<?php echo $food_pic;?>" type="hidden"/><input id="fileToUpload" type="file" name="fileToUpload" style="height:24px;"/> <input type="button" onclick="return ajaxFileUpload();" value="上传"/> </p>
-						<p style='margin-left:100px;'>图片尺寸130*130（注意：如果您选择的模板菜单没有图片，就不需要添加图片）</p>
+						<p><label>Name：</label><input class="input input_87" type="text" name="name" id="name" value="<?php echo $rows['food_name']?>" /></p>
+						<p><label>Price：</label><input class="input input_87" type="text" name="price" id="price" value="<?php echo $rows['food_price']?>" onblur= "if(!/^[0-9\.]+$/.test(this.value))alert('Price must be number! ')"/> Dollar <span >* </span></p>
+						<p><label>Picture：</label><span id="loading" style="display:none;"><img src="../images/loading.gif" width="16" height="16" alt="loading" /></span><span id="upinfo" style="color:blue;"></span><input id="upfile1" name="upfile1" value="<?php echo $food_pic;?>" type="hidden"/><input id="fileToUpload" type="file" name="fileToUpload" style="height:24px;"/> <input type="button" onclick="return ajaxFileUpload();" value="Upload"/> </p>
+						<p style='margin-left:100px;'>Size 130*130</p>
 						<div id='imgedit' style="margin-left:94px;margin-top:12px;"><img src="../<?php echo $food_pic;?>" width="130" height="130" alt="" /></div>
-						<p><label>上架： </label>
-						<input type="radio" name="food_status" value="0" <?php if($rows['food_status']=='0'){echo 'checked="checked"';}?> />是
-						<input type="radio" name="food_status" value="1" <?php if($rows['food_status']=='1'){echo 'checked="checked"';}?> />否
+						<p><label>Available： </label>
+						<input type="radio" name="food_status" value="0" <?php if($rows['food_status']=='0'){echo 'checked="checked"';}?> />Yes
+						<input type="radio" name="food_status" value="1" <?php if($rows['food_status']=='1'){echo 'checked="checked"';}?> />No
 						</p>
-						<p><label>菜的分类：</label>
+						<p><label>Category：</label>
 						<select name="type" id="type">
 						<?php
 							//循环菜的分类
@@ -128,12 +128,12 @@
 						<?php
 								}
 							}else{
-								alertInfo('请先添加分类','foodtype.php',0);
+								alertInfo('Add Category','foodtype.php',0);
 							}
 						?>
 						</select>
 						</p>
-						<p><label>菜的说明：</label>
+						<p><label>Dish info</label>
 							<textarea id="intro" name="intro" rows="5" cols="30" style="resize:none;"><?php echo $rows['food_intro']?></textarea>
 						</p>
 						
@@ -146,7 +146,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 	
 	</div>
@@ -161,22 +161,22 @@
 	function checkFood(){
 		var name=$("#name").val();
 		if (name==''){
-			alert('菜的名称不能为空');
+			alert('Name can not be empty');
 			$("#name").focus();
 			return false;
 		}else if(name.length>16){
 			
-			alert('菜的名称不能大于16个字符');
+			alert('Name must < 16 characters');
 			$("#name").focus();
 			return false;
 		}
 		if ($("#price").val()==''){
-			alert('菜的单价不能为空');
+			alert('price can not be empty');
 			$("#price").focus();
 			return false;
 		}
 		if ($("#price").val()==0 || $("#price").val()==0.00){
-			if(confirm('菜的单价确定要设置为0吗？')){
+			if(confirm('Sure?')){
 				document.addForm.action='shop_do.php?act=editfood&id=<?php echo $id?>&page=<?php echo $page?>';
 				document.addForm.submit();
 			}
