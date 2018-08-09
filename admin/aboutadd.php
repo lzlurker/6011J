@@ -13,16 +13,16 @@
 	//var_dump($SHOP_INFOS);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat.com">
 <head>
-<meta name="Author" content="微普科技http://www.wiipu.com"/>
+<meta name="Author" content="iEat"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../style.css" type="text/css"/>
 <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
 <script src="../js/tree.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/upload.js"></script>
 <script type="text/javascript" src="js/shopadd.js"></script>
-<title> 添加底部链接 - 微普外卖点餐系统 </title>
+<title> add bottom link - iEat </title>
 <script type="text/javascript">
 	function radioShow(){
 		var myradio=document.getElementsByName("about_type");  //
@@ -52,16 +52,16 @@
 					?>
 				</div>
 				<div id="shopRight">
-					<h1><a href="about.php">底部链接</a> &gt;&gt; 添加底部链接</h1>
+					<h1><a href="about.php">link</a> &gt;&gt; add link</h1>
 					<div id="introAdd">
 						<form method="post" action="about_do.php?act=add">
-						<p>标题：<input type="text" id="title" name="title" class="input input270"  /> *</p>
-						<p>类型：<input type="radio" name="about_type" value="1" checked onclick="radioShow();" />内容   
-						         <input type="radio" name="about_type" value="2" onclick="radioShow();" />链接 
+						<p>title：<input type="text" id="title" name="title" class="input input270"  /> *</p>
+						<p>type：<input type="radio" name="about_type" value="1" checked onclick="radioShow();" />contain   
+						         <input type="radio" name="about_type" value="2" onclick="radioShow();" />link 
 						</p>
 						<div id="about">
 						    <div class="about1" name="about" >
-								<p>内容：</p>
+								<p>contain:</p>
 								<p style='margin-top:20px;'>
 									<?php   include("fckeditor/fckeditor.php");
 										$oFCKeditor = new FCKeditor('content') ;
@@ -75,7 +75,7 @@
 						    </div>
 
 							<div class="about2"  name="about" style="display:none;" >
-								<p>链接：<input type="text" name="about_href" width="220" value="http://">(http://开头)</p>
+								<p>link:<input type="text" name="about_href" width="220" value="http://">(http://start)</p>
 						    </div>
 						</div>
 						
@@ -88,7 +88,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 	
 	</div>
