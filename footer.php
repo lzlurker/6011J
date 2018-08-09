@@ -6,7 +6,7 @@
 	 * @create time   2011-8-6
 	 * @update time
 	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
+	 * @copyright     Copyright (c) footer 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
 	 * @informaition
 	 */
 ?>
