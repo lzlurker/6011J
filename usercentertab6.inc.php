@@ -1,25 +1,16 @@
 <?php
-	/**
-	 *  usercentertab6.php 
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-15
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 ?>
 
-						<h1 class="order_h1">修改密码</h1>
+						<h1 class="order_h1">change Password</h1>
 						<div class="addList newAddList listUpdate" style='margin-top:34px;'>
-							<label>输入您当前密码：</label><input type="password" id="old" name="phone" class="input"/> <span class="red errormt"></span>
+							<label>Enter your current password：</label><input type="password" id="old" name="phone" class="input"/> <span class="red errormt"></span>
 						</div>
 						<div class="addList newAddList listUpdate">
-							<label>输入新密码：</label><input type="password" name="name" id="pw1" class="input"/> <span class="red errormt"></span>
+							<label>Enter a new password：</label><input type="password" name="name" id="pw1" class="input"/> <span class="red errormt"></span>
 						</div>
 						<div class="addList newAddList listUpdate">
-							<label>再次输入新密码：</label><input type="password" name="name" id="pw2" class="input"/> <span class="red errormt"></span>
+							<label>Enter the new password again：</label><input type="password" name="name" id="pw2" class="input"/> <span class="red errormt"></span>
 						</div>
 						<div class="clear"></div>
 						<div class="addList newAddList" style="height:40px; margin-top:43px;">
@@ -47,18 +38,18 @@ function updatePWD(){
 	var pw1=$("#pw1").val();
 	var pw2=$("#pw2").val();
 	if (old==''){
-		 TINY.box.show('当前密码不能为空!',0,160,60,0,10);
+		 TINY.box.show('The current password cannot be empty!',0,160,60,0,10);
 	}
 	if (pw1==''){
-		 TINY.box.show('新密码不能为空!',0,160,60,0,10);
+		 TINY.box.show('The new password cannot be empty!',0,160,60,0,10);
 	}else if(pw1.length<6){
-		 TINY.box.show('新密码最少是6位!',0,160,60,0,10);
+		 TINY.box.show('The new password is at least 6 digits!',0,160,60,0,10);
 	}else if(pw2==''){
-		 TINY.box.show('确认密码不能为空!',0,160,60,0,10);
+		 TINY.box.show('confirm password cannot be blank!',0,160,60,0,10);
 	}else if(pw2.length<6){
-		 TINY.box.show('确认码最少是6位!',0,160,60,0,10);
+		 TINY.box.show('Confirmation code is at least 6 digits!',0,160,60,0,10);
 	}else if (pw1!=pw2){
-		TINY.box.show('确认码与新密码不相同!',0,160,60,0,10);
+		TINY.box.show('The confirmation code is different from the new password!',0,160,60,0,10);
 	}
 	$.post("usercenter.ajax.php", { 
 		'old' : old,
@@ -67,20 +58,20 @@ function updatePWD(){
 		'act'  : 'updatePW'
 		}, function (data, textStatus){
 			if (data=='OLD'){
-				TINY.box.show('当前密码不能为空!',0,160,60,0,10);
+				TINY.box.show('Current password cannot be empty!',0,160,60,0,10);
 			}else if(data=='PW1'){
-				 TINY.box.show('新密码不能为空!',0,160,60,0,10);
+				 TINY.box.show('New password cannot be empty!',0,160,60,0,10);
 			}else if(data=='pw2'){
-				 TINY.box.show('确认密码不能为空!',0,160,60,0,10);
+				 TINY.box.show('confirm password cannot be blank!',0,160,60,0,10);
 			}else if (data=='N'){
-				TINY.box.show('确认码与新密码不相同!',0,160,60,0,10);
+				TINY.box.show('The confirmation code is different from the new password!',0,160,60,0,10);
 			}else if (data=='PW_E'){
-				TINY.box.show('当前密码不正确!',0,160,60,0,10);
+				TINY.box.show('The current password is incorrect!',0,160,60,0,10);
 			}else if (data=='S'){
-				TINY.box.show('您的密码修改成功，即将返回首页',0,160,60,0,10);
+				TINY.box.show('Your password was successfully modified，Coming back to the home page',0,160,60,0,10);
 				setTimeout("location.href='index.php'",2000);
 			}else if (data=='E'){
-				TINY.box.show('修改失败!',0,160,60,0,10);
+				TINY.box.show('fail to edit!',0,160,60,0,10);
 			}
 	});
 }
