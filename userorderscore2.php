@@ -1,16 +1,7 @@
 <?php
-	/**
-	 *  userorderscore2.php
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-15
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	 
 	require_once("usercheck2.php");
-	$POSITION_HEADER="用户中心";
+	$POSITION_HEADER="User Center";
 	$id=sqlReplace(trim($_GET['id']));
 	checkData($id,'id',1);
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -23,7 +14,7 @@
 <script src="js/jquery-1.3.1.js" type="text/javascript"></script>
 <script src="js/addbg.js" type="text/javascript"></script>
 <script src="js/tab.js" type="text/javascript"></script>
-<title> 用户中心 - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
+<title> User Center - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
 </head>
 <body>
  <div id="container">
@@ -35,16 +26,16 @@
 			<div class="main_top"></div>
 			<div class="main_center">
 				<div id="orderBox">
-					<div class="order_title login_title">订单评价</div>
+					<div class="order_title login_title">Order evaluation</div>
 					<div class="table">
 							<table>
 								<tr>
-									<td width="135" class="metal">订单时间</td>
-									<td width="185" class="metal borderLeft">餐厅名称</td>
-									<td width="137" class="metal borderLeft">外卖菜品</td>
-									<td width="180" class="metal borderLeft">订单号</td>
-									<td width="100" class="metal borderLeft">金额</td>
-									<td width="177" class="metal borderLeft">状态</td>
+									<td width="135" class="metal">Order time</td>
+									<td width="185" class="metal borderLeft">Restaurant name</td>
+									<td width="137" class="metal borderLeft">Takeaway dishes</td>
+									<td width="180" class="metal borderLeft">order number</td>
+									<td width="100" class="metal borderLeft">Amount</td>
+									<td width="177" class="metal borderLeft">status</td>
 		
 								</tr>
 							<?php
@@ -58,7 +49,7 @@
 								<tr>
 									<td class="borderBottom borderLeft" ><?php echo substr($rows['order_addtime'],0,10)?></td>
 									<td class="borderBottom borderLeft"><?php echo $rows['shop_name']?></td>
-									<td class="borderBottom borderLeft"><a href="userorderintro.php?id=<?php echo $rows['order_id']?>&key=new" class="red">查看详情</a></td>
+									<td class="borderBottom borderLeft"><a href="userorderintro.php?id=<?php echo $rows['order_id']?>&key=new" class="red">check details</a></td>
 									<td class="borderBottom borderLeft"><?php echo $rows['order_id2']?></td>
 									<td class="borderBottom borderLeft"><?php echo $rows['order_totalprice']?></td>
 									<td class="borderBottom borderRight borderLeft red">
@@ -73,7 +64,7 @@
 							</table>
 					</div>
 					<div class="success success_r" style="padding-bottom:100px;">
-						<p><span class="red">亲爱的用户，您对本次订单的评价已成功提交！</span>感谢您的支持和反馈！ </p>
+						<p><span class="red">Dear user, your evaluation of this order has been successfully submitted!</span>Thank you for your support and feedback! </p>
 						<?php
 							$sql="select * from qiyu_userscore where userscore_order='".$order."'";
 							$rs=mysql_query($sql);
@@ -85,7 +76,7 @@
 							}
 						?>
 						<div class="grayBox">
-							<p>总体满意度：<span><?php echo $SCORETOTAL[$total]?></span> 
+							<p>Overall satisfaction：<span><?php echo $SCORETOTAL[$total]?></span> 
 							<?php
 								for($i=0;$i<$total/2;$i++){
 									echo "<img src=\"images/star_1_1.gif\" alt=\"\" /> ";
@@ -98,7 +89,7 @@
 								}
 							?>
 							</p>
-							<p>餐点品质：<span><span><?php echo $SCORETEST[$test]?></span> 
+							<p>Meal quality：<span><span><?php echo $SCORETEST[$test]?></span> 
 							<?php
 								for($i=0;$i<$test/2;$i++){
 									echo "<img src=\"images/star_1_1.gif\" alt=\"\" /> ";
@@ -110,7 +101,7 @@
 									}
 								}
 							?></p>
-							<p>送餐速度：<span><?php echo $SCORESPEED[$speed]?></span> 
+							<p>Delivery speed：<span><?php echo $SCORESPEED[$speed]?></span> 
 							<?php
 								for($i=0;$i<$speed/2;$i++){
 									echo "<img src=\"images/star_1_1.gif\" alt=\"\" /> ";
@@ -123,7 +114,8 @@
 								}
 							?>
 							</p>
-							<a href="#" style="" class="sina">微博晒订单</a><a href="fav_do.php?spid=<?php echo $shop?>&uid=<?php echo $QIYU_ID_USER?>&act=add"><img src="images/button/collect2.jpg" alt="" class="collect"/></a>
+							<!-- <a href="#" style="" class="sina">微博晒订单</a><a href="fav_do.php?spid=<?php echo $shop?>&uid=<?php echo $QIYU_ID_USER?>&act=add"><img src="images/button/collect2.jpg" alt="" class="collect"/></a>
+							-->
 						</div>		
 						
 					</div>

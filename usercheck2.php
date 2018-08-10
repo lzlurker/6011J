@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  usercheck2.php  
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-6
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+
 	require('include/dbconn.php');
 	$QIYU_USER_ACCOUNT='';
 	if(!empty($_SESSION['qiyu_uid'])){
@@ -38,7 +29,7 @@
 	if (!empty($shopID))
 		if(empty($QIYU_ID_USER)) Header("Location: userquickreg.php?shopID=".$shopID);
 	else
-		if(empty($QIYU_ID_USER)) alertInfo("请先登录或注册","userlogin.php",0);
+		if(empty($QIYU_ID_USER)) alertInfo("Please login or register first","userlogin.php",0);
 	//$sqlStr="select * from qiyu_user where user_id=".$QIYU_ID_USER." and user_status='1'";
 	$sqlStr="select * from qiyu_user where user_id=".$QIYU_ID_USER."";
 	$result = mysql_query($sqlStr);
@@ -52,7 +43,7 @@
 		setcookie("QIYUVERD","",time()-1);
 		session_unset();
 		session_destroy();
-		alertInfo("出错","",1);
+		alertInfo("Error","",1);
 		//Header("Location: index.php");
-	}
+	} 
 ?>

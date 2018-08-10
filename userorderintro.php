@@ -1,18 +1,9 @@
 <?php
-	/**
-	 *  userorderintro.php  订单详情页
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-15
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 	require_once("usercheck2.php");
 	$id=sqlReplace(trim($_GET['id']));
 	$key=empty($_GET['key'])?'new':sqlReplace(trim($_GET['key']));
-	$POSITION_HEADER="用户中心";
+	$POSITION_HEADER="User Center";
 	$sql="select * from qiyu_shop,qiyu_order where (order_shop=shop_id2 or order_shopid=shop_id) and order_id=".$id;
 	$rs=mysql_query($sql);
 	$rows=mysql_fetch_assoc($rs);
@@ -32,7 +23,7 @@
 		$orderTime1=$rows['order_time1'];
 		$orderTime2=substr($rows['order_time2'],0,5);
 	}else{
-		alertInfo('非法操作','index.php',0);
+		alertInfo('Illegal Operation','index.php',0);
 	}
 
 	
@@ -51,7 +42,7 @@
 <script src="js/chage1.js" type="text/javascript"></script>
 <script src="js/TINYBox.js" type="text/javascript" language="javascript"></script>
 <link rel="stylesheet" href="js/TINYBox.css" type="text/css"/>
-<title> 订单详情 - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
+<title> order details - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
 </head>
 <script type="text/javascript" >
 		//getstatus();
@@ -97,7 +88,7 @@
 					<div>
 						<input type="hidden" id="orderid" name="orderid" value="<?php echo $id?>" />
 						<input type="hidden" id="orderkey" name="orderkey" value="<?php echo $key?>" />
-						<h1 class="order_h1"><a href='usercenter.php?tab=2'>所有订单</a></h1>
+						<h1 class="order_h1"><a href='usercenter.php?tab=2'>All orders</a></h1>
 						<div class="centerBorder"><img src="images/intro_bg.jpg" alt="" /></div>
 						<div class="orderStateList">
 						<div id="orderChangList">
@@ -127,7 +118,7 @@
 									if ($i==1 || $reCount==1){
 									
 												$addTime1='';
-												$intro1="<span class=\"greenbg\"><span><span>小提示</span></span></span>您的订单进度会自动更新，请稍后.....
+												$intro1="<span class=\"greenbg\"><span><span>Note: </span></span></span>Your order progress will be updated automatically, please wait.....
 		";
 											
 						?>
@@ -155,17 +146,17 @@
 						<div class="intro_l" id="intro_l">
 							<div class="intro">
 								<div class="top"><img src="images/order_intro.jpg" alt=""/></div>
-								<p style="margin-top:0">订单号：<?php echo $order?> <span class="time">订单时间：<?php echo $orderAddtime?></span>
-									<?php if ($orderType=='1') echo "<span class='time'>预约时间：".$orderTime1." ".$orderTime2."</span>"?>
+								<p style="margin-top:0">Order number：<?php echo $order?> <span class="time">Order time：<?php echo $orderAddtime?></span>
+									<?php if ($orderType=='1') echo "<span class='time'>Appointment：".$orderTime1." ".$orderTime2."</span>"?>
 								</p>
 								<div class="table table_yellow">
 									<table>
 										<tr>
 
-											<td class="meter" style="padding-left: 10px;" width="202"> 菜品名</td>
-											<td class="meter" width="154">单价</td>
-											<td class="meter" width="115">份数</td>
-											<td class="meter" width="200">备注</td>
+											<td class="meter" style="padding-left: 10px;" width="202"> Dish name</td>
+											<td class="meter" width="154">Price</td>
+											<td class="meter" width="115">Quantity</td>
+											<td class="meter" width="200">Remarks</td>
 										</tr>
 									<?php
 										$total=0;
@@ -198,19 +189,19 @@
 										
 															
 										<tr>
-											<td style="border:0" colspan="4">餐饮要求：<span class="red"><?php echo $orderText;?></span></td>
+											<td style="border:0" colspan="4">Requirment：<span class="red"><?php echo $orderText;?></span></td>
 										</tr>
 										<tr>
-											<td style="border:0" colspan="4">订单备注：<span class="red"><?php echo $orderInfor;?></span></td>
+											<td style="border:0" colspan="4">Remark：<span class="red"><?php echo $orderInfor;?></span></td>
 										</tr>
 										<tr>
-											<td style="border:0" colspan="4">餐点总额：<span class="red"> <?php echo $orderTotal?>元 </span></td>
+											<td style="border:0" colspan="4">Total for food：<span class="red"> CA$ <?php echo $orderTotal?></span></td>
 											
 										</tr>
 										<tr>
-											<td style="border:0">送餐费：<span class="red"> <?php echo $deliverFee?>元 </span></td>
+											<td style="border:0">Delivery：<span class="red"> CA$ <?php echo $deliverFee?> </span></td>
 											<td colspan="3" style="border: 0px ;">
-												<span class="red" style='font-size:24px;'>总计：<?php echo $orderPriceAll?>元</span>
+												<span class="red" style='font-size:24px;'>Total Price：CA$ <?php echo $orderPriceAll?></span>
 											</td>
 										</tr>
 									</table>
@@ -242,7 +233,7 @@
 	
 	<?php
 		require_once('footer.php');
-	?>
+	?> 
  </div>
  <script type="text/javascript">
 	function alertadd(act){//添加地址
@@ -274,7 +265,7 @@
 	function updateusername(){//修改姓名
 		var user_name=$("#user_name").val();
 		if(user_name==''){
-			$('.errormt2').html('姓名不能为空');
+			$('.errormt2').html('The name cannot be empty');
 			return false;
 		}
 		$.ajax({

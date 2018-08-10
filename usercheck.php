@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  usercheck.php  
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-6
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) Î¢ÆÕ¿Æ¼¼ WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 	require('include/dbconn.php');
 	$QIYU_USER_ACCOUNT='';
 	if(!empty($_SESSION['qiyu_uid'])){				
@@ -49,6 +40,6 @@
 			session_destroy();
 			//Header("Location: index.php");
 		}
-	}
+	} 
 
 ?>

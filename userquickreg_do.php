@@ -17,7 +17,7 @@
 	checkData($spot,'Landmark',1);
 	checkData($address,'Detailed address',1);
 
-
+ 
 	$pw1=getRndCode(6);  //随即生成的密码
 
 	$ip=$_SERVER['REMOTE_ADDR'];

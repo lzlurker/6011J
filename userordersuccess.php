@@ -1,17 +1,8 @@
 <?php
-	/**
-	 *  userordersuccess.php  购物车
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-6
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 	require_once("usercheck2.php");
 	$id=sqlReplace(trim($_GET['id']));
-	$POSITION_HEADER="提交订单";
+	$POSITION_HEADER="Submit Order";
 	$sql="select * from qiyu_order where order_id2='".$id."'";
 	$rs=mysql_query($sql);
 	$row=mysql_fetch_assoc($rs);
@@ -19,7 +10,7 @@
 		$total=$row['order_totalprice'];
 		$orderid=$row['order_id'];
 	}else{
-		alertInfo("非法","index.php",0);
+		alertInfo("Illegal","index.php",0);
 	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -32,7 +23,7 @@
 <script src="js/jquery-1.3.1.js" type="text/javascript"></script>
 <script src="js/addbg.js" type="text/javascript"></script>
 <script src="js/tab.js" type="text/javascript"></script>
-<title> 提交订单 - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
+<title> Submit Order - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
 </head>
 <body>
  <div id="container">
@@ -44,13 +35,13 @@
 			<div class="main_top"></div>
 			<div class="main_center">
 				<div id="orderBox">
-					<div class="order_title">提交订单成功</div>
+					<div class="order_title">Submit order successfully</div>
 					<div class="success">
-						<p><img src="images/ok.jpg" width="28" height="25" alt="" /> 您的订单已经提交成功。</p>
-						<p>订单号：<?php echo $id?>   订单金额为：<span class="red"><?php echo $total?>元</span></p>
+						<p><img src="images/ok.jpg" width="28" height="25" alt="" /> Your order has been submitted successfully.</p>
+						<p>order number：<?php echo $id?>   The order amount is：<span class="red"><?php echo $total?>元</span></p>
 						<p><img src="images/line_541.jpg" alt="" /></p>
-						<p class="gray"><?php echo $SHOP_NAME?>正在为您下单，请您耐心等待。 </p>
-						<p class="gray">想要随时了解订单进度，请点击查看</p>
+						<p class="gray"><?php echo $SHOP_NAME?>We are placing an order for you, please be patient. </p>
+						<p class="gray">Want to know the progress of the order at any time, please click to view</p>
 						<?php
 							if(empty($_SESSION['qiyu_uid'])){
 								echo '<p><a href="usercentertab2_n.inc.php"><img src="images/button/see.jpg" width="102" height="27" alt="" /></a></p>';
@@ -65,7 +56,7 @@
 			<div class="main_bottom"></div>
 		</div><!--main_content完-->
 		
-	
+	 
 	</div>
 	
 	<?php

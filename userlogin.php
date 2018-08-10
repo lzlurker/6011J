@@ -19,19 +19,19 @@
 <script src="js/tab.js" type="text/javascript"></script>
 <script src="js/addbg.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/bxCarousel.js"></script>
-<title> 用户登录 -<?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
+<title> User Login -<?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
 </head>
  <script type="text/javascript">
 	function login(){
 		var user_account = $("#z_phone").val();
 		var pw = $("#pw").val();
 		if (user_account==''){
-			TINY.box.show('手机号不能为空。',0,160,60,0,10);
+			TINY.box.show('The phone number cannot be empty.',0,160,60,0,10);
 			$("#z_phone").focus();
 			return false;
 		}
 		if (pw==''){
-			TINY.box.show('密码不能为空。',0,160,60,0,10);
+			TINY.box.show('password can not be blank.',0,160,60,0,10);
 			$("#pw").focus();
 			return false;
 		}
@@ -80,20 +80,20 @@
 			<div class="main_top"></div>
 			<div class="main_center">
 				<div id="orderBox" class="loginBox">
-					<div class="order_title login_title" style='margin-bottom:100px;'><?php if (!empty($p)) echo "亲 需要登陆才能继续点餐哦！";else echo "登陆"?></div>
+					<div class="order_title login_title" style='margin-bottom:100px;'><?php if (!empty($p)) echo "You need to login to order！";else echo "Sign in"?></div>
 					<div id="left_new" >
 						<form method="post" action="userlogin_do.php?p=<?php echo $p?>&shopID=<?php echo $shopID?>&shopSpot=<?php echo $shopSpot?>&shopCircle=<?php echo $shopCircle?>">
-						<div class="addList" style="margin-top:19px;"><label>手机号：</label><input type="text" id="z_phone" name="z_phone" class="input"  value="<?php echo $QIYU_USER_ACCOUNT?>" /><span id="prompt" style="color:red;position:absolute;left:210px;top:150px;"></span></div>
-						<div class="addList"><label>密码：</label><input type="password" id="pw" name="pw" class="input"/> <a href="userpw.php" class="red">忘记密码</a></div>
+						<div class="addList" style="margin-top:19px;"><label>Phone number：</label><input type="text" id="z_phone" name="z_phone" class="input"  value="<?php echo $QIYU_USER_ACCOUNT?>" /><span id="prompt" style="color:red;position:absolute;left:210px;top:150px;"></span></div>
+						<div class="addList"><label>Password：</label><input type="password" id="pw" name="pw" class="input"/> <a href="userpw.php" class="red">Forget password</a></div>
 
-						<div class="addList"><label>&nbsp;</label><input type="checkbox"  name="re_name" id="re_name" value="yes" checked/> 记住用户名 <input type="checkbox"  name="cookie" id="cookie" value="yes" checked /> 自动登录</div>
+						<div class="addList"><label>&nbsp;</label><input type="checkbox"  name="re_name" id="re_name" value="yes" checked/> Remember account <input type="checkbox"  name="cookie" id="cookie" value="yes" checked /> Sign-in automatically</div>
 						<div class="send"><input type="image" id="loginButton"  src="images/button/login.gif" alt="登录" onclick="return login();" hidefocus="true" style="outline:none;"/></div>
 
 					</div><!--leftwan-->
 					<div id="right_new" style='height:450px;'>
 						<p class="center" style="margin-top:0;"><img src="images/ask.jpg"  alt="" /></p>
-						<p class="center"><a href="userreg.php?p=<?php echo $p?>&shopID=<?php echo $shopID?>&shopSpot=<?php echo $shopSpot?>&shopCircle=<?php echo $shopCircle?>" hidefocus="true" style="outline:none;"><img src="images/button/reg.gif" alt="注册" id="regButton" /></a></p>
-						<p style="text-align:center;">注册以后，就可以在网上订想吃的外卖了!</p>
+						<p class="center"><a href="userreg.php?p=<?php echo $p?>&shopID=<?php echo $shopID?>&shopSpot=<?php echo $shopSpot?>&shopCircle=<?php echo $shopCircle?>" hidefocus="true" style="outline:none;"><img src="images/button/reg.gif" alt="Register" id="regButton" /></a></p>
+						<p style="text-align:center;">After registering, you can order the takeaway online!</p>
 					</div>
 					<div class="clear"></div>
 					<div class="botton_bg">
@@ -114,4 +114,4 @@
 	?>
  </div>
  </body>
-</html>
+</html> 

@@ -217,7 +217,7 @@ $(function(){
 	<?php
 		require_once('footer.php');
 	?>
-	
+	 
  </div>
  </body>
 </html>

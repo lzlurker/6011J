@@ -9,7 +9,7 @@
 			checkData($newpw,'New Password',1);
 			if($newpw!=$repw){
 				alertInfo("The password entered 2 times are not the same","",1);
-			}
+			} 
 			
 			$check_sql = "select user_password,user_salt from ".WIIDBPRE."_user where user_id=".$QIYU_ID_USER;
 			$check_rs = mysql_query($check_sql);

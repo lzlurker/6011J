@@ -119,7 +119,7 @@
 	  function () {
 	    $("#hiddendiv").css('display','none');
 	  }
-	);
+	); 
 })
 
 </script>

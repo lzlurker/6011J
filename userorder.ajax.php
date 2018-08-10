@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  userorder.ajax.php  修改默认地址 修改电话  添加新地址
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-6
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	 
 	require_once("usercheck.php");
 	$act=sqlReplace(trim($_POST['act']));
 	date_default_timezone_set('PRC');
@@ -51,7 +42,7 @@
 			mysql_query($address_sql);
 			$id=mysql_insert_id();
 			echo "<div class='haveAddress'>";
-			echo "<p class='title'>您已经有的地址：</p>";
+			echo "<p class='title'>The address you already have：</p>";
 			$sql="select * from qiyu_useraddr where useraddr_user=".$QIYU_ID_USER." and useraddr_spot=".$spot." order by useraddr_id desc";
 			$rs=mysql_query($sql);
 			$i=1;
@@ -90,7 +81,7 @@
 					$order=$rows_ff['order_id2'];
 					$sql_edit="update qiyu_order set order_status='3' where order_id=".$id;
 					if (mysql_query($sql_edit)){
-						$orderContent="<span class='greenbg redbg'><span><span>取消订单</span></span></span>您的订单已取消，给您带来的不便请谅解，我们会更好的为您服务。";
+						$orderContent="<span class='greenbg redbg'><span><span>cancel order</span></span></span>Your order has been cancelled";
 						addOrderType($order,HTMLEncode($orderContent));
 						echo "S";//用户取消订单
 					}else{
@@ -274,7 +265,7 @@
 										echo "<input type=\"hidden\" id=\"addressID\" name='addressID' value='".$addressID."'/>";
 									}
 									}else{
-										echo "<a href='userlogin.php' style='text-decoration:underLine;'>您还没有提交地址</a>";
+										echo "<a href='userlogin.php' style='text-decoration:underLine;'>You have not submitted an address yet</a>";
 										echo "<input type=\"hidden\" id=\"spotID\" name='spotID' value='".$spotID."'/>";	
 										echo "<input type=\"hidden\" id=\"addressID\" name='addressID' value='0'/>";
 									}
@@ -282,7 +273,7 @@
 									
 								
 				echo "</div>";
-				echo "<span><a href='javascript:void()' onClick='showAddressCart()'>编辑</a></span>";
+				echo "<span><a href='javascript:void()' onClick='showAddressCart()'>Edit</a></span>";
 				echo "</div>";
 				if (!empty($_SESSION['qiyu_uid'])){
 				
@@ -302,7 +293,7 @@
 				
 				if($count>0){
 					echo "<div class='haveAddress'>";
-					echo "<p class='title'>您已经有的地址：</p>";
+					echo "<p class='title'>The address you already have：</p>";
 					while ($rows=mysql_fetch_assoc($rs)){
 						$str_1='';
 						if ($j=='1'){
@@ -329,9 +320,9 @@
 					echo "</div>";
 					echo "<div class='clear'></div>";
 					echo "<div class='haveAddress'>";
-					echo "<p class='title'>我要添加新地址+</p>";
-					echo "<div class='cart_list'><label>北京市</label><select id=\"area1\" name=\"area1\" class='select'>";
-					echo "<option value=\"\">请选择</option>";
+					echo "<p class='title'>I want to add a new address+</p>";
+					echo "<div class='cart_list'><label>Montreal</label><select id=\"area1\" name=\"area1\" class='select'>";
+					echo "<option value=\"\">Please select</option>";
 										$selecte="";
 										$sql_area = "select * from ".WIIDBPRE."_area";
 										$rs_area = mysql_query($sql_area);
@@ -343,7 +334,7 @@
 											echo '<option value="'.$row_area['area_id'].'" '.$selecte.'>'.$row_area['area_name'].'</option>';
 										}
 						echo "</select> <select id=\"circle1\" name=\"circle1\" class='select select_84'>";
-						echo "<option value=\"\">请选择</option>";
+						echo "<option value=\"\">Please select</option>";
 								if (!empty($area_id)){
 									$selecte="";
 									$sql_area = "select ac.areacircle_circle,c.circle_name from ".WIIDBPRE."_areacircle ac,".WIIDBPRE."_circle c where ac.areacircle_circle=c.circle_id and areacircle_area=".$area_id;
@@ -359,7 +350,7 @@
 								
 								echo "</select><div class='clear'></div></div>";
 								echo "<div class='cart_list'><select id=\"spot1\" name=\"spot1\" class='select select_84' style='margin-left:118px;'>";
-								echo "	<option value=\"\">请选择</option>";
+								echo "	<option value=\"\">Please select</option>";
 								if (!empty($circle_id)){
 									$selecte="";
 									$sql_area = "select spot_id,spot_name from ".WIIDBPRE."_spot where spot_circle=".$circle_id;
@@ -376,14 +367,14 @@
 								$userStr=getUser($QIYU_ID_USER);
 								echo "<input type=\"hidden\" id=\"phone\" value='".$userStr['user_phone']."'/>";
 								echo "<input type=\"hidden\" id=\"name\" value='".$userStr['user_name']."'/>";
-								echo "<div class='cart_list'><label style='width:64px;'>详细门牌号</label><input type=\"text\" id=\"address\" name=\"address\" class='input'/><div class='clear'></div></div>";
+								echo "<div class='cart_list'><label style='width:64px;'>Detailed house number</label><input type=\"text\" id=\"address\" name=\"address\" class='input'/><div class='clear'></div></div>";
 								echo "<div class='cart_list' style='text-align:right;margin-right:4px;'><a href='javascript:void();' style='color:#fe5b02;' onClick='addAddress_cart()'>确认</a></div>";
 							echo "</div>";
 							echo "</div>";
 								}
 							if ($away=='0'){
 							echo "<div class='haveAddress' style='border:0;'>";
-							echo "<p>外卖时间要求：</p>";
+							echo "<p>Take-out time requirement：</p>";
 							echo "<div class='cart_list'><select id=\"time1\" name='time1' class='select' style='width:107px;color:#fe5b02;'>";
 									
 									
@@ -392,9 +383,9 @@
 										$today1=date('Y-m-d',time()+24*3600*$s);
 										$ss=getdate($today);
 										if ($s==0)
-											$dayStr="今天".$ss['mon']."月".$ss['mday']."日";
+											$dayStr="Today".$ss['mon']."Month".$ss['mday']."day";
 										else
-											$dayStr=$ss['mon']."月".$ss['mday']."日";
+											$dayStr=$ss['mon']."Month".$ss['mday']."day";
 										if ($today1==$time1)
 											$select1='selected';
 										else
@@ -409,7 +400,7 @@
 								$nowDay=$now['mday'];
 								$timeDay=$time1_r['mday'];
 								if ($timeDay==$nowDay){
-									if (checkDeliverTime($shopID)) echo "<option value=\"\">尽快送到</option>";
+									if (checkDeliverTime($shopID)) echo "<option value=\"\">Deliver soon</option>";
 								}else{
 									//echo "<option value=\"\">尽快送到</option>";
 								}
@@ -476,7 +467,7 @@
 												echo "	<td width=\"12\" ><input type=\"text\" readonly class=\"cutInput\" value=\"".$cookieFoodCount."\"/></td>";
 												echo "	<td width=\"22\" ><img class=\"subtractImg\" src=\"images/cut.jpg\" alt=\"\" style='cursor:pointer;' onClick=\"subtractCart(".$cookieShopID.",".$cookieFoodID.")\"/></td>";
 												echo "	<td width=\"33\" class=\"center\">".$cookieFoodCount."</td>";
-												echo "	<td width=\"21\" class=\"center\"><img src=\"images/del.gif\" alt=\"删除\" class=\"delImg\" onClick=\"delCart(".$key.",".$shopID.",".$rows['food_id'].",".$spotID.")\"  style=\"cursor:pointer;\"/></td>";
+												echo "	<td width=\"21\" class=\"center\"><img src=\"images/del.gif\" alt=\"Delete\" class=\"delImg\" onClick=\"delCart(".$key.",".$shopID.",".$rows['food_id'].",".$spotID.")\"  style=\"cursor:pointer;\"/></td>";
 												echo "</tr>";
 
 												$i+=1;
@@ -487,7 +478,7 @@
 									}
 
 									if ($i==0)			
-										echo "<tr><td colspan='6' style=\"padding-left:10px;\" width=\"220\"> 购物车为空 </td></tr>";
+										echo "<tr><td colspan='6' style=\"padding-left:10px;\" width=\"220\"> Cart is empty </td></tr>";
 										
 
 									
@@ -498,7 +489,7 @@
 										
 									
 									echo "<tr>";
-									echo "	<td colspan='6' class=\"red\" width=\"220\">订单总计：<span id=\"total\">".$total."</span>元</td> ";
+									echo "	<td colspan='6' class=\"red\" width=\"220\">Total order：<span id=\"total\">"."</span>CA$ </td> ".$total;
 									
 													
 									echo "</tr>";
@@ -515,19 +506,19 @@
 								if ($away=='0'){
 									
 									echo "<tr>
-										<td id='selever' colspan='6' class=\"gray padding\" width=\"220\" ".$display."><span id=\"deliverfee\">送餐费：".$deliverfee."元</span><span style=\"margin-left:13px;\" id='sendfee'>";
-									if ($deliver_isfee=='1') echo "满".$sendfee_r."元免送餐费";
-									echo "最低起送".$sendfee_r."元";
+										<td id='selever' colspan='6' class=\"gray padding\" width=\"220\" ".$display."><span id=\"deliverfee\">Delivery fee："."CA$</span><span style=\"margin-left:13px;\" id='sendfee'>".$deliverfee;
+									if ($deliver_isfee=='1') echo "Order CA$".$sendfee_r."for free delivery";
+									echo "Deliver statt from"."CA$".$sendfee_r;
 									echo "</span></td>																			
 									</tr>";
 									
 									echo "<tr>
-										<td colspan='6' id='selever2' class=\"padding\" width=\"220\" ".$display.">总计：<span id=\"totalAll\">".($total+$deliverfee_r)."元</span></td> 
+										<td colspan='6' id='selever2' class=\"padding\" width=\"220\" ".$display.">Total：<span id=\"totalAll\">"."CA$</span></td> .($total+$deliverfee_r)
 													
 									</tr>";
 								
 									echo "<tr>
-										<td colspan='6' class=\"gray padding\" width=\"220\">订单备注</td> 
+										<td colspan='6' class=\"gray padding\" width=\"220\">Remark</td> 
 													
 									</tr>";
 									
@@ -629,7 +620,7 @@
 										echo "<input type=\"hidden\" id=\"spotID\" name='spotID' value='".$spotID."'/>";	
 									}
 									}else{
-										echo "<a href='userlogin.php' style='text-decoration:underLine;'>您还没有提交地址</a>";
+										echo "<a href='userlogin.php' style='text-decoration:underLine;'>You have not provided address</a>";
 										echo "<input type=\"hidden\" id=\"spotID\" name='spotID' value='".$spotID."'/>";	
 										echo "<input type=\"hidden\" id=\"addressID\" name='addressID' value='0'/>";
 									}
@@ -637,7 +628,7 @@
 									
 								
 				echo "</div>";
-				echo "<span><a href='javascript:void()' onClick='showAddressCart()'>编辑</a></span>";
+				echo "<span><a href='javascript:void()' onClick='showAddressCart()'>Edit</a></span>";
 				echo "</div>";
 				if (!empty($_SESSION['qiyu_uid'])){
 				
@@ -657,7 +648,7 @@
 				
 				if($count>0){
 					echo "<div class='haveAddress'>";
-					echo "<p class='title'>您已经有的地址：</p>";
+					echo "<p class='title'>The address you already have：</p>";
 					while ($rows=mysql_fetch_assoc($rs)){
 						$str_1='';
 						if ($j=='1'){
@@ -684,9 +675,9 @@
 					echo "</div>";
 					echo "<div class='clear'></div>";
 					echo "<div class='haveAddress'>";
-					echo "<p class='title'>我要添加新地址+</p>";
-					echo "<div class='cart_list'><label>北京市</label><select id=\"area1\" name=\"area1\" class='select'>";
-					echo "<option value=\"\">请选择</option>";
+					echo "<p class='title'>I want to add a new address+</p>";
+					echo "<div class='cart_list'><label>Montreal</label><select id=\"area1\" name=\"area1\" class='select'>";
+					echo "<option value=\"\">Please select</option>";
 										$selecte="";
 										$sql_area = "select * from ".WIIDBPRE."_area";
 										$rs_area = mysql_query($sql_area);
@@ -698,7 +689,7 @@
 											echo '<option value="'.$row_area['area_id'].'" '.$selecte.'>'.$row_area['area_name'].'</option>';
 										}
 						echo "</select> <select id=\"circle1\" name=\"circle1\" class='select select_84'>";
-						echo "<option value=\"\">请选择</option>";
+						echo "<option value=\"\">Please select</option>";
 								if (!empty($area_id)){
 									$selecte="";
 									$sql_area = "select ac.areacircle_circle,c.circle_name from ".WIIDBPRE."_areacircle ac,".WIIDBPRE."_circle c where ac.areacircle_circle=c.circle_id and areacircle_area=".$area_id;
@@ -714,7 +705,7 @@
 								
 								echo "</select><div class='clear'></div></div>";
 								echo "<div class='cart_list'><select id=\"spot1\" name=\"spot1\" class='select select_84' style='margin-left:118px;'>";
-								echo "	<option value=\"\">请选择</option>";
+								echo "	<option value=\"\">Please select</option>";
 								if (!empty($circle_id)){
 									$selecte="";
 									$sql_area = "select spot_id,spot_name from ".WIIDBPRE."_spot where spot_circle=".$circle_id;
@@ -731,14 +722,14 @@
 								$userStr=getUser($QIYU_ID_USER);
 								echo "<input type=\"hidden\" id=\"phone\" value='".$userStr['user_phone']."'/>";
 								echo "<input type=\"hidden\" id=\"name\" value='".$userStr['user_name']."'/>";
-								echo "<div class='cart_list'><label style='width:64px;'>详细门牌号</label><input type=\"text\" id=\"address\" name=\"address\" class='input'/><div class='clear'></div></div>";
+								echo "<div class='cart_list'><label style='width:64px;'>Detailed house number</label><input type=\"text\" id=\"address\" name=\"address\" class='input'/><div class='clear'></div></div>";
 								echo "<div class='cart_list' style='text-align:right;margin-right:4px;'><a href='javascript:void();' style='color:#fe5b02;' onClick='addAddress_cart()'>确认</a></div>";
 							echo "</div>";
 							echo "</div>";
 								}
 							if ($away=='0'){
 							echo "<div class='haveAddress' style='border:0;'>";
-							echo "<p>外卖时间要求：</p>";
+							echo "<p>Take-out time requirement：</p>";
 
 							echo "<div class='cart_list'><select id=\"time1\" name='time1' class='time' style='width:107px;color:#fe5b02;'>";
 									
@@ -748,9 +739,9 @@
 										$today1=date('Y-m-d',time()+24*3600*$s);
 										$ss=getdate($today);
 										if ($s==0)
-											$dayStr="今天".$ss['mon']."月".$ss['mday']."日";
+											$dayStr="Today".$ss['mon']."Month".$ss['mday']."Day";
 										else
-											$dayStr=$ss['mon']."月".$ss['mday']."日";
+											$dayStr=$ss['mon']."Month".$ss['mday']."Day";
 										if ($today1==$time1)
 											$select1='selected';
 										else
@@ -765,7 +756,7 @@
 								$nowDay=$now['mday'];
 								$timeDay=$time1_r['mday'];
 								if ($timeDay==$nowDay){
-									if (checkDeliverTime($shopID)) echo "<option value=\"\">尽快送到</option>";
+									if (checkDeliverTime($shopID)) echo "<option value=\"\">Deliever soon</option>";
 								}else{
 									//echo "<option value=\"\">尽快送到</option>";
 								}
@@ -832,7 +823,7 @@
 												echo "	<td width=\"12\" ><input type=\"text\" readonly class=\"cutInput\" value=\"".$cookieFoodCount."\"/></td>";
 												echo "	<td width=\"22\" ><img class=\"subtractImg\" src=\"images/cut.jpg\" alt=\"\" style='cursor:pointer;' onClick=\"subtractCart_new(".$cookieShopID.",".$cookieFoodID.")\"/></td>";
 												echo "	<td width=\"33\" class=\"center\">".$rows['food_price']*$cookieFoodCount."</td>";
-												echo "	<td width=\"21\" class=\"center\"><img src=\"images/del.gif\" alt=\"删除\" class=\"delImg\" onClick=\"delCart_new(".$key.",".$shopID.",".$rows['food_id'].",".$spotID.")\"  style=\"cursor:pointer;\"/></td>";
+												echo "	<td width=\"21\" class=\"center\"><img src=\"images/del.gif\" alt=\"Delete\" class=\"delImg\" onClick=\"delCart_new(".$key.",".$shopID.",".$rows['food_id'].",".$spotID.")\"  style=\"cursor:pointer;\"/></td>";
 												echo "</tr>";
 
 												$i+=1;
@@ -843,7 +834,7 @@
 									}
 
 									if ($i==0)			
-										echo "<tr><td colspan='6' style=\"padding-left:10px;\" width=\"220\">还没有添加餐品</td></tr>";
+										echo "<tr><td colspan='6' style=\"padding-left:10px;\" width=\"220\">No items have been added yet</td></tr>";
 										
 
 									
@@ -854,7 +845,7 @@
 	
 									
 									echo "<tr>";
-									echo "	<td colspan='6' class=\"red padding no_border\" width=\"220\" style=\"padding-top:7px;\">订单总计：<span id=\"total\" style='margin-left:74px;'>".$total."</span>元</td> ";
+									echo "	<td colspan='6' class=\"red padding no_border\" width=\"220\" style=\"padding-top:7px;\">Total amount：<span id=\"total\" style='margin-left:74px;'>"."</span>元</td> ".$total;
 									
 													
 									echo "</tr>";
@@ -873,22 +864,22 @@
 									echo "<tr>
 										<td id='selever' colspan='6' class=\"gray padding no_border\" style=\"padding-top:10px;".$display."\" width=\"220\" ><span id=\"deliverfee\">";
 										if ($deliverfee_r!=='')
-										 echo "送餐费：".$deliverfee."元";
+										    echo "Delivery fee："."CA$".$deliverfee;
 										echo "</span><span style=\"margin-left:25px;\" id='sendfee'>";
 										
 										if ($deliver_isfee=='1')
-											echo "满".$sendfee_r."元免送餐费";
-										echo "最低起送".$sendfee_r."元";
+											echo "Buy CA$".$sendfee_r."for free delivery";
+											echo "Start from CA$".$sendfee_r ." for delievery";
 										echo "</span></td>";																			
 									echo "</tr>";
 									
 									echo "<tr>
-										<td colspan='6' id='selever2' class=\"padding no_border\" width=\"220\" style='".$display."'>总计：<span id=\"totalAll\">".($total+$deliverfee_r)."元</span></td> 
+										<td colspan='6' id='selever2' class=\"padding no_border\" width=\"220\" style='".$display."'>Total：<span id=\"totalAll\">".($total+$deliverfee_r)."DOLLARS</span></td> 
 													
 									</tr>";
 								
 									echo "<tr>
-										<td colspan='6' class=\"gray padding no_border\" width=\"220\">订单备注</td> 
+										<td colspan='6' class=\"gray padding no_border\" width=\"220\">Remark</td> 
 													
 									</tr>";
 									
@@ -947,16 +938,16 @@
 			echo "<div class=\"o_top\"></div>";
 			echo "<div class=\"o_center\">";
 			if ($hour>=21){
-				echo "<p class=\"big\" style='margin-top:20;text-align:center;'>已经过了网站营业时间，我们将尽快推出外卖预约功能</p>";
+				echo "<p class=\"big\" style='margin-top:20;text-align:center;'>We have already passed the website business hours, we will launch the take-out reservation function as soon as possible.</p>";
 			}else{
-				echo "<p class=\"big\" style='margin-top:0;text-align:center;'>餐厅接受外卖时间段为</p>";
+				echo "<p class=\"big\" style='margin-top:0;text-align:center;'>The restaurant accepts the take-out time period</p>";
 				$sql="select * from qiyu_delivertime where delivertime_shop=".$shopID." order by delivertime_starttime asc";
 				$rs=mysql_query($sql);
 				while ($rows=mysql_fetch_assoc($rs)){
 					echo "<p style='text-align:center;'>".$rows['delivertime_name'].": ".substr($rows['delivertime_starttime'],0,5)." - ".substr($rows['delivertime_endtime'],0,5)."</p>";
 				}	
 
-				echo "<p class=\"big\">目前不接受外卖订单，请您选择其他餐厅或在外卖时间点餐。</p>";
+				echo "<p class=\"big\">No takeaway orders are currently accepted. Please choose another restaurant or order at the time of takeaway.</p>";
 			}
 			echo "</div>";
 			echo "<div class=\"o_bottom\"></div>";
@@ -983,16 +974,16 @@
 			echo "<div class=\"o_top\"></div>";
 			echo "<div class=\"o_center\">";
 			if ($hour>=21){
-				echo "<p class=\"big\" style='margin-top:20;text-align:center;'>已经过了网站营业时间，我们将尽快推出外卖预约功能</p>";
+				echo "<p class=\"big\" style='margin-top:20;text-align:center;'>We have already passed the website business hours, we will launch the take-out reservation function as soon as possible.</p>";
 			}else{
-				echo "<p class=\"big\" style='margin-top:0;text-align:center;'>餐厅接受外卖时间段为</p>";
+				echo "<p class=\"big\" style='margin-top:0;text-align:center;'>The restaurant accepts the take-out time period</p>";
 				$sql="select * from qiyu_delivertime where delivertime_shop=".$shopID." order by delivertime_starttime asc";
 				$rs=mysql_query($sql);
 				while ($rows=mysql_fetch_assoc($rs)){
 					echo "<p style='text-align:center;'>".$rows['delivertime_name'].": ".substr($rows['delivertime_starttime'],0,5)." - ".substr($rows['delivertime_endtime'],0,5)."</p>";
 				}	
 
-				echo "<p class=\"big\">目前不接受外卖订单，请您选择其他餐厅或在外卖时间点餐。</p>";
+				echo "<p class=\"big\">No takeaway orders are currently accepted. Please choose another restaurant or order at the time of takeaway.</p>";
 			}
 			echo "</div>";
 			echo "<div class=\"o_bottom\"></div>";
@@ -1204,9 +1195,9 @@
 			echo "				</tr>";
 			echo "			</table>";
 			echo "		</div>";
-			echo "		<p class='cart_prompt'>对于此餐品的备注：</p>";
+			echo "		<p class='cart_prompt'>Remarks for this meal：</p>";
 			echo "		<p class='cart_intro'><textarea id=\"cart_desc\" class='cart_input'></textarea></p>";
-			echo "		<p class='submit_cart'><img src=\"images/button/addCart1.jpg\"  alt=\"\" style='cursor:pointer;' onClick=\"addCart_t(".$shopID.",".$foodID.",".$spotID.")\"/><span><a href='javascript:void();' onClick=\"closeFlow()\">回到餐厅界面</a></span></p>";
+			echo "		<p class='submit_cart'><img src=\"images/button/addCart1.jpg\"  alt=\"\" style='cursor:pointer;' onClick=\"addCart_t(".$shopID.",".$foodID.",".$spotID.")\"/><span><a href='javascript:void();' onClick=\"closeFlow()\">Return to restaurant page</a></span></p>";
 			echo "	</div>";
 		break;
 		case "getAddress":
@@ -1222,7 +1213,7 @@
 		
 			$shopID=sqlReplace(trim($_POST['shop']));
 			if ($timeDay==$nowDay){
-				if (checkDeliverTime($shopID)) echo "<option value=\"\">尽快送到</option>";
+				if (checkDeliverTime($shopID)) echo "<option value=\"\">Deliver soon</option>";
 			}else{
 				//echo "<option value=\"\">尽快送到</option>";
 			}
@@ -1309,8 +1300,8 @@
 			$str.= "		<div id='c_table'>";
 			$str.= "			<table border='0' width='455'>";
 			$str.= "				<tr>";
-			$str.= "					<td class='menu first td' width='195'>菜名</td>";
-			$str.= "					<td class='menu' >价格</td>";
+			$str.= "					<td class='menu first td' width='195'>Dish name</td>";
+			$str.= "					<td class='menu' >Price</td>";
 			$str.= "				</tr>";
 			$str.= "				<tr>";
 			$str.= "					<td class='main first td'>".$name."</td>";
@@ -1318,7 +1309,7 @@
 			$str.= "				</tr>";
 			$str.= "			</table>";
 			$str.= "		</div>";
-			$str.= "<div id=\"cart_needs\"><span class='span span_need'>口味需求：</span>";
+			$str.= "<div id=\"cart_needs\"><span class='span span_need'>Taste demand：</span>";
 			foreach($tag as $k=>$v){
 				$str.= "<input type=\"checkbox\" id='styleNeeds".($k+1)."' onClick='addContent(".($k+1).")' value='".$v."' class='styleCheckx' />
 						<span class='span mainfood'>".$v."</span> ";
@@ -1370,7 +1361,7 @@
 			$str.= "</div>";
 			$str.= "		<p class='cart_prompt'>对于此餐品的备注：</p>";
 			$str.= "		<p class='cart_intro'><textarea id=\"cart_desc\" class='cart_input'></textarea></p>";
-			$str.= "		<p class='submit_cart'><img src=\"images/button/addCart1.jpg\" onmouseout=\"checkbg1()\" onmouseover=\"checkbg2()\" mousedown='checkbg3()' id=\"addCartF\"  alt=\"\" style='cursor:pointer;' onClick=\"addCart_t(".$shopID.",".$foodID.",".$spotID.",".$circleID.",'".$time1."','".$time2."')\"/><span><a href='javascript:void();' onClick=\"closeFlow()\">回到餐厅界面</a></span></p>";
+			$str.= "		<p class='submit_cart'><img src=\"images/button/addCart1.jpg\" onmouseout=\"checkbg1()\" onmouseover=\"checkbg2()\" mousedown='checkbg3()' id=\"addCartF\"  alt=\"\" style='cursor:pointer;' onClick=\"addCart_t(".$shopID.",".$foodID.",".$spotID.",".$circleID.",'".$time1."','".$time2."')\"/><span><a href='javascript:void();' onClick=\"closeFlow()\">Return to restaurant page</a></span></p>";
 			$str.= "	</div>";
 			echo $str;
 		break;
@@ -1380,7 +1371,7 @@
 				$pagesize=6;
 				$startRow=0;
 				$sqlStr="select user_name,comment_id,comment_addtime,comment_content from qiyu_comment inner join qiyu_user on user_id=comment_user and comment_type='1' and comment_shop=".$shopID;
-				$rs=mysql_query($sqlStr) or die ("查询失败，请检查SQL语句。");
+				$rs=mysql_query($sqlStr) or die ("The query failed, please check the SQL statement.");
 				$rscount=mysql_num_rows($rs);
 				if ($rscount%$pagesize==0)
 					$pagecount=$rscount/$pagesize;
@@ -1412,7 +1403,7 @@
 
 				}
 				echo "<input type=\"hidden\" id=\"shop_id\" value=\"".$shopID."\"/>";
-				echo "<p class=\"h1 h1_r c_page\">评论数".$rscount;
+				echo "<p class=\"h1 h1_r c_page\">Number of comments".$rscount;
 				if ($pagecount>1){
 					echo "<span style=\"font-size:12px;\">";
 					commentPage($page,$pagecount);
@@ -1536,17 +1527,17 @@
 									//if ($discount!='0.0'){
 										//$totalAll=($total*$discount/10)+$deliverfee_r."元";
 									//}else{
-										$totalAll=$total+$deliverfee_r."元";
+				                    $totalAll="CA$".$total+$deliverfee_r;
 									//}
 									
 									
 									//if ($deliverfee_r==0){ 
 										//$str= "送餐费：无";
 									//}else{
-										$str= "送餐费：".$deliverfee_r."元";
+										$str= "Delivery fee："."CA$".$deliverfee_r;
 									//}
 									
-									$sendStr='最低起送：'.$sendfee_r.'元';
+									$sendStr='Start from CA$：'.$sendfee_r.'for delivery';
 									echo "S|".$str."|".$totalAll."|".$total."|".$sendStr."|".$spot_id."|".$sendfee_r;
 			
 	}

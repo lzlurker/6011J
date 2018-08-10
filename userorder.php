@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  userorder.php  购物车
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-6
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 	require_once("usercheck.php");
 	//echo '<pre>';print_R($_POST);
 	$shopID=sqlReplace(trim($_GET['shopID']));
@@ -86,14 +77,14 @@
 		$time_now=time();
 		$time_0_str=strtotime($time1.' '.$time2.':00');
 		if($time_now>$time_0_str){
-			alertInfo("亲，预约时间不能晚于现在时间","",1);	
+			alertInfo("Appointment time cannot be later than the current time","",1);	
 		}
 	}
 	if (!empty($shopSpot)){
 		$areaArray=getCircleBySpot($shopSpot);
 	}
 	$_SESSION['login_url']=getUrl();
-	$POSITION_HEADER="提交订单";
+	$POSITION_HEADER="Submit Order";
 	$sql="select * from qiyu_shop where shop_id=".$shopID." and shop_status='1'";
 	$rs=mysql_query($sql);
 	$rows=mysql_fetch_assoc($rs);
@@ -106,7 +97,7 @@
 		$shop_discount=$rows['shop_discount'];
 			
 	}else{
-		alertInfo("非法操作");
+		alertInfo("Illegal operation");
 	}
 	$total=0;//菜总价
 	$cur_cart_array = explode("///",$_COOKIE['qiyushop_cart']);
@@ -129,7 +120,7 @@
 		}
 	}
 	if (empty($total)){
-		alertInfo("您还没有添加餐品","index.php",0);
+		alertInfo("You have not added any food yet.","index.php",0);
 	}
 
 	//$user_defaultAdd=empty($_POST['addressID'])?'0':sqlReplace($_POST['addressID']);
@@ -157,7 +148,7 @@
 		//判断是否满足商家设定的外送消费下限
 		if ($total<$sendfee_r && $orderType!='group'){
 		
-			alertInfo("您的订单不够起送金额，请酌情增加。","index.php",0);
+			alertInfo("Your order is not enough for delievery, please increase.","index.php",0);
 		}
 		
 		
@@ -192,7 +183,7 @@
 			$totalAll=$total+$deliverfee_r;
 	//	}
 
-		$str= $deliverfee_r."元";
+			$str="CA$ ". $deliverfee_r;
 
 
 	if (!empty($QIYU_ID_USER)){
@@ -234,7 +225,7 @@
 <script src="js/tab.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/bxCarousel.js"></script>
 <script src="js/addbg.js" type="text/javascript"></script>
-<title> 提交订单 -<?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
+<title> Submit Order -<?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
 </head>
 <body>
   <script type="text/javascript">
@@ -244,13 +235,13 @@
 		$("#editAddress").css("display","inline");
 	}
 	function showTel(){
-		var str="您的手机： <input type=\"text\" id=\"phone\" class=\"tel_input\"/><img src=\"images/modiPhone.gif\"  class=\"submit\" onClick=\"updatePhone()\"  style='cursor:pointer;' alt=\"\" />";
+		var str="Your phone number： <input type=\"text\" id=\"phone\" class=\"tel_input\"/><img src=\"images/modiPhone.gif\"  class=\"submit\" onClick=\"updatePhone()\"  style='cursor:pointer;' alt=\"\" />";
 		$("#phoneDiv").html(str);
 	}
 	function updatePhone(){
 		var tel=$("#phone").val();
 		if (tel==''){
-			alert('电话不能为空！');
+			alert('The phone cannot be empty!');
 			return false;
 		}
 		$.post("userorder.ajax.php", { 
@@ -259,10 +250,10 @@
 			}, function (data, textStatus){
 				var post = data;
 				if (data=='S'){
-					$("#phoneDiv").html("您的手机： "+tel+"<input type=\"hidden\" phone=\""+tel+"\" />");
+					$("#phoneDiv").html("Your phone number： "+tel+"<input type=\"hidden\" phone=\""+tel+"\" />");
 					return false;
 				}else{
-					alert('修改失败！');
+					alert('fail to edit!');
 					return false;
 				}
 							
@@ -321,7 +312,7 @@ function getPriceBySpot()
 								$('#tips1').hide();
 								$("#selever").hide();
 								$('#tips2').hide();
-								TINY.box.show_spot('亲，您选择的地址不在此餐厅派 送范围内。查看可如约送达的餐 厅，请点击<a href="spot.php?spotID='+spot+'&circleID='+circle+'">这里</a>。',0,160,60,0,0);
+								TINY.box.show_spot('The address you choose is not included in this restaurant. Check out the restaurant that can be served as you can, please click <a href="spot.php?spotID='+spot+'&circleID='+circle+'">here</a>。',0,160,60,0,0);
 							}else{
 								$('#tips').show();
 								$('#tips2').show();
@@ -350,7 +341,7 @@ function getPriceByAddress(){
 								$('#tips1').hide();
 								$('#tips2').hide();
 								$("#selever").hide();
-								TINY.box.show_spot('亲，您选择的地址不在此餐厅派 送范围内。查看可如约送达的餐 厅，请点击<a href="spot.php?spotID='+rs[2]+'&circleID='+rs[1]+'">这里</a>',0,160,60,0,0);
+								TINY.box.show_spot('The address you choose is not included in this restaurant. Check out the restaurant that can be served as you can, please click <a href="spot.php?spotID='+rs[2]+'&circleID='+rs[1]+'">here</a>',0,160,60,0,0);
 							}else{
 								$('#tips1').show();
 								$('#tips2').show();
@@ -362,7 +353,7 @@ function getPriceByAddress(){
 }
 	function showAddress(){
 		$(".arBox").css("display","block");
-		$("#addressIntro").html('详细地址：');
+		$("#addressIntro").html('Detailed address：');
 	}
 	function addAddress(){
 	
@@ -373,15 +364,15 @@ function getPriceByAddress(){
 		var spot=$("#spot").val();
 		var address=$("#address").val();
 		if (circle1==''){
-			alert('商圈不能为空！');
+			alert('The business district cannot be empty!');
 			return false;
 		}
 		if (spot==''){
-			alert('地标不能为空！');
+			alert('Landmarks cannot be empty!');
 			return false;
 		}
 		if (address==''){
-			alert('地址不能为空！');
+			alert('The address cannot be empty!');
 			return false;
 		}
 		$.post("userorder.ajax.php", { 
@@ -396,7 +387,7 @@ function getPriceByAddress(){
 							var post = data;
 							if (data=='E')
 
-								alert('添加失败！');
+								alert('Add failed!');
 							else{
 								
 								location.reload();
@@ -410,16 +401,16 @@ function getPriceByAddress(){
 	function rest(score,total){
 		if ($("#fee").attr("checked") == true){
 			if (score >=total){
-				$("#rest").text('0元');
+				text('CA$').$("#rest");
 				$("#feeValue").text("饭点抵扣-"+total);
 			}
 			if (score<total){
-				$("#rest").text(total-score+'元');
+				$("#rest").text('CA$' + total-score);
 				$("#feeValue").text("饭点抵扣-"+score);
 			}
 
 		}else{
-			$("#rest").text(total+'元')
+			$("#rest").text('CA$' +total)
 		}
 	}
 
@@ -429,11 +420,11 @@ function updateAddress(){
 
 function checkIsDwliver(deliver,code){
 	if (!code){
-		alert("不在商家的送餐范围内，请您修改地址。");
+		alert("Please modify the address within the delivery range of the merchant.");
 		return false;
 	}
 	if (!deliver){
-		TINY.box.show_spot('商家还没有设置该路标下的送餐费用，您暂时不能提交订单!',0,160,60,0,10);
+		TINY.box.show_spot('The merchant has not set the delivery fee under the road sign, you can not submit the order temporarily.!',0,160,60,0,10);
 		return false;
 	}
 }
@@ -443,50 +434,42 @@ function checkIsDwliver(deliver,code){
 			var phone=$("#phone").val();
 			var address=$("#address").val();
 			if ($("#name").val()==''){
-				TINY.box.show('姓名不能为空!',0,160,60,0,10);
+				TINY.box.show('Name cannot be empty!',0,160,60,0,10);
 				return false;
 			}else{
 				var name=$("#name").val();
 				var reg=/^[\u0391-\uFFE5]+$/;
 				 if(name.match(reg)){
 
-					if (name.length>4){
-						TINY.box.show('不能超过4个中文!',0,160,60,0,10);
-						return false;
-					 }
-						
-				}else{
-					TINY.box.show('姓名只能是中文!',0,160,60,0,10);
-					return false;
-				}
+					
 				
 			}
 
 			if(phone==""){
-				TINY.box.show('手机不能为空!',0,160,60,0,10);
+				TINY.box.show('The phone cannot be empty!',0,160,60,0,10);
 				return false;
 			}else{
 				var reg=/^1[358]\d{9}$/;
 				 if(!phone.match(reg)){
 							
-					TINY.box.show('格式不正确!',0,160,60,0,10);
+					TINY.box.show('Incorrect format!',0,160,60,0,10);
 					return false;
 				}
 			}
 			if ($("#area").val()==''){
-				TINY.box.show('请选择地区!',0,160,60,0,10);
+				TINY.box.show('please select the region!',0,160,60,0,10);
 				return false;
 			}
 			if ($("#circle").val()==''){
-				TINY.box.show('请选择商圈!',0,160,60,0,10);
+				TINY.box.show('Please select a business district!',0,160,60,0,10);
 				return false;
 			}
 			if ($("#spot").val()==''){
-				TINY.box.show('请您选择所处地标。',0,160,60,0,10);
+				TINY.box.show('Please select your placemark.',0,160,60,0,10);
 				return false;
 			}
 			if(address==""){
-				TINY.box.show('地址不能为空!',0,160,60,0,10);
+				TINY.box.show('The address cannot be empty!',0,160,60,0,10);
 				return false;
 			}
 
@@ -499,30 +482,30 @@ function checkIsDwliver(deliver,code){
 			var address1=$("#address1").val();
 	
 			if(phone1==""){
-				TINY.box.show('手机不能为空',0,160,60,0,10);
+				TINY.box.show('The phone cannot be empty',0,160,60,0,10);
 				return false;
 			}else{
 				var reg=/^1[358]\d{9}$/;
 				 if(!phone1.match(reg)){
-					TINY.box.show('格式不正确!',0,160,60,0,10);
+					TINY.box.show('Incorrect format!',0,160,60,0,10);
 					return false;
 				}
 			}
 			if ($("#area").val()==''){
-				TINY.box.show('请选择地区!',0,160,60,0,10);
+				TINY.box.show('please select the region!',0,160,60,0,10);
 				return false;
 			}
 			if ($("#circle").val()==''){
-				TINY.box.show('请选择商圈!',0,160,60,0,10);
+				TINY.box.show('Please select a business district!',0,160,60,0,10);
 				return false;
 			}
 			if ($("#spot").val()==''){
-				TINY.box.show('请您选择所处地标。',0,160,60,0,10);
+				TINY.box.show('Please select your placemark.',0,160,60,0,10);
 				return false;
 			}
 
 			if(address1==""){
-				TINY.box.show('地址不能为空!',0,160,60,0,10);
+				TINY.box.show('The address cannot be empty!',0,160,60,0,10);
 				return false;
 			}
 			
@@ -548,9 +531,9 @@ function checkIsDwliver(deliver,code){
 							'act':'circle'
 					}, function (data, textStatus){
 							if (data==""){
-								$("#circle").html("<option value=''>没有商圈</option>")
+								$("#circle").html("<option value=''>No business district</option>")
 							}else
-								$("#circle").html("<option value=''>请选择</option>"+data);
+								$("#circle").html("<option value=''>please choose</option>"+data);
 					});
 	   })
 	})
@@ -562,9 +545,9 @@ function checkIsDwliver(deliver,code){
 							'act':'circle'
 					}, function (data, textStatus){
 							if (data==""){
-								$("#circle1").html("<option value=''>没有商圈</option>")
+								$("#circle1").html("<option value=''>No business district</option>")
 							}else
-								$("#circle1").html("<option value=''>请选择</option>"+data);
+								$("#circle1").html("<option value=''>please choose</option>"+data);
 					});
 	   })
 	})
@@ -579,9 +562,9 @@ function checkIsDwliver(deliver,code){
 						'act':'spot'
 					}, function (data, textStatus){
 							if (data==""){
-								$("#spot").html("<option value=''>没有地标</option>")
+								$("#spot").html("<option value=''>No landmarks</option>")
 							}else
-								$("#spot").html("<option value=''>请选择</option>"+data);
+								$("#spot").html("<option value=''>please choose</option>"+data);
 						
 					});
 	   })
@@ -595,9 +578,9 @@ function checkIsDwliver(deliver,code){
 						'act':'spot'
 					}, function (data, textStatus){
 							if (data==""){
-								$("#spot1").html("<option value=''>没有地标</option>")
+								$("#spot1").html("<option value=''>No landmarks</option>")
 							}else
-								$("#spot1").html("<option value=''>请选择</option>"+data);
+								$("#spot1").html("<option value=''>please choose</option>"+data);
 						
 					});
 	   })
@@ -635,7 +618,7 @@ function checkIsDwliver(deliver,code){
 								$('#tips1').hide();
 								$('#tips2').hide();
 								$("#selever").hide();
-								TINY.box.show_spot('亲，您选择的地址不在此餐厅派 送范围内。查看可如约送达的餐 厅，请点击<a href="spot.php?spotID='+spot+'&circleID='+circle+'">这里</a>。',0,160,60,0,0);
+								TINY.box.show_spot('The address you choose is not included in this restaurant. View the dining room that can be served as scheduled，please press<a href="spot.php?spotID='+spot+'&circleID='+circle+'">here</a>。',0,160,60,0,0);
 							}else{
 								$('#tips1').show();
 								$('#tips2').show();
@@ -667,7 +650,7 @@ function checkIsDwliver(deliver,code){
 								$('#tips1').hide();
 								$("#selever").hide();
 								$('#tips2').hide();
-								TINY.box.show_spot('亲，您选择的地址不在此餐厅派 送范围内。查看可如约送达的餐 厅，请点击<a href="spot.php?spotID='+spot+'&circleID='+circle+'">这里</a>。',0,160,60,0,0);
+								TINY.box.show_spot('The address you choose is not included in this restaurant. View the dining room that can be served as scheduled，please press，please press<a href="spot.php?spotID='+spot+'&circleID='+circle+'">here</a>。',0,160,60,0,0);
 							}else{
 								$('#tips').show();
 								$('#tips2').show();
@@ -689,16 +672,16 @@ function checkIsDwliver(deliver,code){
 			<div class="main_top"></div>
 			<div class="main_center">
 				<div id="orderBox">
-					<div class="order_title">提交订单</div>
+					<div class="order_title">Submit Order</div>
 					<div class="table" style="position:relative;z-index:100;">
-							<div class="returnCart"><a href="index.php">返回修改购物车</a></div>
+							<div class="returnCart"><a href="index.php">Return to modify shopping cart</a></div>
 							<table>
 								<tr>
-									<td width="135" class="metal">订单时间</td>
-									<td width="365" class="metal borderLeft">餐厅名称</td>
-									<td width="137" class="metal borderLeft">外卖菜品</td>
-									<td width="100" class="metal borderLeft">金额</td>
-									<td width="177" class="metal borderLeft">状态</td>
+									<td width="135" class="metal">Order time</td>
+									<td width="365" class="metal borderLeft">Restaurant name</td>
+									<td width="137" class="metal borderLeft">Takeaway dishes</td>
+									<td width="100" class="metal borderLeft">Amount</td>
+									<td width="177" class="metal borderLeft">Status</td>
 		
 								</tr>
 							<?php
@@ -711,14 +694,14 @@ function checkIsDwliver(deliver,code){
 								<tr>
 									<td class="borderBottom borderLeft" ><?php echo $time?></td>
 									<td class="borderBottom borderLeft"><?php echo $row['shop_name']?></td>
-									<td class="borderBottom borderLeft"><a href="javascript:void();" id="showIntro" class="red" style="">查看详情
+									<td class="borderBottom borderLeft"><a href="javascript:void();" id="showIntro" class="red" style="">Check detail
 										<div class="cartBox" id="cartBox" style="display:none;position:absolute;left:440px;top:47px;z-index:500;">
 											<div class="table">
 												<table>
 													<tr>
-														<td width="168">菜品名</td>
-														<td width="114">单价</td>
-														<td width="66">份数</td>
+														<td width="168">Dis name</td>
+														<td width="114">price</td>
+														<td width="66">quantity</td>
 													</tr>
 													<?php
 														$cur_cart_array = explode("///",$_COOKIE['qiyushop_cart']);
@@ -755,7 +738,7 @@ function checkIsDwliver(deliver,code){
 													
 													<tr>
 														
-														<td colspan='3' style="border:0;text-align:right;"><a href="index.php">返回购物车</a></td>
+														<td colspan='3' style="border:0;text-align:right;"><a href="index.php">Return to cart</a></td>
 													</tr>
 												</table>
 											</div>
@@ -766,7 +749,7 @@ function checkIsDwliver(deliver,code){
 
 									<td class="borderBottom borderLeft"><?php echo $total?></td>
 									<td class="borderBottom borderRight borderLeft red">
-										即将下单
+										The order will be placed
 									</td>
 									
 								</tr>
@@ -778,7 +761,7 @@ function checkIsDwliver(deliver,code){
 							
 					</div>
 					<form method="post" action="userorder_do.php?shopID=<?php echo $shopID?>&shopSpot=<?php echo $shopSpot?>&circleID=<?php echo $shopCircle?>" id="submitForm">
-					<div class="order_title order_title_r" >您的送餐联系方式：</div>
+					<div class="order_title order_title_r" >Your contact：</div>
 					<div class="clear"></div>
 					<?php
 						if (!empty($QIYU_ID_USER) && empty($_SESSION['qiyu_temporary'])){
@@ -801,49 +784,50 @@ function checkIsDwliver(deliver,code){
 						</div>
 						<?php
 							}else{//登陆后在该地标下无订餐时
-								echo'<p style="color:red;margin-top:10px;margin-left:30px;">您的送餐地址记录</p>';
+								echo'<p style="color:red;margin-top:10px;margin-left:30px;">Your delievery address record</p>';
 						?>
 						<?php
 							}
 						?>
-						<div class="order_infor arList"><input type="radio" name="addressList" value="0" /> 添加新地址</div>
+						<div class="order_infor arList"><input type="radio" name="addressList" value="0" /> Add new address</div>
 						<div id="addressNew" style="display:none;margin-left:30px;" >
-						<!--<div class="contact"><label>您的姓名：</label><input type="text" name="name1" id="name1" class="input" />
+						<!--<div class="contact"><label>Your name：</label><input type="text" name="name1" id="name1" class="input" />
 						</div>-->
 						<div class="contact contact_r" >
-								<label>您的手机：</label><input type="text" id="phone1" name="phone1" class="input" value="<?php echo $user_phone?>"/> <span>手机号将作为您登录<?php echo $SHOP_NAME?>网的用户名，请输入您的常用手机号</span>
+								<label>Your phone：</label><input type="text" id="phone1" name="phone1" class="input" value="<?php echo $user_phone?>"/> <span>The phone number will log in as you<?php echo $SHOP_NAME?>web's account，Please enter your usual mobile number</span>
 						</div>
 						
-						<div class="contact"><label>详细地址：</label><input type="text" id="address1" name="address1" class="input input270"/></div>
+						<div class="contact"><label>Address：</label><input type="text" id="address1" name="address1" class="input input270"/></div>
 						</div>
 					<?php
 						}else{	
 					?>
 						<!--一下是没登录的显示-->
-						<div class="contact"><label>您的姓名：</label><input type="text" name="name" id="name" class="input"/></div>
+						<div class="contact"><label>Your name：</label><input type="text" name="name" id="name" class="input"/></div>
 						
 						<div class="contact contact_r" >
-							<label>您的手机：</label><input type="text" id="phone" name="phone" class="input"/> <span>手机号将作为您登录<?php echo $SHOP_NAME?>的用户名，请输入您的常用手机号</span>
+							<label>Your phone number：</label><input type="text" id="phone" name="phone" class="input"/> <span>The phone number will log in as you<?php echo $SHOP_NAME?>'s account，Please enter your usual mobile number</span>
 						</div>
 						
 						<div class="clear"></div>
-						<div class="contact"><label>详细地址：</label><input type="text" id="address" name="address" class="input input270"/></div>
+						<div class="contact"><label>Address：</label><input type="text" id="address" name="address" class="input input270"/></div>
 					<?php
 						}	
 					?>
 					<div class="clear"></div>
-					<div class="order_title order_title_r" style="margin-top:30px">确认订单信息：</div>
+					<div class="order_title order_title_r" style="margin-top:30px">Confirm Order Information：</div>
 					
-					<div class="orderInfor" >外卖商品：<?php echo $total?>元 <span id='tips1' <?php if (empty($shopSpot) && empty($shopCircle)) echo "style='display:none;'"?>>|</span><span id="selever" >送餐费：<?php echo $str;?> </span><?php if (!empty($QIYU_ID_USER)){?><!--<span>|</span><span id="feeValue">饭点抵扣0 </span>--><?php }?><!-- <?php if (strpos($shop_pay,'|1|')!==false){?><span class="red">在线支付免送餐费</span><?php }?>--> </div>
+					<div class="orderInfor" >Takeaway goods：CA$ <?php echo $total?> <span id='tips1' <?php if (empty($shopSpot) && empty($shopCircle)) echo "style='display:none;'"?>>|</span><span id="selever" >Delievery fee：<?php echo $str;?> </span><?php if (!empty($QIYU_ID_USER)){?><!--<span>|</span><span id="feeValue">饭点抵扣0 </span>--><?php }?><!-- <?php if (strpos($shop_pay,'|1|')!==false){?><span class="red">pay online to get free delievery</span><?php }?>--> </div>
 					<!--
 					<?php if ($shop_discount!='0.00'){?>
 						<div class="orderInfor" >
-							折扣后价格：<?php echo $total_discount?>元 <span style="margin-left:10px;">(饮料主食等部分餐品不参与折扣，最终价格以短信提示为准)</span>
+							Price after discount：CA$ <?php echo $total_discount?> <span style="margin-left:10px;">(Some items such as beverage staples do not participate in the discount, and the final price is subject to the SMS message.)</span>
 						</div>
 						
 					<?php }?> -->
-					<div class="orderInfor" id='tips2' >您本次点餐一共需要支付 : <b id="rest"><?php echo $totalAll;?>元</b>。</div>
-					<!--<div class="orderInfor" >支付方式 <?php if (strpos($shop_pay,'|1|')!==false){?><input type="radio" name="pay" value='1' <?php if ($payCount==1  || strpos($shop_pay,"|1|")!==false) echo "checked"?>/> 在线支付<?php }?> <?php if (strpos($shop_pay,'|0|')!==false){?><input type="radio" name="pay" value='0' <?php if ($payCount==1) echo "checked"?>/> 货到付款<?php }?> </div> -->
+					<div class="orderInfor" id='tips2' >You have to pay for this order. : <b id="rest"> CA$ <?php echo $totalAll;?></b>。</div>
+					
+					<!--<div class="orderInfor" >Payment method <?php if (strpos($shop_pay,'|1|')!==false){?><input type="radio" name="pay" value='1' <?php if ($payCount==1  || strpos($shop_pay,"|1|")!==false) echo "checked"?>/> Onlie<?php }?> <?php if (strpos($shop_pay,'|0|')!==false){?><input type="radio" name="pay" value='0' <?php if ($payCount==1) echo "checked"?>/> Pay after delievery<?php }?> </div> -->
 					<div class="submit">
 					<input type="image" id="ordertijiao" src="images/button/sure_order.jpg" OnClick="return checkOrder()"/>
 					<input type="hidden" id="insert" name="insert" value="0" />
@@ -872,7 +856,7 @@ function checkIsDwliver(deliver,code){
 	?>
  </div>
  </body>
-</html>
+</html> 
 <script type="text/javascript">
 	$(function(){				
 			$("#ordertijiao").hover(function(){

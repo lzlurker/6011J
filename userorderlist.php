@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  usercenter.php  
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-15
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+ 
 	require_once("usercheck2.php");
 	$tabShow=empty($_GET['tab'])?'1':sqlReplace(trim($_GET['tab']));
 	$_SESSION['order_url']=getUrl();
@@ -25,7 +16,7 @@
 <script src="js/scale.js" type="text/javascript"></script>
 <script src="js/addbg.js" type="text/javascript"></script>
 <script src="js/userorder.js" type="text/javascript"></script>
-<title> 用户中心 - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
+<title> User Center - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
  </head>
  <body>
  <div id="container">
@@ -51,22 +42,22 @@
 				<div id="tab_box_r" class="inforBox">
 					
 					<div <?php if ($tabShow!="2") echo "style='display:none;'"?>>
-						<div class="big_title">所有历史订单</div>
+						<div class="big_title">All historical orders</div>
 						<div class="table table_gray">
 							<table>
 								<tr>
-									<td width="140" class="meter">时间</td>
-									<td width="183" class="meter">餐厅名称</td>
-									<td width="174" class="meter">订单号</td>
-									<td width="86" class="meter">金额</td>
-									<td width="105" class="meter">状态</td>
-									<td width="100" class="meter">操作</td>
+									<td width="140" class="meter">Time</td>
+									<td width="183" class="meter">Restaurant name</td>
+									<td width="174" class="meter">Order number</td>
+									<td width="86" class="meter">Amount</td>
+									<td width="105" class="meter">Status</td>
+									<td width="100" class="meter">Operation</td>
 								</tr>
 							<?php
 								$pagesize=1;
 								$startRow=0;
 								$sql="select order_id from qiyu_order,qiyu_shop where (shop_id2=order_shop or shop_id=order_shopid) and order_user=".$QIYU_ID_USER." and order_status not in (0,1,6,5)";
-								$rs = mysql_query($sql) or die ("查询失败，请检查SQL语句。");
+								$rs = mysql_query($sql) or die ("The query failed, please check the SQL statement.");
 								$rscount=mysql_num_rows($rs);
 								if ($rscount%$pagesize==0)
 									$pagecount=$rscount/$pagesize;
@@ -90,9 +81,9 @@
 									<td><?php echo substr($rows['order_addtime'],0,10)?></td>
 									<td><?php echo $rows['shop_name']?></td>
 									<td><?php echo $rows['order_id2']?></td>
-									<td><?php echo $rows['order_totalprice']?>元</td>
+									<td> CA$ <?php echo $rows['order_totalprice']?></td>
 									<td><?php echo $orderState[$rows['order_status']]?></td>
-									<td style="padding:5px 0 5px 0"><a href="userorderintro.php?id=<?php echo $rows['order_id']?>" style="color:red;">查看订单详情</a><?php if ($rows['order_status']=='0'){?><a href="javascript:void()" onClick="orderCancel(<?php echo $rows['order_id']?>)">取消订单</a><?php }?> <?php if ($rows['order_status']=='4'){?><p><a href="usercenter_do.php?id=<?php echo $rows['order_id']?>&tab=2&act=delOrder">删除订单</a></p><?php }?></td>
+									<td style="padding:5px 0 5px 0"><a href="userorderintro.php?id=<?php echo $rows['order_id']?>" style="color:red;">View order details</a><?php if ($rows['order_status']=='0'){?><a href="javascript:void()" onClick="orderCancel(<?php echo $rows['order_id']?>)">cancel order</a><?php }?> <?php if ($rows['order_status']=='4'){?><p><a href="usercenter_do.php?id=<?php echo $rows['order_id']?>&tab=2&act=delOrder">cancel order</a></p><?php }?></td>
 								</tr>
 							<?php
 								}	

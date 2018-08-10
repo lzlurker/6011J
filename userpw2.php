@@ -31,7 +31,7 @@
 <script src="js/tab.js" type="text/javascript"></script>
 <title> Retrieve password - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
 </head>
- <body>
+ <body> 
  <div id="container">
 	<?php
 		require_once('header_index.php');

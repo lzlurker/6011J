@@ -34,7 +34,7 @@ require('include/dbconn.php');
 	$row=mysql_fetch_assoc($rs);
 	if ($row){
 		alertInfo("This number is already registered","",1);
-	}
+	} 
 	
 	
 	$sql = "insert into qiyu_user(user_account,user_password,user_logintime,user_loginip,user_logincount,user_mail,user_phone,user_time,user_name,user_salt,user_status,user_vcode,user_sinauid,user_sinanick,user_regtype) values('".$phone."','".$pw."',now(),'".$ip."','".$logincount."','','".$phone."',now(),'".$name."','".$vercode."','0','".$vercodePhone."','".$sinaUid."','".$sinaNick."','0')";

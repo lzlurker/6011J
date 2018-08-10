@@ -1,14 +1,5 @@
 <?php
-	/**
-	 * userlogin_do.php 登录操作
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-2
-	 * @update time
-	 * @author        jiangting
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 	require('include/dbconn.php');
 	$user_account=sqlReplace(trim($_POST['z_phone']));
 	$loginUrl=$_SESSION['login_url'];
@@ -21,12 +12,12 @@
 	$shopID=empty($_GET['shopID'])?'0':sqlReplace(trim($_GET['shopID']));
 	$shopSpot=empty($_GET['shopSpot'])?'0':sqlReplace(trim($_GET['shopSpot']));
 	$shopCircle=empty($_GET['shopCircle'])?'0':sqlReplace(trim($_GET['shopCircle']));
-	checkData($user_account,'手机号',1);
-	checkData($pw,'密码',1);
+	checkData($user_account,'Phone number',1);
+	checkData($pw,'Password',1);
 	$sqlStr="select * from ".WIIDBPRE."_user where user_account='".$user_account."'";
-	$result = mysql_query($sqlStr) or die ("查询失败，请检查SQL语句。");
+	$result = mysql_query($sqlStr) or die ("The query failed, please check the SQL statement.");
 	$row=mysql_fetch_assoc($result);
-	if($row){
+	if($row){ 
 		$ip=$_SERVER['REMOTE_ADDR'];
 		$pwd=md5(md5($pw.$row['user_salt']));
 		$sql="select * from qiyu_user where user_account='".$user_account."' and user_password='".$pwd."'";
@@ -60,7 +51,7 @@
 			$cName=getCircleByID($geturl['circle']);
 			if (!empty($p)){
 				Header("Location: userorder.php?shopID=".$shopID."&shopSpot=".$shopSpot."&circleID=".$shopCircle);
-			}else if($cName=='大望路'){
+			}else if($cName=='St. Catherine'){
 				Header("Location: spot.php?spotID=".$geturl['spot']."&circleID=".$geturl['circle']);
 			}else if(empty($loginUrl)){
 				Header("Location: index.php");
@@ -68,12 +59,12 @@
 				Header("Location: ".$loginUrl);
 			}
 		}else{
-			alertInfo("您输入的密码不正确","userlogin.php?shopID=".$shopID."&shopSpot=".$shopSpot."&circleID=".$shopCircle,0);
+			alertInfo("the password entered is incorrect","userlogin.php?shopID=".$shopID."&shopSpot=".$shopSpot."&circleID=".$shopCircle,0);
 		}
 		
 		
 	}else{
-		alertInfo("手机号不存在","userlogin.php?shopID=".$shopID."&shopSpot=".$shopSpot."&circleID=".$shopCircle,0);
+		alertInfo("Phone number does not exist","userlogin.php?shopID=".$shopID."&shopSpot=".$shopSpot."&circleID=".$shopCircle,0);
 
 	}
 

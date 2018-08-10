@@ -1,14 +1,5 @@
 <?php
-/**
- * 生成登录验证码
- *
- * @version       v0.01
- * @create time   2011-8-1
- * @update time   
- * @author        jiangting
- * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
- * @informaition  
- */
+
 session_start();
 
 $x_size = 60;
@@ -96,5 +87,5 @@ function code_random($length) {
 	}
 	return $hash;
 }
-
+ 
 ?>

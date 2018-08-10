@@ -133,7 +133,7 @@
 	  }
 	);
 })
-
+ 
 $(function(){				
 			$("#finishButton").hover(function(){
 							 $(this).attr('src','images/button/regFinish_1.jpg');

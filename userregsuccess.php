@@ -42,7 +42,7 @@
 			</div>
 			<div class="main_bottom"></div>
 		</div><!--main_content完-->
-		
+		 
 	
 	</div>
 	

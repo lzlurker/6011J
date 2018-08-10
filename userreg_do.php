@@ -41,4 +41,4 @@
 	$_SESSION['phone']=$phone;
 	$_SESSION['pw']=$pw;
 	Header("Location: userregnew2.php?p=".$p."&shopID=".$shopID."&shopSpot=".$shopSpot."&shopCircle=".$shopCircle);
-?>
+?> 

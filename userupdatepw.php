@@ -15,7 +15,7 @@
 <script src="js/jquery-1.3.1.js" type="text/javascript"></script>
 <script src="js/tab.js" type="text/javascript"></script>
 <title> Change Password - <?php echo $SHOP_NAME?> - <?php echo $powered?> </title>
-</head>
+</head> 
  <body>
  <div id="container">
 	<?php

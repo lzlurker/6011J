@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  userorder_do.php 添加订单
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-6
-	 * @update time
-	 * @author        lujiagnxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 	header("Content-type: text/html; charset=utf-8");
 	require_once("usercheck.php");
 	$userphone=sqlReplace(trim($_POST['phone1']));
@@ -20,7 +11,7 @@
 	$ntime=time();//当前时间
 	$btime=$ntime-$addtime;
 	if($btime<60*1){//如果距离此用户最新的订单时间小于一分钟
-        alertInfo('亲，一分钟内您不能频繁下订单哦','',0);
+        alertInfo('You cannot place different multiple orders within 1 minute','',0);
 		exit;
 	}
 	$o = new AppException();
@@ -62,10 +53,10 @@
 		
 		
 		if (empty($QIYU_ID_USER)){   //没有登录的操作
-			checkData($phone,'手机号',1);
-			checkData($name,'用户姓名',1);
+			checkData($phone,'Phone number',1);
+			checkData($name,'User name',1);
 			
-			checkData($address2,'详细地址',1);
+			checkData($address2,'Detailed address',1);
 			$pw1=getRndCode_r(6);  //随即生成的密码
 
 			$ip=$_SERVER['REMOTE_ADDR'];
@@ -88,11 +79,11 @@
 					$totaladdr=$address2;
 
 					$address_sql = "insert into qiyu_useraddr(useraddr_user,useraddr_phone,useraddr_address,useraddr_name,useraddr_type,useraddr_totaladdr) values (".$id.",'".$phone."','".$address2."','".$name."','0','".$totaladdr."')";
-					mysql_query($address_sql) or die('插入地址错误');
+					mysql_query($address_sql) or die('Insert address error');
 					//把密码发给此用户
 					$addressList=mysql_insert_id();
 					$_SESSION['login_url']='';
-					$content="感谢您使用<?php echo $SHOP_NAME?>网站，您今后登陆<?php echo $SHOP_NAME?>网站的帐号为您的手机号，登陆密码为".$pw1.". 可在网站个人中心页面修改您的密码。稍后您将收到订单进程的短信提醒。";
+					$content="Thank you for using <?php echo $SHOP_NAME?>website，Account for you to log in <?php echo $SHOP_NAME?> website is your phone number，password is".$pw1.". Your password can be modified on the Personal Center page of the website. You will receive an SMS reminder for the order process later..";
 					
 					if (!(empty($site_wiiyunsalt) || empty($site_wiiyunaccount) || empty($phone) || $site_sms!='1')){
 						$result=$o->checkWiiyunSalt($site_wiiyunsalt,$site_wiiyunaccount);
@@ -117,14 +108,14 @@
 						}
 					}
 				}else{
-					alertInfo("意外出错","userorder.php?shopID=".$shopID."&shopSpot=".$shopSpot."&circleID=".$circleID,0);	
+					alertInfo("Accidental error","userorder.php?shopID=".$shopID."&shopSpot=".$shopSpot."&circleID=".$circleID,0);	
 				}
 			}else{ //手机号已注册，插入新的地址
 				$sqls="select user_id from qiyu_user where user_password='".md5(md5($password.$row['user_salt']))."' and user_phone=".$phone." and user_id=".$row['user_id'];
 				$rss=mysql_query($sqls);
 				$rows=mysql_fetch_assoc($rss);
 				if(!$rows){
-					alertInfo("密码错误","userorder.php?shopID=".$shopID."&shopSpot=".$shopSpot,0);	
+					alertInfo("Password incorrect","userorder.php?shopID=".$shopID."&shopSpot=".$shopSpot,0);	
 				}else{
 					$id=$row['user_id'];
 					$QIYU_ID_USER=$id;
@@ -136,25 +127,25 @@
 					
 					$totaladdr=$address2;
 					$address_sql = "insert into qiyu_useraddr(useraddr_user,useraddr_phone,useraddr_address,useraddr_name,useraddr_type,useraddr_totaladdr) values (".$id.",'".$phone."','".$address2."','".$name."','1','".$totaladdr."')";
-					mysql_query($address_sql) or die('插入地址错误');
+					mysql_query($address_sql) or die('Insert address error');
 					$addressList=mysql_insert_id();
 				}
 			}
 		}else if (!empty($QIYU_ID_USER) && $temporary==true){ //weibo login
-			checkData($phone,'手机号',1);
-			checkData($name,'用户姓名',1);
+			checkData($phone,'Phone number',1);
+			checkData($name,'User name',1);
 			
-			checkData($address2,'详细地址',1);
+			checkData($address2,'Detailed address',1);
 			$weiboResult=set_weibo($phone,$sinaUid,$sinaNick,$QIYU_ID_USER,$password);
 			if ($weiboResult=="E"){
-				alertInfo("密码错误","userorder.php?shopID=".$shopID."&shopSpot=".$shopSpot."&circleID=".$circleID,0);	
+				alertInfo("Password incorrect","userorder.php?shopID=".$shopID."&shopSpot=".$shopSpot."&circleID=".$circleID,0);	
 			}
 			$QIYU_ID_USER=$_SESSION['qiyu_uid'];
 			
 			$totaladdr=$address2;
 
 			$address_sql = "insert into qiyu_useraddr(useraddr_user,useraddr_phone,useraddr_address,useraddr_name,useraddr_type,useraddr_totaladdr) values (".$QIYU_ID_USER.",'".$phone."','".$address2."','".$name."','0','".$totaladdr."')";
-			mysql_query($address_sql) or die('插入地址错误');
+			mysql_query($address_sql) or die('Insert address error');
 			$addressList=mysql_insert_id();
 
 		}else{ //登录
@@ -163,9 +154,9 @@
 			$rs_uname=mysql_query($sql_uname);
 			$row_uname=mysql_fetch_assoc($rs_uname);
 			$USERNAME0=$row_uname['user_name'];
-			checkData($phone1,'手机号1',1);
+			checkData($phone1,'Phone number 1',1);
 		
-			checkData($address1,'详细地址',1);
+			checkData($address1,'Detailed address',1);
 			
 			$totaladdr1=$address1;
 			//对微博的处理
@@ -173,7 +164,7 @@
 			if ($addressList=="0"){
 				
 				$address_sql = "insert into qiyu_useraddr(useraddr_user,useraddr_phone,useraddr_address,useraddr_name,useraddr_type,useraddr_totaladdr) values (".$QIYU_ID_USER.",'".$phone1."','".$address1."','".$USERNAME0."','1','".$totaladdr1."')";
-				mysql_query($address_sql) or die('插入地址错误');
+				mysql_query($address_sql) or die('Insert address error');
 				$addressList=mysql_insert_id();
 			}else{
 				
@@ -195,7 +186,7 @@
 	}
 	//得到用户的送餐地址的地标
 	if (empty($addressList)){
-		alertInfo("您还没有选择送餐地址","index.php",0);
+		alertInfo("You have not provided address for delivery","index.php",0);
 		exit;
 	}
 	$sql="select * from qiyu_useraddr where useraddr_id=".$addressList;

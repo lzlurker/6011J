@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  userorder.ajax.php  修改默认地址 修改电话  添加新地址
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-6
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 	require_once("usercheck.php");
 	$act=sqlReplace(trim($_GET['act']));
 	date_default_timezone_set('PRC');
@@ -27,5 +18,5 @@
 	
 	}
 
-	
+	  
 ?>
