@@ -12,15 +12,15 @@
 	require_once("usercheck2.php");
 	$type=sqlReplace($_GET['type']);
 	if ($type=='1'){
-		$title='营业执照';
+		$title='business license';
 	}else if ($type=='2'){
-		$title='卫生许可证';
+		$title='Health permit';
 	}
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
  <head>
-  <meta name="Author" content="微普科技http://www.wiipu.com"/>
+  <meta name="Author" content="iEat"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../style.css" type="text/css"/>
   <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
@@ -62,7 +62,7 @@
 	}
   //-->
   </script>
-  <title> 修改<?php echo $title?> - 餐厅证照 - 微普外卖点餐系统 </title>
+  <title> Modify<?php echo $title?> Restaurant license </title>
  </head>
  <body>
  <div id="container">
@@ -79,14 +79,14 @@
 					?>
 				</div>
 				<div id="shopRight">
-					<h1><a href="shopcard.php">餐厅证照</a> &gt;&gt; 证照修改</h1>
+					<h1><a href="shopcard.php">Restaurant license</a> &gt;&gt; license update</h1>
 					<div id="introAdd">
 						<form method="post" action="shop_do.php?act=card<?php echo $type?>">
 							<p>
 								<label><?php echo $title?>：</label><span id="loading" style="display:none;"><img src="../images/loading.gif" width="16" height="16" alt="loading" /></span><span id="upinfo" style="color:blue;"><?php echo $SHOP_LICENSEPIC?></span> <input id="upfile" name="upfile" value="<?php echo $SHOP_LICENSEPIC?>" type="hidden"/><input id="fileToUpload" type="file" name="fileToUpload" style="height:24px;"/> <input type="button" onclick="return ajaxFileUpload();" value="上传"/>
 							</p>
 							<p style="margin-left:42px;margin-bottom:10px;color:red;">
-								提示：图片格式只能为（jpg、gif、png），建议图片大小400px*300px，图片大小不超过2M。</p>
+								image must be（jpg、gif、png），Recommend size 400px*300px，Max size 2M。</p>
 							<p><label>&nbsp;</label><input type="image" src="../images/button/submit_t.jpg" /></p>
 						</form>
 					</div>	
@@ -94,7 +94,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 	</div>
 	
 	<?php
