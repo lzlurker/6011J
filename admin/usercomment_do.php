@@ -19,14 +19,14 @@
 			$result=mysql_query($sql);
 			$row=mysql_fetch_assoc($result);
 			if(!$row){
-				alertInfo('您要删除的数据不存在','',1);
+				alertInfo('No user','',1);
 			}else{
 				
 				$sql2="delete from qiyu_comment where comment_id=".$id;
 				if(mysql_query($sql2)){
-					alertInfo('删除成功','',1);
+					alertInfo('Deleted','',1);
 				}else{
-					alertInfo('删除失败，原因SQL出现异常','',1);
+					alertInfo('Failed, check SQL','',1);
 				}
 			}
 			break;
@@ -37,13 +37,13 @@
 			$result=mysql_query($sql);
 			$row=mysql_fetch_assoc($result);
 			if(!$row){
-				alertInfo('您要审核的数据不存在','',1);
+				alertInfo('no data','',1);
 			}else{
 				$sql2="update qiyu_comment set comment_type='1' where comment_id=".$id;
 				if(mysql_query($sql2)){
-					alertInfo('审核成功','',1);
+					alertInfo('Success','',1);
 				}else{
-					alertInfo('审核失败，原因SQL出现异常','',1);
+					alertInfo('Failed, check SQL','',1);
 				}
 			}
 			break;
@@ -57,7 +57,7 @@
 				
 				mysql_query($sql);
 			}
-			alertInfo('保存成功!',"",1);
+			alertInfo('Saved!',"",1);
 		break;
 
 		

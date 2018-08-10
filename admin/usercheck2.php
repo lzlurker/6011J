@@ -34,7 +34,7 @@
 		$QIYU_ID_SHOP="";
 	}
 
-	if(empty($QIYU_ID_SHOP)) alertInfo("请先登录或注册","index.php",0);
+	if(empty($QIYU_ID_SHOP)) alertInfo("Please login or register","index.php",0);
 	$sqlStr="select * from qiyu_shop where shop_id=".$QIYU_ID_SHOP."";
 	$result = mysql_query($sqlStr);
 	$SHOP_INFOS=mysql_fetch_assoc($result);
