@@ -11,16 +11,16 @@
 	 */
 	require_once("usercheck2.php");
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
  <head>
-  <meta name="Author" content="微普科技http://www.wiipu.com"/>
+  <meta name="Author" content="iEat"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../style.css" type="text/css"/>
   <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
   <script src="../js/tree.js" type="text/javascript"></script>
   <script type="text/javascript" src="js/upload.js"></script>
   <script type="text/javascript" src="js/shoptop.js"></script>
-  <title>推荐菜管理 - 微普外卖点餐系统</title>
+  <title>Recommended dish management</title>
  </head>
  <body>
  <div id="container">
@@ -37,9 +37,9 @@
 					?>
 				</div>
 				<div id="shopRight">
-					<h1>推荐菜管理</h1>
-						<p style="margin-bottom:10px;color:red;margin-top:10px;">小提示：1、推荐菜是在首页餐厅推荐的位置显示。</p>
-						<p style="margin-bottom:10px;color:red;margin-top:10px;margin-left:48px;">2、最多推荐5个，前台显示最新推荐的的3个推荐菜。</p>
+					<h1>Recommended dish management</h1>
+						<p style="margin-bottom:10px;color:red;margin-top:10px;">Recommended dishes on the main page。</p>
+						<p style="margin-bottom:10px;color:red;margin-top:10px;margin-left:48px;">Maximum 5。</p>
 						<p style="margin-top:20px;"><a href='shoptopadd.php'><img src="../images/button/shoptopadd.jpg"></a></p>
 					
 					<?php
@@ -51,32 +51,32 @@
 							while ($rows){
 								switch ($i){
 									case "1":
-										$str="一";
+										$str="one";
 									break;
 									case "2":
-										$str="二";
+										$str="two";
 									break;
 									case "3":
-										$str="三";
+										$str="three";
 									break;
 									case "4":
-										$str="四";
+										$str="four";
 									break;
 									case "5":
-										$str="五";
+										$str="five";
 									break;
 								}
 								if ($rows['food_isshow']=='0')
-									$state="显示";
+									$state="display";
 								else
-									$state="隐藏";
+									$state="hidden";
 								if ($rows['food_check']=='0')
-									$state.=" 已审核";
+									$state.="Reviewed";
 								elseif ($rows['food_check']=='1')
-									$state.=" 未审核";
+									$state.="Unreviewed";
 					?>
 					<div class="topBox">
-						<div class="top_h1">推荐菜<?php echo $str?></div>
+						<div class="top_h1">Recommended dish<?php echo $str?></div>
 						<div class="top_main">
 							<div class="t_left">
 								<div class="ll_left">
@@ -84,12 +84,12 @@
 								</div>
 								<div class="ll_right">
 									<p><?php echo $rows['food_name']?></p>
-									<p>原价<?php echo $rows['food_oldprice']?>,现价<?php echo $rows['food_price']?>元</p>
+									<p>Before discount<?php echo $rows['food_oldprice']?>,After discount<?php echo $rows['food_price']?>Dollar</p>
 								</div>
 								<div class="clear"></div>
 							</div>
 							<div class="t_right">
-								<p><a href="javascript:if(confirm('您确定要删除吗？')){location.href='shop_do.php?act=topdel&id=<?php echo $rows['food_id']?>'}"><img src="../images/button/delete.jpg" alt="删除" /></a></p>
+								<p><a href="javascript:if(confirm('Confirm delete？')){location.href='shop_do.php?act=topdel&id=<?php echo $rows['food_id']?>'}"><img src="../images/button/delete.jpg" alt="deleted" /></a></p>
 								<p><a href="shoptopedit.php?id=<?php echo $rows['food_id']?>"><img src="../images/button/edit.gif" alt="" /></a></p>
 				<?php
 							if ($rows['food_isshow']=='0'){
@@ -106,13 +106,13 @@
 							</div>
 							<div class="clear"></div>
 						</div>
-					</div><!--topBox完-->
+					</div><!--topBox-->
 				<?php
 							$i+=1;
 							$rows=mysql_fetch_assoc($rs);
 						}
 					}else{
-						echo "<p>亲，您还没有推荐菜，现在就添加推荐菜。</p>";
+						echo "<p>Add some recommend dish? </p>";
 					}	
 				?>
 						
@@ -120,7 +120,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 	
 	</div>

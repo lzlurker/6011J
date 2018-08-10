@@ -12,9 +12,9 @@
 	require_once("usercheck2.php");
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
  <head>
-  <meta name="Author" content="微普科技http://www.wiipu.com"/>
+  <meta name="Author" content="iEat"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../style.css" type="text/css"/>
   <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
@@ -63,7 +63,7 @@
 	}
   //-->
   </script>
-  <title> 餐厅图片 - 微普外卖点餐系统 </title>
+  <title> Restaurant picture </title>
  </head>
  <body>
  <div id="container">
@@ -80,12 +80,12 @@
 					?>
 				</div>
 				<div id="shopRight">
-					<h1>餐厅图片</h1>
+					<h1>Restaurant picture</h1>
 					<div id="introAdd">
 						<form method="post" action="shoppic_do.php?act=add">
-							<p style="margin-left:42px;margin-bottom:10px;color:red;">小提示：餐厅图片是在首页左边的最上面显示。</p>
+							<p style="margin-left:42px;margin-bottom:10px;color:red;">Restaurant picture is on the left。</p>
 							<p>
-								<label>餐厅图片</label><span id="loading" style="display:none;"><img src="../images/loading.gif" width="16" height="16" alt="loading" /></span><span id="upinfo" style="color:blue;"></span><input id="upfile1" name="upfile1" value="<?php echo $SHOP_INFOS['shop_headpic1']?>" type="hidden"/><input id="fileToUpload" type="file" name="fileToUpload" style="height:24px;"/> <input type="button" onclick="return ajaxFileUpload();" value="上传"/> 图片尺寸275*215
+								<label>Restaurant picture</label><span id="loading" style="display:none;"><img src="../images/loading.gif" width="16" height="16" alt="loading" /></span><span id="upinfo" style="color:blue;"></span><input id="upfile1" name="upfile1" value="<?php echo $SHOP_INFOS['shop_headpic1']?>" type="hidden"/><input id="fileToUpload" type="file" name="fileToUpload" style="height:24px;"/> <input type="button" onclick="return ajaxFileUpload();" value="upload"/> size 275*215
 							</p>
 							<p><label>&nbsp;</label><input type="image" src="../images/button/submit_t.jpg" /></p>
 						</form>
@@ -93,22 +93,22 @@
 						<div class="moneyTable feeTable" style="width:668px;">
 							<table width="100%">
 								<tr>
-									<td class="center">图片</td>
-									<td class="center">操作</td>
+									<td class="center">image</td>
+									<td class="center">operation</td>
 								</tr>
 								<?php
 									$sql="select * from ".WIIDBPRE."_shoppics order by shoppics_order asc,shoppics_id desc";
 									$rs=mysql_query($sql);
 									$rscount=mysql_num_rows($rs);
 									if ($rscount==0){ 
-										echo "<tr><td colspan='2' class='center'>暂无信息</td></tr></table>";
+										echo "<tr><td colspan='2' class='center'>No info</td></tr></table>";
 									}else{
 										while($rows=mysql_fetch_assoc($rs)){
 									?>
 											<tr>
 												<td class="center" style='padding:20px 0;'><img src="../<?php echo $rows['shoppics_url']?>" width="275px;" height="215px;" /></td>
 												<td class="center">
-													<a href="javascript:if(confirm('您确定要删除吗？')){location.href='shoppic_do.php?act=del&id=<?php echo $rows['shoppics_id'];?>'}">删除</a> 
+													<a href="javascript:if(confirm('Confirm delete？')){location.href='shoppic_do.php?act=del&id=<?php echo $rows['shoppics_id'];?>'}">Delete</a> 
 												</td>
 											</tr>
 									<?php
@@ -125,7 +125,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 	
 	</div>
