@@ -44,20 +44,20 @@
 
 	function check(){
 		if ($("#name").val()==''){
-			alert('名称不能为空');
+			alert('Name is required');
 			$("#name").focus();
 			return false;
 		}
 		if ($("#price1").val()==''){
-			alert('原价不能为空');
+			alert('Original price cannot be empty');
 			return false;
 		}
 		if ($("#price2").val()==''){
-			alert('优惠价');
+			alert('Discount Price');
 			return false;
 		}
 		if ($("#upfile1").val()==''){
-			alert('图片不能为空');
+			alert('Image cannot be empty');
 			return false;
 		}
 		

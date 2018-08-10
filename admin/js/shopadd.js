@@ -2,7 +2,7 @@ $(function(){
 	   $("#circle").change(function(){
 		   var circle=$("#circle").val();
 		   if (circle==''){
-				alert('请选择商圈');
+				alert('Please select a business district');
 				return false;
 		   }
 			$.post("area.ajax.php", { 
@@ -10,7 +10,7 @@ $(function(){
 						'act':'spot'
 					}, function (data, textStatus){
 							if (data==""){
-								$("#spot").html("<option value=''>没有地标</option>")
+								$("#spot").html("<option value=''>No landmarks </option>")
 							}else
 								$("#spot").html(data);
 						
@@ -146,60 +146,60 @@ $(function(){
 
 	function check(){
 		if ($("#name").val()==''){
-			alert('商家名称不能为空');
+			alert('Business name cannot be empty');
 			$("#name").focus();
 			return false;
 		}
 		if ($("#address").val()==''){
-			alert('餐厅地址不能为空');
+			alert('Restaurant address cannot be empty');
 			$("#address").focus();
 			return false;
 		}
 		if ($("#tel").val()==''){
-			alert('餐厅电话不能为空');
+			alert('Restaurant phone cannot be empty');
 			$("#tel").focus();
 			return false;
 		}
 		if ($("#opentime").val()==''){
-			alert('营业开始时间不能为空');
+			alert('Business start time cannot be empty');
 			$("#opentime").focus();
 			return false;
 		}
 		if ($("#endtime").val()==''){
-			alert('营业结束时间不能为空');
+			alert('Business end time cannot be empty');
 			$("#endtime").focus();
 			return false;
 		}
 		if ($("#mainfood").val()==''){
-			alert('主营食物不能为空');
+			alert('Main food cannot be empty');
 			$("#mainfood").focus();
 			return false;
 		}
 		if ($("#upfile1").val()==''){
-			alert('请上传图片1');
+			alert('Please upload an image1');
 			return false;
 		}
 		if ($("#upfile2").val()==''){
-			alert('请上传图片2');
+			alert('Please upload an image2');
 			return false;
 		}
 		if ($("#circle").val()==''){
-			alert('请选择商圈');
+			alert('Please select a business district');
 			return false;
 		}
 		if ($("#spot").val()==''){
-			alert('请选择地标');
+			alert('Please select a landmark');
 			return false;
 		}
 		if ($("#intro").val()!=''){
 			if ($("#intro").val()==''){
-				alert('简介不能为空');
+				alert('Introduction cannot be empty');
 				return false;
 			}
 		}
 		if ($("#intro").val()!=''){
 			if ($("#intro").val().length>200){
-				alert('简介不能超过200');
+				alert('Introduction cannot exceed 200');
 				return false;
 			}
 		}
@@ -207,7 +207,7 @@ $(function(){
 
 	function check_about(){
 		if ($("#title").val()==''){
-			alert('标题不能为空');
+			alert('The title can not be blank');
 			return false;
 		}
 	}

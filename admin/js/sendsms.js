@@ -35,7 +35,7 @@
 		}
 		if (!http_request)
 		{//异常，创建对象失败
-			window.alert("不能创建XMLHttpRequest对象实例");
+			window.alert("Cannot create an XMLHttpRequest object instance");
 			return false;
 		}
 	}
@@ -57,12 +57,12 @@
 					//alert(txt);
 					if (txt=="S"){
 						k++;
-						document.getElementById("redcount").innerHTML='<img src="images/loading.gif" /> 正在发送第 '+x+' 条短信';
+						document.getElementById("redcount").innerHTML='<img src="images/loading.gif" /> Sending the '+x+' th SMS';
 						document.getElementById("realspan").innerHTML="<font color='red'>"+x+"</font>/";
 						if (x>=c){//如果第x条
-							document.getElementById("redcount").innerHTML="短信发送成功";
+							document.getElementById("redcount").innerHTML="SMS sent successfully";
 						}else if (x>=t){//发送的条数大于等于所剩余的短信
-							document.getElementById("redcount").innerHTML="短信发送成功,剩余的短信需要购买才可以发送";
+							document.getElementById("redcount").innerHTML="The SMS is sent successfully, and the remaining SMS needs to be purchased before it can be sent.";
 						}
 						if (x<c && x<t)
 						{
@@ -74,9 +74,9 @@
 						$("#error_mm").show();
 						document.getElementById("error_email").innerHTML=document.getElementById("error_email").innerHTML+"<font color='red'>"+txt+"</font>";
 						if (x>=c){
-							document.getElementById("redcount").innerHTML="短信发送成功";
+							document.getElementById("redcount").innerHTML="SMS sent successfully";
 						}else if (x>=t){
-							document.getElementById("redcount").innerHTML="短信发送成功,剩余的短信需要购买才可以发送";
+							document.getElementById("redcount").innerHTML="The SMS is sent successfully, and the remaining SMS needs to be purchased before it can be sent.";
 						}
 						if (x<c && x<t)
 						{
@@ -86,7 +86,7 @@
 					}
 				
 				}else{
-					document.getElementById("redcount").innerHTML="<font color='red'>意外错误。</font>";
+					document.getElementById("redcount").innerHTML="<font color='red'>Unexpected error。</font>";
 				}
 				
 			}
