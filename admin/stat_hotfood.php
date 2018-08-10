@@ -14,15 +14,15 @@
 	$tel=empty($_GET['tel'])?'':sqlReplace(trim($_GET['tel']));
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
  <head>
-  <meta name="Author" content="微普科技http://www.wiipu.com"/>
+  <meta name="Author" content="iEat"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../style.css" type="text/css"/>
   <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
   <script src="../js/tree.js" type="text/javascript"></script>
   <script type="text/javascript" src="js/upload.js"></script>
-  <title> 热卖菜分析 - 微普外卖点餐系统 </title>
+  <title> Popularity analysis</title>
  </head>
  <body>
  <div id="container">
@@ -41,18 +41,18 @@
 				<div id="shopRight">
 					<h1>
 					<?php
-						echo "热卖菜分析";
+						echo "Popularity analysis";
 
 					?>
 					</h1>
 					<div id="introAdd">
 						<div class="moneyTable feeTable" style="width:668px;">
-							<table width="100%"><p style="color:red;margin-bottom:10px;">此处显示前50道菜</p>
+							<table width="100%"><p style="color:red;margin-bottom:10px;">Top 50s</p>
 								<tr>
-									<td class="center" width='10%' height="30px;">热卖菜</td>
-									<td class="center" width='10%'>菜单价</td>
-									<td class="center" width='5%'>卖出份数</td>									
-									<td class="center" width='5%'>总价格</td>
+									<td class="center" width='10%' height="30px;">Popular</td>
+									<td class="center" width='10%'>Price</td>
+									<td class="center" width='5%'>Amount</td>									
+									<td class="center" width='5%'>Total price</td>
 								</tr>
 								<?php
 									$where='';
@@ -61,7 +61,7 @@
 									
 									
 									$sql="select food_id,food_name,food_price, food_count,food_price*food_count  as s from qiyu_food  order by s";
-									$rs = mysql_query($sql) or die ("查询失败，请检查SQL语句。");
+									$rs = mysql_query($sql) or die ("Failed, check SQL。");
 									$rscount=mysql_num_rows($rs);
 									if ($rscount%$pagesize==0)
 										$pagecount=$rscount/$pagesize;
@@ -83,7 +83,7 @@
 									
 									$rs=mysql_query($sql);
 									if ($rscount==0){ 
-										echo "<tr><td colspan='8' class='center'>暂无信息</td></tr>";
+										echo "<tr><td colspan='8' class='center'>No info</td></tr>";
 									}else{
 										while($rows=mysql_fetch_assoc($rs)){
 											
@@ -111,7 +111,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 		
 	

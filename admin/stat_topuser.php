@@ -13,15 +13,15 @@
 	$tel=empty($_GET['tel'])?'':sqlReplace(trim($_GET['tel']));
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
  <head>
-  <meta name="Author" content="微普科技http://www.wiipu.com"/>
+  <meta name="Author" content="iEat"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../style.css" type="text/css"/>
   <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
   <script src="../js/tree.js" type="text/javascript"></script>
   <script type="text/javascript" src="js/upload.js"></script>
-  <title> 消费排行分析 - 微普外卖点餐系统 </title>
+  <title> Consumption ranking analysis </title>
  </head>
  <body>
  <div id="container">
@@ -40,20 +40,20 @@
 				<div id="shopRight">
 					<h1>
 					<?php
-						echo "消费排行分析";
+						echo "Consumption ranking analysis";
 
 					?>
 					</h1>
 					<div id="introAdd">
 						<div class="moneyTable feeTable" style="width:668px;">
 						
-							<table width="100%"><p style="color:red;margin-bottom:10px;">此处显示前50名用户</p>
+							<table width="100%"><p style="color:red;margin-bottom:10px;">Top 50 users</p>
 								<tr>
-									<td class="center" width='10%' height="30px;">用户姓名</td>
-									<td class="center" width='10%'>消费总金额</td>
-									<td class="center" width='5%'>总积分</td>									
-									<td class="center" width='5%'>经验值</td>									
-									<td class="center" width='5%'>订单总数</td>
+									<td class="center" width='10%' height="30px;">Name</td>
+									<td class="center" width='10%'>Consumption amount</td>
+									<td class="center" width='5%'>Total points</td>									
+									<td class="center" width='5%'>Loyalty</td>									
+									<td class="center" width='5%'>Total order</td>
 								</tr>
 								<?php
 									$where='';
@@ -64,7 +64,7 @@
 
 									$sql="select user_id,user_name, user_score, user_experience,count(order_id2) as d from qiyu_user, qiyu_order where user_id = order_user and order_status =4 group by user_name order by user_score desc";
 
-									$rs = mysql_query($sql) or die ("查询失败，请检查SQL语句。");
+									$rs = mysql_query($sql) or die ("Failed, check SQL。");
 									$rscount=mysql_num_rows($rs);
 									if ($rscount%$pagesize==0)
 										$pagecount=$rscount/$pagesize;
@@ -86,7 +86,7 @@
 									
 									$rs=mysql_query($sql);
 									if ($rscount==0){ 
-										echo "<tr><td colspan='8' class='center'>暂无信息</td></tr>";
+										echo "<tr><td colspan='8' class='center'>No info</td></tr>";
 									}else{
 										while($rows=mysql_fetch_assoc($rs)){
 											
@@ -116,7 +116,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 		
 	

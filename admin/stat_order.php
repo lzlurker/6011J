@@ -13,15 +13,15 @@
 	$tel=empty($_GET['tel'])?'':sqlReplace(trim($_GET['tel']));
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
  <head>
-  <meta name="Author" content="微普科技http://www.wiipu.com"/>
+  <meta name="Author" content="iEat"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../style.css" type="text/css"/>
   <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
   <script src="../js/tree.js" type="text/javascript"></script>
   <script type="text/javascript" src="js/upload.js"></script>
-  <title> 订单分析 - 微普外卖点餐系统 </title>
+  <title> Order analysis</title>
  </head>
  <body>
  <div id="container">
@@ -40,7 +40,7 @@
 				<div id="shopRight">
 					<h1>
 					<?php
-						echo "订单分析";
+						echo "Order analysis";
 
 					?>
 					</h1>
@@ -51,10 +51,10 @@
 							
 							<table width="100%">
 								<tr>
-									<td class="center" width='10%' height="30px;">订单情况/日期</td>
-									<td class="center" width='10%' height="30px;">今天</td>
-									<td class="center" width='10%'>本周</td>
-									<td class="center" width='5%'>本月</td>
+									<td class="center" width='10%' height="30px;">date</td>
+									<td class="center" width='10%' height="30px;">today</td>
+									<td class="center" width='10%'>this week</td>
+									<td class="center" width='5%'>this month</td>
 								</tr>
 								 <?php 
 								    //当天的订单情况(包含预约订单数)
@@ -120,50 +120,50 @@
 									  $rms=mysql_fetch_assoc($rs3);
 								 ?>
 								<tr>
-								    <td class="center" style="height:30px;">商家取消的订单数</td>
+								    <td class="center" style="height:30px;">Number of orders cancelled by owner</td>
 									<td class="center" style="height:30px;"><?php echo getRd(2);?></td>
 									<td class="center" style="height:30px;"><?php echo getRw(2);?></td>
 									<td class="center" style="height:30px;"><?php echo getRm(2);?></td>
 							    </tr>
 								<tr>
-								    <td class="center" style="height:30px;">用户取消的订单数</td>
+								    <td class="center" style="height:30px;">Number of orders cancelled by user</td>
 									<td class="center" style="height:30px;"><?php echo getRd(3);?></td>
 									<td class="center" style="height:30px;"><?php echo getRw(3);?></td>
 									<td class="center" style="height:30px;"><?php echo getRm(3);?></td>
 							    </tr>
 							    <tr>
-									<td class="center" style="height:30px;">确认的订单数</td>
+									<td class="center" style="height:30px;">Confirmed orders</td>
 									<td class="center" style="height:30px;"><?php echo getRd(1);?></td>
 									<td class="center" style="height:30px;"><?php echo getRw(1);?></td>
 									<td class="center" style="height:30px;"><?php echo getRm(1);?></td>
 								</tr>
 								<tr>
-									<td class="center" style="height:30px;">完成的订单数</td>
+									<td class="center" style="height:30px;">Finished orders</td>
 									<td class="center" style="height:30px;"><?php echo getRd(4);?></td>
 									<td class="center" style="height:30px;"><?php echo getRw(4);?></td>
 									<td class="center" style="height:30px;"><?php echo getRm(4);?></td>
 								</tr>
 								<tr>
-									<td class="center" style="height:30px;">预约订单数</td>
+									<td class="center" style="height:30px;">Booked orders</td>
 									<td class="center" style="height:30px;"><?php echo getRdsub(0);?></td>
 									<td class="center" style="height:30px;"><?php echo getRwsub(0);?></td>
 									<td class="center" style="height:30px;"><?php echo getRmsub(0);?></td>
 								</tr>
 								<tr>
-									<td class="center" style="height:30px;">新订单数</td>
+									<td class="center" style="height:30px;">New orders</td>
 									<td class="center" style="height:30px;"><?php echo getRd(0)-getRdsub(0);?></td>
 									<td class="center" style="height:30px;"><?php echo getRw(0)-getRwsub(0);?></td>
 									<td class="center" style="height:30px;"><?php echo getRm(0)-getRmsub(0);?></td>
 								</tr>
 								
 								<tr>
-									<td class="center" style="height:30px;">订单总数</td>
+									<td class="center" style="height:30px;">Total orders</td>
 									<td class="center" style="height:30px;"><?php echo getRd(0)+getRd(1)+getRd(2)+getRd(3)+getRd(4);?></td>
 									<td class="center" style="height:30px;"><?php echo getRw(0)+getRw(1)+getRw(2)+getRw(3)+getRw(4);?></td>
 									<td class="center" style="height:30px;"><?php echo getRm(0)+getRm(1)+getRm(2)+getRm(3)+getRm(4);?></td>
 								</tr>
 								<tr>
-									<td class="center" style="height:30px;">订单总额</td>
+									<td class="center" style="height:30px;">Total amounts</td>
 									<td class="center" style="height:30px;"> <?php echo $rds['s'];?></td>
 									<td class="center" style="height:30px;"> <?php echo $rws['s'];?></td>
 									<td class="center" style="height:30px;"> <?php echo $rms['s'];?></td>
@@ -183,7 +183,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 		
 	
