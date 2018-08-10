@@ -22,15 +22,15 @@ var skypeID ="udfrance"
 
 //Contact from messages
 var formBorderVerify = '1px solid #d95880'  //width, type, color can be changed
-var formError="邮件发送超时. 请5分钟后重试！"
-var formWarning ="请填写完整后重试!"
-var formSuccess ="感谢您的留言，我们将在24小时内回复您！"
-var formSuccessTitle ="留言发送成功"
-var formReload ="请在此留言我们将在24小时之内回复您."
-var formReloadTitle ="您的留言内容..."
+var formError="Mail sent timeout. Please try again in 5 minutes！"
+var formWarning ="Please complete and try again!"
+var formSuccess ="Thank you for your message, we will reply you within 24 hours！"
+var formSuccessTitle ="Message sent successfully"
+var formReload ="Please leave a message here and we will reply you within 24 hours.."
+var formReloadTitle ="Your message content..."
 
 //Notify field messages
-var notifyError ="Sorry, 发现一个错误, 请重新尝试！"
+var notifyError ="Sorry, Found an error, please try again！"
 var notifyWarning ="Invalid e-mail, try again!"
 var notifySuccess ="E-mail added, you'll be notified when we launch!"
 
