@@ -12,9 +12,9 @@
 	require_once("usercheck2.php");
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
  <head>
-  <meta name="Author" content="微普科技http://www.wiipu.com"/>
+  <meta name="Author" content="iEat"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../style.css" type="text/css"/>
   <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
@@ -30,7 +30,7 @@
 			   data: "",
 			   success: function(msg){
 					if(msg){
-						$("#neworder2").html("有催餐("+msg+")");
+						$("#neworder2").html("("+msg+")");
 					}else{
 						$("#neworder2").html("");
 					}
@@ -39,7 +39,7 @@
 		}
 	
 	</script>
-  <title> 催餐订单 - 微普外卖点餐系统 </title>
+  <title> Quick order</title>
  </head>
  <body>
  <div id="container">
@@ -57,7 +57,7 @@
 				</div>
 				<div id="shopRight">
 					<h1>
-						催餐订单
+						Quick order
 					</h1>
 					
 					<div id="introAdd">
@@ -65,14 +65,14 @@
 						<div class="moneyTable feeTable" style="width:668px;">
 							<table width="100%">
 								<tr>
-									<td class="center" width='10%'>订单号</td>
-									<td class="center" width='10%'>用户手机</td>
-									<td class="center" width='10%'>下单时间</td>
-									<td class="center" width='10%'>总金额</td>
-									<td class="center" width='10%'>订单状态</td>
-									<td class="center" width='10%'>距离现在时间</td>
-									<td class="center" width='10%'>催餐状态</td>
-									<td class="center">操作</td>
+									<td class="center" width='10%'>Order number</td>
+									<td class="center" width='10%'>User phone number</td>
+									<td class="center" width='10%'>Order time</td>
+									<td class="center" width='10%'>Total amount</td>
+									<td class="center" width='10%'>Order state</td>
+									<td class="center" width='10%'>Time from now</td>
+									<td class="center" width='10%'>State</td>
+									<td class="center">Operation</td>
 								</tr>
 								<?php
 									$where='';
@@ -82,7 +82,7 @@
 									
 									$sql="select * from qiyu_order,qiyu_orderchange where orderchange_order=order_id2 and orderchange_type='1' and order_status='5' and roderchange_typechange is NULL ";
 									
-									$rs = mysql_query($sql) or die ("查询失败，请检查SQL语句。");
+									$rs = mysql_query($sql) or die ("Failed, check SQL。");
 									$rscount=mysql_num_rows($rs);
 									if ($rscount%$pagesize==0)
 										$pagecount=$rscount/$pagesize;
@@ -102,7 +102,7 @@
 									
 									$rs=mysql_query($sql);
 									if ($rscount=='0'){ 
-										echo "<tr><td colspan='9' class='center'>暂无信息</td></tr>";
+										echo "<tr><td colspan='9' class='center'>No info</td></tr>";
 									}else{
 									$i=0;
 									date_default_timezone_set('PRC');
@@ -110,9 +110,9 @@
 										$i++;
 										$onLine=$rows['order_ispay'];
 										if ($rows['order_ispay']=='1')
-											$isPay="等待付款";
+											$isPay="Waiting for payment";
 										else if ($rows['order_ispay']=='2')
-											$isPay="在线支付成功";
+											$isPay="Payment success";
 										else
 											$isPay='';
 										//查询商家名称
@@ -126,9 +126,9 @@
 											$shop_name=$row_o['shop_name'];
 											$shop_type=$row_o['shop_type'];
 											if($shop_type=='0')
-												$shop_type='签约';
+												$shop_type='Sign';
 											if($shop_type=='1')
-												$shop_type='未签约';
+												$shop_type='Not Sign';
 										}else{
 											$shop_name='---';
 											$shop_type='---';
@@ -150,11 +150,11 @@
 											$userphone=$user_phone;
 										$hurry = $rows['orderchange_hurry'];
 										if($hurry=='0'){
-											$hurry='30分钟催餐';
+											$hurry='30 mins';
 										}else if($hurry=='1'){
-											$hurry='45分钟催餐';
+											$hurry='45 mins';
 										}else if($hurry=='2'){
-											$hurry='60分钟催餐';
+											$hurry='60 mins';
 										}else{
 											$hurry='---';
 										}
@@ -162,7 +162,7 @@
 										$orderpricechange=$rows['order_pricechange'];//订单价格变更
 										$ordertype=$rows['order_type'];//订单类型
 										if($ordertype=='1'){
-											$ordertype='(预约)';
+											$ordertype='(Book)';
 										}else{
 											$ordertype='';
 										}
@@ -170,7 +170,7 @@
 										if(!empty($orderpricechange) && $orderpricechange!='0.00'){
 												//$totalprice=$orderpricechange;
 										}else{
-												$orderpricechange='无';
+												$orderpricechange='NA';
 										}
 									?>
 								<tr>
@@ -179,16 +179,16 @@
 								<td class="center"><?php echo $rows['order_addtime']?></td>
 								<td class="center"><?php echo $rows['order_totalprice']?></td>
 								<td class="center"><?php echo $orderState[$rows['order_status']]?></td>
-								<td class="center"><?php echo $time?>分</td>
+								<td class="center"><?php echo $time?></td>
 								<td class="center"><?php echo $hurry?></td>
 								<td class="center">
-									<?php if ($state=='0' || $state=='1'){?><a href="javascript:if(confirm('您确定要取消该订单吗？')){location.href='userorder_subscribe_do.php?id=<?php echo $rows['order_id']?>&act=qx'}">取消订单</a><?php }?> 
-									<?php if ($state=='0'){?><a href="userorder_subscribe_do.php?id=<?php echo $rows['order_id']?>&act=sure">订单确认</a><?php }?> 
-									<?php if ($state=='1'){?><a href="userorder_subscribe_do.php?id=<?php echo $rows['order_id']?>&act=finish">订单完成</a><?php }?>
+									<?php if ($state=='0' || $state=='1'){?><a href="javascript:if(confirm('Confirm cancel？')){location.href='userorder_subscribe_do.php?id=<?php echo $rows['order_id']?>&act=qx'}">Cancel order</a><?php }?> 
+									<?php if ($state=='0'){?><a href="userorder_subscribe_do.php?id=<?php echo $rows['order_id']?>&act=sure">Order confirm</a><?php }?> 
+									<?php if ($state=='1'){?><a href="userorder_subscribe_do.php?id=<?php echo $rows['order_id']?>&act=finish">Order finish</a><?php }?>
 									<?php
 										if ($state=='0' || $state=='4' || $state=='2' || $state=='3'){	
 									?>
-									<a href="javascript:if(confirm('您确定要删除吗？')){location.href='userorder_subscribe_do.php?id=<?php echo $rows['order_id']?>&act=del'}">删除</a> 
+									<a href="javascript:if(confirm('Confirm delete？')){location.href='userorder_subscribe_do.php?id=<?php echo $rows['order_id']?>&act=del'}">Delete</a> 
 									<?php
 										}	
 									?>
@@ -214,7 +214,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 	
 	</div>

@@ -37,7 +37,7 @@
 		$orderContent="<span class='greenbg'><span><span>添加备注</span></span></span>".$intro;
 		addOrderType($order,HTMLEncode($orderContent));
 		//addOrderType($order,$intro);
-		alertInfo('添加备注成功','',1);
+		alertInfo('Add successful','',1);
 	}
 
 	
@@ -46,7 +46,7 @@
 		$rs=mysql_query($sql);
 		$row=mysql_fetch_assoc($rs);
 		if($row['order_id']>$id)
-			alertInfo("已经是最后一个新订单","",1);
+			alertInfo("Last new order","",1);
 		$sql="select * from qiyu_order where order_id=".$id." and order_status=0";
 		$result=mysql_query($sql);
 		$row=mysql_fetch_assoc($result);
@@ -57,11 +57,11 @@
 			$sql2="update qiyu_order set order_status='1' where order_id=".$id." and order_status=0";
 			if(mysql_query($sql2)){
 				//添加订单记录
-				$orderContent="<span class='greenbg'><span><span>我们正在下单</span></span></span>";
-				$orderContent.="亲，大厨正在努力烹制美味的食物，请耐心等待！";
+				$orderContent="<span class='greenbg'><span><span>Ordering</span></span></span>";
+				$orderContent.="Cooking！";
 				addOrderType($order,HTMLEncode($orderContent));
 			}else{
-				alertInfo('确定失败，原因SQL出现异常','order.php?key=0',0);
+				alertInfo('Failed, check SQL','order.php?key=0',0);
 			}
 		}
 	}
@@ -71,18 +71,18 @@
 		$row=mysql_fetch_assoc($result);
 		if(!$row){
 			$sta=getOrderKey($id);
-			alertInfo('非法操作',"",1);
+			alertInfo('Illegal',"",1);
 		}else{
 			$order=$row['order_id2'];
 			$sql2="update qiyu_order set order_status='1'  where order_id=".$id." and order_status=0";
 			if(mysql_query($sql2)){
 				//添加订单记录
 				$orderContent="<span class='greenbg'><span><span>我们正在下单</span></span></span>";
-				$orderContent.="亲，大厨正在努力烹制美味的食物，请耐心等待！";
+				$orderContent.="Cooking！";
 				addOrderType($order,HTMLEncode($orderContent));
-				alertInfo('确定成功！','',1);
+				alertInfo('Confirm！','',1);
 			}else{
-				alertInfo('确定失败，原因SQL出现异常','userorder.php?key=0',0);
+				alertInfo('Failed, check SQL','userorder.php?key=0',0);
 			}
 		}
 	}
@@ -94,7 +94,7 @@
 			$row=mysql_fetch_assoc($result);
 			if(!$row){
 				$sta=getOrderKey($id);
-				alertInfo('非法操作',"useruserorder.php?key=$sta",0);
+				alertInfo('Illegal operation',"useruserorder.php?key=$sta",0);
 			}else{
 				$order=$row['order_id2'];
 				
@@ -107,15 +107,15 @@
 				if(mysql_query($sql2)){
 					//添加订单记录
 					$orderContent="<span class='greenbg redbg'><span><span>取消订单</span></span></span>";
-					$orderContent.="您的订单已取消，给您带来的不便请谅解，我们会更好的为您服务。";
+					$orderContent.="Order canceled。";
 					addOrderType($order,HTMLEncode($orderContent));
-					alertInfo('取消成功！','',1);
+					alertInfo('Canceled！','',1);
 				}else{
 					$sta=getOrderKey($id);
 					if($sta=='1'){
-						alertInfo('取消失败，原因SQL出现异常',"userorder.php?key=1",0);
+						alertInfo('Failed, check SQL',"userorder.php?key=1",0);
 					}else{
-						alertInfo('取消失败，原因SQL出现异常',"userorder.php?key=0",0);
+						alertInfo('Failed, check SQL',"userorder.php?key=0",0);
 					}
 				}
 			}
@@ -128,7 +128,7 @@
 		$row=mysql_fetch_assoc($result);
 		if(!$row){
 			$sta=getOrderKey($id);
-			alertInfo('非法操作',"userorder.php?key=$sta",0);
+			alertInfo('Illegal operation',"userorder.php?key=$sta",0);
 		}else{
 			$order=$row['order_id2'];
 			$sql2="update qiyu_order set order_status='4'  where order_id=".$id." and order_status=1";
@@ -136,11 +136,11 @@
 			if(mysql_query($sql2)){
 					//添加订单记录
 				$orderContent="<span class='greenbg'><span><span>订单已完成</span></span></span>";
-				$orderContent.="亲，享受美味的时候，别忘了继续光顾".$SHOP_NAME."哦，我们将更好的为您服务。";
+				$orderContent.="Enjoy".$SHOP_NAME."Thanks。";
 				addOrderType($order,HTMLEncode($orderContent));
-				alertInfo('订单完成！','',1);
+				alertInfo('Done！','',1);
 			}else{
-				alertInfo('设置完成失败，原因SQL出现异常','userorder.php?key=1',0);
+				alertInfo('Failed, check SQL','userorder.php?key=1',0);
 			}	
 		}
 	}
@@ -168,9 +168,9 @@
 		$type=$rows['order_type'];//订单地址
 		$subtime=$rows['order_time1'].'&nbsp;'.$rows['order_time2'];
 		if ($rows['order_ispay']=='1')
-			$isPay="等待付款";
+			$isPay="Waiting payment";
 		else if ($rows['order_ispay']=='2')
-			$isPay="在线支付成功";
+			$isPay="Payment successful";
 		else
 			$isPay='';
 	}
@@ -184,16 +184,16 @@
 		$last=true;
 	}
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
  <head>
-  <meta name="Author" content="微普科技http://www.wiipu.com"/>
+  <meta name="Author" content="iEat"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../style.css" type="text/css"/>
   <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
   <script src="../js/tree.js" type="text/javascript"></script>
   <script type="text/javascript" src="js/upload.js"></script>
   <script type="text/javascript" src="js/shopadd.js"></script>
-  <title> 订单详情 - 微普外卖点餐系统 </title>
+  <title> Order details</title>
  </head>
  <body>
  <div id="container">
@@ -212,37 +212,37 @@
 				<div id="shopRight">
 					
 					
-					<h1>订单详情</h1>	
+					<h1>Order details</h1>	
 					<div id="introAdd">
-						<p>订单号：<?php echo $order." ".$isPay?></p>
-						<p>订单时间：<?php echo $orderTime?></p>
-						<p>订单状态：<?php echo $state?></p>
+						<p>Order number：<?php echo $order." ".$isPay?></p>
+						<p>Order time：<?php echo $orderTime?></p>
+						<p>Order state：<?php echo $state?></p>
 						<?php
 							if ($type=='1'){
 								echo "<p>预约时间：".$subtime."</p>";
 							}
 						?>
-						<p>餐饮要求：<?php echo $text?></p>
-						<p>订单备注：<?php echo $ordeText?></p>
-						<p>用户地址：<?php echo $address?> </p>
-						<p>用户姓名：<?php echo $userName?></p>
-						<p>用户电话：<?php echo $userPhone?></p>
+						<p>Requirements：<?php echo $text?></p>
+						<p>Notes：<?php echo $ordeText?></p>
+						<p>User address：<?php echo $address?> </p>
+						<p>User name：<?php echo $userName?></p>
+						<p>User phone number：<?php echo $userPhone?></p>
 						<p>
 						<?php
 						
 								
 							if($order_state=='0'){
-								echo "<input type=\"submit\" value=\"确认订单\" onClick=\"location.href='userordercontent.php?key=".$key."&id=".$id."&act=qr';return false;\" />&nbsp;";
+								echo "<input type=\"submit\" value=\"Confirm order\" onClick=\"location.href='userordercontent.php?key=".$key."&id=".$id."&act=qr';return false;\" />&nbsp;";
 							}
 							if($key=='0'){
-								echo "<input type=\"submit\" onClick=\"location.href='userordercontent.php?key=".$key."&id=".$nextID."&act=next';return false;\"   value=\"处理下一个订单\"/>&nbsp;";
+								echo "<input type=\"submit\" onClick=\"location.href='userordercontent.php?key=".$key."&id=".$nextID."&act=next';return false;\"   value=\"Next order\"/>&nbsp;";
 							}
 							if($order_state=='0'||$order_state=='1'){
-								echo "<input type=\"submit\" value=\"取消订单\" onClick=\"location.href='userordercontent.php?key=".$key."&id=".$id."&act=qx';return false;\" />&nbsp;";
+								echo "<input type=\"submit\" value=\"Cancel order\" onClick=\"location.href='userordercontent.php?key=".$key."&id=".$id."&act=qx';return false;\" />&nbsp;";
 							}
 							
 							if($order_state=='1'){
-								echo "<input type=\"submit\" value=\"完成订单\" onClick=\"location.href='userordercontent.php?key=".$key."&id=".$id."&act=wc';return false;\" />&nbsp;";
+								echo "<input type=\"submit\" value=\"Done\" onClick=\"location.href='userordercontent.php?key=".$key."&id=".$id."&act=wc';return false;\" />&nbsp;";
 							}
 							
 							
@@ -255,11 +255,11 @@
 					<div class="moneyTable feeTable" style="width:668px;">
 							<table width="100%">
 								<tr>
-									<td class="center">名称</td>
-									<td class="center">价格</td>
-									<td class="center">数量</td>
-									<td class="center">备注</td>
-									<td class="center">操作</td>
+									<td class="center">Name</td>
+									<td class="center">Price</td>
+									<td class="center">Amount</td>
+									<td class="center">Note</td>
+									<td class="center">Operation</td>
 								</tr>
 								<?php
 					$sql="select * from qiyu_cart inner join qiyu_food on food_id=cart_food and cart_order='".$order."' and cart_status='1'";
@@ -289,28 +289,28 @@
 						$score=0;
 				?>
 						<tr>
-							<td colspan='5' style="text-align:right;padding-right:100px;height:30px; font-size:15px; color:red">总价格：<?php echo $totalAll?>元</td>
+							<td colspan='5' style="text-align:right;padding-right:100px;height:30px; font-size:15px; color:red">Total price：<?php echo $totalAll?>Dollar</td>
 						</tr>
 						<tr>	
-							<td colspan='5' style="text-align:right;padding-right:100px;height:30px; font-size:15px; color:red">菜格：<?php echo $total?>元</td>
+							<td colspan='5' style="text-align:right;padding-right:100px;height:30px; font-size:15px; color:red">Dish price：<?php echo $total?>Dollar</td>
 						</tr>
 						<tr>	
-							<td colspan='5' style="text-align:right;padding-right:100px;height:30px; font-size:15px; color:red">送餐费：<?php echo $deliverfee_r?>元</td>
+							<td colspan='5' style="text-align:right;padding-right:100px;height:30px; font-size:15px; color:red">Delivery fee：<?php echo $deliverfee_r?>Dollar</td>
 						</tr>
 						<?php if ($score>0){?>
 						<tr>	
-							<td colspan='5' style="text-align:right;padding-right:100px;height:30px; font-size:15px; color:red">消费饭点：<?php echo $score?>个</td>
+							<td colspan='5' style="text-align:right;padding-right:100px;height:30px; font-size:15px; color:red">Consume：<?php echo $score?></td>
 						</tr>
 						<?php
 							}
 						?>
 						<tr>	
-							<td colspan='5' style="text-align:right;padding-right:100px;height:30px; font-size:15px; color:red">还需支付：<?php echo $totalAll-$score?>元</td>
+							<td colspan='5' style="text-align:right;padding-right:100px;height:30px; font-size:15px; color:red">To pay：<?php echo $totalAll-$score?>Dollar</td>
 						</tr>
 							</table>
 
 							<p style="margin-top:10px;">
-								<a href="javascript:void();" onclick="$('#editBox').css('display','block');"><img src="../images/button/update_order.jpg" alt="修改订单" /></a> <img src="../images/button/return.jpg" alt="返回" style='cursor:pointer' onClick="javascript:history.back();"/>
+								<a href="javascript:void();" onclick="$('#editBox').css('display','block');"><img src="../images/button/update_order.jpg" alt="Modify order" /></a> <img src="../images/button/return.jpg" alt="return" style='cursor:pointer' onClick="javascript:history.back();"/>
 							</p>
 						
 						</div>
@@ -320,7 +320,7 @@
 							<form method="post" action="userordercontent.php?id=<?php echo $id?>&act=add&key=<?php echo $key?>&changetype=<?php echo changetype?>&hurry=<?php echo $hurry?>">
 							
 						
-							<p style='margin-top:17px;margin-left:10px;'>添加备注</p>
+							<p style='margin-top:17px;margin-left:10px;'>Add notes</p>
 							<input type="hidden" id="info" name="info" value="<?php echo $ordeText;?>" />
 							<p style='margin-top:10px;margin-left:10px;'><textarea name="content" style="width:350px;height:100px;"></textarea></p>
 							<p  style='margin-top:10px;margin-left:10px;'><input type="image" src="../images/button/submit_t.jpg" /></p>
@@ -332,7 +332,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 	
 	</div>

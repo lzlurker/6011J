@@ -12,16 +12,16 @@
 	require_once("usercheck2.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
 <head>
-<meta name="Author" content="微普科技http://www.wiipu.com"/>
+<meta name="Author" content="iEat"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../style.css" type="text/css"/>
 <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
 <script src="../js/tree.js" type="text/javascript"></script>
 <script src="../js/usercartdel.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/upload.js"></script>
-<title> 网站设置 - 微普外卖点餐系统 </title>
+<title> Website settings </title>
 
 </head>
 <body>
@@ -39,18 +39,18 @@
 					?>
 				</div>
 				<div id="shopRight">
-					<h1>打印设置</h1>
+					<h1>Print Settings</h1>
 					<div id="introAdd">
 						<form method="post" action="site_do.php?act=print">
-							<p style="margin-bottom:10px;margin-top:10px;margin-left:30px;lien-height:20px;color:red">用户在网上下单成功，订单在店里实时打印出来。如果你想使用小票打印功能，请到<a href="http://www.diancan365.com/expansion_print.php" target='_blank' style='text-decoration:underline;color:red;'>系统官网</a>了解详情。
+							<p style="margin-bottom:10px;margin-top:10px;margin-left:30px;lien-height:20px;color:red">Order success, for receipt goto <a href="http://iEat" target='_blank' style='text-decoration:underline;color:red;'></a>。
 							</p>							
 							<p class="clear">
 								<label>DTU_ID：</label>
-								<input style="width:227px" type="text" id="yunprint" name="yunprint" class="input input270" value="<?php echo  $site_yunprint?>"/> (输入12位DTU_ID账号)  
+								<input style="width:227px" type="text" id="yunprint" name="yunprint" class="input input270" value="<?php echo  $site_yunprint?>"/> ( input 12 digit DTU_ID account)  
 							</p>
 							<p class="clear">
-								<label style="width:120px;text-align:left;padding-left:35px;">同一张订单打印份数：</label>
-								<input style="width:27px;text-align:center;" type="text" id="yunprint" name="yunprintnum" class="input input270" value="<?php echo  $site_yunprintnum?>"/> (输入需要打印的份数) 
+								<label style="width:120px;text-align:left;padding-left:35px;"> number of copies：</label>
+								<input style="width:27px;text-align:center;" type="text" id="yunprint" name="yunprintnum" class="input input270" value="<?php echo  $site_yunprintnum?>"/> ( number of copies ) 
 							</p>	
 							<p><label >&nbsp;</label><input  type="image" src="../images/button/submit_t.jpg"  /></p>
 						</form>
@@ -61,7 +61,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 	
 	</div>

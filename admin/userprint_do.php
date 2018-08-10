@@ -30,7 +30,7 @@ switch($act)
 			if(!empty($id)){
 				$row=getuserinfo($id);
 				if(!$row){
-					alertInfo('数据不存在','',1);
+					alertInfo('No data','',1);
 				}
 				
 				require_once('PHPWord.php');
@@ -54,7 +54,7 @@ switch($act)
 				header("location:".$x_url);
 
 			}else{
-				alertInfo('参数错误','',1);
+				alertInfo('Parameter mistake','',1);
 			}
 			
 		break;
