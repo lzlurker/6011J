@@ -23,15 +23,15 @@
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
  <head>
-  <meta name="Author" content="微普科技http://www.wiipu.com"/>
+  <meta name="Author" content="iEat"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../style.css" type="text/css"/>
   <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
   <script src="../js/tree.js" type="text/javascript"></script>
   <script type="text/javascript" src="js/upload.js"></script>
-  <title> 用户订单 - 微普外卖点餐系统 </title>
+  <title> User order </title>
 <script type="text/javascript">  
 function check_all(obj,cName){  
     var checkboxs = document.getElementsByName(cName);  
@@ -60,9 +60,9 @@ function check_all(obj,cName){
 							echo $orderState[$key];
 						}else if (!empty($uid)){
 							$list=getUser($uid);
-							echo $list['user_name']."的全部订单";
+							echo $list['user_name']." 's all order";
 						}else{
-							echo "全部订单";
+							echo "All order";
 						}
 					?>
 					</h1>
@@ -74,16 +74,16 @@ function check_all(obj,cName){
 							<table width="100%" id="listForm" >
 								<tr>
 									<td class="center" style="width:8%;text-align:left; padding:6px 1%;">
-									<input type="checkbox" value="全选"  onclick="check_all(this,'idlist[]')">全选
+									<input type="checkbox" value="Select all"  onclick="check_all(this,'idlist[]')">Select all
 									</td>
-									<td class="center">订单号</td>
-									<td class="center">用户手机</td>
-									<td class="center">下单时间</td>
-									<td class="center">总金额</td>
-									<td class="center">菜的总价</td>
-									<td class="center">送餐费</td>
-									<td class="center">订单状态</td>
-									<td class="center">操作</td>
+									<td class="center">Order number</td>
+									<td class="center">User phone number</td>
+									<td class="center">Order time</td>
+									<td class="center">Total price</td>
+									<td class="center">Dish price</td>
+									<td class="center">Delivery fee</td>
+									<td class="center">Order state</td>
+									<td class="center">Operation</td>
 								</tr>
 								<?php
 									$where='';
@@ -113,7 +113,7 @@ function check_all(obj,cName){
 									$pagesize=20;
 									$startRow=0;
 									$sql="select * from qiyu_order where 1=1".$where;
-									$rs = mysql_query($sql) or die ("查询失败，请检查SQL语句。");
+									$rs = mysql_query($sql) or die ("Failed, check SQL。");
 									$rscount=mysql_num_rows($rs);
 									if ($rscount%$pagesize==0)
 										$pagecount=$rscount/$pagesize;
@@ -132,16 +132,16 @@ function check_all(obj,cName){
 									$sql="select * from qiyu_order where 1=1".$where."   order by order_id desc limit $startRow,$pagesize";
 									$rs=mysql_query($sql);
 									if ($rscount==0){ 
-										echo "<tr><td colspan='9' class='center'>暂无信息</td></tr>";
+										echo "<tr><td colspan='9' class='center'>No info</td></tr>";
 									}else{
 										//$i=0;
 										while($rows=mysql_fetch_assoc($rs)){
 											//$i++;
 											$state=$rows['order_status'];
 											if ($rows['order_ispay']=='1')
-												$isPay="等待付款";
+												$isPay="Wait for payment";
 											else if ($rows['order_ispay']=='2')
-												$isPay="在线支付成功";
+												$isPay="Payment successful";
 											else
 												$isPay='';
 										
@@ -157,13 +157,13 @@ function check_all(obj,cName){
 									<td class="center"><?php echo $rows['order_deliverprice']?></td>
 									<td class="center"><?php echo $orderState[$rows['order_status']]?></td>
 									<td class="center">
-										<?php if ($state=='0' || $state=='1'){?><a href="javascript:if(confirm('您确定要取消该订单吗？')){location.href='userorder_do.php?id=<?php echo $rows['order_id']?>&act=qx&key=<?php echo $key?><?php echo $url?>'}">取消订单</a><?php }?> 
-										<?php if ($state=='0'){?><a href="userorder_do.php?id=<?php echo $rows['order_id']?>&act=sure&key=<?php echo $key?><?php echo $url?>">订单确认</a><?php }?> 
-										<?php if ($state=='1'){?><a href="userorder_do.php?id=<?php echo $rows['order_id']?>&act=finish&key=<?php echo $key?><?php echo $url?>">订单完成</a><?php }?> 
+										<?php if ($state=='0' || $state=='1'){?><a href="javascript:if(confirm('Confirm cancel？')){location.href='userorder_do.php?id=<?php echo $rows['order_id']?>&act=qx&key=<?php echo $key?><?php echo $url?>'}">Order canceled</a><?php }?> 
+										<?php if ($state=='0'){?><a href="userorder_do.php?id=<?php echo $rows['order_id']?>&act=sure&key=<?php echo $key?><?php echo $url?>">Order confirmed</a><?php }?> 
+										<?php if ($state=='1'){?><a href="userorder_do.php?id=<?php echo $rows['order_id']?>&act=finish&key=<?php echo $key?><?php echo $url?>">Order finished</a><?php }?> 
 										<?php
 											if ($state=='0' || $state=='4' || $state=='2' || $state=='3'){	
 										?>
-										<a href="javascript:if(confirm('您确定要删除吗？')){location.href='userorder_do.php?id=<?php echo $rows['order_id']?>&act=del&key=<?php echo $key?><?php echo $url?>'}">删除</a> 
+										<a href="javascript:if(confirm('Confirm delete？')){location.href='userorder_do.php?id=<?php echo $rows['order_id']?>&act=del&key=<?php echo $key?><?php echo $url?>'}">Deleted</a> 
 										<?php
 											}	
 										?>
@@ -177,23 +177,23 @@ function check_all(obj,cName){
 							</table>
 							<?php if ($state=='0' || $state=='1' ){?>
 							<p style="margin-right:15px;float:left;">
-								<a href="javascript:if(confirm('您确定要取消吗？')){document.listForm.action='userorder_do.php?&act=xxqx&key=<?php echo $key.$url?>';document.listForm.submit();}"  title="取消"><img src="../images/button/qx.gif" name="btnSave" /></a>
+								<a href="javascript:if(confirm('Confirm cancel？')){document.listForm.action='userorder_do.php?&act=xxqx&key=<?php echo $key.$url?>';document.listForm.submit();}"  title="Cancel"><img src="../images/button/qx.gif" name="btnSave" /></a>
 							</p>
 							<?php }?>
 							<?php if ($state=='0'){?>
 							<p style="margin-right:15px;float:left;">
-								<a href="javascript:if(confirm('您确定要确认吗？')){document.listForm.action='userorder_do.php?&act=xxsure&key=<?php echo $key.$url?>';document.listForm.submit();}"   title="确认"><img src="../images/button/sure.gif" name="btnSave" /></a>
+								<a href="javascript:if(confirm('Confirm？')){document.listForm.action='userorder_do.php?&act=xxsure&key=<?php echo $key.$url?>';document.listForm.submit();}"   title="Confirm"><img src="../images/button/sure.gif" name="btnSave" /></a>
 							</p>
 							<?php }?>
 							<?php if ($state=='1'){?>
 							<p style="margin-right:20px;float:left;">
-								<a href="javascript:if(confirm('您确定要完成吗？')){document.listForm.action='userorder_do.php?&act=xxfinish&key=<?php echo $key.$url?>';document.listForm.submit();}"    title="完成"><img src="../images/button/wancheng.gif" name="btnSave" /></a>
+								<a href="javascript:if(confirm('Confirm finish？')){document.listForm.action='userorder_do.php?&act=xxfinish&key=<?php echo $key.$url?>';document.listForm.submit();}"    title="Done"><img src="../images/button/wancheng.gif" name="btnSave" /></a>
 							</p><br/>
 							<?php }?>
 							<?php if ($state=='0' || $state=='2' || $state=='3' || $state=='4'){?>
 
 							<p>
-								<a href="javascript:if(confirm('您确定要删除吗？')){document.listForm.action='userorder_do.php?&act=xxdel&key=<?php echo $key.$url?>';document.listForm.submit();}"   title="删除"><img  src="../images/button/delete.gif" name="btnSave" /></a>			 
+								<a href="javascript:if(confirm('Confirm delete？')){document.listForm.action='userorder_do.php?&act=xxdel&key=<?php echo $key.$url?>';document.listForm.submit();}"   title="Deleted"><img  src="../images/button/delete.gif" name="btnSave" /></a>			 
 
 								
 							</p>
@@ -218,7 +218,7 @@ function check_all(obj,cName){
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 	
 	</div>
