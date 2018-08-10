@@ -17,7 +17,7 @@
 			$name=sqlReplace(trim($_POST['name']));
 			
 			$address=sqlReplace(trim($_POST['address']));
-			if($address=='请输入你的店铺地址如**路**号'){$address='';}
+			if($address=='add address'){$address='';}
 		
 			$tel=sqlReplace(trim($_POST['tel']));
 			$opentime=sqlReplace(trim($_POST['opentime']));
@@ -28,21 +28,21 @@
 			
 			$buycount=empty($_POST['buycount'])?'0':sqlReplace(trim($_POST['buycount']));//购买总数
 			$intro=HTMLEncode(trim($_POST['intro']));
-			if($intro=='200字以内'){$intro='';}
+			if($intro=='200 words'){$intro='';}
 			
-			checkData($name,'餐厅名称',1);
-			checkData($address,'餐厅地址',1);
-			checkData($tel,'餐厅电话',1);
-			checkData($opentime,'餐厅营业开始时间',1);
-			checkData($endtime,'餐厅营业结束时间',1);
-			checkData($mainfood,'餐厅主营食物',1);
-			checkData($intro,'餐厅介绍',1);
+			checkData($name,'Restaurant name',1);
+			checkData($address,'Restaurant address',1);
+			checkData($tel,'Restaurant phone number',1);
+			checkData($opentime,'Restaurant opening time',1);
+			checkData($endtime,'Restaurant closed time',1);
+			checkData($mainfood,'Restaurant main food',1);
+			checkData($intro,'Restaurant introduction',1);
 			$sql="update qiyu_shop set shop_discount='".$discount."',shop_buycount='".$buycount."',shop_name='".$name."',shop_address='".$address."',shop_tel='".$tel."',shop_openstarttime='".$opentime."',shop_openendtime='".$endtime."',shop_intro='".$intro."',shop_status='1',shop_addtime=now(),shop_mainfood='".$mainfood."',shop_type='1' where shop_id=".$QIYU_ID_SHOP;
 			if (mysql_query($sql)){
-				alertInfo("编辑成功","",1);
+				alertInfo("Edit success","",1);
 				Header("Location: shopadd.php");
 			}else
-				alertInfo("编辑失败","",1);
+				alertInfo("Edit failed","",1);
 		break;
 		case "addtime":
 			$name=sqlReplace(trim($_POST['name']));
@@ -50,15 +50,15 @@
 			$s1=sqlReplace(trim($_POST['s1']));
 			$t2=sqlReplace(trim($_POST['t2']));
 			$s2=sqlReplace(trim($_POST['s2']));
-			checkData($name,'时间段名称',1);
+			checkData($name,'Time period name',1);
 			$value1=$t1.":".$s1;
 			$value2=$t2.":".$s2;
 			
 			$sqlStr="insert into qiyu_delivertime(delivertime_name,delivertime_shop,delivertime_starttime,delivertime_endtime) values ('".$name."',".$QIYU_ID_SHOP.",'".$value1."','".$value2."')";
 			if (mysql_query($sqlStr)){
-				alertInfo("添加成功","",1);
+				alertInfo("Add success","",1);
 			}else{
-				alertInfo("添加失败","",1);
+				alertInfo("Add failed","",1);
 			}
 			
 		break;
@@ -71,22 +71,22 @@
 				if($fee=='0'){
 					
 				}else{
-					alertInfo('起送费不能为空','',1);
+					alertInfo('The starting fee cannot be empty','',1);
 				}
 			}else{
 				if(!is_numeric($fee)){
-					alertInfo('起送费必须是数字','',1);
+					alertInfo('The starting fee must be a number','',1);
 				}
 			}
 			if(empty($deliverFee)){
 				if($deliverFee=='0'){
 					
 				}else{
-					alertInfo('送餐费不能为空','',1);
+					alertInfo('Delivery fee cannot be empty','',1);
 				}
 			}else{
 				if(!is_numeric($deliverFee)){
-					alertInfo('送餐费必须是数字','',1);
+					alertInfo('The meal delivery fee must be a number','',1);
 				}
 			}
 			
@@ -96,13 +96,13 @@
 			if ($rows_select){
 				$sql_str="update qiyu_deliver set deliver_fee=".$deliverFee.",deliver_minfee=".$fee.",deliver_delivertime='".$dTime."',deliver_isfee=".$isfee;
 				mysql_query($sql_str);
-				alertInfo('费用设置成功','',1);
+				alertInfo('Successful fee setting','',1);
 			}else{
 				$sql_str="insert into qiyu_deliver(deliver_fee,deliver_minfee,deliver_delivertime,deliver_shop,deliver_isfee) values(".$deliverFee.",".$fee.",'".$dTime."',".$QIYU_ID_SHOP.",".$isfee.")";
 				if (mysql_query($sql_str)){
-					alertInfo('费用设置成功','',1);
+					alertInfo('Successful fee setting','',1);
 				}else{
-					alertInfo('费用设置失败','',1);
+					alertInfo('Fee setting failed','',1);
 				}	
 			}
 			
@@ -118,16 +118,16 @@
 				if($deliverfee=='无'){
 					$deliverfee='0';
 				}
-				if($sendfee=='免费'){
+				if($sendfee=='free'){
 					$sendfee='0';
 				}
 				
 				$sql="update ".WIIDBPRE."_deliverbycircle set deliverbycircle_isfee='".$isfee."',  deliverbycircle_fee=".$deliverfee.",deliverbycircle_minfee=".$sendfee.",deliverbycircle_delivertime='".$delivertime."' where deliverbycircle_id=".$id;	
 				if(!mysql_query($sql)){
-					alertInfo('未知原因保存失败! ',"",1);
+					alertInfo('Save failed! ',"",1);
 				}
 			}
-			alertInfo('保存成功!',"",1);
+			alertInfo('Saved!',"",1);
 		break;
 		case "delfee":
 			$id=sqlReplace(trim($_GET['id']));
@@ -136,7 +136,7 @@
 			mysql_query($sql);
 			$sql="delete from qiyu_deliverbycircle where deliverbycircle_id=".$id;//删除商圈下费用
 			mysql_query($sql);
-			alertInfo('删除成功','',1);
+			alertInfo('Deleted','',1);
 			
 		break;
 		case "addstyle":
@@ -145,14 +145,14 @@
 			$rs=mysql_query($sqlStr);
 			$row=mysql_fetch_assoc($rs);
 			if ($row){
-				alertInfo('已经添加','',1);
+				alertInfo('Added','',1);
 			}else{
 				$sql="insert into qiyu_shopstyle(shopstyle_style,shopstyle_shop) values (".$style.",".$QIYU_ID_SHOP.")";
 				if(mysql_query($sql)){
-					alertInfo('餐厅菜系添加成功','',1);
+					alertInfo('Restaurant cuisine added successfully','',1);
 				}else{
 					
-					alertInfo('餐厅菜系添加失败','',1);
+					alertInfo('Restaurant cuisine added failed','',1);
 				}
 			}
 		break;
@@ -160,9 +160,9 @@
 			$styleid=sqlReplace(trim($_GET['styleid']));
 			$sql="delete from qiyu_shopstyle where shopstyle_id=".$styleid;
 			if(mysql_query($sql)){
-				alertInfo('删除成功','',1);
+				alertInfo('Deleted','',1);
 			}else{
-				alertInfo('删除失败','',1);
+				alertInfo('Delete failed','',1);
 			}
 		break;
 		case 'addfoodtype':
@@ -170,20 +170,20 @@
 			$foodtype=sqlReplace(trim($_POST['foodtype']));
 
 			//检验数据的合法性
-			checkData($foodtype,'名称',1);
+			checkData($foodtype,'foodtype',1);
 			
 			$sql="select count(*) from ".WIIDBPRE."_foodtype where foodtype_name='".$foodtype."' and foodtype_shop=".$QIYU_ID_SHOP;
 			$rs=mysql_query($sql);
 			$rows=mysql_fetch_assoc($rs);
 			if($rows['count(*)']>0){
-				alertInfo('菜单大类重复！请另取名字','',1);
+				alertInfo('The menu is repeated! Please take another name','',1);
 			}else{
 				$sql = "insert into ".WIIDBPRE."_foodtype(foodtype_name,foodtype_shop) values ('".$foodtype."','".$QIYU_ID_SHOP."')";
 				$result=mysql_query($sql);
 				if($result){
-					alertInfo('菜单大类添加成功',"",1);
+					alertInfo('Add success',"",1);
 				}else{
-					alertInfo('未知原因错误，请重试',"",1);
+					alertInfo('Error, retry',"",1);
 				}
 			}
 		break;
@@ -194,19 +194,19 @@
 			$result=mysql_query($sql);
 			$row=mysql_fetch_assoc($result);
 			if(!$row)
-				alertInfo('您要删除的数据不存在','',1);
+				alertInfo('data no found','',1);
 			else{
 				$sql="select * from qiyu_food where food_foodtype=".$id." and food_shop=".$QIYU_ID_SHOP;
 				$rs=mysql_query($sql);
 				$row=mysql_fetch_assoc($rs);
 				if($row){
-					alertInfo("该类下还有菜单，请先删除该菜单明细！",'',1);
+					alertInfo("There are also menus under this category, please delete the menu details first！",'',1);
 				}else{
 					$sql="delete from qiyu_foodtype where foodtype_id=".$id;
 					if(mysql_query($sql)){
-						alertInfo("删除成功",'',1);
+						alertInfo("Deleted",'',1);
 					}else{
-						alertInfo("删除失败，请重试","",1);
+						alertInfo("Failed, retry","",1);
 					}
 				}
 			}
@@ -222,24 +222,24 @@
 				$result=mysql_query($sql);
 				$row=mysql_fetch_assoc($result);
 				if(!$row)
-					alertInfo('此菜单大类不存在',"",1);
+					alertInfo('menu does not exist',"",1);
 				else{
 					$sql2="select count(*) from ".WIIDBPRE."_foodtype where foodtype_name='".$foodtypename."' and foodtype_shop=".$QIYU_ID_SHOP." and foodtype_id<>".$id;
 					$res=mysql_query($sql2);
 					$count=mysql_fetch_assoc($res);
 					if($count['count(*)']>0)
-						alertInfo('菜单大类重名，请换一个名称','foodtype.php',0);
+						alertInfo('The menu category has the same name, please change the name.','foodtype.php',0);
 					else{
 						$sql3="update ".WIIDBPRE."_foodtype set foodtype_name='".$foodtypename."',foodtype_order=".$order." where foodtype_id=".$id;
 						if(mysql_query($sql3)){
 							//alertInfo('菜单大类修改成功',"",1);
 						}else{
-							alertInfo('未知错误修改失败，请重试','',1);
+							alertInfo('Error, retry','',1);
 						}
 					}
 				}
 			}
-			alertInfo('菜单大类修改成功!',"foodtype.php",0);
+			alertInfo('Success!',"foodtype.php",0);
 		break;
 		case 'savefood':
 			//批量删除功能开始
@@ -247,11 +247,11 @@
 						$id=implode(",",$_POST['delid']);
 							$sql2="delete from ".WIIDBPRE."_food where food_id in($id)";
 							if(mysql_query($sql2)){
-								alertInfo('删除成功',"",1);
+								alertInfo('Deleted',"",1);
 							}									
 			}else{
 					if(!isset($_POST[delid]) and ($_POST[btnSave]=='删除')){
-						alertInfo('请选择要删除的菜单',"",1);
+						alertInfo('Please select the menu to delete',"",1);
 					}else{
 						$i=trim($_POST['i']);
 						for($x=1;$x<=$i;$x++){
@@ -261,20 +261,20 @@
 						$result=mysql_query($sql);
 						$row=mysql_fetch_assoc($result);
 						if(!$row)
-							alertInfo('此菜单不存在',"food.php",0);
+							alertInfo('No data',"food.php",0);
 						else{
 							
 							$sql3="update ".WIIDBPRE."_food set food_order=".$order." where food_id=".$id;
 							if(mysql_query($sql3)){
 								//alertInfo('菜单大类修改成功',"",1);
 					}else{
-						alertInfo('未知错误修改失败，请重试','food.php',0);
+						alertInfo('Error, retry','food.php',0);
 						}
 					}
 				}
 			}
 			}
-			alertInfo('菜单排序成功!',"food.php",0);
+			alertInfo('Sort success!',"food.php",0);
 		break;
 		case 'addfood':
 			//得到提交的数据，并进行过滤
@@ -286,22 +286,22 @@
 			$pic= empty($_POST['upfile1'])?'':sqlReplace(trim($_POST['upfile1']));
 
 			//检验数据的合法性
-			checkData($name,'名称',1);
+			checkData($name,'Name',1);
 			if($price==''){
-				alertInfo('菜的单价不能为空！','',1);
+				alertInfo('The price of the dish cannot be empty！','',1);
 			}
 			if(!is_numeric($price)){
-				alertInfo('菜的单价必须是数字！','',1);
+				alertInfo('The price of the dish must be number！','',1);
 			}
 			if (empty($type)){
-				alertInfo('菜的分类不能为空！','foodtype.php',0);
+				alertInfo('The classification of dishes cannot be empty！','foodtype.php',0);
 			}
 			
 			$sql="select count(*) from ".WIIDBPRE."_food where food_name='".$name."' and food_shop=".$QIYU_ID_SHOP;
 			$rs=mysql_query($sql);
 			$rows=mysql_fetch_assoc($rs);
 			if($rows['count(*)']>0){
-				alertInfo('菜名称重复！请另取名字','',1);
+				alertInfo('Existing name, try another','',1);
 			}else{				
 				$sql2 = "insert into qiyu_food(food_name,food_shop,food_price,food_foodtype,food_intro,food_status,food_order,food_pic) values ('".$name."','".$QIYU_ID_SHOP."','".$price."','".$type."','".$intro."','".$food_status."',999,'".$pic."')";
 				$result=mysql_query($sql2);
@@ -313,9 +313,9 @@
 							mysql_query($sql3);
 						}
 					}
-					  alertInfo('添加成功',"food.php",0);
+					  alertInfo('Add success',"food.php",0);
 				}else{
-					alertInfo('未知原因错误，请重试',"",1);
+					alertInfo('Error, retry',"",1);
 				}
 			}
 		break;
@@ -332,12 +332,12 @@
 			$rb=array();
 			if (empty($lable)) $lable=array();
 			//检验数据的合法性
-			checkData($name,'名称',1);
+			checkData($name,'name',1);
 			if($price==''){
-				alertInfo('菜的单价不能为空','',1);
+				alertInfo('The price of the dish cannot be empty','',1);
 			}
 			if(!is_numeric($price)){
-				alertInfo('菜的单价必须是数字','',1);
+				alertInfo('The price of the dish must be number','',1);
 			}
 			$id=checkData($id,"ID",0);
 
@@ -345,13 +345,13 @@
 			$result=mysql_query($sql);
 			$row=mysql_fetch_assoc($result);
 			if(!$row){
-				alertInfo('此菜名不存在',"",1);
+				alertInfo('This dish name does not exist',"",1);
 			}else{
 					$sql="select * from ".WIIDBPRE."_food where food_name='".$name."' and food_shop=".$QIYU_ID_SHOP." and food_id not in(".$id.") and food_special is NULL";
 					$rs=mysql_query($sql);
 					$rows=mysql_fetch_assoc($rs);
 					if($rows){
-						alertInfo('菜名称重复!','',1);
+						alertInfo('Duplicate dish name!','',1);
 					}else{
 						$sql3="update ".WIIDBPRE."_food set food_name='".$name."',food_price='".$price."',food_status='".$food_status."',food_foodtype='".$type."',food_intro='".$intro."',food_pic='".$pic."' where food_id=".$id." and food_shop=".$QIYU_ID_SHOP;
 						if(mysql_query($sql3)){
@@ -376,9 +376,9 @@
 									mysql_query($del_sql);
 								}
 							}
-							alertInfo('菜单明细修改成功',"food.php?page=".$page,0);
+							alertInfo('Change success',"food.php?page=".$page,0);
 						}else{
-							alertInfo('未知错误修改失败，请重试','',1);
+							alertInfo('Error, retry','',1);
 						}
 					}
 			}
@@ -390,16 +390,16 @@
 			$result=mysql_query($sql);
 			$row=mysql_fetch_assoc($result);
 			if(!$row){
-				alertInfo('您要删除的菜名不存在','',1);
+				alertInfo('No data','',1);
 			}else{
 				$sql2="delete from ".WIIDBPRE."_food where food_id=".$id;
 				if(mysql_query($sql2)){
 					$sql3 = "delete from ".WIIDBPRE."_foodbylable where foodbylable_food=".$id;
 					if(mysql_query($sql3)){
-						alertInfo('删除成功',"",1);
+						alertInfo('Deleted',"",1);
 					}
 				}else{
-					alertInfo('删除失败，原因SQL出现异常','',1);
+					alertInfo('Failed, check SQL','',1);
 				}
 					
 			}
@@ -410,7 +410,7 @@
 			
 			$sql="insert into qiyu_shoptag(shoptag_spot,shoptag_shop,shoptag_tag) values (".$spot.",".$QIYU_ID_SHOP.",".$tag.")";
 			mysql_query($sql);
-			alertInfo('添加成功','',1);
+			alertInfo('Add success','',1);
 		break;
 		case "delTag":
 			$id=sqlReplace(trim($_GET['id']));
@@ -419,13 +419,13 @@
 			$rs=mysql_query($sql);
 			$row=mysql_fetch_assoc($rs);
 			if (!$row)
-				alertInfo("非法","",1);
+				alertInfo("illegal","",1);
 			else{
 				$sqlStr="delete from qiyu_shoptag where shoptag_id=".$id;
 				if (mysql_query($sqlStr)){
-					alertInfo("删除成功","",1);
+					alertInfo("Deleted","",1);
 				}else{
-					alertInfo("删除失败","",1);
+					alertInfo("Delete failed","",1);
 				}
 			}
 		break;
@@ -440,13 +440,13 @@
 			$row=mysql_fetch_assoc($rs);
 			$count=$row['c'];
 			if ($count>$FOODSPECIALCOUNT){
-				alertInfo("餐厅最多有推荐5个推荐菜","shoutop.php",0);
+				alertInfo("The restaurant has a maximum of 5 recommended dishes.","shoutop.php",0);
 			}else{
 				$sqlStr="insert into qiyu_food(food_name,food_shop,food_price,food_special,food_pic,food_oldprice,food_isshow,food_status,food_check) values ('".$name."',".$QIYU_ID_SHOP.",".$price2.",'1','".$pic."',".$price1.",'0','0','0')";
 				if (mysql_query($sqlStr)){
-					alertInfo("添加成功","shoptop.php",0);
+					alertInfo("Add success","shoptop.php",0);
 				}else{
-					alertInfo("意外出错","",1);
+					alertInfo("Error","",1);
 				}
 			}
 			
@@ -455,17 +455,17 @@
 			$id=sqlReplace(trim($_GET['id']));
 			$sql="update qiyu_food set food_isshow='1' where food_id=".$id." and food_shop=".$QIYU_ID_SHOP;
 			if (mysql_query($sql))
-				alertInfo("操作成功","",1);
+				alertInfo("Success","",1);
 			else
-				alertInfo("操作失败","",1);
+				alertInfo("Failed","",1);
 		break;
 		case "showtop":
 			$id=sqlReplace(trim($_GET['id']));
 			$sql="update qiyu_food set food_isshow='0' where food_id=".$id." and food_shop=".$QIYU_ID_SHOP;
 			if (mysql_query($sql))
-				alertInfo("操作成功","",1);
+				alertInfo("Success","",1);
 			else
-				alertInfo("操作失败","",1);
+				alertInfo("Failed","",1);
 		break;
 		case "topedit":
 			$name=sqlReplace(trim($_POST['name']));
@@ -475,9 +475,9 @@
 			$pic=sqlReplace(trim($_POST['upfile1']));
 			$sql="update qiyu_food set food_name='".$name."',food_pic='".$pic."',food_price=".$price2.",food_oldprice=".$price1." where food_id=".$id;
 			if (mysql_query($sql))
-				alertInfo("操作成功","shoptop.php",0);
+				alertInfo("Success","shoptop.php",0);
 			else
-				alertInfo("操作失败","",1);
+				alertInfo("Failed","",1);
 		break;
 		case 'topdel':
 			$id=sqlReplace(trim($_GET['id']));
@@ -486,13 +486,13 @@
 			$result=mysql_query($sql);
 			$row=mysql_fetch_assoc($result);
 			if(!$row){
-				alertInfo('您要删除的数据不存在','',1);
+				alertInfo('No data','',1);
 			}else{
 				$sql2="delete from qiyu_food where food_id=".$id;
 				if(mysql_query($sql2)){
-					alertInfo('删除成功','',1);
+					alertInfo('Deleted','',1);
 				}else{
-					alertInfo('未知原因删除失败，请重试','',1);
+					alertInfo('Error, retry','',1);
 				}
 			}
 			break;
@@ -500,7 +500,7 @@
 			$old=sqlReplace(trim($_POST['old']));
 			$new1=sqlReplace(trim($_POST['new1']));
 			$new2=sqlReplace(trim($_POST['new2']));
-			if ($new1!=$new2) alertInfo("两次输入的密码不同","",1);
+			if ($new1!=$new2) alertInfo("The password entered twice is different","",1);
 			$sql="select * from qiyu_shop where shop_id=".$QIYU_ID_SHOP."";
 			$rs=mysql_query($sql);
 			$row=mysql_fetch_assoc($rs);
@@ -511,12 +511,12 @@
 				if ($pw==$row['shop_password']){
 					$sqlStr="update qiyu_shop set shop_password='".$newpw."' where shop_id=".$QIYU_ID_SHOP."";
 					if (mysql_query($sqlStr))
-						alertInfo("修改成功","",1);
+						alertInfo("Change success","",1);
 					else
-						alertInfo("修改失败","",1);
+						alertInfo("Change failed","",1);
 				
 				}else{
-					alertInfo("原密码错误","",1);
+					alertInfo("The password is wrong","",1);
 				}
 			}
 			
@@ -531,11 +531,11 @@
 				if ($code==$row['shop_code']){
 					$sql="update qiyu_shop set shop_phone='".$phone."',shop_code='' where shop_id=".$QIYU_ID_SHOP."";
 					if (mysql_query($sql))
-						alertInfo("修改成功","shopupdatephone.php",0);
+						alertInfo("Change success","shopupdatephone.php",0);
 					else
-						alertInfo("修改失败","",1);
+						alertInfo("Change failed","",1);
 				}else{
-					alertInfo("验证码错误","",1);
+					alertInfo("Verification code error","",1);
 				}
 			}
 		break;
@@ -548,17 +548,17 @@
 			$pic=sqlReplace(trim($_POST['upfile1']));
 			
 			//检验数据的合法性
-			checkData($name,'名称',1);
-			checkData($price,'优惠价',1);
-			checkData($oldprice,'原价',1);
+			checkData($name,'Name',1);
+			checkData($price,'After discount',1);
+			checkData($oldprice,'Before discount',1);
 						
 			$sql2 = "insert into qiyu_food(food_name,food_shop,food_price,food_oldprice,food_pic,food_special,food_order) values ('".$name."','".$sp_id."','".$price."','".$oldprice."','".$pic."',1,999)";
 			echo $sql2;
 			$result=mysql_query($sql2);
 			if($result){
-				alertInfo('添加成功',"foodspecial_list.php",0);
+				alertInfo('Add success',"foodspecial_list.php",0);
 			}else{
-				alertInfo('未知原因错误，请重试',"",1);
+				alertInfo('Error, retry',"",1);
 			}
 		break;
 		case "editspecial";
@@ -571,22 +571,22 @@
 			
 			//检验数据的合法性
 			checkData($id,'ID',0);
-			checkData($name,'名称',1);
-			checkData($price,'优惠价',1);
-			checkData($oldprice,'原价',1);
+			checkData($name,'Name',1);
+			checkData($price,'After discount',1);
+			checkData($oldprice,'Before discount',1);
 						
 			$sql="select food_id from ".WIIDBPRE."_food where food_id=".$id;
 			$rs=mysql_query($sql);
 			$rows=mysql_fetch_assoc($rs);
 			if(!$rows){
-				alertInfo('非法操作','',1);
+				alertInfo('Illegal operation','',1);
 			}else{				
 				$sql2 = "update ".WIIDBPRE."_food set food_name='".$name."',food_price='".$price."',food_oldprice='".$oldprice."',food_pic='".$pic."' where food_id=".$id;
 				$result=mysql_query($sql2);
 				if($result){
-					alertInfo('修改成功',"foodspecial_list.php",0);
+					alertInfo('Successfully modified',"foodspecial_list.php",0);
 				}else{
-					alertInfo('未知原因错误，请重试',"",1);
+					alertInfo('Error, retry',"",1);
 				}
 			}
 		break;
@@ -597,14 +597,14 @@
 			$rs=mysql_query($sql);
 			$rows=mysql_fetch_assoc($rs);
 			if(!$rows){
-				alertInfo('非法操作','',1);
+				alertInfo('Illegal operation','',1);
 			}else{				
 				$sql2 = "delete from ".WIIDBPRE."_food where food_id=".$id;
 				$result=mysql_query($sql2);
 				if($result){
-					alertInfo('删除成功',"foodspecial_list.php",0);
+					alertInfo('successfully deleted',"foodspecial_list.php",0);
 				}else{
-					alertInfo('未知原因错误，请重试',"",1);
+					alertInfo('Error, retry',"",1);
 				}
 			}
 		break;
@@ -615,31 +615,31 @@
 				$order=$_POST['order'.$x];
 				$sql="update ".WIIDBPRE."_food set food_order=".$order." where food_id=".$id;	
 				if(!mysql_query($sql)){
-					alertInfo('未知原因保存失败! ',"foodspecial_list.php",0);
+					alertInfo('Unknown reason to save failed! ',"foodspecial_list.php",0);
 				}
 			}
-			alertInfo('保存排序成功!',"",1);
+			alertInfo('Saved!',"",1);
 		break;
 		case "card1":
 			$upfile1=sqlReplace(trim($_POST['upfile']));
-			checkData($upfile1,'营业执照',1);
+			checkData($upfile1,'business license',1);
 
 			$sql="update qiyu_shop set shop_certpic='".$upfile1."',shop_certtime=now() where shop_id=".$QIYU_ID_SHOP;
 			if (mysql_query($sql)){
-				alertInfo("提交成功","shopcard.php",0);
+				alertInfo("Uploaded","shopcard.php",0);
 			}else{
-				alertInfo("提交失败","",1);
+				alertInfo("Upload failed","",1);
 			}
 		break;
 		case "card2":
 			$upfile2=sqlReplace(trim($_POST['upfile']));
-			checkData($upfile2,'卫生许可证',1);
+			checkData($upfile2,'Health permit',1);
 
 			$sql="update qiyu_shop set shop_licensepic='".$upfile2."',shop_licensetime=now() where shop_id=".$QIYU_ID_SHOP;
 			if (mysql_query($sql)){
-				alertInfo("提交成功","shopcard.php",0);
+				alertInfo("Uploaded","shopcard.php",0);
 			}else{
-				alertInfo("提交失败","",1);
+				alertInfo("Upload failed","",1);
 			}
 		break;
 	}

@@ -21,9 +21,9 @@
 				
 			$sql="update ".WIIDBPRE."_seo set seo_title='".$title."',  seo_keywords='".$keywords."',seo_description='".$description."' where seo_type=1";	
 			if(!mysql_query($sql)){
-				alertInfo('未知原因保存失败! ',"",1);
+				alertInfo('unknow fail to save! ',"",1);
 			}else{
-				alertInfo('保存成功!',"seo.php",0);
+				alertInfo('Saved!',"seo.php",0);
 			}
 			
 		break;

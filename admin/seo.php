@@ -20,18 +20,18 @@
 		$keywords=HTMLDecode($rows['seo_keywords']);
 		$description=HTMLDecode($rows['seo_description']);
 	}
-	if($title=='') $title='<?php echo $SHOP_NAME?> - 让外卖如约而至';
+	if($title=='') $title='<?php echo $SHOP_NAME?> - Let the dishes come as scheduled';
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
  <head>
-  <meta name="Author" content="微普科技http://www.wiipu.com"/>
+  <meta name="Author" content="iEat"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../style.css" type="text/css"/>
   <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
   <script src="../js/tree.js" type="text/javascript"></script>
   <script type="text/javascript" src="js/upload.js"></script>
   <script type="text/javascript" src="js/shopadd.js"></script>
-  <title> SEO优化 - 微普外卖点餐系统 </title>
+  <title> SEO optimization </title>
  </head>
  <body>
  <div id="container">
@@ -48,7 +48,7 @@
 					?>
 				</div>
 				<div id="shopRight">
-					<h1>SEO优化</h1>
+					<h1>SEO optimization </h1>
 					
 					
 					<div id="introAdd">
@@ -56,10 +56,10 @@
 						<form method="post" action="seo_do.php?act=index">
 							
 						
-						<p><label>网站标题:</label><input type="text" id="name" name="title" class="input input270" value="<?php echo $title?>" /><span class="start"> * 建议少于80字符</span></p>
-						<p><label>网站关键字:</label><textarea name="keywords" style='width:270px;height:50px;resize:none;'><?php echo $keywords?></textarea><span class="start"> * 建议少于100字符</span></p>
+						<p><label>Title:</label><input type="text" id="name" name="title" class="input input270" value="<?php echo $title?>" /><span class="start"> * Recommended less than 80 characters</span></p>
+						<p><label>Key words:</label><textarea name="keywords" style='width:270px;height:50px;resize:none;'><?php echo $keywords?></textarea><span class="start"> * Recommended less than 100 characters</span></p>
 						<p id="pic1">
-						<p><label>网站描述:</label><textarea name="description" style='width:270px;height:120px;resize:none;'><?php echo $description?></textarea><span class="start"> * 建议少于200字符</span></p>
+						<p><label>Description:</label><textarea name="description" style='width:270px;height:120px;resize:none;'><?php echo $description?></textarea><span class="start"> * Recommended less than 200 characters</span></p>
 						<p><label>&nbsp;</label><input type="image" src="../images/button/submit_t.jpg"/></p>
 						</form>
 					</div>
@@ -69,7 +69,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 	
 	</div>
