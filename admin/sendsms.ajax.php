@@ -29,7 +29,7 @@ $o = new AppException();
 	}  
 
 if (empty($userID2)){
-	alertInfo('短信未配置，请配置',"site_sms.php",0);
+	alertInfo('please configure SMS',"site_sms.php",0);
 }
 
 $content=sqlReplace(trim($_POST['content']));
@@ -47,7 +47,7 @@ if($site_sms=='1'){
     $result=$o->sendSMS($userID2,$data);
 	echo $result;
  }else{
-	alertInfo('短信功能未开启，请配置',"site_sms.php",0);
+	alertInfo('SMS is not Enabled',"site_sms.php",0);
     
  }
 
