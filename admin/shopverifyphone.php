@@ -11,16 +11,16 @@
 	 */
 	require_once("usercheck2.php");
 	$phone=sqlReplace(trim($_POST['phone']));
-	checkData($phone,'手机号',1);
+	checkData($phone,'Phone number',1);
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
  <head>
-  <meta name="Author" content="微普科技http://www.wiipu.com"/>
+  <meta name="Author" content="iEat"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../style.css" type="text/css"/>
   <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
   <script src="../js/tree.js" type="text/javascript"></script>
-  <title> 验证手机号 - 微普外卖点餐系统 </title>
+  <title> Verify phone number </title>
  </head>
  <body>
  <script type="text/javascript">
@@ -55,15 +55,15 @@
 					?>
 				</div>
 				<div id="shopRight">
-					<h1>修改手机号</h1>
+					<h1>Modify phone number</h1>
 					<div id="introAdd">
 					<form method="post" action="shop_do.php?act=updatePhone">
 						
 					
-						<p><label class="label_214">您的手机号：</label><input type="text" id="phone" name="phone" value="<?php echo $phone?>" style="background-color:#e4e4e4;" class="input input179" readonly/> <a href="shopupdatephone.php" class="blue">更换手机号</a></p>
+						<p><label class="label_214">Phone number：</label><input type="text" id="phone" name="phone" value="<?php echo $phone?>" style="background-color:#e4e4e4;" class="input input179" readonly/> <a href="shopupdatephone.php" class="blue">Change phone number</a></p>
 						<p><label class="label_214">&nbsp;</label><img src="../images/button/getcode.gif" alt="" onClick="sendCode()"/></p>
-						<p><label class="label_214">您收到的验证码：</label><input type="text" name="code"   class="input input179" /></p>
-						<p><label class="label_214">&nbsp;</label>3分钟还没收到验证码？<a href="javascript:void();" class="blue" onClick="sendCode()">重新获取验证码</a></p>
+						<p><label class="label_214">Code：</label><input type="text" name="code"   class="input input179" /></p>
+						<p><label class="label_214">&nbsp;</label>Not receive code in 3 mins？<a href="javascript:void();" class="blue" onClick="sendCode()">Get code again</a></p>
 						<p><label class="label_214">&nbsp;</label><input type="image" src="../images/button/verify.gif" /></p>
 					</form>
 					</div>	
@@ -71,7 +71,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 	
 	</div>

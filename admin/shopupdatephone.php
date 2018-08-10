@@ -11,14 +11,14 @@
 	 */
 	require_once("usercheck2.php");
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
  <head>
-  <meta name="Author" content="微普科技http://www.wiipu.com"/>
+  <meta name="Author" content="iEat"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../style.css" type="text/css"/>
   <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
   <script src="../js/tree.js" type="text/javascript"></script>
-  <title> 修改手机号 - 微普外卖点餐系统 </title>
+  <title> Modify phone number </title>
  </head>
  <body>
  <div id="container">
@@ -35,11 +35,11 @@
 					?>
 				</div>
 				<div id="shopRight">
-					<h1>修改密码或手机号</h1>
+					<h1>Modify phone number or Password</h1>
 					<div id="introAdd">
-						<h1 class="h1 h1_r">修改手机号</h1>
+						<h1 class="h1 h1_r">Modify phone number</h1>
 						<form method="post" action="shopverifyphone.php">
-							<p><label class="label_280">新手机号：</label><input type="text" name="phone" class="input input179"/></p>
+							<p><label class="label_280">New phone number：</label><input type="text" name="phone" class="input input179"/></p>
 							<p><label class="label_280">&nbsp;</label><input type="image" src="../images/button/updatepass.gif" /></p>
 						</form>
 					</div>	
@@ -47,7 +47,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 	
 	</div>

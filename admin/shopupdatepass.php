@@ -11,14 +11,14 @@
 	 */
 	require_once("usercheck2.php");
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
  <head>
-  <meta name="Author" content="微普科技http://www.wiipu.com"/>
+  <meta name="Author" content="iEat"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../style.css" type="text/css"/>
   <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
   <script src="../js/tree.js" type="text/javascript"></script>
-  <title> 修改密码 - 微普外卖点餐系统 </title>
+  <title> Change Password </title>
  </head>
  <body>
  <div id="container">
@@ -36,13 +36,13 @@
 					?>
 				</div>
 				<div id="shopRight">
-					<h1>修改密码</h1>
+					<h1>Change Password</h1>
 					<div id="introAdd">
 						<p style="margin-bottom:50px;">&nbsp;</p>
 						<form method="post" action="shop_do.php?act=editPass">
-							<p><label class="label_280">原密码：</label><input type="password" name="old" class="input input179"/></p>
-							<p><label class="label_280">新密码：</label><input type="password" name="new1" class="input input179"/></p>
-							<p><label class="label_280">确认密码：</label><input type="password" name="new2" class="input input179"/></p>
+							<p><label class="label_280">Old Password：</label><input type="password" name="old" class="input input179"/></p>
+							<p><label class="label_280">New Password：</label><input type="password" name="new1" class="input input179"/></p>
+							<p><label class="label_280">Confirm Password：</label><input type="password" name="new2" class="input input179"/></p>
 							<p><label class="label_280">&nbsp;</label><input type="image" src="../images/button/updatepass.gif" /></p>
 						</form>
 					</div>
@@ -52,7 +52,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 	
 	</div>
