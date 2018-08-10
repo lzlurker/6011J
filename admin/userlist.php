@@ -58,7 +58,7 @@ function check_all(obj,cName){
 								<table width="100%">
 									<tr>
 									    <td style="width:8%;text-align:left; padding:6px 1%;" class="center">
-										    <input type="checkbox" value="全选"  onclick="check_all(this,'idlist[]')">全选
+										    <input type="checkbox" value="Select All"  onclick="check_all(this,'idlist[]')">Select All
 										</td>
 										<td class="center">Name</td>
 										<td class="center">Phone number</td>
