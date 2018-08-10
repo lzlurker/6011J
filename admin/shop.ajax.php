@@ -54,7 +54,7 @@
 			$row=mysql_fetch_assoc($result);
 			if ($row){
 				if ($row['tag_isspot']=="1"){
-					$str.="选择标签：<select name='spot'>";
+					$str.="Select label：<select name='spot'>";
 					
 					$sql1="select * from qiyu_spot order by spot_order asc,spot_id desc";
 					$rs=mysql_query($sql1);
@@ -88,7 +88,7 @@
 				$sql="update qiyu_order set order_infor='".$intro."',order_status='6' where order_id=".$id;
 				mysql_query($sql);
 				//添加订单记录
-				addOrderType($order,'你的订单被修改，修改内容为：'.$intro);
+				addOrderType($order,'Your order has been modified and the changes are：'.$intro);
 				$str="S";
 			}
 		break;
@@ -113,13 +113,13 @@
 			$workbook->setVersion(8);
 			$worksheet =& $workbook->addWorksheet('sheet1');
 			$worksheet->setInputEncoding('utf-8');
-			$worksheet->write(0, 0, '日期');
-			$worksheet->write(0, 1, '订单数量');
-			$worksheet->write(0, 2, '订单总额');
-			$worksheet->write(0, 3, '收入现金');
-			$worksheet->write(0, 4, '收入饭点');
-			$worksheet->write(0, 5, '支出饭点');
-			$worksheet->write(0, 6, '饭点结算');
+			$worksheet->write(0, 0, 'date');
+			$worksheet->write(0, 1, 'order amount');
+			$worksheet->write(0, 2, 'order total');
+			$worksheet->write(0, 3, 'Income cash');
+			$worksheet->write(0, 4, 'Income points');
+			$worksheet->write(0, 5, 'Spend points');
+			$worksheet->write(0, 6, 'Points settlement');
 			$where='';
 			$orderCountTotal=0;
 			$orderALLTotal=0;
@@ -173,7 +173,7 @@
 				$i+=1;
 
 			}
-			$worksheet->write($i, 0, '总计');
+			$worksheet->write($i, 0, 'Total');
 			$worksheet->write($i, 1, $orderCountTotal);
 			$worksheet->write($i, 2, $orderALLTotal);
 			$worksheet->write($i, 3, $orderMoneyTotal);
@@ -192,16 +192,16 @@
 			$workbook->setVersion(8);
 			$worksheet =& $workbook->addWorksheet('sheet1');
 			$worksheet->setInputEncoding('utf-8');
-			$worksheet->write(0, 0, '序号');
-			$worksheet->write(0, 1, '订单时间');
-			$worksheet->write(0, 2, '订单号');
-			$worksheet->write(0, 3, '用户名');
-			$worksheet->write(0, 4, '订单详情');
-			$worksheet->write(0, 5, '送餐费');
-			$worksheet->write(0, 6, '订单总额');
-			$worksheet->write(0, 7, '现金支付');
-			$worksheet->write(0, 8, '饭点支付');
-			$worksheet->write(0, 9, '订单返点');
+			$worksheet->write(0, 0, 'Serial number');
+			$worksheet->write(0, 1, 'Order time');
+			$worksheet->write(0, 2, 'Order number');
+			$worksheet->write(0, 3, 'User name');
+			$worksheet->write(0, 4, 'Order detail');
+			$worksheet->write(0, 5, 'Deliver fee');
+			$worksheet->write(0, 6, 'Order total');
+			$worksheet->write(0, 7, 'Cash payment');
+			$worksheet->write(0, 8, 'Points payment');
+			$worksheet->write(0, 9, 'Points return');
 			$where='';
 			$orderDeliverTotal=0;
 			$orderALLTotal1=0;
@@ -254,7 +254,7 @@
 					$cartAll+=$rows_cart['cart_count']*$rows_cart['cart_price'];
 					$str.= $rows_cart['food_name']." ".$rows_cart['cart_count']."*".$rows_cart['cart_price']."\r\n";
 				}
-				if ($cartCount>0) $str.= "总额:".$cartAll;
+				if ($cartCount>0) $str.= "Total:".$cartAll;
 
 				$worksheet->write($i, 0, $rows['order_id']);
 				$worksheet->write($i, 1, $rows['order_addtime']);
@@ -269,7 +269,7 @@
 				$i+=1;
 
 			}
-			$worksheet->write($i, 0, '总计');
+			$worksheet->write($i, 0, 'Total');
 			$worksheet->write($i, 1, '');
 			$worksheet->write($i, 2, '');
 			$worksheet->write($i, 3, '');
@@ -286,7 +286,7 @@
 		case "sendcode":
 			$phone=sqlReplace(trim($_POST['phone']));
 			$vercodePhone=getRndCode_r(6);
-			$content="验证码是".$vercodePhone;
+			$content="Verification code is".$vercodePhone;
 			$sql="update qiyu_shop set shop_code='".$vercodePhone."' where shop_id=".$QIYU_ID_SHOP;
 			if (mysql_query($sql)){
 				//发送验证码
