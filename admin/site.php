@@ -11,9 +11,9 @@
 	 */
 	require_once("usercheck2.php");
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
  <head>
-  <meta name="Author" content="微普科技http://www.wiipu.com"/>
+  <meta name="Author" content="iEat"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../style.css" type="text/css"/>
   <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
@@ -128,7 +128,7 @@ function ajaxFileUpload2()
 	
 	
  </script>
-  <title> 网站设置 - 微普外卖点餐系统 </title>
+  <title> Website settings </title>
  </head>
  <body>
  <div id="container">
@@ -145,34 +145,34 @@ function ajaxFileUpload2()
 					?>
 				</div>
 				<div id="shopRight">
-					<h1>网站设置</h1>
+					<h1>Website settings</h1>
 					<div id="introAdd"  style="position: absolute;">
 						<form method="post" action="site_do.php?act=base">
 							<p>
-								<label>餐厅评论：</label>
-								<input type="radio" name="comment_status" value="1" <?php if($site_isshowcomment=='1') echo 'checked';?>>&nbsp;显示&nbsp;&nbsp;<input type="radio" name="comment_status" value="2" <?php if($site_isshowcomment=='2') echo 'checked';?>>&nbsp;不显示
+								<label>Comments：</label>
+								<input type="radio" name="comment_status" value="1" <?php if($site_isshowcomment=='1') echo 'checked';?>>&nbsp;Yes&nbsp;&nbsp;<input type="radio" name="comment_status" value="2" <?php if($site_isshowcomment=='2') echo 'checked';?>>&nbsp;No
 							</p>
 							<p class="clear">
-								<label>注册协议：</label>
-								<input type="radio" name="protocol_status" value="1" <?php if($site_isshowprotocol=='1') echo 'checked';?>>&nbsp;显示&nbsp;&nbsp;<input type="radio" name="protocol_status" value="2" <?php if($site_isshowprotocol=='2') echo 'checked';?>>&nbsp;不显示
+								<label>Registration Agreement：</label>
+								<input type="radio" name="protocol_status" value="1" <?php if($site_isshowprotocol=='1') echo 'checked';?>>&nbsp;Yes&nbsp;&nbsp;<input type="radio" name="protocol_status" value="2" <?php if($site_isshowprotocol=='2') echo 'checked';?>>&nbsp;No
 							</p>	
 							<p class="clear">
-								<label style='width:170px;margin-left:17px;'>前台底部是否显示后台管理：</label>
-								<input type="radio" name="admin" value="1" <?php if($site_isshowadminindex=='1') echo 'checked';?>>&nbsp;显示&nbsp;&nbsp;<input type="radio" name="admin" value="2" <?php if($site_isshowadminindex=='2') echo 'checked';?>>&nbsp;不显示
+								<label style='width:170px;margin-left:17px;'>background management is displayed?</label>
+								<input type="radio" name="admin" value="1" <?php if($site_isshowadminindex=='1') echo 'checked';?>>&nbsp;Yes&nbsp;&nbsp;<input type="radio" name="admin" value="2" <?php if($site_isshowadminindex=='2') echo 'checked';?>>&nbsp;No
 							</p>
 							<p class="clear">
-								<label>餐厅证照：</label>
-								<input type="radio" name="card" value="1" <?php if($site_isshowcard=='1') echo 'checked';?>>&nbsp;显示&nbsp;&nbsp;<input type="radio" name="card" value="2" <?php if($site_isshowcard=='2') echo 'checked';?>>&nbsp;不显示
+								<label>Restaurant license：</label>
+								<input type="radio" name="card" value="1" <?php if($site_isshowcard=='1') echo 'checked';?>>&nbsp;Yes&nbsp;&nbsp;<input type="radio" name="card" value="2" <?php if($site_isshowcard=='2') echo 'checked';?>>&nbsp;No
 							</p>
 							<p class='clear'>
-								<label style="margin-left:10px;" >网站LOGO：</label>
+								<label style="margin-left:10px;" >LOGO：</label>
 								<span id="loading" style="display:none;">
 								  <img src="../images/loading.gif" width="16" height="16" alt="loading" />
 								</span>
 								<span id="upinfo" style="color:blue;"></span>
 								<input id="upfile1" name="upfile1" value="<?php echo $logo?>" type="hidden"/>
 								<input id="fileToUpload" type="file" name="fileToUpload" style="height:24px;"/> 
-								<input type="button" onclick="return ajaxFileUpload();" value="上传"/> * 图片尺寸178*54
+								<input type="button" onclick="return ajaxFileUpload();" value="上传"/> * Size 178*54
 							</p>
 							<?php
 								if(empty($logo)){
@@ -183,14 +183,14 @@ function ajaxFileUpload2()
 							?>
 							<p class="clear" style='margin-left:95px;'><img src='../<?php echo $imgstr?>' style="width:178px;"  id='logo_img'/></p>
 							<p class='clear'>
-							   <label style="margin-left:10px;">网站ICON：</label>
+							   <label style="margin-left:10px;">ICON：</label>
 							   <span id="loading2" style="display:none;">
 							      <img src="../images/loading.gif" width="16" height="16" alt="loading" />
 							   </span>
 							   <span id="upinfo2" style="color:blue;"></span>
 							   <input id="upfile2" name="upfile2" value="<?php echo $icon?>" type="hidden"/>
 							   <input id="fileToUpload2" type="file" name="fileToUpload2" style="height:24px;"/> 
-							   <input type="button" onclick="return ajaxFileUpload2();" value="上传"/> * 图片尺寸16*16,32*32,64*64，仅限png格式
+							   <input type="button" onclick="return ajaxFileUpload2();" value="Upload"/> * Size 16*16,32*32,64*64，png only
 							</p>
 							<?php
 								if(empty($icon)){
@@ -201,10 +201,10 @@ function ajaxFileUpload2()
 							?>
 							<p class="clear" style='margin-left:95px;'><img src='../<?php echo $imgstr2?>' style="width:58px;"  id='icon_img'/></p>			
 							
-							<p class="clear"><label>版权信息：</label><input type="text" id="icp" name="icp" value="<?php echo $site_icp?>" class="input input270"/>  (Copyright © *** 京ICP***)</p>							
+							<p class="clear"><label>Copyright Info：</label><input type="text" id="icp" name="icp" value="<?php echo $site_icp?>" class="input input270"/>  (Copyright © *** ICP***)</p>							
 							<?php if($site_isshowprotocol=='1'){?>
 							<div id='protocol'>
-								<p class="clear">协议内容：</p>
+								<p class="clear">Agreement：</p>
 								<p >
 									<?php   include("fckeditor/fckeditor.php");
 												$oFCKeditor = new FCKeditor('intro') ;
@@ -228,7 +228,7 @@ function ajaxFileUpload2()
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 	
 	</div>
@@ -243,7 +243,7 @@ function ajaxFileUpload2()
 		var f=$('#foodtype').val();
 		if(f=="")
 		{
-			alert('菜单大类不能为空');
+			alert('Menu class cannot be empty');
 			$('#foodtype').focus();
 			return false;
 		}

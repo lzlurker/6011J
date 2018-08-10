@@ -12,9 +12,9 @@
 	require_once("usercheck2.php");
 	require_once("inc/configue.php");
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
  <head>
-  <meta name="Author" content="微普科技http://www.wiipu.com"/>
+  <meta name="Author" content="iEat"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../style.css" type="text/css"/>
   <link rel="stylesheet" href="style.css" type="text/css"/>
@@ -23,7 +23,7 @@
   <script src="../js/tree.js" type="text/javascript"></script>
   <script type="text/javascript" src="js/lightbox/js/jquery.lightbox-0.5.js"></script>
   <link rel="stylesheet" href="js/lightbox/css/jquery.lightbox-0.5.css" type="text/css" />
-  <title> 网站模板设置 - 微普外卖点餐系统 </title>
+  <title> Website template settings </title>
  </head>
  <body>
  <div id="container">
@@ -40,17 +40,17 @@
 					?>
 				</div>
 				<div id="shopRight">
-					<h1>网站模板设置</h1>					
+					<h1>Website template settings</h1>					
 					<div id="introAdd">
 						<form method="post" action="site_do.php?act=tmp">
-						<p style="margin-left:42px;color:red;">提示：
+						<p style="margin-left:42px;color:red;">Tip：
 						
 						</p>
 						<p  style="margin-left:42px;color:red;">
-							1、由于模板的差异，前台功能、图片显示可能有所变化，切换模板时可能导致图片的不正常显示。
+							1、Due to the difference of the template, the foreground function and the picture display may change. 
 						</p>
 						<p  style="margin-left:42px;color:red;">
-							2、不要过于频繁的更换模板，以防数据出现误差。
+							2、Do not change the template too often
 						</p>
 						
 							<?php 
@@ -71,16 +71,16 @@
 						</form>						
 					</div>					
 					<div class="clear"></div>
-						<p style="margin:10px 0;"><a href="themessite.php" style=" font-size:16px;font-family:Microsoft YaHei,宋体,Arial;text-decoration:none; color:#000; padding-bottom:2px;font-weight:bold">手机模板设置</a></p>
+						<p style="margin:10px 0;"><a href="themessite.php" style=" font-size:16px;font-family:Microsoft YaHei,宋体,Arial;text-decoration:none; color:#000; padding-bottom:2px;font-weight:bold">Phone template settings</a></p>
 						<div style="margin-left:70px; margin-top:25px;">
 						   <a href="themessite.php"><img alt="" src="images/tmp/mobile.jpg" style="width:234px" /></a>		
 						</div>
-						<p style="margin-left:120px;margin-top:20px;"><a href="themessite.php">手机版(设置界面风格)</a></p>
+						<p style="margin-left:120px;margin-top:20px;"><a href="themessite.php">Phone template</a></p>
 				</div>				
 				<div class="clear"></div>				
 			</div>					
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->		
+		</div><!--main_content-->		
 	</div>	
 	<?php
 		require_once('footer.php');
@@ -92,7 +92,7 @@
 		var f=$('#foodtype').val();
 		if(f=="")
 		{
-			alert('菜单大类不能为空');
+			alert('Menu class cannot be empty');
 			$('#foodtype').focus();
 			return false;
 		}
