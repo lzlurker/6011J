@@ -13,9 +13,9 @@
 	$o = new AppException();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
  <head>
-  <meta name="Author" content="微普科技http://www.wiipu.com"/>
+  <meta name="Author" content="iEat"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../style.css" type="text/css"/>
   <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
@@ -23,7 +23,7 @@
   <script type="text/javascript" src="js/upload.js"></script>
   <script src="js/checkform.js" type="text/javascript"></script>
   
-  <title> 短信设置 - 微普外卖点餐系统 </title>
+  <title> SMS setup </title>
  </head>
  <body>
  <div id="container">
@@ -40,23 +40,23 @@
 					?>
 				</div>
 				<div id="shopRight">
-					<h1>短信设置</h1>
+					<h1>SMS setup</h1>
 					<div id="introAdd">
 					</form>
 						<form method="post" action="sitesms_do.php">
 						    <p class="clear">
-							   <label>短信接口： </label>
-							   <input type="radio" name="sms" value="1" <?php if($site_sms=='1') echo 'checked';?>>&nbsp;开启&nbsp;&nbsp;
-							   <input type="radio" name="sms" value="2" <?php if($site_sms=='2') echo 'checked';?>>&nbsp;关闭
+							   <label>SMS interface： </label>
+							   <input type="radio" name="sms" value="1" <?php if($site_sms=='1') echo 'checked';?>>&nbsp;Open&nbsp;&nbsp;
+							   <input type="radio" name="sms" value="2" <?php if($site_sms=='2') echo 'checked';?>>&nbsp;Closed
 							</p>
 							
 							<p style="margin-bottom:10px;margin-top:10px;margin-left:30px;lien-height:20px;color:red">
-								如果你想使用短信通知，请<!--在“网站设置”里-->开启短信接口，接下来请到<a href="http://www.wiiyun.com" target='_blank' style='text-decoration:underline;color:red;'>微云网</a>上登录（注册）、购买群发短信。
+								Open SMS at<!--“Web setup”--> <a href="http://iEat" target='_blank' style='text-decoration:underline;color:red;'></a>
 							</p>
-							<p style="margin-top:10px;color:red;margin-left:30px;">微云码可在“我的信息 —> 微云码”处查看。</p>
-							<p style="margin-bottom:10px;margin-top:10px;margin-left:30px;color:red">短信在以下模块中使用：</p>
-							<p style="margin-top:10px;margin-left:50px;color:red">1、找回密码</p>
-							<p style="margin-top:10px;margin-left:50px;color:red">2、用户下订单时通知商家</p>
+							<p style="margin-top:10px;color:red;margin-left:30px;">Check</p>
+							<p style="margin-bottom:10px;margin-top:10px;margin-left:30px;color:red">SMS use in：</p>
+							<p style="margin-top:10px;margin-left:50px;color:red">1、Get back Password</p>
+							<p style="margin-top:10px;margin-left:50px;color:red">2、Notify owner</p>
 							<?php
 								
 								//如果填写了账号跟微云码把短信条数写出来
@@ -73,18 +73,19 @@
 											$message_totalcount=$sms[0]->totalcount;//总数量
 											$message_count=$sms[0]->count_m;//剩余数量
 											$message_usedcount=$sms[0]->usedcount;//使用了的数量
-											echo "<p style='margin-left:30px;'>可发送的短信数量：".$message_count."条</p>";
+											echo "<p style='margin-left:30px;'>SMS amount：".$message_count."</p>";
 										}
 									}else{
 										//
 									}
 								}
 							?>
-						
-							<p><label>微云账号：</label><input type="text" id="account" name="account" value="<?php echo $site_wiiyunaccount?>" class="input input270"/> *</p>
-							<p><label>微云码：</label><input type="text" id="salt" name="salt" value="<?php echo $site_wiiyunsalt?>" class="input input270"/> * </p>
-							<p><label>手机号：</label><input type="text" name="phone" id="phone" class="input input179" value="<?php echo $SHOP_PHONE?>"/> * （用户下订单给商家发送短信的手机号）</p>
+						<!--
+							<p><label>微云账号：</label><input type="text" id="account" name="account" value=" <?php //echo $site_wiiyunaccount?>" class="input input270"/> *</p>
+							<p><label>微云码：</label><input type="text" id="salt" name="salt" value="<?php //echo $site_wiiyunsalt?>" class="input input270"/> * </p>
+							<p><label>手机号：</label><input type="text" name="phone" id="phone" class="input input179" value="<?php //echo $SHOP_PHONE?>"/> * （用户下订单给商家发送短信的手机号）</p>
 							<p><label>&nbsp;</label><input type="image" src="../images/button/submit_t.jpg"  onClick="return checkSms();"/></p>
+						by lz 20180810--> 
 						</form>
 					</div>
 					
@@ -93,7 +94,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 	
 	</div>
@@ -103,6 +104,8 @@
 	?>
  </div>
  </body>
+ 
+ <!--
   <script type="text/javascript">
 	function checkSms(){
 		//验证非空
@@ -120,5 +123,6 @@
 		}
 	}
 </script>
-
+By lz 20180810
+-->
 </html>

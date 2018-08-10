@@ -27,11 +27,11 @@
 			$sql="update qiyu_site set site_logo='".$logo."',site_icon='".$icon."',site_icp='".$icp."',site_isshowcomment='".$comment_status."',site_isshowprotocol='".$protocol_status."',site_isshowadminindex='".$admin."',site_protocol='".$intro."',site_isshowcard='".$card."'";
 			if (mysql_query($sql)){
 				//echo 'ok';
-				alertInfo('操作成功','',1);
+				alertInfo('Success','',1);
 			}else{
 
 				//echo 'fail';
-				alertInfo('出错','',1);
+				alertInfo('Failed','',1);
 
 			}
 		break;
@@ -42,13 +42,13 @@
 			$from_dir="template/".$tmp;
 			$to_dir="../";
 			if(!xCopy($from_dir,$to_dir,1)){
-				alertInfo('更新文件失败','',1);
+				alertInfo('Update failed','',1);
 			}else{
 				$sql="update qiyu_site set site_tmp=".$tmp."";
 				if (mysql_query($sql)){
-					alertInfo('操作成功','',1);
+					alertInfo('Success','',1);
 				}else{
-					alertInfo('出错','',1);
+					alertInfo('Failed','',1);
 				}
 			}
 					
@@ -60,9 +60,9 @@
 			$stat=sqlReplace(trim($_POST['stat']));
 			$sql="update qiyu_site set site_onlinechat='".$onlinechat."',site_stat='".$stat."',site_iscartfoodtag='".$iscartfoodtag."',site_cartfoodtag='".$cartfoodtag."'";
 			if (mysql_query($sql)){
-				alertInfo('操作成功','',1);
+				alertInfo('Success','',1);
 			}else{
-				alertInfo('出错','',1);
+				alertInfo('Failed','',1);
 			}
 		break;
 
@@ -71,9 +71,9 @@
 			$num=sqlReplace(trim($_POST['yunprintnum']));
 			$sql="update qiyu_site set site_yunprint='".$print."',site_yunprintnum='".$num."'";
 			if (mysql_query($sql)){
-				alertInfo('操作成功','',1);
+				alertInfo('Success','',1);
 			}else{
-				alertInfo('出错','',1);
+				alertInfo('Failed','',1);
 			}
 		break;
 
@@ -85,9 +85,9 @@
 			$stat=sqlReplace(trim($_POST['stat']));
 			$sql="update qiyu_site set site_onlinechat='".$onlinechat."',site_stat='".$stat."',site_iscartfoodtag='".$iscartfoodtag."',site_cartfoodtag='".$cartfoodtag."'";
 			if (mysql_query($sql)){
-				alertInfo('操作成功','',1);
+				alertInfo('Success','',1);
 			}else{
-				alertInfo('出错','',1);
+				alertInfo('Failed','',1);
 			}
 		break;
 
@@ -95,9 +95,9 @@
 			$print=sqlReplace(trim($_POST['yunprint']));
 			$sql="update qiyu_site set site_yunprint='".$print."'";
 			if (mysql_query($sql)){
-				alertInfo('操作成功','',1);
+				alertInfo('Success','',1);
 			}else{
-				alertInfo('出错','',1);
+				alertInfo('Failed','',1);
 			}
 		break;
 
