@@ -105,7 +105,7 @@
 							  <form  name="listForm" method="get" action="userlist.php"  id="listForm">
 							      <input name="username" class="in1" type="text" style="width:190px; height:16px; color:#DFDFDF;margin-bottom:5px;float:left" value="input userName or phoneNum" onfocus="if(this.value=='input userName or phoneNum'){this.value=''};this.style.color='black';" 
 								  onblur="if(this.value==''||this.value=='input userName or phoneNum'){this.value='input userName or phoneNum';this.style.color='#DFDFDF';}">
-								  <input style="margin-left:10px;float:left;" type="image" src="../images/button/search.gif" />	  
+								  <input style="margin-left:10px;float:left;" type="submit" value="Search" />	  
 							  </form><br/><br/>
 
                               <form  name="listForm" method="get" action="userorder.php"  id="listForm">
@@ -121,7 +121,7 @@
 										<option value="5">Updated</option>
 							        </select>
 									</p>
-								  <input style="margin-left:10px;mrgin-top:-10px;float:left;" type="image" src="../images/button/search.gif" />		  
+								  <input style="margin-left:10px;mrgin-top:-10px;float:left;" type="submit" value="Search" />		  
 							  </form>
 
 							<h2 class='h2_small' style='margin-top:50px;'>Statistics</h2>
