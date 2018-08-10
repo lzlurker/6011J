@@ -15,14 +15,14 @@
 	$end=empty($_GET['end'])?'':sqlReplace(trim($_GET['end']));
 	$url="?type=".$searchType."&start=".$start."&end=".$end;
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
  <head>
-  <meta name="Author" content="微普科技http://www.wiipu.com"/>
+  <meta name="Author" content="iEat"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../style.css" type="text/css"/>
   <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
   <script src="../js/tree.js" type="text/javascript"></script>
-  <title> 结算查询 - 微普外卖点餐系统 </title>
+  <title> Billing query </title>
  </head>
  <body>
  <script type="text/javascript">
@@ -71,17 +71,17 @@
 					?>
 				</div>
 				<div id="shopRight">
-					<h1>结算查询</h1>
+					<h1>Billing query</h1>
 					<div class="topBox">
-						<div class="top_h1">贵餐厅与<?php echo $SHOP_NAME?>的月结金额</div>
+						<div class="top_h1">Monthly settlement amount with<?php echo $SHOP_NAME?></div>
 						<div class="top_main">
 							<div class="moneyTable">
 								<table>
 									<tr>
-										<td width="98" class='center'>月份</td>
-										<td width="156" class='center'>饭点总收入</td>
-										<td width="156" class='center'>饭点总支出</td>
-										<td width="97" class='center'>结算金额</td>
+										<td width="98" class='center'>Month</td>
+										<td width="156" class='center'>Total points income</td>
+										<td width="156" class='center'>Total points spend</td>
+										<td width="97" class='center'>Settlement amount</td>
 									</tr>
 								<?php
 									$sql="select rscore_addtime,sum(rscore_spendvalue) as s,sum(rscore_getvalue) as g from qiyu_rscore where rscore_shop='".$SHOP_ID2."' group by date_format(rscore_addtime,'%Y%m') order by rscore_addtime desc";
@@ -100,18 +100,18 @@
 									
 								</table>
 							</div>
-							<div class="reminder">备注：饭点总收入为旗鱼要支付给贵餐厅的金额。饭点总支出为餐厅要支付给旗鱼的金额。</div>
+							<div class="reminder">Note。</div>
 						</div>
 					</div><!--topBox完-->
 					<div class="topBox">
-						<div class="top_h1">结算明细查询</div>
+						<div class="top_h1">Billing details query</div>
 						<div class="top_main">
 						<form method="get" action="shopaccount.php">
 							
 						
 							<div class="t_left settle">
-								<input type="radio" name="type" value="1" /> 查询一定时间段内营业总额 <input type="radio" name="type" value="0" checked/> 查询每日营业额明细
-								<p id="time" style="display:none;">查询时间范围：从 <input type="text" id="start" name="start" class="input116"/> 到 <input type="text" id="end" name="end" class="input116" /></p>
+								<input type="radio" name="type" value="1" /> Total turnover during <input type="radio" name="type" value="0" checked/> Total turnover daily
+								<p id="time" style="display:none;">Time: from <input type="text" id="start" name="start" class="input116"/> to<input type="text" id="end" name="end" class="input116" /></p>
 							</div>	
 							<div class="t_right">
 								<p style="margin-top:10px;"><input type="image" src="../images/button/search1.gif" /></p>
@@ -122,13 +122,13 @@
 							<div class="moneyTable">
 								<table>
 									<tr>
-										<td width="89" class='center'>日期</td>
-										<td width="85" class='center'>订单数量</td>
-										<td width="85" class='center'>订单总额</td>
-										<td width="85" class='center'>收入现金</td>
-										<td width="85" class='center'>收入饭点</td>
-										<td width="85" class='center'>支出饭点</td>
-										<td width="85" class='center'>饭点结算</td>
+										<td width="89" class='center'>date</td>
+										<td width="85" class='center'>Order amount</td>
+										<td width="85" class='center'>Order total</td>
+										<td width="85" class='center'>Income cash</td>
+										<td width="85" class='center'>Income points</td>
+										<td width="85" class='center'>Points spend</td>
+										<td width="85" class='center'>Points settlement</td>
 									</tr>
 								<?php
 									$where='';
@@ -150,7 +150,7 @@
 											$where.=" and date(order_addtime) <= '".$end."'";
 									}
 									$sql="select count(order_id) as cOrder  from qiyu_order where order_shopid='".$QIYU_ID_SHOP."' ".$where." and order_status='4' group by date(order_addtime)";
-									$rs = mysql_query($sql) or die ("查询失败，请检查SQL语句。");
+									$rs = mysql_query($sql) or die ("Failed, check SQL。");
 									$rscount=mysql_num_rows($rs);
 									if ($rscount%$pagesize==0)
 										$pagecount=$rscount/$pagesize;
@@ -170,7 +170,7 @@
 									$rs=mysql_query($sql);
 									if ($rscount==0){ 
 										
-										echo "<tr><td colspan='7' class='center'>暂无信息</td></tr>";
+										echo "<tr><td colspan='7' class='center'>No info</td></tr>";
 									}
 									$i=0;
 									while($rows=mysql_fetch_assoc($rs)){
@@ -235,7 +235,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 	
 	</div>
