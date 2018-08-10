@@ -18,7 +18,7 @@
 	$site_wiiyunaccount=$list['site_wiiyunaccount'];
 	$site_wiiyunsalt=$list['site_wiiyunsalt'];
 	if (empty($site_wiiyunsalt)||$site_sms!='1'){
-		alertInfo('短信未配置或未开启，请配置',"site_sms.php",0);
+		alertInfo('SMS is not configured or not enabled',"site_sms.php",0);
 	}
 
     if (!(empty($site_wiiyunsalt) || empty($site_wiiyunaccount) ||  $site_sms!='1')){
@@ -41,11 +41,11 @@
 	$telstr='';
 	if($act=='yes'){
 		if($site_sms=='2'){
-			alertInfo('短信功能未开启，请配置',"site_sms.php",0);
+			alertInfo('SMS function is not enabled',"site_sms.php",0);
 		
 		}
 		if(empty($_POST["idlist"])){
-			alertInfo('请选择群发项!',"",1);
+			alertInfo('Please select group item!',"",1);
 		}
 		$listall=$_POST["idlist"];
 		foreach($listall as $listid){
@@ -53,7 +53,7 @@
 			$result=mysql_query($sqlStr);
 			$row=mysql_fetch_array($result);
 			if(!$row){
-				alertInfo('数据不存在','',1);
+				alertInfo('No data','',1);
 			}else{
 				if(!empty($row['user_phone'])){
 					$telstr.=$row['user_phone'].';';
@@ -63,11 +63,11 @@
 	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
 <head>
-<title> 群发短信 </title>
+<title> group message</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="author" content="Jiangting@WiiPu -- http://www.wiipu.com" />
+<meta name="author" content="iEat" />
 <link rel="stylesheet" href="style2.css" type="text/css"/>
 <link rel="stylesheet" href="../style.css" type="text/css"/>
 <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
@@ -91,16 +91,16 @@
 				</div>
 
 				<div class="bgintor" id="shopRight">
-						<h1><?php echo "群发短信";?></h1>
+						<h1><?php echo "group message";?></h1>
 					<div class="listintor">
 							
 						</div>
 						<div style="margin-left:50px;">
 							<div class="fromcontent" style="height:800px;margin-top:20px;">
-								<p style="margin-bottom:10px;">微云账户: <?php echo $site_wiiyunaccount;?></p>
+								<p style="margin-bottom:10px;">Micro cloud account: <?php echo $site_wiiyunaccount;?></p>
 								<?php
 									if ($s_status=='noBuy'){
-										echo "<p><a href='http://www.wiiyun.com' target='_blank'>还没有使用群发短信应用,请您先使用</a></p>";
+										echo "<p><a href='http://www.wiiyun.com' target='_blank'>Haven't used the group messaging app yet, please use it first.</a></p>";
 										exit;
 									}else{
 										$message_totalcount=$sms[0]->totalcount;//总数量
@@ -108,18 +108,18 @@
 										$message_usedcount=$sms[0]->usedcount;//使用了的数量
 									
 								?>
-								<p>可发送的短信数量：<span class="start"><?php echo $message_count?></span> 条</p>
+								<p>Number of text messages that can be sent:<span class="start"><?php echo $message_count?></span> items</p>
 								<div style="width:500px;float:left;">
 									<form id="listForm" name="listForm" method="post" action="sendsms_do.php?c=<?php echo $message_count?>">
-										<p style="margin-top:10px;">收件人：<textarea style="border:1px solid #B3B8CE;width:450px;height:20px;" id="receiver" name="receiver"><?php echo $telstr;?></textarea></p><br/>
-										<p><span class="start">收件人必须是手机号，多个用英文“;”隔开。</span></p><br/>
-										<p>短信内容：<span class="start">(每条短信70个字符，超过70字符按多条短信收费)</span></p><br/>
+										<p style="margin-top:10px;">Receiver：<textarea style="border:1px solid #B3B8CE;width:450px;height:20px;" id="receiver" name="receiver"><?php echo $telstr;?></textarea></p><br/>
+										<p><span class="start">Receiver must be phone number, use ; to seperate。</span></p><br/>
+										<p>Content:<span class="start">(70 characters per message)</span></p><br/>
 										<p>
 											<textarea name="fbContent" id="fbContent" style="width:498px;height:100px;"></textarea>
 										</p>
 										<div class="btn" >
 											<br/>
-											<input type="image" src="../images/button/sendsms.gif"  alt="发送" onclick="return checkinc(<?php echo $message_count?>);"/>
+											<input type="image" src="../images/button/sendsms.gif"  alt="sent" onclick="return checkinc(<?php echo $message_count?>);"/>
 										</div>
 									</form>
 								</div>

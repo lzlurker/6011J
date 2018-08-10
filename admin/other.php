@@ -12,15 +12,15 @@
 	require_once("usercheck2.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
 <head>
-<meta name="Author" content="微普科技http://www.wiipu.com"/>
+<meta name="Author" content="iEat"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../style.css" type="text/css"/>
 <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
 <script src="../js/tree.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/upload.js"></script>
-<title> 网站设置 - 微普外卖点餐系统 </title>
+<title> Web Setup </title>
 </head>
 <body>
  <div id="container">
@@ -37,27 +37,27 @@
 					?>
 				</div>
 				<div id="shopRight">
-					<h1>网站设置</h1>
+					<h1>Web Setup</h1>
 					<div id="introAdd" >
 						<form method="post" action="site_do.php?act=other">
 							
 							<p class="clear">
-								<label>客服QQ号码：</label>
-								<input style="width:215px" type="text" id="icp" name="onlinechat" class="input input270" value="<?php echo $site_onlinechat?>"/> (输入在线客服QQ号码) &nbsp;&nbsp;
+								<label>CS contact number</label>
+								<input style="width:215px" type="text" id="icp" name="onlinechat" class="input input270" value="<?php echo $site_onlinechat?>"/> (input CS contact number) &nbsp;&nbsp;
 							</p>
 							<p class="clear">
-							   <label>站长统计：</label>
-							   <textarea cols="23" rows="4" name="stat"><?php echo $site_stat?></textarea> (输入站长统计代码) 
+							   <label>Webmaster Statistics:</label>
+							   <textarea cols="23" rows="4" name="stat"><?php echo $site_stat?></textarea> (Enter the webmaster stats code) 
 							</p>
 							<p style="margin-left:15px;">
-							   开启添加购物车的餐品备注：
-							   <input type="radio" name="iscartfoodtag" value="1" <?php if($site_iscartfoodtag=='1') echo 'checked';?>>&nbsp;是&nbsp;&nbsp;
-							   <input type="radio" name="iscartfoodtag" value="2" <?php if($site_iscartfoodtag=='2') echo 'checked';?>>&nbsp;否
+							  Open the item note for adding a shopping cart：
+							   <input type="radio" name="iscartfoodtag" value="1" <?php if($site_iscartfoodtag=='1') echo 'checked';?>>&nbsp;Yes&nbsp;&nbsp;
+							   <input type="radio" name="iscartfoodtag" value="2" <?php if($site_iscartfoodtag=='2') echo 'checked';?>>&nbsp;No
 							</p>
 							<p class="clear">
-							   <label>餐品备注：(需要开启)</label>
+							   <label>Meal note: (need to open)</label>
 							</p>
-							<p><textarea name="cartfoodtag" cols="23" rows="4"><?php echo $site_cartfoodtag;?></textarea> (请用英文分号“;”隔开)</p>											
+							<p><textarea name="cartfoodtag" cols="23" rows="4"><?php echo $site_cartfoodtag;?></textarea> (Please separate by ;)</p>											
 							<p><label >&nbsp;</label><input type="image" src="../images/button/submit_t.jpg"  /></p>
 						</form>
 					</div>					
@@ -65,7 +65,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 	
 	</div>
