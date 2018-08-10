@@ -131,7 +131,7 @@ function search_left(){
 	var key=$("#keyword").val();
 	if (key=='')
 	{
-		TINY.box.show_spot('搜索关键字不能为空',0,297,163,0,10);
+		TINY.box.show_spot('Search keyword cannot be empty',0,297,163,0,10);
 		$("#keyword").focus();
 		return false;
 	}
@@ -146,7 +146,7 @@ $(function(){
 						'act':'getCricleclass'
 					}, function (data, textStatus){
 							if (data==""){
-								$("#search_type").html("<option value=''>没有类型</option>")
+								$("#search_type").html("<option value=''>No type</option>")
 							}else
 								$("#search_type").html(data);
 						
