@@ -128,13 +128,8 @@
 							<p><a href="userorder.php?key=0">New Order(<?php echo getOrderNewCountByState(0);?>)</a></p>
 							<p><a href="subscribe.php">Book Order(<?php echo getSubscribeCount()?>)</a></p>
 							<h2 class='h2_small' style='margin-top:50px;'>System info</h2>
-							<p>version：<?php echo $version.'('.$subversion.')'?></p>
-							<p>updateTime：<?php echo $updateTime?></p>
-							<h2 class='h2_small' style='margin-top:50px;'>software state</h2>
-							<ul>
-								<script language='javascript' src="http://www.wiipu.com/news/diancan.php"></script>
-							</ul>
-							
+							<p>version：V 1.0 (20180810)</p>
+							<p>updateTime：2018-08-10</p>							
 						
 					</div>
 					
