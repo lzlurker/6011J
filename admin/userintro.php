@@ -18,7 +18,7 @@
 	$result=mysql_query($sql);
 	$row=mysql_fetch_assoc($result);
 	if(!$row){		
-		alertInfo('该用户已经不存在','',1);
+		alertInfo('No user','',1);
 	}else{
 		$account=$row['user_account'];
 		$name=$row['user_name'];
@@ -37,16 +37,16 @@
 	$url="&name=".$name."&phone=".$phone."&uid=".$id;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
  <head>
-  <meta name="Author" content="微普科技http://www.wiipu.com"/>
+  <meta name="Author" content="iEat"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../style.css" type="text/css"/>
   <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
   <script src="../js/tree.js" type="text/javascript"></script>
   <script type="text/javascript" src="js/upload.js"></script>
   <script type="text/javascript" src="js/shopadd.js"></script>
-  <title> 用户详情 - 微普外卖点餐系统 </title>
+  <title> User details </title>
  </head>
  <body>
  <div id="container">
@@ -64,26 +64,26 @@
 				</div>
 				<div id="shopRight">
 
-					<h1><a href="userlist.php?tel=<?php echo $tel?>&page=<?php echo $page?>">用户列表</a> &gt;&gt; 用户详情</h1>
+					<h1><a href="userlist.php?tel=<?php echo $tel?>&page=<?php echo $page?>">User list</a> &gt;&gt; User details</h1>
 
 					<div id="introAdd">
-						<p>用户帐号：<?php echo $account?></p>
-						<p>用户姓名：<?php echo $name?></p>
-						<p>用户邮箱：<?php echo $mail?></p>
-						<p>用户积分：<?php echo $score?> </p>
-						<p>用户经验值：<?php echo $experience?> </p>
-						<p>用户注册时间：<?php echo $time?></p>
-						<p>最后一次登陆IP：<?php echo $loginip?> </p>
-						<p>最后一次登陆时间：<?php echo $logintime?> </p>
-						<p>登陆次数：<?php echo $logincount?> </p>
-						<p>所有的订单：</p>
-						<p><a href="userorder.php?uid=<?php echo $id?>&key=all"><img src="../images/button/look_order.jpg"  alt="" /></a> <img src="../images/button/return.jpg" alt="返回" style='cursor:pointer' onClick="javascript:history.back();"/></p>
+						<p>Account：<?php echo $account?></p>
+						<p>User name：<?php echo $name?></p>
+						<p>User email：<?php echo $mail?></p>
+						<p>User points：<?php echo $score?> </p>
+						<p>User loyalty：<?php echo $experience?> </p>
+						<p>Register time：<?php echo $time?></p>
+						<p>Last login IP：<?php echo $loginip?> </p>
+						<p>Last login time：<?php echo $logintime?> </p>
+						<p>Login times：<?php echo $logincount?> </p>
+						<p>Total order：</p>
+						<p><a href="userorder.php?uid=<?php echo $id?>&key=all"><img src="../images/button/look_order.jpg"  alt="" /></a> <img src="../images/button/return.jpg" alt="Return" style='cursor:pointer' onClick="javascript:history.back();"/></p>
 					</div>
 				</div>
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 	
 	</div>

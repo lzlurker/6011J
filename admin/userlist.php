@@ -14,15 +14,15 @@
 	$username=empty($_GET['username'])?'':sqlReplace(trim($_GET['username']));
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
 <head>
-<meta name="Author" content="微普科技http://www.wiipu.com"/>
+<meta name="Author" content="iEat"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../style.css" type="text/css"/>
 <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
 <script src="../js/tree.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/upload.js"></script>
-<title> 用户列表 - 微普外卖点餐系统 </title>
+<title> User list </title>
 <script type="text/javascript">  
 function check_all(obj,cName){  
     var checkboxs = document.getElementsByName(cName);  
@@ -45,13 +45,13 @@ function check_all(obj,cName){
 					?>
 				</div>
 				<div id="shopRight">
-					<h1>用户列表</h1>
+					<h1>User list</h1>
 					<div id="introAdd">
 						
 						<form method="get" action="userlist.php">
-							<p style="margin-left:-25px;float:left;"><label>用户姓名</label><input type="text" name="username" class="input"/></p>
-							<p style="float:left;margin-left:10px;"><label>手机号</label><input type="text" name="tel" class="input"/></p>
-							<p style="float:left;margin-left:10px;"><input  type="submit" value="搜索"/></p>
+							<p style="margin-left:-25px;float:left;"><label>Name</label><input type="text" name="username" class="input"/></p>
+							<p style="float:left;margin-left:10px;"><label>Phone number</label><input type="text" name="tel" class="input"/></p>
+							<p style="float:left;margin-left:10px;"><input  type="submit" value="Search"/></p>
 						</form><br/>
 						<form id="listForm" name="listForm" method="post" >
 							<div class="moneyTable feeTable" style="width:668px;">
@@ -60,12 +60,12 @@ function check_all(obj,cName){
 									    <td style="width:8%;text-align:left; padding:6px 1%;" class="center">
 										    <input type="checkbox" value="全选"  onclick="check_all(this,'idlist[]')">全选
 										</td>
-										<td class="center">用户姓名</td>
-										<td class="center">手机号</td>
-										<td class="center">登陆次数</td>
-										<td class="center">查看订单</td>
-										<td class="center">查看详细</td>
-										<td class="center">删除</td>
+										<td class="center">Name</td>
+										<td class="center">Phone number</td>
+										<td class="center">Login times</td>
+										<td class="center">Check order</td>
+										<td class="center">Check details</td>
+										<td class="center">Delete</td>
 									</tr>
 									<?php
 										$pagesize=20;
@@ -78,7 +78,7 @@ function check_all(obj,cName){
 											$where=" and user_phone='".$username."' or user_name='".$username."'";
 										}
 										$sql="select * from ".WIIDBPRE."_user where 1=1".$where;
-										$rs = mysql_query($sql) or die ("查询失败，请检查SQL语句。");
+										$rs = mysql_query($sql) or die ("Failed, check SQL。");
 										$rscount=mysql_num_rows($rs);
 										if ($rscount%$pagesize==0)
 											$pagecount=$rscount/$pagesize;
@@ -97,7 +97,7 @@ function check_all(obj,cName){
 										$sql="select user_id,user_name,user_phone,user_score,user_logincount from ".WIIDBPRE."_user where 1=1".$where." order by user_time desc limit $startRow,$pagesize";
 										$rs=mysql_query($sql);
 										if ($rscount==0){ 
-											echo "<tr><td colspan='7' align='center'>暂无信息</td></tr></table>";
+											echo "<tr><td colspan='7' align='center'>No info</td></tr></table>";
 										}else{
 
 											while($rows=mysql_fetch_assoc($rs)){
@@ -108,9 +108,9 @@ function check_all(obj,cName){
 										<td class="center" name="user_name"><a href="userintro.php?id=<?php echo $rows['user_id']?>&tel=<?php echo $tel?>&page=<?php echo $page?>"><?php echo $rows['user_name']?></a></td>
 										<td class="center" name="user_phone"><?php echo $rows['user_phone']?></td>
 										<td class="center"><?php echo $rows['user_logincount']?></td>
-										<td class="center"><a href="userorder.php?uid=<?php echo $rows['user_id']?>&key=all">查看</a></td>
-										<td class="center"><a href="userintro.php?id=<?php echo $rows['user_id']?>">查看</a></td>
-										<td class="center" style='padding:5px 0;'><a href="javascript:if(confirm('您确定要删除吗？')){location.href='user_do.php?act=del&id=<?php echo $rows['user_id'];?>'}">删除</a>
+										<td class="center"><a href="userorder.php?uid=<?php echo $rows['user_id']?>&key=all">Check</a></td>
+										<td class="center"><a href="userintro.php?id=<?php echo $rows['user_id']?>">Check</a></td>
+										<td class="center" style='padding:5px 0;'><a href="javascript:if(confirm('Confirm delete？')){location.href='user_do.php?act=del&id=<?php echo $rows['user_id'];?>'}">Delete</a>
 										</td>
 									</tr>
 										<?php
@@ -125,10 +125,10 @@ function check_all(obj,cName){
 							</div>
 							<?php if($rscount>=1){?>
 							<p style="margin-right:20px;margin-left:15px;float:left;">							 
-							  <a href="javascript:if(confirm('您确定要删除吗？')){document.listForm.action='user_do.php?&act=xxdel';document.listForm.submit();}"   title="删除"><img  src="../images/button/delete.gif" name="btnSave" /></a>
+							  <a href="javascript:if(confirm('Confirm delete？')){document.listForm.action='user_do.php?&act=xxdel';document.listForm.submit();}"   title="delete"><img  src="../images/button/delete.gif" name="btnSave" /></a>
 						    </p>
 							<p style="float:left;">
-						      <a href="javascript:if(confirm('您确定要发短信吗？')){location.href='sendsms.php'}"  title="发短信"><input type="image" src="../images/button/sms.gif" name="btnSave" value="发短信"  onclick="sms();"></a>			
+						      <a href="javascript:if(confirm('Send text？')){location.href='sendsms.php'}"  title="SMS"><input type="image" src="../images/button/sms.gif" name="btnSave" value="SMS"  onclick="sms();"></a>			
 						    </p><br/>	
 							<?php }?>
 							
@@ -173,7 +173,7 @@ function check_all(obj,cName){
 		var f=$('#foodtype').val();
 		if(f=="")
 		{
-			alert('菜单大类不能为空');
+			alert('Menu class cannot be empty');
 			$('#foodtype').focus();
 			return false;
 		}
