@@ -28,14 +28,14 @@
 				if(mysql_query($sql2)){
 					//添加订单记录
 					//addOrderType($order,'商家正在为你下单');
-					$orderContent="<span class='greenbg'><span><span>我们正在下单</span></span></span>";
-					$orderContent.="亲，大厨正在努力烹制美味的食物，请耐心等待！";
+					$orderContent="<span class='greenbg'><span><span>Ordering</span></span></span>";
+					$orderContent.="Cooking！";
 					addOrderType($order,HTMLEncode($orderContent));
-					alertInfo('确定成功','shoporder.php'.$url,0);
+					alertInfo('Success','shoporder.php'.$url,0);
 				}else
-					alertInfo('确定失败，原因SQL出现异常','shoporder.php'.$url,0);
+					alertInfo('Failed, SQL error','shoporder.php'.$url,0);
 			}else
-				alertInfo("意外出错","",1);
+				alertInfo("Accident","",1);
 		break;
 		case "qx":
 			$key=sqlReplace(trim($_GET['key']));
@@ -53,14 +53,14 @@
 				if(mysql_query($sql2)){
 					//添加订单记录
 					//addOrderType($order,'商家取消订单');
-					$orderContent="<span class='greenbg redbg'><span><span>取消订单</span></span></span>";
-					$orderContent.="您的订单已取消，给您带来的不便请谅解，我们会更好的为您服务。";
+					$orderContent="<span class='greenbg redbg'><span><span>Cancel order </span></span></span>";
+					$orderContent.="Order canceled。";
 					addOrderType($order,HTMLEncode($orderContent));
-					alertInfo('取消成功','shoporder.php'.$url,0);
+					alertInfo('Canceled','shoporder.php'.$url,0);
 				}else
-					alertInfo('取消失败，原因SQL出现异常','shoporder.php'.$url,0);
+					alertInfo('Failed, SQL error','shoporder.php'.$url,0);
 			}else
-				alertInfo("意外出错","",1);
+				alertInfo("Accident","",1);
 		break;
 		case "bc":
 			$key=sqlReplace(trim($_GET['key']));
@@ -78,14 +78,14 @@
 				if(mysql_query($sql2)){
 					//添加订单记录
 					//addOrderType($order,'商家开始备餐');
-					$orderContent="<span class='greenbg'><span><span>订单已被餐厅接受</span></span></span>";
-					$orderContent.="亲,您在".$rows['order_addtime']."所订美味餐品已迫不及待奔向您，马上会到达，请注意查收哦！";
+					$orderContent="<span class='greenbg'><span><span>Order accepted</span></span></span>";
+					$orderContent.="Dear,".$rows['order_addtime']."Order send！";
 					addOrderType($order,HTMLEncode($orderContent));
-					alertInfo('操作成功','shoporder.php'.$url,0);
+					alertInfo('Operation success','shoporder.php'.$url,0);
 				}else
-					alertInfo('操作失败，原因SQL出现异常','shoporder.php'.$url,0);
+					alertInfo('Operation failed, SQL error','shoporder.php'.$url,0);
 			}else
-				alertInfo("意外出错","",1);
+				alertInfo("Accident","",1);
 		break;
 		case "finish":
 			$key=sqlReplace(trim($_GET['key']));
@@ -103,14 +103,14 @@
 				if(mysql_query($sql2)){
 					//添加订单记录
 				//	addOrderType($order,'订单已完成');
-					$orderContent="<span class='greenbg'><span><span>订单已完成</span></span></span>";
-					$orderContent.="亲，享受美味的时候，别忘了继续光顾<?php echo $SHOP_NAME?>哦，我们将更好的为您服务";
+					$orderContent="<span class='greenbg'><span><span>Order finish</span></span></span>";
+					$orderContent.="Welcome back to<?php echo $SHOP_NAME?>";
 					addOrderType($order,HTMLEncode($orderContent));
-					alertInfo('操作成功','shoporder.php'.$url,0);
+					alertInfo('Operation success','shoporder.php'.$url,0);
 				}else
-					alertInfo('操作失败，原因SQL出现异常','shoporder.php'.$url,0);
+					alertInfo('Operation failed, SQL error','shoporder.php'.$url,0);
 			}else
-				alertInfo("意外出错","",1);
+				alertInfo("Accident","",1);
 		break;
 		
 	}

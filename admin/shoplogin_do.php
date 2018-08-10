@@ -15,14 +15,14 @@
 		case "login":
 			$account=sqlReplace(trim($_POST['account']));
 			$pwd=sqlReplace(trim($_POST['pw']));
-			checkData($account,'用户名',1);
-			checkData($pwd,'密码',1);
+			checkData($account,'User name',1);
+			checkData($pwd,'password',1);
 			$code=sqlReplace(trim($_POST["imgcode"]));//验证码
 			if(empty($code)){
-				alertInfo('验证码不能为空',"",1);
+				alertInfo('verification code must be filled',"",1);
 			}
 			if($code!=$_SESSION['imgcode']){
-				alertInfo('验证码不正确，请检查！',"",1);
+				alertInfo('code incorrect！',"",1);
 			}
 
 			$sql="select * from qiyu_shop where shop_account='".$account."'";
@@ -40,10 +40,10 @@
 					$_SESSION['qiyu_shopID']=$rows['shop_id'];
 					Header("Location: admin.php");
 				}else{
-					alertInfo("密码错误","",1);
+					alertInfo("Password wrong","",1);
 				}
 			}else{
-				alertInfo("用户名不存在","",1);
+				alertInfo("No such user","",1);
 			}
 		break;
 		
