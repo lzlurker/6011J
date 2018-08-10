@@ -23,15 +23,15 @@
      
 	
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
  <head>
-<meta name="Author" content="微普科技http://www.wiipu.com"/>
+<meta name="Author" content="iEat"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="../style.css" type="text/css"/>
 <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
 <script src="../js/tree.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/upload.js"></script>
-<title> 用户订单 - 微普外卖点餐系统 </title>
+<title> User order </title>
 <script type="text/javascript"> 
   function check_all(obj,cName){  
     var checkboxs = document.getElementsByName(cName);  
@@ -56,7 +56,7 @@
 				<div id="shopRight">
 					<h1>
 					<?php
-						echo "预约订单";
+						echo "Booked order";
 
 					?>
 					</h1>
@@ -66,16 +66,16 @@
 							<table width="100%">
 								<tr>
 								    <td class="center" style="width:8%;text-align:left; padding:6px 1%;" class="center">
-										<input type="checkbox" value="全选"  onclick="check_all(this,'idlist[]')">全选
+										<input type="checkbox" value="Select all"  onclick="check_all(this,'idlist[]')">Select all
 									</td>
-									<td class="center" width='10%'>订单号</td>
-									<td class="center" width='10%'>用户手机</td>
-									<td class="center" width='5%'>预约时间</td>
-									<td class="center" width='5%'>下单时间</td>									
-									<td class="center" width='10%'>总金额</td>
-									<td class="center" width='10%'>菜的总价</td>
-									<td class="center" width='10%'>订单状态</td>
-									<td class="center" width='40%'>操作</td>
+									<td class="center" width='10%'>Order number</td>
+									<td class="center" width='10%'>Phone number</td>
+									<td class="center" width='5%'>Booked time</td>
+									<td class="center" width='5%'>Order time</td>									
+									<td class="center" width='10%'>Total amount</td>
+									<td class="center" width='10%'>Total price</td>
+									<td class="center" width='10%'>Order state</td>
+									<td class="center" width='40%'>Operation</td>
 								</tr>
 								<?php
 									$where='';
@@ -84,7 +84,7 @@
 									
 									$sql="select * from qiyu_order where order_type='1' and order_status='0'";
 									
-									$rs = mysql_query($sql) or die ("查询失败，请检查SQL语句。");
+									$rs = mysql_query($sql) or die ("Failed, check SQL。");
 									$rscount=mysql_num_rows($rs);
 									if ($rscount%$pagesize==0)
 										$pagecount=$rscount/$pagesize;
@@ -104,14 +104,14 @@
 									
 									$rs=mysql_query($sql);
 									if ($rscount==0){ 
-										echo "<tr><td colspan='9' class='center'>暂无信息</td></tr>";
+										echo "<tr><td colspan='9' class='center'>No info</td></tr>";
 									}else{
 										while($rows=mysql_fetch_assoc($rs)){
 											$onLine=$rows['order_ispay'];
 											if ($rows['order_ispay']=='1')
-												$isPay="等待付款";
+												$isPay="Waiting payment";
 											else if ($rows['order_ispay']=='2')
-												$isPay="在线支付成功";
+												$isPay="Payment successful";
 											else
 												$isPay='';
 											
@@ -126,9 +126,9 @@
 												$shopname=$row_s['shop_name'];
 												$shoptype=$row_s['shop_type'];
 												if($shoptype=='1')
-													$shoptype='未签约';
+													$shoptype='Unsign';
 												if($shoptype=='0')
-													$shoptype='签约';
+													$shoptype='Signed';
 											}else{
 												$shopname='---';
 												$shoptype='---';
@@ -156,7 +156,7 @@
 											if(!empty($orderpricechange) && $orderpricechange!='0.00'){
 												//	$totalprice=$orderpricechange;
 											}else{
-													$orderpricechange='无';
+													$orderpricechange='NA';
 											}
 											if($orderuserphone=='')
 												$orderuserphone=$userphone;
@@ -173,13 +173,13 @@
 								<td class="center"><?php echo $rows['order_price']?></td>
 								<td class="center"><?php echo $orderState[$rows['order_status']]?></td>
 								<td class="center">
-									<?php if ($state=='0' || $state=='1'){?><a href="javascript:if(confirm('您确定要取消该订单吗？')){location.href='userorder_subscribe_do.php?id=<?php echo $rows['order_id']?>&act=qx&ao=<?php echo $ao?>'}">取消订单</a><?php }?> 
-									<?php if ($state=='0'){?><a href="userorder_subscribe_do.php?id=<?php echo $rows['order_id']?>&act=sure&ao=<?php echo $ao?>"><br/>订单确认</a><?php }?> <?php if ($state=='1'){?><a href="userorder_subscribe_do.php?id=<?php echo $rows['order_id']?>&act=bc&totalprice=<?php echo $rows['order_totalprice']?>&key=<?php echo $key?><?php echo $url?>">备餐订单</a><?php }?>
-									<?php if ($state=='5'){?><a href="userorder_subscribe_do.php?id=<?php echo $rows['order_id']?>&act=finish&ao=<?php echo $ao?>"><br/>订单完成</a><?php }?><br/>
+									<?php if ($state=='0' || $state=='1'){?><a href="javascript:if(confirm('您确定要取消该订单吗？')){location.href='userorder_subscribe_do.php?id=<?php echo $rows['order_id']?>&act=qx&ao=<?php echo $ao?>'}">Cancel order</a><?php }?> 
+									<?php if ($state=='0'){?><a href="userorder_subscribe_do.php?id=<?php echo $rows['order_id']?>&act=sure&ao=<?php echo $ao?>"><br/>Order confirm</a><?php }?> <?php if ($state=='1'){?><a href="userorder_subscribe_do.php?id=<?php echo $rows['order_id']?>&act=bc&totalprice=<?php echo $rows['order_totalprice']?>&key=<?php echo $key?><?php echo $url?>">备餐订单</a><?php }?>
+									<?php if ($state=='5'){?><a href="userorder_subscribe_do.php?id=<?php echo $rows['order_id']?>&act=finish&ao=<?php echo $ao?>"><br/>Order finish</a><?php }?><br/>
 									<?php
 										if ($state=='0' || $state=='4' || $state=='2' || $state=='3'){	
 									?>
-									<a href="javascript:if(confirm('您确定要删除吗？')){location.href='userorder_subscribe_do.php?id=<?php echo $rows['order_id']?>&act=del&ao=<?php echo $ao?>'}">删除</a> 
+									<a href="javascript:if(confirm('Confirm delete')){location.href='userorder_subscribe_do.php?id=<?php echo $rows['order_id']?>&act=del&ao=<?php echo $ao?>'}">Delete</a> 
 									<?php
 										}	
 									?>
@@ -192,14 +192,14 @@
 							</table>
 							<?php if(!empty($orderid)){?>
 							<p style="margin-right:15px;float:left;">
-							    <a href="javascript:if(confirm('您确定要取消吗？')){document.listForm.action='userorder_do.php?&act=subqx<?php echo $url?>';document.listForm.submit();}"  title="取消"><img src="../images/button/qx.gif" name="btnSave" /></a>
+							    <a href="javascript:if(confirm('Confirm cancel？')){document.listForm.action='userorder_do.php?&act=subqx<?php echo $url?>';document.listForm.submit();}"  title="Cancel"><img src="../images/button/qx.gif" name="btnSave" /></a>
 							</p>
 							<p style="margin-right:20px;margin-right:20px;float:left;">
-								<a href="javascript:if(confirm('您确定要确认吗？')){document.listForm.action='userorder_do.php?&act=subsure<?php echo $url?>';document.listForm.submit();}"   title="确认"><img src="../images/button/sure.gif" name="btnSave" /></a>
+								<a href="javascript:if(confirm('Confirm？')){document.listForm.action='userorder_do.php?&act=subsure<?php echo $url?>';document.listForm.submit();}"   title="Confirm"><img src="../images/button/sure.gif" name="btnSave" /></a>
 							</p>
 							
 							<p style="margin-left:15px;">
-							    <a href="javascript:if(confirm('您确定要删除吗？')){document.listForm.action='userorder_do.php?&act=subdel<?php echo $url?>';document.listForm.submit();}"   title="删除"><img  src="../images/button/delete.gif" name="btnSave" /></a>						
+							    <a href="javascript:if(confirm('Confirm delete?')){document.listForm.action='userorder_do.php?&act=subdel<?php echo $url?>';document.listForm.submit();}"   title="Delete"><img  src="../images/button/delete.gif" name="btnSave" /></a>						
 							</p>
 						    <?php }?>
 				                <!--<input name="i" type="hidden" value="<?=$i?>">-->
@@ -223,7 +223,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 	
 	</div>

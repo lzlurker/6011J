@@ -11,14 +11,14 @@
 	 */
 	require_once("usercheck2.php");
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
  <head>
-  <meta name="Author" content="微普科技http://www.wiipu.com"/>
+  <meta name="Author" content="iEat"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../style.css" type="text/css"/>
   <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
   <script src="../js/tree.js" type="text/javascript"></script>
-  <title> 系统信息 - 微普外卖点餐系统 </title>
+  <title> System information </title>
  </head>
  <body>
  <div id="container">
@@ -35,12 +35,12 @@
 					?>
 				</div>
 				<div id="shopRight">
-					<h1>系统信息</h1>
+					<h1>System information</h1>
 					<div id="introAdd">
 						
-							<p>版本号：<?php echo $version?></p>
-							<p>小版本号：<?php echo $subversion?></p>
-							<p>更新时间：<?php echo $updateTime?></p>
+							<p>Version：<?php echo $version?></p>
+							<p>Subversion：<?php echo $subversion?></p>
+							<p>Update time：<?php echo $updateTime?></p>
 						
 					</div>
 					
@@ -49,7 +49,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="main_bottom"></div>
-		</div><!--main_content完-->
+		</div><!--main_content-->
 		
 	
 	</div>
@@ -64,7 +64,7 @@
 		var f=$('#foodtype').val();
 		if(f=="")
 		{
-			alert('菜单大类不能为空');
+			alert('Menu class cannot be empty');
 			$('#foodtype').focus();
 			return false;
 		}
