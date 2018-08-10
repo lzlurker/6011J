@@ -30,7 +30,7 @@
 	}  
 
 	if (empty($userID2)){
-		alertInfo('短信未配置，请配置',"site_sms.php",0);
+		alertInfo('Please configure SMS',"site_sms.php",0);
 	}
 
 	$tags=sqlReplace(trim($_POST['receiver']));//收件人
@@ -45,8 +45,8 @@
 	
 	$content=sqlReplace(trim($_POST['fbContent']));//短信内容
 
-	checkData($emailstr,'收件人',1);
-	checkData($content,'短信内容',1);
+	checkData($emailstr,'receiver',1);
+	checkData($content,'SMS content',1);
 	//对收件人$emailstr进行处理
 	$alltel='';
 	$tgs='';
@@ -82,17 +82,17 @@
 	$salt=volemail_random(4);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
 <head>
-<title> 短信群发 </title>
+<title> group message</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="author" content="Jiangting@WiiPu -- http://www.wiipu.com" />
+<meta name="author" content="iEat" />
 <link rel="stylesheet" href="../style.css" type="text/css"/>
 <script type="text/javascript" src="js/jquery-1.6.min.js"></script>
 <script src="js/sendsms.js" type="text/javascript"></script>
 <script src="../js/tree.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/upload.js"></script>
-<title> 短信群发 - 微普外卖点餐系统 </title>
+<title> group message </title>
 </head>
 
  <body>
@@ -112,18 +112,18 @@
 				</div>
 
 				   <div class="bgintor">
-					  <h1>群发短信</h1>
+					  <h1>group message</h1>
 					<div class="listintor">							
 						</div>
 						<div class="fromcontent" style="text-align:center;height:500px;">
-							<p>此次共发送短信：<span id="realspan">0/</span><?php echo $total?> 条</p>
+							<p>totally:<span id="realspan">0/</span><?php echo $total?> items</p>
 							<p>
 							   <span id="redcount" style="color:red;">
-							      <img src="../images/loading.gif" width="16" height="16" alt="" />开始发送短信
+							      <img src="../images/loading.gif" width="16" height="16" alt="" />start
 							   </span> 
-							   <span class="red" id="error_mm" style='display:none;'>以下
+							   <span class="red" id="error_mm" style='display:none;'>below
 							      <span id="error_email"></span>
-								  发送失败
+								 failed
 							   </span>
 							</p>
 							<div class="btn">
