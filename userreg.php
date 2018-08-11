@@ -90,7 +90,7 @@
 					?>
 						
 					</div>
-					<div class="center_button"><input type="image" src="images/button/regButton.gif" onClick="return checkReg1();" alt="提交" id="regButton"/>
+					<div class="center_button"><input type="image" src="images/button/button english/regButton.jpg" onClick="return checkReg1();" alt="提交" id="regButton"/>
 						<!--<img src="images/button/regButton.gif" onClick="alerterr();" alt="Submit" />-->
 					</div>
 					<div class="botton_bg">
