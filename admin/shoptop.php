@@ -51,19 +51,19 @@
 							while ($rows){
 								switch ($i){
 									case "1":
-										$str="one";
+										$str=" one";
 									break;
 									case "2":
-										$str="two";
+										$str=" two";
 									break;
 									case "3":
-										$str="three";
+										$str=" three";
 									break;
 									case "4":
-										$str="four";
+										$str=" four";
 									break;
 									case "5":
-										$str="five";
+										$str=" five";
 									break;
 								}
 								if ($rows['food_isshow']=='0')
