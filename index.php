@@ -363,7 +363,7 @@
 														<img src="<?php echo $row_special['food_pic']?>" width="186" height="125" alt="" />
 													</div>
 													<p><?php echo $row_special['food_name']?> <span>Discount:<?php echo $row_special['food_price']?></span></p>
-													<p><a href="javascript:void();"  <?php if ($site_iscartfoodtag=='1'){?>onClick="addCart_new(<?php echo $shopID?>,<?php echo $row_special['food_id']?>,<?php echo $spotID?>,<?php echo $circleID?>)"<?php }else{?>onClick="addCart_im_new(<?php echo $shopID?>,<?php echo $row_special['food_id']?>,<?php echo $spotID?>,<?php echo $circleID?>)"<?php }?> hidefocus="true" style="outline:none;"><img src="images/button/cart_new_0.jpg" width="87" height="23" alt="" /></a></p>
+													<p><a href="javascript:void();"  <?php if ($site_iscartfoodtag=='1'){?>onClick="addCart_new(<?php echo $shopID?>,<?php echo $row_special['food_id']?>,<?php echo $spotID?>,<?php echo $circleID?>)"<?php }else{?>onClick="addCart_im_new(<?php echo $shopID?>,<?php echo $row_special['food_id']?>,<?php echo $spotID?>,<?php echo $circleID?>)"<?php }?> hidefocus="true" style="outline:none;"><img src="images/button/cart_new_0.png" width="87" height="23" alt="" /></a></p>
 												</div>
 						<?php
 											$i++;
