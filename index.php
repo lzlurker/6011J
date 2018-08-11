@@ -289,7 +289,7 @@
 							
 							<p class="h1">Input comment<?php if (empty($QIYU_ID_USER)){?><span><a href="userlogin.php">Login</a></span><?php }?></p>
 							<textarea class="commentInput" id="commentInput" style="resize:none;"></textarea>
-							<p class="h1 h1_r"><span><input type="image" src="images/button/button english/submit_b.jpg" onClick="return addComment('<?php echo $QIYU_ID_USER?>','<?php echo $shopID?>')"/></span></p>
+							<p class="h1 h1_r"><span><input type="image" src="images/button/submit_b.jpg" onClick="return addComment('<?php echo $QIYU_ID_USER?>','<?php echo $shopID?>')"/></span></p>
 							<div id='comment'>
 							<?php
 								$i=1;
