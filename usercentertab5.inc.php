@@ -5,7 +5,7 @@
 						<h1 class="order_h1">Edit your name</h1>
 						
 						<div class="addList newAddList">
-							<label>Your Name：</label><input type="text" id="user_name" name="user_name" class="input" value="<?php echo $row['user_name'];?>"/> <span class="red errormt2"></span>
+							<label>Your Name：</label><input type="text" id="user_name" name="user_name" class="input" value="<?php echo $row['user_name'];?>"/><!--   <span class="red errormt2"></span>-->
 						</div>
 						<div class="addList newAddList">
 							<label>&nbsp;</label> <span>This name is the name displayed on the head of the website</span>

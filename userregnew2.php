@@ -46,7 +46,9 @@
 			<div class="main_center">
 				<div id="orderBox" class="loginBox">
 					<div class="order_title login_title">new user registration</div>
+					
 					<div id="regPointer"><img src="images/regflow/2.jpg" alt="" /></div>
+					
 					<div class="regH1">Please add your address for delivery:</div>
 					<form method="post" action="userreg_do2.php?p=<?php echo $p?>&shopID=<?php echo $shopID?>&shopSpot=<?php echo $shopSpot?>&shopCircle=<?php echo $shopCircle?>">
 					<div class="regBox">
@@ -60,7 +62,7 @@
 							<label>&nbsp;</label> <span>Please write your address to recieve your order on time。<br/>E	xample：1430 rue city councillor.</span>
 						</div>
 						<div class="addList addList_r addList_reg" style="margin-top:19px;">
-							<label>How to address you：</label><input type="text" id="name" name="name" style="width:232px;" class="input" value="<?php if($reginfo[0]) echo $reginfo[0]?>" /> <span class="errormt red">*</span>
+							<label>How to name you：</label><input type="text" id="name" name="name" style="width:232px;" class="input" value="<?php if($reginfo[0]) echo $reginfo[0]?>" /> <!--  <span class="errormt red">*</span>-->
 						</div>
 					</div>
 					<div class="center_button"><input type="image" src="images/button/regFinish.jpg" onClick="return checkReg();" alt="Submit" id="finishButton"/>
