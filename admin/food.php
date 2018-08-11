@@ -78,7 +78,7 @@
 					<?php
 							$where='';
 							if (!empty($foodtype)) $where=" and food_foodtype=".$foodtype;
-							$pagesize=20;
+							$pagesize=50; // modify from 20 to 50 by lz 20180811
 							$startRow=0;
 							$sql="select * from ".WIIDBPRE."_food where food_special is NULL and food_shop=".$QIYU_ID_SHOP.$where;
 							$rs = mysql_query($sql) or die ("Fail, check SQL。");
@@ -129,7 +129,7 @@
 				<input name="i" type="hidden" value="<?=$i?>">
 						<?php 
 								if ($rscount>=1){
-									echo showPage_admin('food.php',$page,$pagesize,$rscount,$pagecount);
+									// echo showPage_admin('food.php',$page,$pagesize,$rscount,$pagecount); //by lz 20180811
 								}
 							}
 						?>
