@@ -62,7 +62,7 @@
 							<label>&nbsp;</label> <span>Please write your address to recieve your order on time。<br/>E	xample：1430 rue city councillor.</span>
 						</div>
 						<div class="addList addList_r addList_reg" style="margin-top:19px;">
-							<label>How to name you：</label><input type="text" id="name" name="name" style="width:232px;" class="input" value="<?php if($reginfo[0]) echo $reginfo[0]?>" /> <!--  <span class="errormt red">*</span>-->
+							 <label>How to name you：</label><input type="text" id="name" name="name" style="width:232px;" class="input" value="<?php if($reginfo[0]) echo $reginfo[0]?>" /> <!--  <span class="errormt red">*</span>-->
 						</div>
 					</div>
 					<div class="center_button"><input type="image" src="images/button/regFinish.jpg" onClick="return checkReg();" alt="Submit" id="finishButton"/>
