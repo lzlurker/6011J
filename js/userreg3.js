@@ -22,9 +22,9 @@
 							}
 						
 						 }else{
-							 var errorMsg = '姓名只能是中文.';
-								$parent.find('.errormt').text(errorMsg);
-								$parent.find('.errormt').addClass('onError'); 
+							// var errorMsg = '姓名只能是中文.';
+							//	$parent.find('.errormt').text(errorMsg);
+							//	$parent.find('.errormt').addClass('onError'); 
 						 }
 					   
 					}

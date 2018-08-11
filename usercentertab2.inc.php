@@ -35,7 +35,7 @@
 									<tr>
 										<td class="borderBottom borderLeft" width="86"><?php echo $rows['order_addtime']?></td>
 										<td class="borderBottom borderLeft" align='center'><a href="userorderintro.php?id=<?php echo $rows['order_id']?>&key=all" style="color:red;"><?php echo $rows['order_id2']?></a></td>
-										<td class="borderBottom borderLeft" align='center'><?php echo $rows['order_totalprice']?>元</td>
+										<td class="borderBottom borderLeft" align='center'><?php echo $rows['order_totalprice']?> Dollars</td>
 										<td class="borderBottom borderLeft" align='center'><?php echo $orderState[$rows['order_status']]?></td>
 										<td class="borderBottom borderLeft" align='center'><?php echo $str?></td>
 										<td class="borderBottom borderLeft"><?php echo $time1." ".$time2?></td>

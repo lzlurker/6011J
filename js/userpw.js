@@ -3,7 +3,7 @@
 			 var $parent = $(this).parent();
 			 if( $(this).is('#phone') ){
 					if( this.value=="" || this.value.length < 11 ||  this.value.length > 11){
-					    var errorMsg = '请输入正确的手机号.';
+					    var errorMsg = 'Please write correct phone number.';
                         $parent.find('.errormt').text(errorMsg);
 						$parent.find('.errormt').addClass('onError');
 					}else{
@@ -14,7 +14,7 @@
 							 $parent.find('.errormt').html(okMsg);
 							 $parent.find('.errormt').removeClass('onError');
 						 }else{
-							  var errorMsg = '格式不正确.';
+							  var errorMsg = 'Format is not correct.';
 								$parent.find('.errormt').text(errorMsg);
 								$parent.find('.errormt').addClass('onError')
 						}
@@ -25,7 +25,7 @@
 			  if( $(this).is('#phone1') ){
 					$('#sendCode').html("<label>&nbsp;</label> <a href=\"javascript:void();\" onClick=\"sendcode()\"><img src=\"images/button/getcode.gif\" alt=\"\" style='cursor:pointer;'/></a>");
 					if( this.value==""){
-					    var errorMsg = '手机号不能为空.';
+					    var errorMsg = 'Phone number cannot be empty.';
                         $parent.find('.errormt').text(errorMsg);
 						$parent.find('.errormt').addClass('onError');
 						$('#sendCode').html("<label>&nbsp;</label> <img src=\"images/button/getcode.gif\" alt=\"\" style='cursor:pointer;'/>");
@@ -45,14 +45,14 @@
 										 $parent.find('.errormt').removeClass('onError');
 										return true;
 									}else{
-										 var errorMsg = '手机号不存在';
+										 var errorMsg = 'This phone number does not exist';
 										$('#phoneTip').text(errorMsg);
 										$('#phoneTip').addClass('onError');
 										return false;
 									}
 							});
 						 }else{
-							  var errorMsg = '手机号格式不正确.';
+							  var errorMsg = 'The format of phone number is not correct.';
 								$parent.find('.errormt').text(errorMsg);
 								$parent.find('.errormt').addClass('onError');
 								$('#sendCode').html("<label>&nbsp;</label> <img src=\"images/button/getcode.gif\" alt=\"\" style='cursor:pointer;'/>");
@@ -75,18 +75,18 @@
 
 	  function checkPWD(){
 			if ($('#pw').val()==''){
-				alert('新密码不能为空');
+				alert('New password cannot be blank');
 				$('#pw').focus();
 				return false;
 			}
 			if ($('#repw').val()==''){
-				alert('确认密码不能为空');
+				alert('Confirmation password cannot be blank');
 				$('#repw').focus();
 				return false;
 			}
 			if ($('#pw').val()!=$('#repw').val())
 			{
-				alert('两次输入的密码不相同');
+				alert('The passwords typed 2 times are not same');
 				return false;
 			}
 	  }
