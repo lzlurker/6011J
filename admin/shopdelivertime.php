@@ -73,7 +73,8 @@
 							?>
 							</select> 
 						</p>
-						<p class="clear"><label>&nbsp;</label><input type="image" src="../images/button/timeadd.gif" onClick="return check()" /></p>
+						<input style="margin-left:10px;float:left;" type="submit" value="Add" />
+						<!-- <p class="clear"><label>&nbsp;</label><input type="image" src="../images/button/timeadd.gif" onClick="return check()" /></p> -->
 						</form>
 						<div class="moneyTable feeTable" style="width:668px;">
 							<table width="100%">
