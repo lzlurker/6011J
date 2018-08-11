@@ -60,7 +60,6 @@
 					<div id="introAdd">
 						<div class="moneyTable feeTable" style="width:668px;margin-top:-14px;" >
 						<form name="listForm" id="listForm" method="post" action="shop_do.php?act=savefood">
-						<p style="margin-bottom:10px;color:red;">Tip: Enter a number in the sort box and click the Save Sort button to sort the menu. </p>
 						<p style="margin-bottom:10px;">
 						   <a href="foodadd.php?foodtype=<?php echo $foodtype;?>"><img src="../images/button/foodadd.jpg"></a>
 						   
@@ -126,7 +125,7 @@
 								}
 						?>					
 				</table>		
-				<p style="margin-bottom:10px;"><input type="submit" value="Save"/><input type="submit" name="btnSave" value="delete" style="margin-left:10px;" onclick="if(!confirm('confirm delete？'))return false;"/></p>
+				<!-- <p style="margin-bottom:10px;"><input type="submit" value="Save"/><input type="submit" name="btnSave" value="delete" style="margin-left:10px;" onclick="if(!confirm('confirm delete？'))return false;"/></p> by lz 20180811  -->
 				<input name="i" type="hidden" value="<?=$i?>">
 						<?php 
 								if ($rscount>=1){
