@@ -48,7 +48,7 @@
 									echo "<option value='".$i."'>".$i."</option>";
 								}
 							?>
-							</select> 点  
+							</select> : 
 							<select name="s1" class="input input_87">
 							<?php
 								for($i=0;$i<=59;$i++){
@@ -56,14 +56,14 @@
 									echo "<option value='".$i."'>".$i."</option>";
 								}
 							?>
-							</select> 分 到 <select name="t2" class="input input_87">
+							</select> To <select name="t2" class="input input_87">
 							<?php
 								for($i=0;$i<24;$i++){
 									if ($i<10) $i="0".$i;
 									echo "<option value='".$i."'>".$i."</option>";
 								}
 							?>
-							</select> 点  
+							</select> :  
 							<select name="s2" class="input input_87">
 							<?php
 								for($i=0;$i<=59;$i++){
@@ -71,7 +71,7 @@
 									echo "<option value='".$i."'>".$i."</option>";
 								}
 							?>
-							</select> 分
+							</select> 
 						</p>
 						<p class="clear"><label>&nbsp;</label><input type="image" src="../images/button/timeadd.gif" onClick="return check()" /></p>
 						</form>
