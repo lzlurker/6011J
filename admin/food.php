@@ -12,9 +12,9 @@
 	require_once("usercheck2.php");
 	$foodtype=empty($_GET['foodtype'])?'':sqlReplace(trim($_GET['foodtype']));
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://iEat">
  <head>
-  <meta name="Author" content="微普科技http://www.wiipu.com"/>
+  <meta name="Author" content="iEat"/>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="../style.css" type="text/css"/>
   <script src="../js/jquery-1.3.1.js" type="text/javascript"></script>
@@ -67,7 +67,7 @@
 						</p>
 							<table width="100%">
 					<tr>
-						<td style="width:8%;text-align:left; padding:6px 1%;"><input type="checkbox" value="全选" onClick="selectBox('reverse')"/><lable><span style="padding-left:6%;">全选</span></lable></td>
+						<td style="width:8%;text-align:left; padding:6px 1%;"><input type="checkbox" value="Select all" onClick="selectBox('reverse')"/><lable><span style="padding-left:6%;">Select all</span></lable></td>
 						<td class="center">Name</td>
 						<td class="center">Price</td>
 						<td class="center">Category</td>
@@ -100,7 +100,7 @@
 							$sql="select * from ".WIIDBPRE."_food where food_shop=".$QIYU_ID_SHOP.$where." and  food_special is NULL order by food_order asc,food_id desc limit $startRow,$pagesize";
 							$rs=mysql_query($sql);
 							if ($rscount==0){ 
-								echo "<tr><td colspan='8' class='center'>暂无信息</td></tr></table>";
+								echo "<tr><td colspan='8' class='center'>No info</td></tr></table>";
 							}else{
 								$i=0;
 								while($rows=mysql_fetch_assoc($rs)){
@@ -120,13 +120,13 @@
 						<td class="center"><?php echo $rows['food_intro']?></td>
 						<td class="center"><?php if($rows['food_status']=="0"){echo "Available";}else{echo "NotAvailable";}?></td>
 						<td class="center"><input type="text" size="4" name="order<?php echo $i?>" value="<?php echo $rows['food_order']?>" /></td>
-						<td class="center" style='padding:5px 0;'> <a href="foodedit.php?id=<?php echo $rows['food_id']?>&page=<?php echo $page?>">update</a> <a href="javascript:if(confirm('您确定要删除吗？')){location.href='shop_do.php?act=delfood&id=<?php echo $rows['food_id'];?>'}">delete</a></td>
+						<td class="center" style='padding:5px 0;'> <a href="foodedit.php?id=<?php echo $rows['food_id']?>&page=<?php echo $page?>">update</a> <a href="javascript:if(confirm('Confirm delete?')){location.href='shop_do.php?act=delfood&id=<?php echo $rows['food_id'];?>'}">delete</a></td>
 					</tr>
 						<?php
 								}
 						?>					
 				</table>		
-				<p style="margin-bottom:10px;"><input type="image" src="../images/button/save.gif"/><input type="image" src="../images/button/delete.gif" name="btnSave" value="delete" style="margin-left:10px;" onclick="if(!confirm('confirm delete？'))return false;"/></p>
+				<p style="margin-bottom:10px;"><input type="submit" value="Save"/><input type="submit" name="btnSave" value="delete" style="margin-left:10px;" onclick="if(!confirm('confirm delete？'))return false;"/></p>
 				<input name="i" type="hidden" value="<?=$i?>">
 						<?php 
 								if ($rscount>=1){

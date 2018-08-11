@@ -39,7 +39,7 @@
 					<div id="introAdd">
 						<form method="post" action="shop_do.php?act=addfoodtype">
 						
-						<p style='position:relative;'><label>Foodtype</label><input type="text" id="foodtype" name="foodtype" class="input input_87"/><span>&nbsp;(example: chinese)</span> <input type="image" src="../images/button/addtype.jpg" onClick="return check()" style="position:absolute;left:310px;"/></p>
+						<p style='position:relative;'><label>Foodtype</label><input type="text" id="foodtype" name="foodtype" class="input input_87"/><span>&nbsp;(example: chinese)</span> <input type="submit" value="Add" onClick="return check()" style="position:absolute;left:310px;"/></p>
 						</form>
 						<div class="moneyTable feeTable" style="width:668px;">
 							<form name="listForm" id="listForm" method="post" action="shop_do.php?act=savefoodtype">
@@ -74,7 +74,7 @@
 						<?php
 						}	
 						?>
-						<p><input type="image" src="../images/button/edit2.gif"/></a></p>
+						<p><input type="submit" value="Confirm"/></a></p>
 						</form>
 						</div>
 					</div>
