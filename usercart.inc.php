@@ -17,7 +17,7 @@
 									echo "<input type=\"hidden\" id=\"spotID\" name='spotID' value='".$spotID."'/>";
 									echo "<input type=\"hidden\" id=\"addressID\" name='addressID' value='".$defaultAddress['id']."'/>";
 									}else{
-										echo "<a href='userlogin.php' style='text-decoration:underLine;'>您还没有提交地址</a>";
+										echo "<a href='userlogin.php' style='text-decoration:underLine;'>You have not submitted an address yet</a>";
 										echo "<input type=\"hidden\" id=\"spotID\" name='spotID' value='".$spotID."'/>";
 									echo "<input type=\"hidden\" id=\"addressID\" name='addressID' value='0'/>";
 									}
@@ -25,7 +25,7 @@
 									
 								
 								</div>
-								<span><a href='javascript:void()' onClick='showAddressCart()'>编辑</a></span>
+								<span><a href='javascript:void()' onClick='showAddressCart()'>edit</a></span>
 							</div>
 							<?php if (!empty($_SESSION['qiyu_uid'])){?>
 							
@@ -42,7 +42,7 @@
 							$count=mysql_num_rows($rs);
 							if($count>0){
 								echo "<div class='haveAddress'>";
-								echo "<p class='title'>您已经有的地址：</p>";
+								echo "<p class='title'>The address you already have：</p>";
 								$j=1;
 								while ($rows=mysql_fetch_assoc($rs)){
 									
@@ -68,9 +68,9 @@
 							</div>
 							<div class='clear'></div>
 							<div class='haveAddress'>
-								<p class='title'>我要添加新地址+</p>
+								<p class='title'>I want to add a new address+</p>
 								<div class='cart_list'><label>北京市</label><select id="area1" name="area1" class='select'>
-								<option value="">请选择</option>
+								<option value="">please choose</option>
 									<?php
 										$selecte="";
 										$sql_area = "select * from ".WIIDBPRE."_area";
@@ -84,7 +84,7 @@
 										}
 									?>
 								</select> <select id="circle1" name="circle1" class='select select_84'>
-									<option value="">请选择</option>
+									<option value="">please choose</option>
 							<?php
 								if (!empty($area_id)){
 									$selecte="";
@@ -102,7 +102,7 @@
 							?>
 								</select><div class='clear'></div></div>
 								<div class='cart_list'><select id="spot1" name="spot1" class='select select_84' style='margin-left:118px;'>
-									<option value="">请选择</option>
+									<option value="">please choose</option>
 							<?php
 								if (!empty($circle_id)){
 									$selecte="";
@@ -123,8 +123,8 @@
 							?>
 								<input type="hidden" id="phone" value='<?php echo $userStr['user_phone']?>'/>
 								<input type="hidden" id="name" value='<?php echo $userStr['user_name']?>'/>
-								<div class='cart_list'><label style='width:64px;'>详细门牌号</label><input type="text" id="address" name="address" class='input'/><div class='clear'></div></div>
-								<div class='cart_list' style='text-align:right;margin-right:4px;'><a href='javascript:void();' style='color:#fe5b02;' onClick='addAddress_cart()'>确认</a></div>
+								<div class='cart_list'><label style='width:64px;'>Detailed house number</label><input type="text" id="address" name="address" class='input'/><div class='clear'></div></div>
+								<div class='cart_list' style='text-align:right;margin-right:4px;'><a href='javascript:void();' style='color:#fe5b02;' onClick='addAddress_cart()'>confirm</a></div>
 							</div>
 							</div>
 							<?php
@@ -132,7 +132,7 @@
 							?>
 							
 							<div class='haveAddress' style='border:0;'>
-								<p>外卖时间要求：</p>
+								<p>Take-out time requirement：</p>
 								<div class='cart_list'><select id="time1" name='time1' class='select' style='width:107px;color:#fe5b02;'>
 								<?php
 									
@@ -142,9 +142,9 @@
 										$today1=date('Y-m-d',time()+24*3600*$s);
 										$ss=getdate($today);
 										if ($s==0)
-											$dayStr="今天".$ss['mon']."月".$ss['mday']."日";
+											$dayStr="Today".$ss['mon']."month".$ss['mday']."day";
 										else
-											$dayStr=$ss['mon']."月".$ss['mday']."日";
+											$dayStr=$ss['mon']."month".$ss['mday']."day";
 								?>
 									<option value="<?php echo $today1?>" ><?php echo $dayStr?></option>
 								<?php
@@ -153,7 +153,7 @@
 								</select> <select id="time2" name='time2' class='select' style='width:86px;color:#fe5b02;'>
 									
 								<?php
-									if (checkDeliverTime($shopID)) echo "<option value=\"\">尽快送到</option>";
+									if (checkDeliverTime($shopID)) echo "<option value=\"\">Deliver as soon as possible</option>";
 									$tt=1;
 									$sql="select * from qiyu_delivertime where delivertime_shop=".$shopID." order by delivertime_starttime asc";
 									$rs=mysql_query($sql);
@@ -212,7 +212,7 @@
 									}
 
 									if ($i==0)			
-										echo "<div style=\"padding-left:10px;\"> 购物车为空  </div>";
+										echo "<div style=\"padding-left:10px;\"> Shopping cart is empty </div>";
 										
 								?>
 									
@@ -226,7 +226,7 @@
 								?>	
 									
 									<tr>
-										<td colspan='6' class="red padding" width="220">订单总计：<span id="total"><?php echo $total?></span>元</td> 
+										<td colspan='6' class="red padding" width="220">Total order：<span id="total">CA$<?php echo $total?></span></td> 
 									
 													
 									</tr>
@@ -246,12 +246,12 @@
 								?>
 									
 									<tr id='selever' >
-										<td colspan='6' class="gray padding" width="220"><span id="deliverfee">送餐费：<?php echo $deliverfee?>元</span><span style="margin-left:13px;" id='sendfee'>
+										<td colspan='6' class="gray padding" width="220"><span id="deliverfee">Meal delivery：CA$<?php echo $deliverfee?></span><span style="margin-left:13px;" id='sendfee'>
 										
 										<?php
 
-										if ($deliver_isfee=='1') echo "满".$sendfee_r."元免送餐费";
-										echo "最低起送".$sendfee_r."元";
+										if ($deliver_isfee=='1') echo "full".$sendfee_r."dollar free meal";
+										echo "Minimum delivery".$sendfee_r."CA$";
 										
 									?>	
 										
@@ -262,13 +262,13 @@
 													
 									</tr>
 									<tr id='selever2' >
-										<td colspan='6' class="padding" width="220">总计：<span id="totalAll"><?php echo $total+$deliverfee_r?>元</span></td> 
+										<td colspan='6' class="padding" width="220">total：<span id="totalAll"><?php echo $total+$deliverfee_r?>CA$</span></td> 
 									
 													
 									</tr>
 							
 									<tr>
-										<td colspan='6' class="gray padding" width="220">订单备注</td> 
+										<td colspan='6' class="gray padding" width="220">order notes</td> 
 									
 													
 									</tr>
