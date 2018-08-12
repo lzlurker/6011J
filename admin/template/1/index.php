@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  首页
-	 *
-	 * @version       v0.01
-	 * @create time   2012-11-10
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+
 	require_once("usercheck.php");
 	$_SESSION['login_url']=getUrl();
 	$_SESSION['qiyu_orderType']='';
