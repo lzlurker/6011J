@@ -55,7 +55,7 @@
 									<td class="borderBottom borderLeft"><?php echo $rows['useraddr_address']?></td>
 									<td class="borderBottom borderLeft"><?php echo $rows['useraddr_name']?></td>
 									<td class="borderBottom borderLeft"><?php echo $rows['useraddr_phone']?></td>
-									<td class="borderBottom borderLeft"><span class="red"><?php if ($rows['useraddr_type']=='0') echo "当前默认地址";?></span></td>
+									<td class="borderBottom borderLeft"><span class="red"><?php if ($rows['useraddr_type']=='0') echo "Current Default Address";?></span></td>
 									<td class="borderBottom borderRight borderLeft red">
 										<a href="javascript:void();" onClick="updateAddress(<?php echo $rows['useraddr_id']?>)">modify</a> | <span onclick="alert1('deladdress','<?php echo $rows['useraddr_id']?>');" style="cursor:pointer;">delete</span> <?php if ($rows['useraddr_type']!='0'){?> | <span onclick="setaddress('setaddress','<?php echo $rows['useraddr_id']?>');" style="cursor:pointer;">set as Default</a><?php }?>
 									</td>

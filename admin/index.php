@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  index.php  
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-6
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) ΢�տƼ� WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+	
 	require_once("usercheck.php");
 	if(!empty($QIYU_ID_SHOP)) Header("Location: shopadd.php");
 	$url=str_replace('/index.php','',getUrl());
