@@ -1,13 +1,5 @@
 <?php
-/**
- * 打印信息
- *
- * @version       v0.01
- * @create time   2012-2-25
- * @update time   
- * @author        liuxiaohui
- * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
- */
+
 set_time_limit(0);
 header("content-type:text/html;charset=utf-8");
 require_once("usercheck2.php");

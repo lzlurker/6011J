@@ -1,18 +1,5 @@
 <?php
 
-/**
- * themessite_do.php
- *
- * @version       v0.01
- * @create time   2011-5-30
- * @update time   
- * @author        wiipu
- * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
- * @informaition  
-
- * Update Record:
- *
- */	
  	require_once("usercheck2.php");
 	require_once('../include/function_common.php');
 	if($_GET['type']==2){

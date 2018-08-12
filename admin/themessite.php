@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  手机模板设置 
-	 *
-	 * @version       v0.01
-	 * @create time   2012-3-21
-	 * @update time
-	 * @author        liuxiaohui
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+
 	require_once("usercheck2.php");
 	require_once("inc/configue.php");
 	require_once("style_default.php");

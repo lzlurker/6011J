@@ -1,17 +1,5 @@
 <?php
-/**
- * sendsms.ajax.php  
- *
- * @version       v0.01
- * @create time   2012-3-1
- * @update time   
- * @author        liuwenjuan
- * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. ( http://www.wiipu.com)
- * @informaition  
 
- * Update Record:
- *
- */
 
 require_once("usercheck2.php");
 require_once("inc/function.php");

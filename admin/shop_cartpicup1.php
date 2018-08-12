@@ -1,13 +1,5 @@
 <?php
-/**
- *  shop_cartpicup.php
- *
- * @version       v0.02
- * @create time   2011-5-19
- * @update time   2011-8-23
- * @author        jiangting
- * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
- */
+
 	header("content-type:text/html;charset=utf-8");
 	require_once('inc_image.class.php');
 	require_once("usercheck2.php");

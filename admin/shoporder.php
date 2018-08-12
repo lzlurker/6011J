@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  shoporder.php  
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-24
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+
 	require_once("usercheck2.php");
 	$key=sqlReplace(trim($_GET['key']));
 	$keyword=empty($_GET['keyword'])?'':sqlReplace(trim($_GET['keyword']));

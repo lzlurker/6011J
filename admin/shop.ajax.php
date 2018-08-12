@@ -1,14 +1,5 @@
 <?php
-	/**
-	 * shop_ajax.php 
-	 *
-	 * @version       v0.01
-	 * @create time   2011-7-27
-	 * @update time   
-	 * @author        liuxiaohui
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition  
-	 */
+
 	require_once("usercheck2.php");
 
 	$str='';

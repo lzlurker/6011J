@@ -1,13 +1,5 @@
 <?php
-/**
- * 群发短信 sendsms.php
- *
- * @version       v0.01
- * @create time   2012-04-13
- * @update time   
- * @author        jiangting
- * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
- */
+
   
 	require_once("usercheck2.php");
 	require_once("inc/function.php");

@@ -1,14 +1,5 @@
 <?php
-/**
- * 提示新订单信息		msg.php
- *
- * @version       v0.01
- * @create time   2011-9-10
- * @update time   
- * @author        liuxiaohui
- * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
- * @informaition  
- */
+
 	require_once("usercheck2.php");
 	//receiveCode();
 	$diftime=date('Y-m-d',time());

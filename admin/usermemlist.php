@@ -1,14 +1,5 @@
 <?php
-	/**
-	 * subscribe.php
-	 *
-	 * @version       v0.01
-	 * @create time   2012-3-21
-	 * @update time
-	 * @author        liuxiaohui
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+
 	require_once("usercheck2.php");
 	$id=empty($_GET['id'])?'':$_GET['id'];
 	$ao=empty($_GET['ao'])?'':$_GET['ao'];

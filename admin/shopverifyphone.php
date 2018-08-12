@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  shopverifyphone.php  
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-27
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+
 	require_once("usercheck2.php");
 	$phone=sqlReplace(trim($_POST['phone']));
 	checkData($phone,'Phone number',1);

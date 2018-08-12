@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  shopadd.php  
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-22
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+
 	require_once("usercheck2.php");
 	$sql="select * from qiyu_seo where seo_type=1";
 	$rs=mysql_query($sql);

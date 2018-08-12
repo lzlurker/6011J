@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  food.php  
-	 *
-	 * @version       v0.01
-	 * @create time   2012-3-21
-	 * @update time
-	 * @author        liuxiaohui
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+
 	require_once("usercheck2.php");
 	$tel=empty($_GET['tel'])?'':sqlReplace(trim($_GET['tel']));
 

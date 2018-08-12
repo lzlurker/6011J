@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  shoptop.php  
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-22
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+
 
 	require_once("usercheck2.php");
 	$id=sqlReplace(trim($_GET['id']));
