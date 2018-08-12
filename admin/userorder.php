@@ -57,7 +57,27 @@ function check_all(obj,cName){
 					<h1>
 					<?php 
 						if ($key!='all'){
-							echo $orderState[$key];
+							switch ($key)
+							{
+								case 0:
+									echo "New order";
+									break;
+								case 1:
+									echo "Confirm order";
+									break;
+								case 2:
+									echo "Owner cancel order";
+									break;
+								case 3:
+									echo "User cancel order";
+									break;
+								case 4:
+									echo "Finish order";
+									break;
+								default:
+									echo "No item";
+							}
+							//echo $orderState[$key]; //by lz 20180811
 						}else if (!empty($uid)){
 							$list=getUser($uid);
 							echo $list['user_name']." 's all order";
