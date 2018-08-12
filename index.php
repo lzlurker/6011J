@@ -196,7 +196,7 @@
 					<div id="shop_left">
 						<div id="s_left_top"></div>
 						<div id="s_left_center">
-							<h1><?php echo $shop_name?></h1>
+							<h1><?php echo $Offers?></h1>
 							<div id="focus">
 							<?php
 									$sql="select * from qiyu_shoppics where shoppics_shop=".$shopID." order by shoppics_order asc,shoppics_id desc";
