@@ -51,7 +51,7 @@
 						</div>
 						
 						<div class="addList addList_reg addList_reg">
-							<label>&nbsp;</label> <span>Your phone number is your <?php echo $SHOP_NAME?> account for this site. Please write<br/> your phone number so that we can contact.</span>
+							<label>&nbsp;</label> <span>Your phone number is your <?php echo $user?> account for this site. Please write<br/> your phone number so that we can contact.</span>
 						</div>
 						<div class="addList addList_r addList_reg">
 							<label>Set your password：</label><input type="password" id="pw" name="pw" class="input"/> <span class="errormt red">*</span>
