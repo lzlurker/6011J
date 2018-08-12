@@ -44,9 +44,9 @@
 						<p class="gray">Want to know the progress of the order at any time, please click to view</p>
 						<?php
 							if(empty($_SESSION['qiyu_uid'])){
-								echo '<p><a href="usercentertab2_n.inc.php"><img src="images/button/see.jpg" width="102" height="27" alt="" /></a></p>';
+								echo '<p><a href="usercentertab2_n.inc.php"><img src="images/button/see.jpg" width="130" height="27" alt="" /></a></p>';
 							}else{
-								echo '<p><a href="userorderintro.php?id='.$orderid.'&key=new"><img src="images/button/see.jpg" width="102" height="27" alt="" /></a></p>';
+								echo '<p><a href="userorderintro.php?id='.$orderid.'&key=new"><img src="images/button/see.jpg" width="130" height="27" alt="" /></a></p>';
 							}
 						?>
 					</div>
