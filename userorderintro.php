@@ -145,7 +145,7 @@
 
 						<div class="intro_l" id="intro_l">
 							<div class="intro">
-								<div class="top"><img src="images/order_intro.jpg" alt=""/></div>
+								<div class="top"><img src="images/order_int.jpg" /></div>
 								<p style="margin-top:0">Order number：<?php echo $order?> <span class="time">Order time：<?php echo $orderAddtime?></span>
 									<?php if ($orderType=='1') echo "<span class='time'>Appointment：".$orderTime1." ".$orderTime2."</span>"?>
 								</p>
