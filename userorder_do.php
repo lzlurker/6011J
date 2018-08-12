@@ -263,11 +263,11 @@
 		}
 	}
 	if (empty($total)){
-		alertInfo("您还没有添加餐品","index.php",0);
+		alertInfo("You have not added any food yet.","index.php",0);
 	}
 	//判断是否满足商家设定的外送消费下限
 		if ($total<$sendfee_r && $orderType!='group'){		
-			alertInfo("您的订单不够起送金额，请酌情增加。","index.php",0);
+			alertInfo("Your order is not enough to send the amount, please increase as appropriate。","index.php",0);
 		}	
 
 	if ($isDFee=='1' && $total>=$sendfee_r){  
@@ -283,9 +283,9 @@
 	//if ($shop_discount!='0.0') $total=$total*$shop_discount/10;
 	$totalAll=$total+$deliverfee_r;
 	if (!empty($time2)){
-		$content='[预约时间:'.$time1.$time2.'],';
+		$content='Appointment:'.$time1.$time2.'],';
 	}
-	$content.="订单号:".$order.",总金额:".$totalAll."元";
+	$content.="order number:".$order.",total amount:".$totalAll."元";
 	$content_r='';
 	$sql="select * from qiyu_useraddr where useraddr_id=".$address;
 	$rs=mysql_query($sql);
@@ -315,10 +315,10 @@
 		$sql="insert into qiyu_order(order_area,order_circle,order_spot,order_build,order_id2,order_shop,order_user,order_addtime,order_totalprice,order_price,order_deliverprice,order_status,order_useraddr,order_address,order_username,order_userphone,order_shopid,order_text,order_type,order_time1,order_time2,order_ispay) values ('".$row['area_name']."','".$row['circle_name']."','".$row['spot_name']."','','".$order."','".$shop_id2."',".$QIYU_ID_USER.",'".$ordertime."',".$totalAll.",".$total.",".$deliverfee_r.",'0',".$address.",'".$orderaddr."','".$orderusername."','".$orderuserphone."',".$ordershopid.",'".$orderDesc."','1','".$time1."','".$time2."','".$ispay."')";
 	
 	if (!mysql_query($sql)){
-		alertInfo('备注内容过长','',0);
+		alertInfo('Remarks are too long','',0);
 	}
-	$orderContent="<span class='greenbg'><span><span>订单成功生成</span></span></span>";
-	$orderContent.="您的订单已经成功生成！";
+	$orderContent="<span class='greenbg'><span><span>Successful order generation</span></span></span>";
+	$orderContent.="Your order has been successfully generated!";
 	addOrderType($order,HTMLEncode($orderContent));
 	if(empty($_SESSION['qiyu_uid'])){
 		$_SESSION['order_id']=$order;
@@ -341,7 +341,7 @@
 			if ($rows){
 				$cookieFoodDesc_rr=str_replace('&nbsp;','',$cookieFoodDesc);
 				$cookieFoodDesc_rr=str_replace(' ','',$cookieFoodDesc_rr);
-				$content_r.=','.$rows['food_name'].$cookieFoodCount.'份';
+				$content_r.=','.$rows['food_name'].$cookieFoodCount.'Share';
 				$foodprice=$rows['food_price'];
 				if(!empty($cookieFoodDesc)) {
 					$cookieFoodDesc_rrr='('.$cookieFoodDesc_rr.')';  
@@ -361,8 +361,8 @@
 		}
 	}
 	$content.=$content_r;
-	if (!empty($orderDesc)) $content.=',备注:'.$orderDesc.'';
-	$content.=',客户:'.$orderusername.',地址:'.$orderaddr.',电话:'.$orderuserphone;
+	if (!empty($orderDesc)) $content.=',Remarks:'.$orderDesc.'';
+	$content.=',client:'.$orderusername.',address:'.$orderaddr.',phone:'.$orderuserphone;
 
 	
 	//删除cookie
@@ -398,25 +398,25 @@
 	
 	for($i=1;$i<=$site_yunprintnum;$i++){		
 		if($site_yunprintnum>1){
-			$print_content='【第 '.$i.' 联】'."\n";
+			$print_content='First '.$i.' Union'."\n";
 		}
-		$print_content.="订单号：".$order.  "\n";
-		$print_content.="订餐时间：".$ordertime.  "\n";
+		$print_content.="order number：".$order.  "\n";
+		$print_content.="Order time：".$ordertime.  "\n";
 		if (!empty($time2)){
-			$print_content.="预约时间：".$time1.' '.$time2. ":00\n";
+			$print_content.="Appointment：".$time1.' '.$time2. ":00\n";
 		}
         
-		$print_content.="姓名：" .$orderusername. " \n";	
-		$print_content.="电话: " .$orderuserphone." \n";
-		$print_content.="地址: " .$orderaddr. " \n";
+		$print_content.="Name：" .$orderusername. " \n";	
+		$print_content.="phone: " .$orderuserphone." \n";
+		$print_content.="address: " .$orderaddr. " \n";
 		$print_content.="------------------------- \n";	
 		$print_content.=$content_p;
 		$print_content.="------------------------- \n";	
 		if($deliverfee_r>0){
-			$print_content.="送餐费:￥".number_format($deliverfee_r,2)." \n";
+			$print_content.="Delivery fee: $".number_format($deliverfee_r,2)." \n";
 		}	
-		$print_content.="总金额:￥".number_format($totalAll,2)." \n";	
-		$print_content.="备注: ".str_replace('<br/>','',str_replace('&nbsp;','',$orderDesc)). " \n\n\n\n\n\n";
+		$print_content.="total amount:$".number_format($totalAll,2)." \n";	
+		$print_content.="Remarks: ".str_replace('<br/>','',str_replace('&nbsp;','',$orderDesc)). " \n\n\n\n\n\n";
 
 		if (!(empty($site_yunprint))){
 			$p=new YunPrint();
