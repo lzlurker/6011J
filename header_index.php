@@ -14,7 +14,7 @@
 		<div id="header" <?php if (!empty($_SESSION['qiyu_uid'])) echo "class='loginHeader'"?> style="height:90px;">
 			<?php
 				if(empty($logo)){
-					$imgstr='images/logo_default.jpg';
+					$imgstr='images/logo_deflt.jpg';
 				}else{
 					$imgstr=$logo;
 				}
