@@ -252,7 +252,7 @@
 										<td colspan='6'  class="gray padding no_border" style='padding-top:10px;' width="220"><span id="deliverfee">Meal delivery：CA$<?php echo $deliverfee?></span><span style="margin-left:25px;" id='sendfee'>
 									<?php
 										if ($deliver_isfee=='1') echo "Full".$sendfee_r."Minimum amout for delivery";
-										echo "Minimum amout for delivery".$sendfee_r."dollar";
+										echo "Minimum amount for delivery".$sendfee_r."dollar";
 									?>	
 										
 									
