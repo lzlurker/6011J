@@ -229,7 +229,7 @@
 								?>	
 									
 									<tr>
-										<td colspan='6' class="red padding no_border" width="220" style="padding-top:7px;">Total order：<span id="total" style='margin-left:74px;'><?php echo $total?></span>元</td> 
+										<td colspan='6' class="red padding no_border" width="220" style="padding-top:7px;">Total order：<span id="total" style='margin-left:74px;'>CA$<?php echo $total?></span></td> 
 									
 													
 									</tr>
