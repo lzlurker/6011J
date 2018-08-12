@@ -1,14 +1,5 @@
 <?php
-	/**
-	 *  header.php  
-	 *
-	 * @version       v0.01
-	 * @create time   2011-8-6
-	 * @update time
-	 * @author        lujiangxia
-	 * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
-	 * @informaition
-	 */
+
 ?>
 	<div id="hearderBox" style="height:90px;">
 		<div id="header" >

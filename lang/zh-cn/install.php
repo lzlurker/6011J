@@ -1,17 +1,5 @@
 <?php
-/**
- * install.php
- *
- * @version       v0.01
- * @create time   2011-5-30
- * @update time   
- * @author        wiipu
- * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. ( http://www.wiipu.com)
- * @informaition  
 
- * Update Record:
- *
- */
 //header
 
 	$_['header_index']                   = '欢迎';
