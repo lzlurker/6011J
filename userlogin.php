@@ -87,7 +87,7 @@
 						<div class="addList"><label>Password：</label><input type="password" id="pw" name="pw" class="input"/> <a href="userpw.php" class="red">Forget password</a></div>
 
 						<div class="addList"><label>&nbsp;</label><input type="checkbox"  name="re_name" id="re_name" value="yes" checked/> Remember account <input type="checkbox"  name="cookie" id="cookie" value="yes" checked /> Sign-in automatically</div>
-						<div class="send"><input type="image" id="loginButton"  src="images/button/login.gif" alt="登录" onclick="return login();" hidefocus="true" style="outline:none;"/></div>
+						<div class="send"><input type="image" id="loginButton"  src="images/button/login.gif" alt="log in" onclick="return login();" hidefocus="true" style="outline:none;"/></div>
 
 					</div><!--leftwan-->
 					<div id="right_new" style='height:450px;'>
