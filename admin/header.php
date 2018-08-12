@@ -39,7 +39,7 @@
 			?>
 			</div>
 		
-			<div class="location" style='left:100px;top:30px;'><a href="admin.php" style="color:#fff;"><?php echo $SHOPNAME_DDMIN?></a></div>
+			<div class="location" style='left:100px;top:30px;'><a href="admin.php" style="color:#fff;">Admin Page<?php //echo $SHOPNAME_DDMIN?></a></div>
 			<p class='shopindex'><a href="../index.php" target='_blank'>Main Page</a></p>
 			
 		</div>
