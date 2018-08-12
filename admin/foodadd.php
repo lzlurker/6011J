@@ -106,7 +106,7 @@
 						?>
 						</select>
 						<?php
-							if ($numr==0) echo " <a href='foodtype.php'>添加分类</a>";
+							if ($numr==0) echo " <a href='foodtype.php'>add category</a>";
 						?>
 						</p>
 						<p><label>Dish info：</label>
