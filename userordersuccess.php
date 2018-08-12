@@ -40,7 +40,7 @@
 						<p><img src="images/ok.jpg" width="28" height="25" alt="" /> Your order has been submitted successfully.</p>
 						<p>order number：<?php echo $id?>   The order amount is：<span class="red"><?php echo $total?>元</span></p>
 						<p><img src="images/line_541.jpg" alt="" /></p>
-						<p class="gray"><?php echo $SHOP_NAME?>We are placing an order for you, please be patient. </p>
+						<p class="gray"> We are placing an order for you, please be patient. </p>
 						<p class="gray">Want to know the progress of the order at any time, please click to view</p>
 						<?php
 							if(empty($_SESSION['qiyu_uid'])){
