@@ -103,7 +103,7 @@
 				$order=$rows_ff['order_id2'];
 				$sql_edit="update qiyu_order set order_status='4' where order_id=".$id." and order_status='1'";
 				if (mysql_query($sql_edit)){
-					$orderContent="<span class='greenbg'><span><span>我收到餐了</span></span></span>";
+					$orderContent="<span class='greenbg'><span><span>I received the meal.</span></span></span>";
 					addOrderType($order,HTMLEncode($orderContent));
 					//addOrderType($order,"您的订单完成");
 					if(empty($_SESSION['qiyu_uid'])){
@@ -1186,8 +1186,8 @@
 			echo "		<div id='c_table'>";
 			echo "			<table border='0' width='455'>";
 			echo "				<tr>";
-			echo "					<td class='menu first td' width='125'>菜名</td>";
-			echo "					<td class='menu' >价格</td>";
+			echo "					<td class='menu first td' width='125'>Dish name</td>";
+			echo "					<td class='menu' >price</td>";
 			echo "				</tr>";
 			echo "				<tr>";
 			echo "					<td class='main first td'>".$name."</td>";
@@ -1316,9 +1316,9 @@
 			}
 				
 			$str.= "</div>";
-			$str.= "		<p class='cart_prompt'>对于此餐品的备注：</p>";
+			$str.= "		<p class='cart_prompt'>Remarks for this meal：</p>";
 			$str.= "		<p class='cart_intro'><textarea id=\"cart_desc\" class='cart_input'></textarea></p>";
-			$str.= "		<p class='submit_cart'><img src=\"images/button/addCart1.jpg\" onmouseout=\"checkbg1()\" onmouseover=\"checkbg2()\" mousedown='checkbg3()' id=\"addCartF\"  alt=\"\" style='cursor:pointer;' onClick=\"addCart_t_new(".$shopID.",".$foodID.",".$spotID.",".$circleID.",'".$time1."','".$time2."')\"/><span><a href='javascript:void();' onClick=\"closeFlow()\">回到餐厅界面</a></span></p>";
+			$str.= "		<p class='submit_cart'><img src=\"images/button/addCart1.jpg\" onmouseout=\"checkbg1()\" onmouseover=\"checkbg2()\" mousedown='checkbg3()' id=\"addCartF\"  alt=\"\" style='cursor:pointer;' onClick=\"addCart_t_new(".$shopID.",".$foodID.",".$spotID.",".$circleID.",'".$time1."','".$time2."')\"/><span><a href='javascript:void();' onClick=\"closeFlow()\">Back to the restaurant interface</a></span></p>";
 			$str.= "	</div>";
 
 			echo $str;
@@ -1343,8 +1343,8 @@
 			$str.= "		<div id='c_table'>";
 			$str.= "			<table border='0' width='455'>";
 			$str.= "				<tr>";
-			$str.= "					<td class='menu first td' width='195'>菜名</td>";
-			$str.= "					<td class='menu' >价格</td>";
+			$str.= "					<td class='menu first td' width='195'>Dish name</td>";
+			$str.= "					<td class='menu' >price</td>";
 			$str.= "				</tr>";
 			$str.= "				<tr>";
 			$str.= "					<td class='main first td'>".$name."</td>";
@@ -1352,14 +1352,14 @@
 			$str.= "				</tr>";
 			$str.= "			</table>";
 			$str.= "		</div>";
-			$str.= "<div id=\"cart_needs\"><span class='span span_need'>口味需求：</span>";
+			$str.= "<div id=\"cart_needs\"><span class='span span_need'>Taste demand：</span>";
 			foreach($tag as $k=>$v){
 				$str.= "<input type=\"checkbox\" id='styleNeeds".($k+1)."' onClick='addContent(".($k+1).")' value='".$v."' class='styleCheck'/>
 						<span class='span mainfood'>".$v."</span> ";
 			}
 				
 			$str.= "</div>";
-			$str.= "		<p class='cart_prompt'>对于此餐品的备注：</p>";
+			$str.= "		<p class='cart_prompt'>Remarks for this meal：</p>";
 			$str.= "		<p class='cart_intro'><textarea id=\"cart_desc\" class='cart_input'></textarea></p>";
 			$str.= "		<p class='submit_cart'><img src=\"images/button/addCart1.jpg\" onmouseout=\"checkbg1()\" onmouseover=\"checkbg2()\" mousedown='checkbg3()' id=\"addCartF\"  alt=\"\" style='cursor:pointer;' onClick=\"addCart_t(".$shopID.",".$foodID.",".$spotID.",".$circleID.",'".$time1."','".$time2."')\"/><span><a href='javascript:void();' onClick=\"closeFlow()\">Return to restaurant page</a></span></p>";
 			$str.= "	</div>";
