@@ -71,14 +71,14 @@
 						</div>
 
 						<div class="addList addList_r addList_reg" style="position:relative;">
-							<label style="color:#404040;">Verification code：</label><input type="text" id="vcode" name="vcode" class="input" style="width:82px;"/> <img src="include/imgcode.php" id='code_img' alt="点击更新验证码" style="position:absolute;left:270px;_left:90px;top:3px;*top:5px;cursor:pointer;" onClick='updateCode();'/>
+							<label style="color:#404040;">Verification code：</label><input type="text" id="vcode" name="vcode" class="input" style="width:82px;"/> <img src="include/imgcode.php" id='code_img' alt="Click to update the verification code" style="position:absolute;left:270px;_left:90px;top:3px;*top:5px;cursor:pointer;" onClick='updateCode();'/>
 						</div>
 						
 						<?php
 							if ($site_isshowprotocol=='1'){
 						?>
 						<div class="addList addList_reg">
-							<label>&nbsp;</label> <span><input type="checkbox" name="agree" checked/> I've read and agree with</span><span id="spandiv">《<?php echo $SHOP_NAME?>'s user service agreement》</span>
+							<label>&nbsp;</label> <span><input type="checkbox" name="agree" checked/> I've read and agree with</span><span id="spandiv"><?php echo $SHOP_NAME?>'s user service agreement》</span>
 						</div>
 						<div class="addList addList_reg" style="margin-left:45px; display:none;" id="hiddendiv">
 						  <div id=""  class="protocol">
@@ -90,7 +90,7 @@
 					?>
 						
 					</div>
-					<div class="center_button"><input type="image" src="images/button/button english/regButton.jpg" onClick="return checkReg1();" alt="提交" id="regButton"/>
+					<div class="center_button"><input type="image" src="images/button/button english/regButton.jpg" onClick="return checkReg1();" alt="submit" id="regButton"/>
 						<!--<img src="images/button/regButton.gif" onClick="alerterr();" alt="Submit" />-->
 					</div>
 					<div class="botton_bg">
