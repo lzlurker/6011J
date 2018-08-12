@@ -69,7 +69,7 @@
 							<div class='clear'></div>
 							<div class='haveAddress'>
 								<p class='title'>I want to add a new address+</p>
-								<div class='cart_list'><label>北京市</label><select id="area1" name="area1" class='select'>
+								<div class='cart_list'><label>Montreal</label><select id="area1" name="area1" class='select'>
 								<option value="">please choose</option>
 									<?php
 										$selecte="";
@@ -202,7 +202,7 @@
 													<td width="12" ><input type="text" class="cutInput" readonly value="<?php echo $cookieFoodCount?>"/></td>
 													<td width="22" ><img class="subtractImg"  src="images/cut.jpg" alt="" style='cursor:pointer;' onClick="subtractCart(<?php echo $cookieShopID?>,<?php echo $cookieFoodID?>)"/></td>
 													<td width="33" class="center"><?php echo $rows['food_price']*$cookieFoodCount ?></td>
-													<td width="21" ><img src="images/del.gif" alt="删除" onClick="delCart(<?php echo $key?>,<?php echo $shopID?>,<?php echo $rows['food_id']?>,<?php echo $spotID?>)"  style="cursor:pointer;" class="delImg"/></td>
+													<td width="21" ><img src="images/del.gif" alt="delete" onClick="delCart(<?php echo $key?>,<?php echo $shopID?>,<?php echo $rows['food_id']?>,<?php echo $spotID?>)"  style="cursor:pointer;" class="delImg"/></td>
 												</tr>
 								<?php
 												$i+=1;
