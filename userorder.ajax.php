@@ -249,7 +249,7 @@
 				*/
 				
 				echo "<div class='cart_h1'  style='display:none;'>";
-				echo "地址：";
+				echo "address：";
 				echo "<div class='defaultAddress'>";
 									if (!empty($_SESSION['qiyu_uid'])){
 										if (empty($addressID)){
@@ -561,7 +561,7 @@
 							echo "</div>";
 							
 							echo "<div><img src=\"images/shade.jpg\" width=\"226\" height=\"8\" alt=\"\" /></div>";
-						echo "</div><!--cartbox完-->";
+						echo "</div><!--cartbox finish-->";
 						
 		break;
 		case "getCart_new":
@@ -603,7 +603,7 @@
 			echo "<div class=\"tableMain\">";
 				
 				echo "<div class='cart_h1'  style='display:none;'>";
-				echo "地址：";
+				echo "address：";
 				echo "<div class='defaultAddress'>";
 									if (!empty($_SESSION['qiyu_uid'])){
 										if (empty($addressID)){
@@ -723,7 +723,7 @@
 								echo "<input type=\"hidden\" id=\"phone\" value='".$userStr['user_phone']."'/>";
 								echo "<input type=\"hidden\" id=\"name\" value='".$userStr['user_name']."'/>";
 								echo "<div class='cart_list'><label style='width:64px;'>Detailed house number</label><input type=\"text\" id=\"address\" name=\"address\" class='input'/><div class='clear'></div></div>";
-								echo "<div class='cart_list' style='text-align:right;margin-right:4px;'><a href='javascript:void();' style='color:#fe5b02;' onClick='addAddress_cart()'>确认</a></div>";
+								echo "<div class='cart_list' style='text-align:right;margin-right:4px;'><a href='javascript:void();' style='color:#fe5b02;' onClick='addAddress_cart()'>confirm</a></div>";
 							echo "</div>";
 							echo "</div>";
 								}
@@ -921,7 +921,7 @@
 							}
 							echo "</div>";
 							
-						echo "</div><!--cartbox完-->";
+						echo "</div><!--cartbox finish-->";
 						
 		break;
 		case "getOpen":
@@ -958,7 +958,7 @@
 			echo "</table>";
 			echo "</div>";
 			echo "<div><img src=\"images/shade.jpg\" width=\"226\" height=\"8\" alt=\"\" /></div>";
-			echo "</div><!--cartbox完-->";
+			echo "</div><!--cartbox finish-->";
 		break;
 		case "getOpen_new":
 			$shopID=sqlReplace(trim($_POST['shopID']));
@@ -993,7 +993,7 @@
 			echo "</tr>";						
 			echo "</table>";
 			echo "</div>";
-			echo "</div><!--cartbox完-->";
+			echo "</div><!--cartbox finish-->";
 		case "foodList":
 			echo " <script src=\"js/addbg.js\" type=\"text/javascript\"></script>";
 			$shopID=sqlReplace(trim($_POST['shop']));
@@ -1040,7 +1040,7 @@
 					echo "onClick=\"addCart_im(".$shopID.",".$row['food_id'].",".$spotID.",".$circleID.")\"";
 					echo ">";
 					echo "<img src='".$pic."' width='130' height='130' alt='' class='foodPic'/>";
-					echo "<p>".$row['food_name']."<span>￥".number_format($row['food_price'],2)."</span></p>";
+					echo "<p>".$row['food_name']."<span>$".number_format($row['food_price'],2)."</span></p>";
 				if (!empty($row['food_intro'])){
 					echo "<div class=\"flowdd\" style=\"position:absolute;z-index:600;left:64px;display:none;top:".$top."px;\">";
 					echo "<img src=\"images/gt.gif\" alt=\"\" class=\"arrow\"/>";
