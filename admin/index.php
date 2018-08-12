@@ -6,7 +6,7 @@
 	 * @create time   2011-8-6
 	 * @update time
 	 * @author        lujiangxia
-	 * @copyright     Copyright (c) Î¢ÆÕ¿Æ¼¼ WiiPu Tech Inc. (http://www.wiipu.com)
+	 * @copyright     Copyright (c) Î¢ï¿½Õ¿Æ¼ï¿½ WiiPu Tech Inc. (http://www.wiipu.com)
 	 * @informaition
 	 */
 	require_once("usercheck.php");
@@ -36,9 +36,9 @@
 			<div class="main_center main_center_r" style="padding-bottom:30px;padding-top:50px;">
 				<div id="shoplogin">
 				<form method="post" action="shoplogin_do.php?act=login">
-					<p style="padding-top:43px;margin:0"><label>User name£º</label><input type="text" name='account' id="account1" class="input"/> <span class="red">*</span></p>
-					<p><label>Password£º</label><input type="password" name="pw" id="pw1" class="input"/> <span class="red">*</span></p>
-					<p><label>Code£º</label><input type="text" id="imgcode" name='imgcode' class="input" style="width:70px;"/> <img src="../include/imgcode.php" name="codeimage" id="codeimage" onclick="this.src='../include/imgcode.php?'+Math.random(1);" style="cursor:pointer;"> <a href="javascript:void();" onclick="codeimage.src='../include/imgcode.php?'+Math.random(1);" style="color:#3a3737;">Switch</a> <span class="red">*</span></p>
+					<p style="padding-top:43px;margin:0"><label>User name</label><input type="text" name='account' id="account1" class="input"/> <span class="red">*</span></p>
+					<p><label>Password</label><input type="password" name="pw" id="pw1" class="input"/> <span class="red">*</span></p>
+					<p><label>Code</label><input type="text" id="imgcode" name='imgcode' class="input" style="width:70px;"/> <img src="../include/imgcode.php" name="codeimage" id="codeimage" onclick="this.src='../include/imgcode.php?'+Math.random(1);" style="cursor:pointer;"> <a href="javascript:void();" onclick="codeimage.src='../include/imgcode.php?'+Math.random(1);" style="color:#3a3737;">Switch</a> <span class="red">*</span></p>
 					<p class="submit"><input type="image" src="../images/button/login_red.gif" onClick="return checkReg();"/></p>
 				</form>
 				</div>
