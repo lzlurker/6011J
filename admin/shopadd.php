@@ -36,7 +36,7 @@
 						
 						<p>
 							<label>Restaurant address:</label>
-							 <input type="text" id="address" name="address" class="input input270" value="<?php if(empty($SHOP_INFOS['shop_address'])){echo '请输入你的店铺地址';}else{echo $SHOP_INFOS['shop_address'];}?>"/> *
+							 <input type="text" id="address" name="address" class="input input270" value="<?php if(empty($SHOP_INFOS['shop_address'])){echo 'Please enter your store address';}else{echo $SHOP_INFOS['shop_address'];}?>"/> *
 						</p>
 						
 						<p><label>Restaurant phone number:</label><input type="text" id="tel" name="tel" class="input input179" value="<?php echo $SHOP_INFOS['shop_tel']?>"/> *</p>
@@ -45,7 +45,7 @@
 						<p><label>Main food：</label><input class="input input179" type="text" id="mainfood" name="mainfood" maxlength="16" value="<?php echo $SHOP_INFOS['shop_mainfood']?>"/> （Max 16 characters）*</p>
 
 						
-						<p><label>Restaurant introduction:</label><textarea id="intro" name="intro" class="input input578" style="height:53px;resize:none;"><?php if(empty($SHOP_INFOS['shop_intro'])){echo '200字以内';}else{echo $SHOP_INFOS['shop_intro'];}?></textarea> *</p>
+						<p><label>Restaurant introduction:</label><textarea id="intro" name="intro" class="input input578" style="height:53px;resize:none;"><?php if(empty($SHOP_INFOS['shop_intro'])){echo 'Within 200 words';}else{echo $SHOP_INFOS['shop_intro'];}?></textarea> *</p>
 						
 						<p><label>&nbsp;</label><input type="image" src="../images/button/submit_t.jpg"  onClick="return check()"/></p>
 						</form>
