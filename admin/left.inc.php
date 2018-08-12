@@ -58,7 +58,7 @@
 		<ul>
 			<li><a href="stat_login.php">User login analysis</a></li>
 			<li><a href="stat_topuser.php">Consumption ranking analysis</a></li>
-			<li><a href="stat_hotfood.php">Hot food analysis</a></li>
+			<li><a href="stat_hotfood.php">Popular food analysis</a></li>
 			<li><a href="stat_order.php">Order analysis</a></li>
 		</ul>
 	</li>
