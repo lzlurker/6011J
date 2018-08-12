@@ -78,7 +78,7 @@
 							if ($site_isshowprotocol=='1'){
 						?>
 						<div class="addList addList_reg">
-							<label>&nbsp;</label> <span><input type="checkbox" name="agree" checked/> I've read and agree with</span><span id="spandiv"><?php echo  restaurant?>'s user service agreement》</span>
+							<label>&nbsp;</label> <span><input type="checkbox" name="agree" checked/> I've read and agree with </span><span id="spandiv"><?php echo restaurant?>'s user service agreement》</span>
 						</div>
 						<div class="addList addList_reg" style="margin-left:45px; display:none;" id="hiddendiv">
 						  <div id=""  class="protocol">
