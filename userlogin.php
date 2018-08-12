@@ -91,9 +91,11 @@
 
 					</div><!--leftwan-->
 					<div id="right_new" style='height:450px;'>
-						<p class="center" style="margin-top:0;"><img src="images/ask.jpg"  alt="" /></p>
+						
+						<!-- <p class="center" style="margin-top:0;"><img src="images/ask.jpg"  alt="" /></p>
 						<p class="center"><a href="userreg.php?p=<?php echo $p?>&shopID=<?php echo $shopID?>&shopSpot=<?php echo $shopSpot?>&shopCircle=<?php echo $shopCircle?>" hidefocus="true" style="outline:none;"><img src="images/button/reg.gif" alt="Register" id="regButton" /></a></p>
 						<p style="text-align:center;">After registering, you can order the takeaway online!</p>
+					-->
 					</div>
 					<div class="clear"></div>
 					<div class="botton_bg">
