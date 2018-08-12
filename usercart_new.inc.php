@@ -143,7 +143,7 @@
 										$today1=date('Y-m-d',time()+24*3600*$s);
 										$ss=getdate($today);
 										if ($s==0)
-											$dayStr="Nowadays".$ss['mon']."Month".$ss['mday']."day";
+											$dayStr="Today".$ss['mon']."Month".$ss['mday']."day";
 										else
 											$dayStr=$ss['mon']."Month".$ss['mday']."day";
 								?>
