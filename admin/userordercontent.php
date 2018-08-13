@@ -210,7 +210,7 @@
 						<p>Order state：<?php echo $state?></p>
 						<?php
 							if ($type=='1'){
-								echo "<p>预约时间：".$subtime."</p>";
+								echo "<p>booked time：".$subtime."</p>";
 							}
 						?>
 						<p>Requirements：<?php echo $text?></p>
