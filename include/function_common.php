@@ -85,12 +85,12 @@ function checkData($data,$name,$type){
 	switch($type){
 		case 0:
 			if(!preg_match('/^\d*$/',$data)){
-				alertInfo("非法参数".$name,'',1);
+				alertInfo("Illegal".$name,'',1);
 			}
 			break;
 		case 1:
 			if(empty($data)){
-				alertInfo($name."不能为空","",1);
+				alertInfo($name."Cannot Empty","",1);
 			}
 			break;
 	}
@@ -101,10 +101,10 @@ function checkEmail($email,$name)
 {
 	if(empty($email))
 	{
-		alertInfo($name.'不能为空','',1);
+		alertInfo($name.'Cannot Empty','',1);
 	}else if(!eregi("^[a-zA-Z0-9]([a-zA-Z0-9]*[-_.]?[a-zA-Z0-9]+)+@([a-zA-Z0-9]+\.)+[a-zA-Z]{2,}$", $email)) 
 	{
-		alertInfo($name.'输入格式不正确','',1);
+		alertInfo($name.'Illegal','',1);
 	}
 
 }
@@ -179,9 +179,9 @@ function showPage($url,$page,$pagesize,$rscount,$pagecount){
 		$temppage="<div id=\"page\" class=\"addressMore\">";
 
 			if($page==1)
-				$temppage.="<b class='gray_p'>上一页</b>";
+				$temppage.="<b class='gray_p'>Previous</b>";
 			else
-				$temppage.="<a href='".$url."?page=".($page-1)."'>上一页</a>";
+				$temppage.="<a href='".$url."?page=".($page-1)."'>Previous</a>";
 		
 		If($pagecount<9){
 			for($p=1;$p<=$pagecount;$p++){
@@ -233,7 +233,7 @@ function showPage($url,$page,$pagesize,$rscount,$pagecount){
 			if($page==$pagecount)
 				$temppage.="<b class='gray_p'>下一页</b>";
 			else
-				$temppage.="<a href='".$url."?page=".($page+1)."'>下一页</a>";
+				$temppage.="<a href='".$url."?page=".($page+1)."'>Next</a>";
 		
 
 		$temppage.="</div>";
@@ -587,7 +587,7 @@ function getOrderCountByUid($userID){
 //添加订单记录
 function addOrderType($order,$text){
 	$sql_ff="insert into qiyu_orderchange(orderchange_order,orderchange_addtime,orderchange_name) values ('".$order."',now(),'".$text."')";
-	$rs_ff=mysql_query($sql_ff) or die('错误 ');
+	$rs_ff=mysql_query($sql_ff) or die('Error ');
 }
 //发短信
 function sendCode($phone,$content){
@@ -841,9 +841,9 @@ function set_weibo($phone1,$sinaUid,$sinaNick,$QIYU_ID_USER,$password){
 							$vercode=getRndCode(6);
 							$pw=md5(md5($pw1.$vercode));
 							//发送短信
-							$content='感谢您使用<?php echo $SHOP_NAME?>网站，您今后登陆<?php echo $SHOP_NAME?>网站的帐号为您的手机号，登陆密码为'.$pw1.'. 可在网站个人中心页面修改您的密码。稍后您将收到订单进程的短信提醒。';
+							$content='Thank <?php echo $SHOP_NAME?> Login <?php echo $SHOP_NAME?> Phone number is user name，Password '.$pw1.'. Go to setup page to edit。';
 							$sql_update="update qiyu_user set user_phone='".$phone1."',user_salt='".$vercode."',user_password='".$pw."',user_account='".$phone1."' where user_id=".$QIYU_ID_USER;
-							mysql_query($sql_update) or die('插入出错');
+							mysql_query($sql_update) or die('Error');
 							sendCode($phone1,$content);
 					}
 						
@@ -903,9 +903,9 @@ function getDefaultAddressByID($id){
 function commentPage($page,$pagecount){
 	$temppage='';
 	if($page==1)
-				$temppage.="上一页";
+				$temppage.="Previous";
 			else
-				$temppage.=" <a href='javascript:void(0);' onclick=\"getComPageData(".($page-1).")\">上一页</a>";
+				$temppage.=" <a href='javascript:void(0);' onclick=\"getComPageData(".($page-1).")\">Previous</a>";
 		
 		If($pagecount<9){
 			for($p=1;$p<=$pagecount;$p++){
@@ -955,9 +955,9 @@ function commentPage($page,$pagecount){
 			}
 		}
 			if($page==$pagecount)
-				$temppage.=" 下一页";
+				$temppage.=" Next";
 			else
-				$temppage.=" <a href='javascript:void(0);' onclick=\"getComPageData(".($page+1).")\">下一页</a>";
+				$temppage.=" <a href='javascript:void(0);' onclick=\"getComPageData(".($page+1).")\">Next</a>";
 		
 
 		echo $temppage;
@@ -968,9 +968,9 @@ function indexPage($page,$pagecount){
 		$temppage="<div id=\"page\" class=\"addressMore\" style='text-align:right;width:95%'>";
 
 			if($page==1)
-				$temppage.="<b class='gray_p'>上一页</b>";
+				$temppage.="<b class='gray_p'>Previous</b>";
 			else
-				$temppage.="<a href='javascript:void(0);' onclick=\"getIndexPageData(".($page-1).")\">上一页</a>";
+				$temppage.="<a href='javascript:void(0);' onclick=\"getIndexPageData(".($page-1).")\">Previous</a>";
 		
 		If($pagecount<9){
 			for($p=1;$p<=$pagecount;$p++){
@@ -1020,9 +1020,9 @@ function indexPage($page,$pagecount){
 			}
 		}
 			if($page==$pagecount)
-				$temppage.="<b class='gray_p'>下一页</b>";
+				$temppage.="<b class='gray_p'>Next</b>";
 			else
-				$temppage.="<a href='javascript:void(0);' onclick=\"getIndexPageData(".($page+1).")\">下一页</a>";
+				$temppage.="<a href='javascript:void(0);' onclick=\"getIndexPageData(".($page+1).")\">Next</a>";
 		
 
 		$temppage.="</div>";
@@ -1168,19 +1168,19 @@ function GetDistance($lat1, $lng1, $lat2, $lng2)
 
 	function showPage_admin($url,$page,$pagesize,$rscount,$pagecount){
 		$temppage="";
-		$temppage= "<div class='page_admin'>&nbsp;&nbsp;&nbsp;&nbsp;当前页:".$page."/".$pagecount."页 每页 ".$pagesize." 条 共 ".$pagecount." 页 共 ".$rscount." 条记录 ";
-		$temppage=$temppage. "<a href='".$url."'>首页</a> ";
+		$temppage= "<div class='page_admin'>&nbsp;&nbsp;&nbsp;&nbsp;Current:".$page."/".$pagecount." ".$pagesize." items/page Total " /*.$pagecount.*/.$rscount." items ";
+		$temppage=$temppage. "<a href='".$url."'>First</a> ";
 		if(($page-1)>0){
-		$temppage=$temppage. "<a href='".$url."?page=".($page-1)."'>上一页</a> ";
+		$temppage=$temppage. "<a href='".$url."?page=".($page-1)."'>Previous</a> ";
 		}else{
-			$temppage=$temppage. "上一页 ";
+			$temppage=$temppage. "Previous ";
 		}
 		if(($page+1)<=$pagecount){
-		$temppage=$temppage. "<a href='".$url."?page=".($page+1)."'>下一页</a> ";
+		$temppage=$temppage. "<a href='".$url."?page=".($page+1)."'>Next</a> ";
 		}else{
-			$temppage=$temppage. "下一页 ";
+			$temppage=$temppage. "Next ";
 		}
-		$temppage=$temppage. "<a href='".$url."?page=".$pagecount."'>尾页</a>";
+		$temppage=$temppage. "<a href='".$url."?page=".$pagecount."'>Last</a>";
 		$temppage=$temppage. "</div>";	
 		
 		if(!strpos($url,"?")===false)
