@@ -3,16 +3,16 @@
 			 var $parent = $(this).parent();
 			  if( $(this).is('#name') ){
 					if( this.value==""){
-					    var errorMsg = '可输入2~4个中文.';
+					    var errorMsg = 'Cannot be empty.';
                         $parent.find('.errormt').text(errorMsg);
 						$parent.find('.errormt').addClass('onError')
 					}else{
 							var name=$("#name").val();
 							var reg=/^[\u0391-\uFFE5]+$/;
-						 if(name.match(reg)){
+						// if(name.match(reg)){
 
-							  if (this.value.length>4){
-								 var errorMsg = '不能超过4个中文.';
+							  if (this.value.length>40){
+								 var errorMsg = 'Cannot exceed 40 characters.';
 									$parent.find('.errormt').text(errorMsg);
 									$parent.find('.errormt').addClass('onError'); 
 							  }else{
@@ -21,17 +21,17 @@
 								 $parent.find('.errormt').removeClass('onError');
 							}
 						
-						 }else{
+						// }else{
 							// var errorMsg = '姓名只能是中文.';
 							//	$parent.find('.errormt').text(errorMsg);
 							//	$parent.find('.errormt').addClass('onError'); 
-						 }
+						 //}
 					   
 					}
 			 }
 			  if( $(this).is('#address') ){
 					if( this.value==""){
-					    var errorMsg = '地址不能为空.';
+					    var errorMsg = 'The address cannot be empty.';
                         $parent.find('.errormt').text(errorMsg);
 						$parent.find('.errormt').addClass('onError');
 					}else{
@@ -82,14 +82,14 @@
 	function checkReg(){
 		 if ($("#area").val()=='' || $("#circle").val()==''){
 					
-					var errorMsg = '请选择您的地址';
+					var errorMsg = 'Please select the address';
 					$("#tipSelect span").html(errorMsg);
 					$("#tipSelect span").addClass('onError');
 					
 		 }
 		if ($("#spot").val()==''){
 					
-					var errorMsg = '请选择地标';
+					var errorMsg = 'Please select landmard';
 					$("#tipSpot span").html(errorMsg);
 					$("#tipSpot span").addClass('onError');
 					
@@ -109,9 +109,9 @@
 							'act':'circle'
 					}, function (data, textStatus){
 							if (data==""){
-								$("#circle_r").html("<option value=''>没有商圈</option>")
+								$("#circle_r").html("<option value=''>No business district</option>")
 							}else
-								$("#circle_r").html("<option value=''>请选择</option>"+data);
+								$("#circle_r").html("<option value=''>Please select</option>"+data);
 					});
 	   })
 	})
@@ -124,7 +124,7 @@
 						'act':'spot'
 					}, function (data, textStatus){
 							if (data==""){
-								$("#spot_r").html("<option value=''>没有地标</option>")
+								$("#spot_r").html("<option value=''>No landmark</option>")
 							}else
 								$("#spot_r").html(data);
 						

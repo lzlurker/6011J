@@ -3,35 +3,37 @@
 			 var $parent = $(this).parent();
 			 if( $(this).is('#phone') ){
 					if( this.value==""){
-					    var errorMsg = '手机号不能为空';
+					    var errorMsg = 'Phone number cannot be empty';
                         $parent.find('.errormt').text(errorMsg);
 						$parent.find('.errormt').addClass('onError')
 					}else{
 						var name=$("#phone").val();
-							var reg=/^1[358]\d{9}$/;
-						 if(name.match(reg)){
+							var reg=/^\d+$/i;
+						 if( name.match(reg)){
 							var okMsg = "<img src='images/ok.gif' />";
 							 $parent.find('.errormt').html(okMsg);
 							 $parent.find('.errormt').removeClass('onError')
 						 }else{
-							  var errorMsg = '格式不正确.';
+							  var errorMsg = 'Phone number format is not correct.';
 								$parent.find('.errormt').text(errorMsg);
 								$parent.find('.errormt').addClass('onError')
+								
+							
 						}
 					}
 			 }
 			  if( $(this).is('#name') ){
 					if( this.value==""){
-					    var errorMsg = '可输入2~4个中文.';
+					    var errorMsg = 'The name cannot be empty.';
                         $parent.find('.errormt').text(errorMsg);
 						$parent.find('.errormt').addClass('onError')
 					}else{
 							var name=$("#name").val();
 							var reg=/^[\u0391-\uFFE5]+$/;
-						 if(name.match(reg)){
+						// if(name.match(reg)){
 
-							  if (this.value.length>4){
-								 var errorMsg = '不能超过4个中文.';
+							  if (this.value.length>40){
+								 var errorMsg = 'Cannot exceed 40 characters.';
 									$parent.find('.errormt').text(errorMsg);
 									$parent.find('.errormt').addClass('onError'); 
 							  }else{
@@ -40,17 +42,17 @@
 								 $parent.find('.errormt').removeClass('onError');
 							}
 						
-						 }else{
+						// }else{
 							// var errorMsg = '姓名只能是中文.';
 							//	$parent.find('.errormt').text(errorMsg);
 							//	$parent.find('.errormt').addClass('onError'); 
-						 }
+						// }
 					   
 					}
 			 }
 			  if( $(this).is('#address') ){
 					if( this.value==""){
-					    var errorMsg = '地址不能为空.';
+					    var errorMsg = 'The address cannot be empty.';
                         $parent.find('.errormt').text(errorMsg);
 						$parent.find('.errormt').addClass('onError');
 					}else{
@@ -64,7 +66,7 @@
 			 if( $(this).is('#email') ){
 				 if (this.value!=''){
 					if( this.value!="" && !/.+@.+\.[a-zA-Z]{2,4}$/.test(this.value) ){
-						  var errorMsg = '请输入正确的E-Mail地址.';
+						  var errorMsg = 'Please write correct email address.';
 						 $parent.find('.errormt').text(errorMsg);
 						 $parent.find('.errormt').addClass('onError')
 					}else{
@@ -76,11 +78,11 @@
 			 }
 			  if( $(this).is('#pw') ){
 					if( this.value==""){
-					    var errorMsg = '密码太短了，最少6位。';
+					    var errorMsg = 'The password should be 6 digits minimum';
                         $parent.find('.errormt').text(errorMsg);
 						$parent.find('.errormt').addClass('onError')
 					}else if (this.value.length < 6){
-						var errorMsg = '密码不能小于6位.';
+						var errorMsg = 'The password cannot be less than 6 digits';
                         $parent.find('.errormt').text(errorMsg);
 						$parent.find('.errormt').addClass('onError')
 					}else{
@@ -91,12 +93,12 @@
 			 }
 			 if( $(this).is('#repw') ){
 					if( this.value==""){
-					    var errorMsg = '确认密码不能为空.';
+					    var errorMsg = 'Confirmed password cannot be empty.';
                         $parent.find('.errormt').text(errorMsg);
 						$parent.find('.errormt').addClass('onError')
 					}else if ($('#pw').val()!=this.value){
 					
-					     var errorMsg = '两次输入的密码不同.';
+					     var errorMsg = 'The passwords typed 2 times are not the same';
                         $parent.find('.errormt').text(errorMsg);
 						$parent.find('.errormt').addClass('onError')
 						
@@ -151,7 +153,7 @@
 				
 				 if ($("#area").val()=='' || $("#circle").val()=='' || $("#spot").val()==''){
 					
-					var errorMsg = '请选择您的地址';
+					var errorMsg = 'Please select your address';
 					$("#tipSelect span").html(errorMsg);
 					$("#tipSelect span").addClass('onError');
 					
@@ -169,14 +171,14 @@
 	function checkReg(){
 		 if ($("#area").val()=='' || $("#circle").val()==''){
 					
-					var errorMsg = '请选择您的地址';
+					var errorMsg = 'Please choose your address';
 					$("#tipSelect span").html(errorMsg);
 					$("#tipSelect span").addClass('onError');
 					
 		 }
 		if ($("#spot").val()==''){
 					
-					var errorMsg = '请选择地标';
+					var errorMsg = 'Please choose landmark';
 					$("#tipSpot span").html(errorMsg);
 					$("#tipSpot span").addClass('onError');
 					
@@ -189,7 +191,7 @@
 		
 		if (!$('[name=agree]:checkbox').attr("checked"))
 		{
-			alert('请选择同意协议复选框');
+			alert('Please agree with the rectangle');
 			return false;
 		}
 	}
@@ -202,9 +204,9 @@
 							'act':'circle'
 					}, function (data, textStatus){
 							if (data==""){
-								$("#circle_r").html("<option value=''>没有商圈</option>")
+								$("#circle_r").html("<option value=''>No trade district</option>")
 							}else
-								$("#circle_r").html("<option value=''>请选择</option>"+data);
+								$("#circle_r").html("<option value=''>Please select</option>"+data);
 					});
 	   })
 	})
@@ -217,7 +219,7 @@
 						'act':'spot'
 					}, function (data, textStatus){
 							if (data==""){
-								$("#spot_r").html("<option value=''>没有地标</option>")
+								$("#spot_r").html("<option value=''>No landmark</option>")
 							}else
 								$("#spot_r").html(data);
 						

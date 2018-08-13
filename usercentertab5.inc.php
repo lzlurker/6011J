@@ -116,7 +116,7 @@ $(function(){
 
 </script>
  <script type="text/javascript">
- <!--
+ 
 	function updateAddress(ID){
 		$.post("usercenter.ajax.php", { 
 			'id'      :  ID,
@@ -131,15 +131,15 @@ $(function(){
 	function checkphone(){
 		var phone=$("#phone_r").val();
 		if (phone==''){
-			$("#spanphone").html('联系电话不能为空');
+			$("#spanphone").html('Phone number cannot be empty');
 			return false;
 		}else{
-			var reg=/^1[358]\d{9}$/;
+			var reg=/^\d+$/i;
 			if(phone.match(reg)){
 				$("#spanphone").html('<img src="images/ok.gif" />');
 				return true;
 			}else{
-				$("#spanphone").html('电话格式不正确');
+				$("#spanphone").html('Phone number format is not correct');
 				return false;
 			}
 		}
@@ -147,28 +147,25 @@ $(function(){
 	function checkname(){
 		var name=$("#name_r").val();
 		if (name==''){
-			$("#spanname").html('姓名不能为空');
+			$("#spanname").html('Name cannot be empty');
 			return false;
 		}else{
 			var reg=/^[\u0391-\uFFE5]+$/;
-			if(name.match(reg)){
-				if(name.length>4){
-					$("#spanname").html('姓名不能超过四个字');
+			
+				if(name.length>40){
+					$("#spanname").html('Name cannot exceed 40 characters');
 					return false;
 				}else{
 					$("#spanname").html('<img src="images/ok.gif" />');
 					return true;
 				}
-			}else{
-				$("#spanname").html('姓名只能是中文');
-				return false;
-			}
+			
 		}
 	}
 	function checkaddr(){
 		var address=$("#address_r").val();
 		if (address==''){
-			$("#spanaddr").html('详细地址不能为空');
+			$("#spanaddr").html('Detailed address cannot be empty');
 			return false;
 		}else{
 			$("#spanaddr").html('<img src="images/ok.gif" />');
@@ -180,7 +177,7 @@ $(function(){
 		var circle=$("#circle_r").val();
 		var spot=$("#spot_r").val();
 		if (area==''||circle==''||spot==''){
-			$("#spancircle").html('地址不能为空');
+			$("#spancircle").html('Address cannot be empty');
 			return false;
 		}else{
 			$("#spancircle").html('<img src="images/ok.gif" />');
@@ -210,15 +207,15 @@ $(function(){
 			'act'     : 'updateAddress'
 			}, function (data, textStatus){
 				if (data=="S"){
-					TINY.box.show('修改成功',0,160,60,0,10);
+					TINY.box.show('Change made',0,160,60,0,10);
 					setTimeout('location.href="usercenter.php?tab=5"',2000) ;
 				}else
-					TINY.box.show('修改失败',0,160,60,0,10);
+					TINY.box.show('Change made',0,160,60,0,10);
 					setTimeout('location.href="usercenter.php?tab=5"',1000);
 						
 		});
 	}
-	 //-->
+	 
 	</script>
 	<script type="text/javascript">
 		function alert1(act,useraddrid){//用户地址、删除设置为默认
