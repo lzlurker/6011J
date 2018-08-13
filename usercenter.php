@@ -1,5 +1,4 @@
 <?php
-	
 	require_once("usercheck2.php");
 	$_SESSION['qiyu_orderType']='';
 	$POSITION_HEADER="User center";
@@ -85,9 +84,9 @@
 		
 		$(".input").trigger('blur');
 				var numError = $('.onError').length;
-				if(numError){
-					return false;
-				} 
+				// if(numError){
+				//	return false;
+			//	} 
 		$.ajax({
 		   type: "POST",
 		   url: "usercenter_do.php?act="+act,
@@ -117,7 +116,7 @@
 			 TINY.box.show(msg,0,160,60,0,10);
 			 //setTimeout("location.reload()",1000);
 			 
-			 location.href='usercenter.php?tab=5';
+			 location.href='usercenter.php?tab=2';
 		   }
 		});
 	}
