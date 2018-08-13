@@ -32,7 +32,7 @@
 					<div id="introAdd">
 						
 						<form method="post" action="shop_do.php?act=base">
-						<p><label>Restaurant name:</label><input type="text" id="name" name="name" class="input input270" value="<?php echo 'iEat']?>" /></p>
+						<p><label>Restaurant name:</label><input type="text" id="name" name="name" class="input input270" value="<?php echo 'iEat'?>" /></p>
 						
 						<p>
 							<label>Restaurant address:</label>
