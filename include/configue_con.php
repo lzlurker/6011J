@@ -14,22 +14,22 @@
 	$CIRCLE_TAB="";
 	$STYLE_TAB="";
 	$FOOD_TAB="";
-	$orderState=array('新订单','确认订单','商家取消','用户取消','订单已完成','正在备餐','修改订单');
+	$orderState=array('New order','Confirm order','Owner cancel','User cancel','Done','Preparing','Change order');
 	$FOODSPECIALCOUNT=5; //置顶的数量
-	$SCORETOTAL=array('','','很不满意','','不太满意','','一般','','比较满意','','非常满意');
-	$SCORETEST=array('','','难吃，或者量很少 ','','不太好吃，或者量不太够 ','','味道一般，量也一般','','味道不错，分量够了','','非常好吃，分量也足够 ');
-	$SCORESPEED=array('','','很慢','','不太快','','速度一般 ','','挺快的','','非常快');
-	$columnCircle=array('家庭欢乐送','定制外卖','热卖单品','特价活动专区','今日特卖单品');
+	$SCORETOTAL=array('','','Dissatisfied','','Not so satisfied','','General','','Good','','Very Good');
+	$SCORETEST=array('','','Bad ','','Not good ','','General','','Good','','Very Good ');
+	$SCORESPEED=array('','','Slow','','Not so fast','','Ok ','','Fast','','Super');
+	$columnCircle=array('Family','Customized','Popular','Special','Discount');
 
 	$SHOPID=1;
 
-	$SHOPNAME_DDMIN='微普外卖点餐系统';
+	$SHOPNAME_DDMIN='iEat';
 
-	$version='v3.0';
-	$updateTime='2013-04-15';
-	$subversion='2013001';
+	$version='v1.0';
+	$updateTime='2018-08-13';
+	$subversion='2018001';
 
-	$powered='Powered By 微普外卖点餐系统'.$version;
+	$powered='Powered By iEat'.$version;
 
 	
 
