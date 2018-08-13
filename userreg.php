@@ -90,8 +90,8 @@
 					?>
 						
 					</div>
-					<div class="center_button"><input type="image" src="images/button/regButton.jpg" onClick="return checkReg1();" alt="submit" id="regButton"/>
-						<!--<img src="images/button/regButton.gif" onClick="alerterr();" alt="Submit" />-->
+					<div class="center_button"><input type="image" src="images/button/registgerButton.jpg" onClick="return checkReg1();" alt="submit" id="regButton"/>
+						<!--<img src="images/button/registgerButton.jpg.jpg" onClick="alerterr();" alt="Submit" />-->
 					</div>
 					<div class="botton_bg">
 						<img src="images/b_bg.jpg" width="308" height="88" alt="" class="pic_bg" />
@@ -113,7 +113,7 @@
  </body>
 </html>
  <SCRIPT LANGUAGE="JavaScript">
-<!--
+
 	function updateCode(){
 		$("#code_img").attr('src','include/imgcode.php?'+Math.random(1));
 	}
@@ -183,7 +183,7 @@
 		}*/
 
 	}
-//-->
+
 </SCRIPT>
 
 
