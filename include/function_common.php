@@ -1,13 +1,6 @@
 <?php
 /**
  * 前台公用函数，与业务无关的函数
- *
- * @version       v0.01
- * @create time   2011-5-16
- * @update time   
- * @author        jiangting
- * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
- * @informaition  
  */
  function getUserName($id){
 	$sql_get="select user_name from qiyu_user where user_id=$id";

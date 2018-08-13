@@ -1,13 +1,6 @@
 <?php
 /**
  * 数据库连接
- *
- * @version       v0.01
- * @create time   2011-5-16
- * @update time   
- * @author        jiangting
- * @copyright     Copyright (c) 微普科技 WiiPu Tech Inc. (http://www.wiipu.com)
- * @informaition  
  */
 	
 	define('PATH', str_replace('\\', '/', substr(__FILE__, 0, -10)));  //往前文件所在的文件夹 E:/ljx/p/php/wiibbs/include/
