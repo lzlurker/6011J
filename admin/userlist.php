@@ -118,9 +118,9 @@ function check_all(obj,cName){
 							<p style="margin-right:20px;margin-left:15px;float:left;">							 
 							  <a href="javascript:if(confirm('Confirm delete？')){document.listForm.action='user_do.php?&act=xxdel';document.listForm.submit();}"   title="delete"><img  src="../images/button/delete.gif" name="btnSave" /></a>
 						    </p>
-							<p style="float:left;">
+							<!-- <p style="float:left;">
 						      <a href="javascript:if(confirm('Send text？')){location.href='sendsms.php'}"  title="SMS"><input type="image" src="../images/button/sms.gif" name="btnSave" value="SMS"  onclick="sms();"></a>			
-						    </p><br/>	
+						    </p><br/>	by lz 20180813 -->
 							<?php }?>
 							
 						</form>

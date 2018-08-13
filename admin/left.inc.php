@@ -70,7 +70,7 @@
 			<li><a href="site_sms.php">SMS settings</a></li>
 			<li><a href="site_tmp.php">Template setting</a></li>
 			<li><a href="seo.php">SEO</a></li>
-			<li><a href="about.php">Link</a></li>
+			<!-- <li><a href="about.php">Link</a></li> by lz 20180813-->
 			<li><a href="other.php">other</a></li>
 			<li><a href="yunprint.php">print</a></li>
 		</ul>
